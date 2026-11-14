@@ -235,6 +235,7 @@ def render_review(
         "",
     ]
     intent_map = {intent.asset_id: intent for intent in intents}
+    shot_by_layer = {decision.layer_id: decision.shot_id for decision in decisions}
     for asset in sheet.assets:
         intent = intent_map[asset.asset_id]
         badge = _BADGE.get(asset.status, asset.status.value)
@@ -265,7 +266,7 @@ def render_review(
                 + (f" · hold `{asset.hold}`" if asset.hold else ""),
                 f"- Cost: {cost}{cost_ref}",
                 f"- Acceptance: {asset.acceptance}",
-                f"- Preview: {asset.bindings[0] if asset.bindings else 'n/a'}",
+                f"- Preview: {_asset_preview(asset, shot_by_layer)}",
                 f"- Blockers: {', '.join(asset.blockers) or 'none'}",
                 "- Decision: ☐ APPROVE  ☐ CHANGE  ☐ REJECT",
                 "",
@@ -315,6 +316,21 @@ def render_review(
         )
         for name, totals in sorted(provider.per_provider.items()):
             lines.append(f"- {name}: {_money(totals.spent_usd)} spent across {totals.calls} calls")
+
+    lines.extend(
+        [
+            "",
+            "## Previews",
+            "",
+            "| Shot | 16:9 | 9:16 |",
+            "|---|---|---|",
+        ]
+    )
+    for shot in sheet.shots:
+        lines.append(
+            f"| {shot.shot_id} | [16:9](build-sheet/previews/16x9/{shot.shot_id}.svg) | "
+            f"[9:16](build-sheet/previews/9x16/{shot.shot_id}.svg) |"
+        )
 
     lines.extend(["", "## Variant", ""])
     for variant in variants:
@@ -492,3 +508,15 @@ def render_feedback_form(plan: ProductionPlan, sheet: BuildSheet) -> str:
         ]
     )
     return "\n".join(lines)
+
+
+def _asset_preview(asset: object, shot_by_layer: dict[str, str]) -> str:
+    """Point a reviewer at the shot preview that contains the asset's first layer."""
+
+    bindings = getattr(asset, "bindings", [])
+    if not bindings:
+        return "audio asset; no visual preview"
+    shot_id = shot_by_layer.get(bindings[0])
+    if shot_id is None:
+        return "no visual preview"
+    return f"build-sheet/previews/16x9/{shot_id}.svg"

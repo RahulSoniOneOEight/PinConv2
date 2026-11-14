@@ -85,7 +85,7 @@ Raw per-asset estimates: $89.00; lean mode carries $81.00 as in-kind.
 - Rights: needs_approval · hold `HI-02`
 - Cost: $0.00 cash
 - Acceptance: Logo edges clean at end-card size; proportions and colour match the supplied master.
-- Preview: LY-062
+- Preview: build-sheet/previews/16x9/SH-06.svg
 - Blockers: HI-02
 - Decision: ☐ APPROVE  ☐ CHANGE  ☐ REJECT
 
@@ -97,7 +97,7 @@ Raw per-asset estimates: $89.00; lean mode carries $81.00 as in-kind.
 - Rights: needs_approval · hold `HI-02`
 - Cost: $0.00 cash · $4.00 in-kind (ES-05)
 - Acceptance: Front title, ‘Light to Dark Roasts’ and Blue Tokai mark readable at phone scale; no label crop.
-- Preview: LY-011
+- Preview: build-sheet/previews/16x9/SH-01.svg
 - Blockers: HI-02
 - Decision: ☐ APPROVE  ☐ CHANGE  ☐ REJECT
 
@@ -109,7 +109,7 @@ Raw per-asset estimates: $89.00; lean mode carries $81.00 as in-kind.
 - Rights: needs_approval · hold `HI-02`
 - Cost: $0.00 cash · $3.00 in-kind (ES-07)
 - Acceptance: Vienna name and dark-roast descriptor readable; no label crop.
-- Preview: LY-042
+- Preview: build-sheet/previews/16x9/SH-04.svg
 - Blockers: HI-02
 - Decision: ☐ APPROVE  ☐ CHANGE  ☐ REJECT
 
@@ -121,7 +121,7 @@ Raw per-asset estimates: $89.00; lean mode carries $81.00 as in-kind.
 - Rights: needs_approval · hold `HI-02`
 - Cost: $0.00 cash · $3.00 in-kind (ES-07)
 - Acceptance: Attikan name and medium-dark descriptor readable; no label crop.
-- Preview: LY-043
+- Preview: build-sheet/previews/16x9/SH-04.svg
 - Blockers: HI-02
 - Decision: ☐ APPROVE  ☐ CHANGE  ☐ REJECT
 
@@ -133,7 +133,7 @@ Raw per-asset estimates: $89.00; lean mode carries $81.00 as in-kind.
 - Rights: needs_approval · hold `HI-02`
 - Cost: $0.00 cash · $3.00 in-kind (ES-07)
 - Acceptance: Seethargundu name and light-roast descriptor readable; no label crop.
-- Preview: LY-047
+- Preview: build-sheet/previews/16x9/SH-04.svg
 - Blockers: HI-02
 - Decision: ☐ APPROVE  ☐ CHANGE  ☐ REJECT
 
@@ -145,7 +145,7 @@ Raw per-asset estimates: $89.00; lean mode carries $81.00 as in-kind.
 - Rights: needs_approval · hold `HI-04`
 - Cost: $0.00 cash · $18.00 in-kind (ES-06)
 - Acceptance: Tear, open and anchor actions are physically correct and match the brand instructions.
-- Preview: LY-021
+- Preview: build-sheet/previews/16x9/SH-02.svg
 - Blockers: HI-04
 - Decision: ☐ APPROVE  ☐ CHANGE  ☐ REJECT
 
@@ -157,7 +157,7 @@ Raw per-asset estimates: $89.00; lean mode carries $81.00 as in-kind.
 - Rights: needs_approval · hold `HI-04`
 - Cost: $0.00 cash · $18.00 in-kind (ES-06)
 - Acceptance: Water visibly contacts the coffee bed; bloom and drip read in macro; no spill or continuity break.
-- Preview: LY-031
+- Preview: build-sheet/previews/16x9/SH-03.svg
 - Blockers: HI-04
 - Decision: ☐ APPROVE  ☐ CHANGE  ☐ REJECT
 
@@ -169,7 +169,7 @@ Raw per-asset estimates: $89.00; lean mode carries $81.00 as in-kind.
 - Rights: cleared
 - Cost: $0.00 cash
 - Acceptance: Full-canvas background holds a consistent grade across all six shots.
-- Preview: LY-010
+- Preview: build-sheet/previews/16x9/SH-01.svg
 - Blockers: none
 - Decision: ☐ APPROVE  ☐ CHANGE  ☐ REJECT
 
@@ -181,7 +181,7 @@ Raw per-asset estimates: $89.00; lean mode carries $81.00 as in-kind.
 - Rights: needs_approval · hold `HI-04`
 - Cost: $0.00 cash · $18.00 in-kind (ES-06)
 - Acceptance: Finished cup matches the brewed colour; rim clean; steam visible without obscuring the pack.
-- Preview: LY-051
+- Preview: build-sheet/previews/16x9/SH-05.svg
 - Blockers: HI-04
 - Decision: ☐ APPROVE  ☐ CHANGE  ☐ REJECT
 
@@ -193,7 +193,7 @@ Raw per-asset estimates: $89.00; lean mode carries $81.00 as in-kind.
 - Rights: needs_approval · hold `HI-03`
 - Cost: $0.00 cash · $12.00 in-kind (ES-02)
 - Acceptance: Performer release present; intelligible read; no claim beyond the canonical script.
-- Preview: AU-01
+- Preview: no visual preview
 - Blockers: HI-03
 - Decision: ☐ APPROVE  ☐ CHANGE  ☐ REJECT
 
@@ -205,7 +205,7 @@ Raw per-asset estimates: $89.00; lean mode carries $81.00 as in-kind.
 - Rights: needs_approval · hold `HI-03`
 - Cost: $0.00 cash · $10.00 in-kind (ES-01)
 - Acceptance: Licence covers paid YouTube; 20-second edit supports the 275 range lift and 445 resolve.
-- Preview: AU-02
+- Preview: no visual preview
 - Blockers: HI-03
 - Decision: ☐ APPROVE  ☐ CHANGE  ☐ REJECT
 
@@ -217,7 +217,7 @@ Raw per-asset estimates: $89.00; lean mode carries $81.00 as in-kind.
 - Rights: cleared
 - Cost: $0.00 cash
 - Acceptance: Pour sound syncs to the water action without a phasing artefact.
-- Preview: AU-03
+- Preview: no visual preview
 - Blockers: none
 - Decision: ☐ APPROVE  ☐ CHANGE  ☐ REJECT
 
@@ -229,7 +229,7 @@ Raw per-asset estimates: $89.00; lean mode carries $81.00 as in-kind.
 - Rights: cleared
 - Cost: $0.00 cash
 - Acceptance: Sting lands under the end card and does not mask the VO.
-- Preview: AU-04
+- Preview: no visual preview
 - Blockers: none
 - Decision: ☐ APPROVE  ☐ CHANGE  ☐ REJECT
 
@@ -241,7 +241,7 @@ Raw per-asset estimates: $89.00; lean mode carries $81.00 as in-kind.
 - Rights: needs_approval · hold `HI-02`
 - Cost: $0.00 cash · $5.00 in-kind (ES-09)
 - Acceptance: Physical pack label is square to camera and at least as legible as the supplied image.
-- Preview: n/a
+- Preview: audio asset; no visual preview
 - Blockers: HI-02, conditional fallback
 - Decision: ☐ APPROVE  ☐ CHANGE  ☐ REJECT
 
@@ -253,7 +253,7 @@ Raw per-asset estimates: $89.00; lean mode carries $81.00 as in-kind.
 - Rights: needs_approval · hold `HI-03`
 - Cost: $0.00 cash (fallback, unpriced)
 - Acceptance: Fallback bed matches the primary tempo and emotional resolve.
-- Preview: n/a
+- Preview: audio asset; no visual preview
 - Blockers: HI-03, conditional fallback
 - Decision: ☐ APPROVE  ☐ CHANGE  ☐ REJECT
 
@@ -265,7 +265,7 @@ Raw per-asset estimates: $89.00; lean mode carries $81.00 as in-kind.
 - Rights: needs_approval · hold `HI-03`
 - Cost: $0.00 cash (fallback, unpriced)
 - Acceptance: Synthetic read matches the canonical script and carries the disclosure decision.
-- Preview: n/a
+- Preview: audio asset; no visual preview
 - Blockers: HI-03, conditional fallback
 - Decision: ☐ APPROVE  ☐ CHANGE  ☐ REJECT
 
@@ -329,6 +329,17 @@ Raw per-asset estimates: $89.00; lean mode carries $81.00 as in-kind.
 - Spent: $0.00; committed: $0.00; remaining: $2.00
 - fal: $0.00 spent across 0 calls
 - runware: $0.00 spent across 0 calls
+
+## Previews
+
+| Shot | 16:9 | 9:16 |
+|---|---|---|
+| SH-01 | [16:9](build-sheet/previews/16x9/SH-01.svg) | [9:16](build-sheet/previews/9x16/SH-01.svg) |
+| SH-02 | [16:9](build-sheet/previews/16x9/SH-02.svg) | [9:16](build-sheet/previews/9x16/SH-02.svg) |
+| SH-03 | [16:9](build-sheet/previews/16x9/SH-03.svg) | [9:16](build-sheet/previews/9x16/SH-03.svg) |
+| SH-04 | [16:9](build-sheet/previews/16x9/SH-04.svg) | [9:16](build-sheet/previews/9x16/SH-04.svg) |
+| SH-05 | [16:9](build-sheet/previews/16x9/SH-05.svg) | [9:16](build-sheet/previews/9x16/SH-05.svg) |
+| SH-06 | [16:9](build-sheet/previews/16x9/SH-06.svg) | [9:16](build-sheet/previews/9x16/SH-06.svg) |
 
 ## Variant
 

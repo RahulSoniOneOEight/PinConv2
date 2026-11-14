@@ -251,6 +251,9 @@ def test_review_pack_and_budget_docs(approved: SimpleNamespace) -> None:
     assert "AS-02" in review and "LY-012" in review
     assert "$87.40" in review
     assert "Decision: ☐ APPROVE" in review
+    assert "Preview: build-sheet/previews/16x9/SH-01.svg" in review
+    assert "## Previews" in review
+    assert "[9:16](build-sheet/previews/9x16/SH-01.svg)" in review
 
     budget = (run.run_dir("rev-002") / "budget-estimate.md").read_text(encoding="utf-8")
     assert "$87.40" in budget and "$92.40" in budget and "$7.60" in budget

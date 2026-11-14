@@ -8,6 +8,7 @@
 
 | Document | What it is |
 |---|---|
+| [REVIEW-GUIDE.md](REVIEW-GUIDE.md) | How a human reviews the pack, records corrections and approves Gate 2A |
 | [TEST-REPORT.md](TEST-REPORT.md) | Test results, gate checks, environment, raw output links |
 | [review-pack.md](review-pack.md) | Human review pack: every asset, layer, shot, variant, cost |
 | [review-pack.docx](review-pack.docx) | Shareable Word version of the review pack |
@@ -86,7 +87,7 @@
 | [cli-plan-output.json](cli-plan-output.json) | 1,828 |
 | [cli-qc-output.json](cli-qc-output.json) | 916 |
 | [cli-spend-output.json](cli-spend-output.json) | 1,082 |
-| [events.jsonl](events.jsonl) | 4,665 |
+| [events.jsonl](events.jsonl) | 4,924 |
 | [feedback-form.md](feedback-form.md) | 4,580 |
 | [flow.json](flow.json) | 5,774 |
 | [gate2/packet-2a.json](gate2/packet-2a.json) | 3,216 |
@@ -102,8 +103,9 @@
 | [qc/semantic.json](qc/semantic.json) | 407 |
 | [qc/technical.json](qc/technical.json) | 780 |
 | [qc/visual.json](qc/visual.json) | 423 |
+| [REVIEW-GUIDE.md](REVIEW-GUIDE.md) | 7,159 |
 | [review-pack.docx](review-pack.docx) | 3,643 |
-| [review-pack.md](review-pack.md) | 14,332 |
+| [review-pack.md](review-pack.md) | 15,385 |
 | [rights-manifest.json](rights-manifest.json) | 4,477 |
 | [ruff-output.txt](ruff-output.txt) | 42 |
 | [run.json](run.json) | 109,591 |
