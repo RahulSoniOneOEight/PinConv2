@@ -64,6 +64,10 @@
       "copy_ids": [
         "CP-01",
         "CP-07"
+      ],
+      "asset_ids": [
+        "AS-07",
+        "AS-02"
       ]
     },
     {
@@ -82,6 +86,11 @@
       "copy_ids": [
         "CP-03",
         "CP-08"
+      ],
+      "asset_ids": [
+        "AS-07",
+        "AS-05",
+        "AS-02"
       ]
     },
     {
@@ -101,6 +110,11 @@
       "copy_ids": [
         "CP-02",
         "CP-09"
+      ],
+      "asset_ids": [
+        "AS-07",
+        "AS-06",
+        "AS-02"
       ]
     },
     {
@@ -119,6 +133,13 @@
       "copy_ids": [
         "CP-04",
         "CP-10"
+      ],
+      "asset_ids": [
+        "AS-07",
+        "AS-02",
+        "AS-03",
+        "AS-04",
+        "AS-17"
       ]
     },
     {
@@ -137,6 +158,11 @@
       "copy_ids": [
         "CP-13",
         "CP-12"
+      ],
+      "asset_ids": [
+        "AS-07",
+        "AS-08",
+        "AS-02"
       ]
     },
     {
@@ -156,6 +182,11 @@
       "copy_ids": [
         "CP-05",
         "CP-11"
+      ],
+      "asset_ids": [
+        "AS-07",
+        "AS-02",
+        "AS-01"
       ]
     }
   ],
@@ -1330,9 +1361,9 @@
       "start_frame": 0,
       "end_frame": 105,
       "role": "product",
-      "z_order": 11,
+      "z_order": 13,
       "rect": {
-        "x": 540,
+        "x": 1440,
         "y": 230,
         "w": 400,
         "h": 430
@@ -1342,7 +1373,7 @@
       "text_style": null,
       "motion": [
         {
-          "frame": 6,
+          "frame": 18,
           "x": null,
           "y": 250.0,
           "scale": null,
@@ -1350,7 +1381,7 @@
           "easing": "linear"
         },
         {
-          "frame": 16,
+          "frame": 28,
           "x": null,
           "y": 230.0,
           "scale": null,
@@ -1367,7 +1398,7 @@
       "protected": false,
       "protected_regions": [
         {
-          "x": 565,
+          "x": 1465,
           "y": 340,
           "w": 350,
           "h": 220
@@ -1450,9 +1481,9 @@
       "start_frame": 0,
       "end_frame": 105,
       "role": "product",
-      "z_order": 13,
+      "z_order": 11,
       "rect": {
-        "x": 1440,
+        "x": 540,
         "y": 230,
         "w": 400,
         "h": 430
@@ -1462,7 +1493,7 @@
       "text_style": null,
       "motion": [
         {
-          "frame": 18,
+          "frame": 6,
           "x": null,
           "y": 250.0,
           "scale": null,
@@ -1470,7 +1501,7 @@
           "easing": "linear"
         },
         {
-          "frame": 28,
+          "frame": 16,
           "x": null,
           "y": 230.0,
           "scale": null,
@@ -1487,7 +1518,7 @@
       "protected": false,
       "protected_regions": [
         {
-          "x": 1465,
+          "x": 565,
           "y": 340,
           "w": 350,
           "h": 220
@@ -2320,9 +2351,11 @@
     },
     {
       "id": "CP-10",
-      "text": "Seethargundu · Attikan · Vienna",
+      "text": "Mixed Bag · Seethargundu · Attikan · Vienna",
       "role": "caption",
-      "exact_data_refs": [],
+      "exact_data_refs": [
+        "ED-01"
+      ],
       "claim_refs": [
         "CL-04",
         "CL-06",
@@ -2534,10 +2567,9 @@
       "text": "Seethargundu Estate is a light roast",
       "status": "verified",
       "source_ids": [
-        "SRC-02",
-        "SRC-05"
+        "SRC-02"
       ],
-      "evidence_locator": "Mixed Bag product description / Easy Pour selection guide",
+      "evidence_locator": "Mixed Bag product description: Seethargundu light roast",
       "approved_wording": "Seethargundu",
       "limitations": "Product name only; the full roast guide is not quoted.",
       "used_in": [
@@ -2988,7 +3020,7 @@
       "id": "AS-09",
       "version": "1.0",
       "name": "Voice over, warm Indian English",
-      "description": "Canonical narration: Specialty coffee. Just a mug and hot water. Tear, anchor, pour. Light to dark. One mug. One cup. Shop Easy Pour. Recorded by a human voice artist.",
+      "description": "Canonical narration: Specialty coffee. Tear, anchor, pour. Just a mug and hot water. Light to dark. One mug. One cup. Shop Easy Pour. Recorded by a human voice artist.",
       "route": "to_create",
       "source": "Voice artist session",
       "generation_spec": null,
@@ -3371,11 +3403,11 @@
       "start_frame": 0,
       "end_frame": 500,
       "kind": "vo",
-      "description": "Canonical read: Specialty coffee. Just a mug and hot water. Tear, anchor, pour. Light to dark. One mug. One cup. Shop Easy Pour.",
+      "description": "Canonical read: Specialty coffee. Tear, anchor, pour. Just a mug and hot water. Light to dark. One mug. One cup. Shop Easy Pour.",
       "asset_id": "AS-09",
       "level_db": -4.0,
       "essential": true,
-      "notes": "Line windows: 0-75, 75-160, 160-275, 275-380, 380-445, 445-500. Measured pace; no added claim. Mix target -16 LUFS integrated, -1 dBTP."
+      "notes": "Line windows: 0-75 'Specialty coffee'; 75-160 'Tear, anchor, pour'; 160-275 'Just a mug and hot water'; 275-380 'Light to dark'; 380-445 'One mug. One cup'; 445-500 'Shop Easy Pour'. Warm, conversational read; no hard sell. Mix target -16 LUFS integrated, -1 dBTP."
     },
     {
       "id": "AU-02",
@@ -4162,8 +4194,7 @@
       "rationale": "The values are observed but not approved, and the hero pack size is still unresolved. Price would turn observation into an ad claim.",
       "impacted_ids": [
         "ED-02",
-        "ED-03",
-        "CP-06"
+        "ED-03"
       ]
     },
     {
@@ -4219,5 +4250,5 @@
     "Will the brand supply cleared high-resolution pack and logo masters?",
     "Is a 9:16 Shorts variant required?"
   ],
-  "created_at": "2026-11-14T15:28:11+00:00"
+  "created_at": "2026-11-14T16:00:20+00:00"
 }

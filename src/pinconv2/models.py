@@ -908,6 +908,7 @@ class Beat(StrictModel):
     emotion: str = Field(min_length=1, max_length=200)
     audio_cue_ids: list[str] = Field(default_factory=list)
     copy_ids: list[str] = Field(default_factory=list)
+    asset_ids: list[str] = Field(default_factory=list)
 
     @model_validator(mode="after")
     def ends_after_start(self) -> Beat:

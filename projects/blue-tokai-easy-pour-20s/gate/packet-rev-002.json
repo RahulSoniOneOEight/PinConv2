@@ -1,20 +1,20 @@
 {
   "project_id": "blue-tokai-easy-pour-20s",
   "plan_revision": 2,
-  "plan_hash": "587580d849aadc27f74cdebd55b17414c209855b2de6a1350243fd6a710909b1",
+  "plan_hash": "deb1119bf4013fe6e918e91773408538e72acccaafdb8e4bacc1a8a5c4097c71",
   "bundle": {
     "project_id": "blue-tokai-easy-pour-20s",
     "plan_revision": 2,
     "record_hashes": {
-      "brief": "8761fd6d39280d7368f451a26517b666babfaa71f0994ac67b5508d4a74e6c0f",
-      "research": "e37cf7c98000008b8501ff5c5bd48255309e8ff4cdedda761a9ee4447bc2fe01",
-      "concept": "5013539b35ae1c1aac3627dc2d5b55ea84c89807a3cf5dd7f3d7868ad8b47a70",
-      "plan": "587580d849aadc27f74cdebd55b17414c209855b2de6a1350243fd6a710909b1",
-      "validation": "0a51de34976e0f6bcea16ab250fa640b144c137e7733745665155306d7663c9a",
-      "critique": "e74602e6648303c74e842694028ea04e69fd8ca415f1de781619578d277a326b",
+      "brief": "f7dcb6d76d7ff18ceff2cbc3e309167132c3a7d8769e69cd37aac51427d90205",
+      "research": "ee2788cc641c344d92ea8865d1ac0fd246e35764c512773e54f625b8670dec6d",
+      "concept": "031280a3738cea27d366dfeda3f8ac3dcf5f1722b94679288ef9e008c400e21a",
+      "plan": "deb1119bf4013fe6e918e91773408538e72acccaafdb8e4bacc1a8a5c4097c71",
+      "validation": "fd29e308ba7dcf65dc3a07394b3be64d038290f8c2b389fafe1a793ab5fc7098",
+      "critique": "b4b39f0dd878b670f561cfd87c788198ce8cd824a0bcc26193f79f76f8725ccd",
       "resolution": "20934e6d978fcbeaaa5894ac2d218ef54698f94b1e3cd9c12d14f902b05a2da7"
     },
-    "bundle_hash": "ad3224c0c2cf1648ec75c784946075c43d58652328543812ae42c9b1eef3f624"
+    "bundle_hash": "61cd86d66d1938755c5b5709e6256f62cc1ff985fb6a32fb7ce805e916e8c024"
   },
   "validation_passed": true,
   "ready_shots": [
@@ -127,11 +127,7 @@
     "rights.assets: rights need approval for Voice over, warm Indian English"
   ],
   "blockers": [],
-  "input_statuses": {
-    "CF-01": "resolved",
-    "CF-02": "escalated",
-    "CF-03": "resolved"
-  },
+  "input_statuses": {},
   "approval": null,
-  "created_at": "2026-11-14T15:28:11+00:00"
+  "created_at": "2026-11-14T16:00:21+00:00"
 }

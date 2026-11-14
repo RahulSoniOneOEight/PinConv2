@@ -1,7 +1,7 @@
 {
   "project_id": "blue-tokai-easy-pour-20s",
   "plan_revision": 2,
-  "plan_hash": "587580d849aadc27f74cdebd55b17414c209855b2de6a1350243fd6a710909b1",
+  "plan_hash": "deb1119bf4013fe6e918e91773408538e72acccaafdb8e4bacc1a8a5c4097c71",
   "findings": [
     {
       "id": "V-001",
@@ -87,6 +87,15 @@
     {
       "id": "V-010",
       "rule": "exact.identifiers",
+      "target": "LY-046",
+      "severity": "medium",
+      "status": "warn",
+      "detail": "product_name ED-01 is observed; Gate 1 must approve this identifier or wording",
+      "remediation": "Record the value in the Gate 1 scope before production."
+    },
+    {
+      "id": "V-011",
+      "rule": "exact.identifiers",
       "target": "LY-063",
       "severity": "medium",
       "status": "warn",
@@ -94,7 +103,7 @@
       "remediation": "Record the value in the Gate 1 scope before production."
     },
     {
-      "id": "V-011",
+      "id": "V-012",
       "rule": "exact.identifiers",
       "target": "LY-065",
       "severity": "medium",
@@ -103,7 +112,7 @@
       "remediation": "Record the value in the Gate 1 scope before production."
     },
     {
-      "id": "V-012",
+      "id": "V-013",
       "rule": "exact.critical",
       "target": "commercial",
       "severity": "low",
@@ -112,7 +121,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-013",
+      "id": "V-014",
       "rule": "exact.claims",
       "target": "claims",
       "severity": "low",
@@ -121,7 +130,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-014",
+      "id": "V-015",
       "rule": "exact.orphans",
       "target": "exact",
       "severity": "low",
@@ -130,7 +139,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-015",
+      "id": "V-016",
       "rule": "exact.attribution",
       "target": "exact",
       "severity": "low",
@@ -139,7 +148,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-016",
+      "id": "V-017",
       "rule": "layer.references",
       "target": "layers",
       "severity": "low",
@@ -148,7 +157,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-017",
+      "id": "V-018",
       "rule": "layer.z_order",
       "target": "layers",
       "severity": "low",
@@ -157,7 +166,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-018",
+      "id": "V-019",
       "rule": "layer.canvas",
       "target": "layers",
       "severity": "low",
@@ -166,7 +175,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-019",
+      "id": "V-020",
       "rule": "layer.safe_area",
       "target": "text",
       "severity": "low",
@@ -175,7 +184,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-020",
+      "id": "V-021",
       "rule": "layer.background",
       "target": "shots",
       "severity": "low",
@@ -184,7 +193,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-021",
+      "id": "V-022",
       "rule": "layer.occlusion",
       "target": "protected",
       "severity": "low",
@@ -193,7 +202,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-022",
+      "id": "V-023",
       "rule": "layer.text_overlap",
       "target": "text",
       "severity": "low",
@@ -202,7 +211,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-023",
+      "id": "V-024",
       "rule": "layer.plates",
       "target": "captions",
       "severity": "low",
@@ -211,7 +220,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-024",
+      "id": "V-025",
       "rule": "layer.duration",
       "target": "text",
       "severity": "low",
@@ -220,7 +229,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-025",
+      "id": "V-026",
       "rule": "layer.binding_exactness",
       "target": "assets",
       "severity": "low",
@@ -229,7 +238,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-026",
+      "id": "V-027",
       "rule": "layer.density",
       "target": "shots",
       "severity": "low",
@@ -238,7 +247,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-027",
+      "id": "V-028",
       "rule": "layer.caption_plates",
       "target": "plates",
       "severity": "low",
@@ -247,7 +256,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-028",
+      "id": "V-029",
       "rule": "layer.visual_binding",
       "target": "visuals",
       "severity": "low",
@@ -256,7 +265,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-029",
+      "id": "V-030",
       "rule": "budget.sync",
       "target": "budget",
       "severity": "low",
@@ -265,7 +274,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-030",
+      "id": "V-031",
       "rule": "budget.variants",
       "target": "budget",
       "severity": "low",
@@ -274,7 +283,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-031",
+      "id": "V-032",
       "rule": "budget.cap_match",
       "target": "budget",
       "severity": "low",
@@ -283,7 +292,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-032",
+      "id": "V-033",
       "rule": "budget.cap",
       "target": "budget",
       "severity": "low",
@@ -292,7 +301,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-033",
+      "id": "V-034",
       "rule": "budget.worst_case",
       "target": "budget",
       "severity": "low",
@@ -301,7 +310,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-034",
+      "id": "V-035",
       "rule": "budget.references",
       "target": "budget",
       "severity": "low",
@@ -310,7 +319,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-035",
+      "id": "V-036",
       "rule": "budget.reserve",
       "target": "budget",
       "severity": "low",
@@ -319,7 +328,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-036",
+      "id": "V-037",
       "rule": "budget.basis",
       "target": "budget",
       "severity": "low",
@@ -328,7 +337,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-037",
+      "id": "V-038",
       "rule": "rights.assets",
       "target": "AS-01",
       "severity": "medium",
@@ -337,7 +346,7 @@
       "remediation": "Obtain brand or licence approval before the asset enters a render."
     },
     {
-      "id": "V-038",
+      "id": "V-039",
       "rule": "rights.assets",
       "target": "AS-02",
       "severity": "medium",
@@ -346,7 +355,7 @@
       "remediation": "Obtain brand or licence approval before the asset enters a render."
     },
     {
-      "id": "V-039",
+      "id": "V-040",
       "rule": "rights.assets",
       "target": "AS-03",
       "severity": "medium",
@@ -355,7 +364,7 @@
       "remediation": "Obtain brand or licence approval before the asset enters a render."
     },
     {
-      "id": "V-040",
+      "id": "V-041",
       "rule": "rights.assets",
       "target": "AS-04",
       "severity": "medium",
@@ -364,7 +373,7 @@
       "remediation": "Obtain brand or licence approval before the asset enters a render."
     },
     {
-      "id": "V-041",
+      "id": "V-042",
       "rule": "rights.assets",
       "target": "AS-05",
       "severity": "medium",
@@ -373,7 +382,7 @@
       "remediation": "Obtain brand or licence approval before the asset enters a render."
     },
     {
-      "id": "V-042",
+      "id": "V-043",
       "rule": "rights.assets",
       "target": "AS-06",
       "severity": "medium",
@@ -382,7 +391,7 @@
       "remediation": "Obtain brand or licence approval before the asset enters a render."
     },
     {
-      "id": "V-043",
+      "id": "V-044",
       "rule": "rights.assets",
       "target": "AS-08",
       "severity": "medium",
@@ -391,7 +400,7 @@
       "remediation": "Obtain brand or licence approval before the asset enters a render."
     },
     {
-      "id": "V-044",
+      "id": "V-045",
       "rule": "rights.assets",
       "target": "AS-09",
       "severity": "medium",
@@ -400,7 +409,7 @@
       "remediation": "Obtain brand or licence approval before the asset enters a render."
     },
     {
-      "id": "V-045",
+      "id": "V-046",
       "rule": "rights.assets",
       "target": "AS-10",
       "severity": "medium",
@@ -409,7 +418,7 @@
       "remediation": "Obtain brand or licence approval before the asset enters a render."
     },
     {
-      "id": "V-046",
+      "id": "V-047",
       "rule": "rights.assets",
       "target": "AS-17",
       "severity": "medium",
@@ -418,7 +427,7 @@
       "remediation": "Obtain brand or licence approval before the asset enters a render."
     },
     {
-      "id": "V-047",
+      "id": "V-048",
       "rule": "rights.audio",
       "target": "audio",
       "severity": "low",
@@ -427,7 +436,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-048",
+      "id": "V-049",
       "rule": "rights.reference",
       "target": "sources",
       "severity": "low",
@@ -436,7 +445,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-049",
+      "id": "V-050",
       "rule": "rights.disclosure",
       "target": "assets",
       "severity": "low",
@@ -445,7 +454,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-050",
+      "id": "V-051",
       "rule": "rights.attribution",
       "target": "assets",
       "severity": "low",
@@ -454,7 +463,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-051",
+      "id": "V-052",
       "rule": "trace.ids",
       "target": "plan",
       "severity": "low",
@@ -463,7 +472,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-052",
+      "id": "V-053",
       "rule": "trace.shots",
       "target": "shots",
       "severity": "low",
@@ -472,7 +481,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-053",
+      "id": "V-054",
       "rule": "trace.beats",
       "target": "beats",
       "severity": "low",
@@ -481,7 +490,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-054",
+      "id": "V-055",
       "rule": "trace.assets",
       "target": "assets",
       "severity": "low",
@@ -490,7 +499,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-055",
+      "id": "V-056",
       "rule": "trace.dependencies",
       "target": "assets",
       "severity": "low",
@@ -499,7 +508,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-056",
+      "id": "V-057",
       "rule": "trace.variants",
       "target": "variants",
       "severity": "low",
@@ -508,7 +517,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-057",
+      "id": "V-058",
       "rule": "trace.checks",
       "target": "checks",
       "severity": "low",
@@ -517,7 +526,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-058",
+      "id": "V-059",
       "rule": "trace.alternates",
       "target": "alternates",
       "severity": "low",
@@ -526,7 +535,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-059",
+      "id": "V-060",
       "rule": "trace.must_have",
       "target": "brief",
       "severity": "low",
@@ -535,7 +544,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-060",
+      "id": "V-061",
       "rule": "trace.held",
       "target": "held",
       "severity": "low",
@@ -544,7 +553,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-061",
+      "id": "V-062",
       "rule": "trace.shot_status",
       "target": "shots",
       "severity": "low",
@@ -553,7 +562,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-062",
+      "id": "V-063",
       "rule": "trace.cta",
       "target": "deliverable",
       "severity": "low",
@@ -562,7 +571,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-063",
+      "id": "V-064",
       "rule": "trace.critical_assets",
       "target": "assets",
       "severity": "low",
@@ -571,7 +580,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-064",
+      "id": "V-065",
       "rule": "trace.layers",
       "target": "layers",
       "severity": "low",
@@ -597,5 +606,5 @@
     "AC-14": "pass",
     "AC-15": "pass"
   },
-  "created_at": "2026-11-14T15:28:11+00:00"
+  "created_at": "2026-11-14T16:00:21+00:00"
 }

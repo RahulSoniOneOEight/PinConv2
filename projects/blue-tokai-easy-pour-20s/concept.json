@@ -13,7 +13,7 @@
       "hook": "Specialty coffee. Just a mug and hot water.",
       "treatment": "Open tight on a Blue Tokai Mixed Bag pack on a kitchen counter, with a mug already in frame. The hook lands as the sachet is lifted. Cut to hands tearing the outer sachet and the built-in filter, anchoring it over the mug. Water hits the grounds in macro; the bed blooms. A labelled time-lapse carries the repeated pours and steep. The film opens out to the Mixed Bag, Seethargundu, Attikan and Vienna packs, then lands on the finished cup and the end card: logo, Mixed Bag and Shop Easy Pour.",
       "visual_style": "Warm daylight kitchen, honest hands, macro water and coffee texture, clean cream end card. Blue Tokai blue and pack colours carry the frame. No lab equipment, no espresso machine, no fake UI.",
-      "sound": "Dry kitchen ambience, a soft pack crinkle, a clear water pour, a low music bed that lifts at the range reveal, and a quiet brand sting. Sparse VO: Specialty coffee. Just a mug and hot water. Shop Easy Pour.",
+      "sound": "Dry kitchen ambience, a soft pack crinkle, a clear water pour, a low music bed that lifts at the range reveal, and a quiet brand sting. Sparse VO: Specialty coffee. Tear, anchor, pour. Just a mug and hot water. Light to dark. One mug. One cup. Shop Easy Pour.",
       "scores": {
         "audience_fit": 5,
         "clarity": 5,
@@ -111,7 +111,7 @@
     }
   ],
   "why_hook": "HK-01 says the category and the benefit in one line. It works as spoken and on-screen copy and does not depend on price, promotion or an unverified claim.",
-  "why_script": "The script follows the physical demo: name the category, state the benefit, show the three actions, reveal the range, ask for the purchase. It avoids calling the product instant coffee.",
+  "why_script": "The script follows the physical demo: name the category, show the three actions, state the benefit, reveal the range, ask for the purchase. It avoids calling the product instant coffee.",
   "why_look": "A warm kitchen and macro water make the product action legible. The pack labels stay unobstructed, and the range shot uses the actual Mixed Bag, Seethargundu, Attikan and Vienna packs rather than invented variants.",
   "why_sound": "The pour and pack crinkle carry the demo; the music lifts only at the range reveal and the brand sting closes the film. Captions carry the message with sound off.",
   "decisions": [
@@ -188,8 +188,7 @@
       "rationale": "The values are observed but not approved, and the hero pack size is still unresolved. Price would turn observation into an ad claim.",
       "impacted_ids": [
         "ED-02",
-        "ED-03",
-        "CP-06"
+        "ED-03"
       ]
     },
     {
@@ -246,6 +245,6 @@
   "reference_notes": "No competitor video was used as a creative template. The treatment borrows the public principle of a tactile product demonstration and YouTube's ABCD guidance; it does not reuse any third-party footage or audio.",
   "reverse_evidence": "Reverse the demo-led route if a controlled test shows the brew action reads as too slow, if the built-in filter cannot be shown clearly at phone scale, or if brand approval requires a pack-only end card.",
   "prohibited_content": "No 'instant coffee' label, no invented equipment, no price or promotion, no unapproved health or superiority claim, no third-party footage, no fake UI.",
-  "canonical_script": "Specialty coffee. Just a mug and hot water. Tear, anchor, pour. Light to dark. One mug. One cup. Shop Easy Pour.",
-  "created_at": "2026-11-14T15:28:11+00:00"
+  "canonical_script": "Specialty coffee. Tear, anchor, pour. Just a mug and hot water. Light to dark. One mug. One cup. Shop Easy Pour.",
+  "created_at": "2026-11-14T16:00:20+00:00"
 }

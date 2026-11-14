@@ -176,7 +176,10 @@ def build_blue_tokai_brief() -> BriefRevision:
             ),
             MustHave(
                 id="MH-08",
-                text="Use only approved product facts, price and promotion",
+                text=(
+                    "Ready cut excludes unapproved price, promotion and product claims; "
+                    "pending identifiers are Gate 1 conditions"
+                ),
                 satisfied_by=["ED-01", "ED-02", "ED-03", "AC-04"],
                 status="satisfied",
             ),
@@ -372,8 +375,11 @@ def build_blue_tokai_research() -> ResearchPack:
             locator="internal://brief/blue-tokai-easy-pour-20s",
             accessed_at=ACCESSED_AT,
             channels=["brief_text"],
-            reliability=EvidenceReliability.ASSUMPTION,
-            notes="Audience, objective and core message come from the user, not field research.",
+            reliability=EvidenceReliability.PRIMARY,
+            notes=(
+                "The brief is authoritative for user-supplied requirements and asset "
+                "links, not for independent audience evidence."
+            ),
         ),
     ]
 
@@ -692,8 +698,8 @@ def build_blue_tokai_research() -> ResearchPack:
             "light to dark roasts. The honest creative route is a visible demo, not an "
             "instant-coffee comparison. Price, pack sizes and public product images are "
             "observed commercial material and remain rights or approval holds. A real "
-            "brew includes a two-minute steep, so the film must disclose time "
-            "compression disclosure rather than imply real-time brewing. The range shot "
+            "brew includes repeated pours and a two-minute steep, so the film must "
+            "disclose time compression rather than imply real-time brewing. The range shot "
             "needs a real light endpoint, so Seethargundu is added to the supplied "
             "Vienna and Attikan packs."
         ),
@@ -814,8 +820,8 @@ def build_blue_tokai_claims() -> list[Claim]:
             id="CL-07",
             text="Seethargundu Estate is a light roast",
             status=ClaimStatus.VERIFIED,
-            source_ids=["SRC-02", "SRC-05"],
-            evidence_locator="Mixed Bag product description / Easy Pour selection guide",
+            source_ids=["SRC-02"],
+            evidence_locator="Mixed Bag product description: Seethargundu light roast",
             approved_wording="Seethargundu",
             limitations="Product name only; the full roast guide is not quoted.",
             used_in=["CP-10"],

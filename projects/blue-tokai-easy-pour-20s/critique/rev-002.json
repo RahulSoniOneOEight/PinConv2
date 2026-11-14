@@ -1,9 +1,9 @@
 {
   "project_id": "blue-tokai-easy-pour-20s",
   "plan_revision": 2,
-  "plan_hash": "587580d849aadc27f74cdebd55b17414c209855b2de6a1350243fd6a710909b1",
+  "plan_hash": "deb1119bf4013fe6e918e91773408538e72acccaafdb8e4bacc1a8a5c4097c71",
   "summary": "No material findings. The ready plan has no unapproved commercial layer, no safe-area violation, no over-cap estimate and no unknown rights on a required asset. Remaining warnings are Gate 1 conditions.",
   "findings": [],
   "top3": [],
-  "created_at": "2026-11-14T15:28:11+00:00"
+  "created_at": "2026-11-14T16:00:21+00:00"
 }

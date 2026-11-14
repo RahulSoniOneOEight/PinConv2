@@ -418,6 +418,23 @@ def build_gate_packet(store: ProjectStore, project_id: str = DEFAULT_PROJECT) ->
         if plan.exact_map[exact_id].status is not DataStatus.APPROVED
     )
     bundle = _bundle(store, project_id, plan, validation, critique)
+    resolved_by_input = (
+        {item.critique_finding_id: item.status.value for item in resolution.inputs}
+        if resolution is not None
+        else {}
+    )
+    applied_fixes = set(resolution.applied_fixes) if resolution is not None else set()
+    input_statuses: dict[str, str] = {}
+    for finding in critique.findings:
+        if finding.id in resolved_by_input:
+            input_statuses[finding.id] = resolved_by_input[finding.id]
+        elif (
+            CATEGORY_FIXES.get(finding.category) in applied_fixes
+            or finding.disposition.value == "resolved"
+        ):
+            input_statuses[finding.id] = "resolved"
+        else:
+            input_statuses[finding.id] = finding.disposition.value
 
     packet = Gate1Packet(
         project_id=project_id,
@@ -441,11 +458,7 @@ def build_gate_packet(store: ProjectStore, project_id: str = DEFAULT_PROJECT) ->
         exact_data_pending=exact_pending,
         conditions=sorted(set(conditions)),
         blockers=sorted(set(blockers)),
-        input_statuses=(
-            {item.critique_finding_id: item.status.value for item in resolution.inputs}
-            if resolution is not None
-            else {}
-        ),
+        input_statuses=input_statuses,
     )
     store.save_packet(packet)
     if packet.blockers:

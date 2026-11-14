@@ -80,6 +80,14 @@ def plan_detail_issues(plan: ProductionPlan) -> list[str]:
     if not any(layer.role.value == "product" for layer in plan.layers):
         issues.append("plan has no product layer")
 
+    if plan.detail_level == "full":
+        for beat in plan.beats:
+            if not beat.asset_ids:
+                issues.append(f"{beat.id} has no asset references")
+            for asset_id in beat.asset_ids:
+                if asset_id not in plan.asset_map:
+                    issues.append(f"{beat.id} references unknown asset {asset_id}")
+
     for layer in plan.layers:
         if not layer.allowed_edits:
             issues.append(f"{layer.id} has no allowed-edit rule")

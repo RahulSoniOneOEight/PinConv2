@@ -204,8 +204,8 @@
       "channels": [
         "brief_text"
       ],
-      "reliability": "assumption",
-      "notes": "Audience, objective and core message come from the user, not field research."
+      "reliability": "primary",
+      "notes": "The brief is authoritative for user-supplied requirements and asset links, not for independent audience evidence."
     }
   ],
   "findings": [
@@ -449,6 +449,6 @@
       ]
     }
   ],
-  "synthesis": "The product and its core benefit are supported by Blue Tokai's own product and brewing pages: a single-serve sachet with a built-in paper filter, brewed over a 180-200 ml cup with hot water, and a Mixed Bag spanning light to dark roasts. The honest creative route is a visible demo, not an instant-coffee comparison. Price, pack sizes and public product images are observed commercial material and remain rights or approval holds. A real brew includes a two-minute steep, so the film must disclose time compression disclosure rather than imply real-time brewing. The range shot needs a real light endpoint, so Seethargundu is added to the supplied Vienna and Attikan packs.",
-  "created_at": "2026-11-14T15:28:11+00:00"
+  "synthesis": "The product and its core benefit are supported by Blue Tokai's own product and brewing pages: a single-serve sachet with a built-in paper filter, brewed over a 180-200 ml cup with hot water, and a Mixed Bag spanning light to dark roasts. The honest creative route is a visible demo, not an instant-coffee comparison. Price, pack sizes and public product images are observed commercial material and remain rights or approval holds. A real brew includes repeated pours and a two-minute steep, so the film must disclose time compression rather than imply real-time brewing. The range shot needs a real light endpoint, so Seethargundu is added to the supplied Vienna and Attikan packs.",
+  "created_at": "2026-11-14T16:00:20+00:00"
 }

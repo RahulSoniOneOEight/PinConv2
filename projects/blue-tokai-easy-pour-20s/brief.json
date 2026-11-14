@@ -130,7 +130,7 @@
     },
     {
       "id": "MH-08",
-      "text": "Use only approved product facts, price and promotion",
+      "text": "Ready cut excludes unapproved price, promotion and product claims; pending identifiers are Gate 1 conditions",
       "satisfied_by": [
         "ED-01",
         "ED-02",
@@ -151,5 +151,5 @@
     }
   ],
   "classification_confidence": 0.9,
-  "created_at": "2026-11-14T15:28:11+00:00"
+  "created_at": "2026-11-14T16:00:20+00:00"
 }

@@ -304,8 +304,9 @@ def _copy_blocks(include_price: bool) -> list[CopyBlock]:
         ),
         CopyBlock(
             id="CP-10",
-            text="Seethargundu · Attikan · Vienna",
+            text="Mixed Bag · Seethargundu · Attikan · Vienna",
             role=CopyRole.CAPTION,
+            exact_data_refs=["ED-01"],
             claim_refs=["CL-04", "CL-06", "CL-07"],
             status=CopyStatus.PROPOSED,
             reading_frames=90,
@@ -609,8 +610,8 @@ def _assets(*, budget_fixed: bool) -> list[Asset]:
             id="AS-09",
             name="Voice over, warm Indian English",
             description=(
-                "Canonical narration: Specialty coffee. Just a mug and hot water. "
-                "Tear, anchor, pour. Light to dark. One mug. One cup. Shop Easy Pour. "
+                "Canonical narration: Specialty coffee. Tear, anchor, pour. Just a mug "
+                "and hot water. Light to dark. One mug. One cup. Shop Easy Pour. "
                 "Recorded by a human voice artist."
             ),
             route=AssetRoute.TO_CREATE,
@@ -934,6 +935,7 @@ def _beats() -> list[Beat]:
             emotion="curiosity",
             audio_cue_ids=["AU-01", "AU-02"],
             copy_ids=["CP-01", "CP-07"],
+            asset_ids=["AS-07", "AS-02"],
         ),
         Beat(
             id="BT-02",
@@ -946,6 +948,7 @@ def _beats() -> list[Beat]:
             emotion="recognition",
             audio_cue_ids=["AU-01", "AU-02"],
             copy_ids=["CP-03", "CP-08"],
+            asset_ids=["AS-07", "AS-05", "AS-02"],
         ),
         Beat(
             id="BT-03",
@@ -958,6 +961,7 @@ def _beats() -> list[Beat]:
             emotion="proof",
             audio_cue_ids=["AU-01", "AU-02", "AU-03"],
             copy_ids=["CP-02", "CP-09"],
+            asset_ids=["AS-07", "AS-06", "AS-02"],
         ),
         Beat(
             id="BT-04",
@@ -970,6 +974,7 @@ def _beats() -> list[Beat]:
             emotion="choice",
             audio_cue_ids=["AU-01", "AU-02"],
             copy_ids=["CP-04", "CP-10"],
+            asset_ids=["AS-07", "AS-02", "AS-03", "AS-04", "AS-17"],
         ),
         Beat(
             id="BT-05",
@@ -982,6 +987,7 @@ def _beats() -> list[Beat]:
             emotion="satisfaction",
             audio_cue_ids=["AU-01", "AU-02"],
             copy_ids=["CP-13", "CP-12"],
+            asset_ids=["AS-07", "AS-08", "AS-02"],
         ),
         Beat(
             id="BT-06",
@@ -994,6 +1000,7 @@ def _beats() -> list[Beat]:
             emotion="confidence",
             audio_cue_ids=["AU-01", "AU-02", "AU-04"],
             copy_ids=["CP-05", "CP-11"],
+            asset_ids=["AS-07", "AS-02", "AS-01"],
         ),
     ]
 
@@ -1148,14 +1155,14 @@ def _layers(*, safe_fixed: bool, commercial_fixed: bool, budget_fixed: bool) -> 
             0,
             105,
             LayerRole.PRODUCT,
-            _r(540, 230, 400, 430),
+            _r(1440, 230, 400, 430),
             "AS-03",
-            11,
+            13,
             exactness=Exactness.EXACT,
-            protected_regions=[_r(565, 340, 350, 220)],
+            protected_regions=[_r(1465, 340, 350, 220)],
             motion=[
-                Keyframe(frame=6, y=250, opacity=0.0),
-                Keyframe(frame=16, y=230, opacity=1.0, easing="ease_out"),
+                Keyframe(frame=18, y=250, opacity=0.0),
+                Keyframe(frame=28, y=230, opacity=1.0, easing="ease_out"),
             ],
         ),
         _visual(
@@ -1180,14 +1187,14 @@ def _layers(*, safe_fixed: bool, commercial_fixed: bool, budget_fixed: bool) -> 
             0,
             105,
             LayerRole.PRODUCT,
-            _r(1440, 230, 400, 430),
+            _r(540, 230, 400, 430),
             "AS-17",
-            13,
+            11,
             exactness=Exactness.EXACT,
-            protected_regions=[_r(1465, 340, 350, 220)],
+            protected_regions=[_r(565, 340, 350, 220)],
             motion=[
-                Keyframe(frame=18, y=250, opacity=0.0),
-                Keyframe(frame=28, y=230, opacity=1.0, easing="ease_out"),
+                Keyframe(frame=6, y=250, opacity=0.0),
+                Keyframe(frame=16, y=230, opacity=1.0, easing="ease_out"),
             ],
         ),
         _text(
@@ -1536,15 +1543,18 @@ def _audio_cues() -> list[AudioCue]:
             end_frame=500,
             kind=AudioKind.VO,
             description=(
-                "Canonical read: Specialty coffee. Just a mug and hot water. Tear, "
-                "anchor, pour. Light to dark. One mug. One cup. Shop Easy Pour."
+                "Canonical read: Specialty coffee. Tear, anchor, pour. Just a mug and "
+                "hot water. Light to dark. One mug. One cup. Shop Easy Pour."
             ),
             asset_id="AS-09",
             level_db=-4.0,
             essential=True,
             notes=(
-                "Line windows: 0-75, 75-160, 160-275, 275-380, 380-445, 445-500. "
-                "Measured pace; no added claim. Mix target -16 LUFS integrated, -1 dBTP."
+                "Line windows: 0-75 'Specialty coffee'; 75-160 'Tear, anchor, pour'; "
+                "160-275 'Just a mug and hot water'; 275-380 'Light to dark'; "
+                "380-445 'One mug. One cup'; 445-500 'Shop Easy Pour'. Warm, "
+                "conversational read; no hard sell. Mix target -16 LUFS integrated, "
+                "-1 dBTP."
             ),
         ),
         AudioCue(

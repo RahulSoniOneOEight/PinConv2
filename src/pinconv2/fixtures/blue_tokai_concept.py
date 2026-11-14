@@ -78,7 +78,7 @@ def blue_tokai_decisions() -> list[Decision]:
                 "The values are observed but not approved, and the hero pack size is "
                 "still unresolved. Price would turn observation into an ad claim."
             ),
-            impacted_ids=["ED-02", "ED-03", "CP-06"],
+            impacted_ids=["ED-02", "ED-03"],
         ),
         Decision(
             id="DC-05",
@@ -141,7 +141,8 @@ def build_blue_tokai_concept() -> ConceptNote:
             sound=(
                 "Dry kitchen ambience, a soft pack crinkle, a clear water pour, a low "
                 "music bed that lifts at the range reveal, and a quiet brand sting. "
-                "Sparse VO: Specialty coffee. Just a mug and hot water. Shop Easy Pour."
+                "Sparse VO: Specialty coffee. Tear, anchor, pour. Just a mug and hot "
+                "water. Light to dark. One mug. One cup. Shop Easy Pour."
             ),
             scores=ConceptScores(
                 audience_fit=5,
@@ -301,9 +302,9 @@ def build_blue_tokai_concept() -> ConceptNote:
             "claim."
         ),
         why_script=(
-            "The script follows the physical demo: name the category, state the benefit, "
-            "show the three actions, reveal the range, ask for the purchase. It avoids "
-            "calling the product instant coffee."
+            "The script follows the physical demo: name the category, show the three "
+            "actions, state the benefit, reveal the range, ask for the purchase. It "
+            "avoids calling the product instant coffee."
         ),
         why_look=(
             "A warm kitchen and macro water make the product action legible. The pack "
@@ -354,7 +355,7 @@ def build_blue_tokai_concept() -> ConceptNote:
             "unapproved health or superiority claim, no third-party footage, no fake UI."
         ),
         canonical_script=(
-            "Specialty coffee. Just a mug and hot water. Tear, anchor, pour. Light to "
+            "Specialty coffee. Tear, anchor, pour. Just a mug and hot water. Light to "
             "dark. One mug. One cup. Shop Easy Pour."
         ),
     )
