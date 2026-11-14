@@ -1,0 +1,43 @@
+{
+  "account_state": "signed-in",
+  "app": "OpenMontage Studio",
+  "checked_at": "2026-11-14T21:28:28+00:00",
+  "connected_providers": [
+    "google",
+    "openrouter",
+    "runware",
+    "fal",
+    "recraft"
+  ],
+  "local_gaps": [
+    "ComfyUI not configured",
+    "Blender bridge not configured",
+    "Kokoro unsupported (eSpeak missing)",
+    "local whisper.cpp not enabled",
+    "ACE-Step not configured"
+  ],
+  "no_key_stock_routes": [
+    "freetouse.stock",
+    "nasa.stock",
+    "openverse.stock",
+    "wikimedia.stock"
+  ],
+  "not_connected": [
+    "pixabay",
+    "openai",
+    "elevenlabs",
+    "heygen",
+    "minimax",
+    "runway",
+    "meshy",
+    "tripo",
+    "xai",
+    "higgsfield",
+    "quiverai",
+    "azure-speech",
+    "cartesia",
+    "worldlabs"
+  ],
+  "note": "Checked through the OpenMontage MCP account/connections/app_update tools. No paid call was made.",
+  "version": "0.1.8"
+}

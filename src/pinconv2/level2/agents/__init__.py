@@ -11,6 +11,8 @@ from .generator import GenerationPlanner
 from .handoff_validator import HandoffValidator
 from .processor import ProcessingPlanner
 from .scheduler import FlowScheduler
+from .sourcing import SourcingAgent
+from .voice import VoiceAgent
 
 __all__ = [
     "AssetClassifier",
@@ -20,4 +22,6 @@ __all__ = [
     "HandoffValidator",
     "ProcessingPlanner",
     "SourceEvaluator",
+    "SourcingAgent",
+    "VoiceAgent",
 ]

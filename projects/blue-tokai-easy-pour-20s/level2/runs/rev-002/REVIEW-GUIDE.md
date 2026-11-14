@@ -20,6 +20,9 @@ is it ready to assemble?*
 | Share with a colleague | `review-pack.docx` (standard Word document) |
 | Budget only | `budget-estimate.md` / `.html` / `.docx` |
 | Technical handoff | `build-sheet/production-build-sheet.md` / `.html` |
+| Per-shot/layer sources | `SOURCE-SHEET.md` / `.html` |
+| Stock fetch check | `stock-check/stock-check.md` |
+| Voice fallback sample | `generated/AS-15-edge-sample.mp3` |
 | Gate checks | `gate2/packet-2a.json` |
 | Fill-in form | `feedback-form.md` |
 

@@ -6,6 +6,7 @@
 2. Judge each asset and layer against its acceptance line and preview.
 3. Mark APPROVE / CHANGE / REJECT and write one instruction.
 4. Return the completed form; corrections become a new run, never an edit.
+5. For the media source behind each shot and layer, open `SOURCE-SHEET.md`.
 
 ```
 ID: AS-02

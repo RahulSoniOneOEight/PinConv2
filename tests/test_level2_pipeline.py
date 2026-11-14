@@ -255,6 +255,12 @@ def test_review_pack_and_budget_docs(approved: SimpleNamespace) -> None:
     assert "## Previews" in review
     assert "[9:16](build-sheet/previews/9x16/SH-01.svg)" in review
 
+    source_sheet = (run.run_dir("rev-002") / "SOURCE-SHEET.md").read_text(encoding="utf-8")
+    assert "Layers by shot" in source_sheet
+    assert "LY-011" in source_sheet and "SH-01" in source_sheet
+    assert "Audio assets" in source_sheet
+    assert "AS-15" in source_sheet and "SF-" in source_sheet
+
     budget = (run.run_dir("rev-002") / "budget-estimate.md").read_text(encoding="utf-8")
     assert "$87.40" in budget and "$92.40" in budget and "$7.60" in budget
 

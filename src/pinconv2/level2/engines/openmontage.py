@@ -3,6 +3,9 @@
 OpenMontage owns orchestration, stock routes, the ledger and Remotion renders.
 This adapter never calls it directly from planning: it requires an approved
 ledger and a connected client, and it records a reservation before every job.
+
+The MCP bridge lives in the agent runtime. A standalone Python CLI must inject
+one with ``OpenMontageEngine.from_mcp``; without it every call fails closed.
 """
 
 from __future__ import annotations
@@ -52,6 +55,31 @@ class OpenMontageEngine(EngineAdapter):
     @property
     def available(self) -> bool:
         return self.client is not None and os.environ.get("OPENMONTAGE_ENABLED") == "1"
+
+    @classmethod
+    def from_mcp(cls, ledger: SpendLedger, caller: Client) -> OpenMontageEngine:
+        """Build an engine from an MCP tool caller supplied by the runtime."""
+
+        return cls(ledger, caller)
+
+    def render(
+        self,
+        timeline: Path,
+        destination: Path,
+        *,
+        estimate_usd: float,
+        line_id: str,
+    ) -> Path:
+        result = self._submit(
+            "render",
+            {
+                "timeline": str(timeline),
+                "destination": str(destination),
+                "estimate_usd": estimate_usd,
+            },
+            line_id,
+        )
+        return Path(str(result["path"]))
 
     def _submit(
         self, operation: str, payload: dict[str, object], line_id: str

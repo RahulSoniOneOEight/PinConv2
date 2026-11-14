@@ -51,7 +51,14 @@ class LocalEngine:
             raise RecipeError(f"ffprobe failed for {path}: {result.stderr.strip()}")
         payload = json.loads(result.stdout or "{}")
         streams = payload.get("streams", [])
-        video = next((item for item in streams if item.get("codec_type") == "video"), None)
+        is_audio_file = path.suffix.lower() in {".mp3", ".wav", ".ogg", ".flac", ".m4a"}
+        video = (
+            None
+            if is_audio_file
+            else next(
+                (item for item in streams if item.get("codec_type") == "video"), None
+            )
+        )
         audio = next((item for item in streams if item.get("codec_type") == "audio"), None)
         duration = payload.get("format", {}).get("duration")
         fps = None

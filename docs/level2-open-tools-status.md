@@ -161,7 +161,23 @@ Jobs in queue: 0. Output directory exists.
 - Not a substitute for the Level 2 build sheet, compositor or source ledger.
 - Any voice output is synthetic and must be disclosed and approved.
 
-## 4. Recommendation
+## 5. Integration state (updated)
+
+- `SourcingAgent` now owns `source_assets` and the stock check.
+- `ShortGptEngine` and `VoiceAgent` implement Edge TTS and a guarded transcription
+  path. A real sample was generated: `generated/AS-15-edge-sample.mp3`, 14.95 s,
+  89,712 bytes, voice `en-IN-NeerjaNeural`, disclosed as synthetic.
+- `OpenMontageEngine` gained `render()` and `from_mcp()`; the MCP bridge is still
+  injected by the runtime, so a standalone CLI fails closed.
+- `level2 stockcheck` fetched and probed 11 of 12 sources; see
+  `stock-check/stock-check.md`.
+- `SOURCE-SHEET.md` now lists every shot/layer with its actual source and
+  preview, plus the chosen music candidates.
+- Level 2 still owns the decision records, build sheet, provider governor and
+  Gate 2A. No paid call was made for any of these checks.
+
+
+## 6. Recommendation
 
 - Use **OpenMontage** as the Level 2 stock/generation/render adapter where its
   ledger and the $2 cap agree.

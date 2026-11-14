@@ -511,3 +511,42 @@ def test_sourcing_filters_noncommercial_and_gates(tmp_path: Path) -> None:
     assert candidate.licence_class is LicenceClass.CC_BY
     assert candidate.gate_verdict is GateVerdict.PASS
     assert candidate.fit_score >= 80
+
+
+def test_shortgpt_fails_closed_without_a_venv(tmp_path: Path) -> None:
+    from pinconv2.level2.engines.shortgpt import EngineUnavailableError, ShortGptEngine
+
+    engine = ShortGptEngine(root=tmp_path)
+    assert engine.available is False
+    with pytest.raises(EngineUnavailableError):
+        engine.synth("hello", tmp_path / "out.mp3")
+
+
+def test_openmontage_render_goes_through_the_ledger(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    from pinconv2.level2.engines.openmontage import OpenMontageEngine
+
+    monkeypatch.setenv("OPENMONTAGE_ENABLED", "1")
+    ledger = SpendLedger(tmp_path / "ledger.jsonl", authorised=True)
+
+    def client(operation: str, payload: dict[str, object]) -> dict[str, object]:
+        return {"path": str(tmp_path / "cut.mp4"), "cost_usd": 0.0}
+
+    engine = OpenMontageEngine(ledger, client)
+    output = engine.render(
+        tmp_path / "timeline.json",
+        tmp_path / "cut.mp4",
+        estimate_usd=0.0,
+        line_id="render",
+    )
+    assert output == tmp_path / "cut.mp4"
+    assert ledger.receipts() == 1
+
+
+def test_missing_stock_licence_is_not_paid_ok() -> None:
+    from pinconv2.level2.stockcheck import _licence_info
+
+    assert _licence_info(None) == (None, False)
+    assert _licence_info("CC BY-SA 4.0")[1] is False
+    assert _licence_info("CC BY 4.0")[1] is True

@@ -31,7 +31,8 @@ real IDs from the approved plan, and every number is reproducible from
 | Sourcing | No sourcing round runs in the spend-free slice; candidate licences are reported as unverified, not as cleared. |
 | Provider spend | fal.ai + Runware share a $2.00 cap with a $0.50 per-job maximum; every call is quoted, reserved and receipted by `ProviderGovernor`, and Gate 2A adds `G2A-14`. |
 | Sourcing | `level2 source` searches ccMixter with `lic=by`, filters NC/ND/SA and vocal tracks, downloads 20-second previews, probes them, gates each candidate and records the chosen track. Final acquisition still needs Gate 2A. |
-| Verification | 121 tests pass; Ruff and mypy are clean; the Blue Tokai run produces the full artifact set under `projects/blue-tokai-easy-pour-20s/level2/runs/rev-002/`. |
+| Tool integration | SourcingAgent and VoiceAgent added; ShortGPT Edge TTS produced a disclosed 14.95 s sample; OpenMontage gained `render()` and `from_mcp()`; `stockcheck` fetched 11 of 12 sources. |
+| Verification | 125 tests pass; Ruff and mypy are clean; the Blue Tokai run produces the full artifact set under `projects/blue-tokai-easy-pour-20s/level2/runs/rev-002/`. |
 
 
 ---
@@ -169,6 +170,9 @@ projects/blue-tokai-easy-pour-20s/level2/runs/rev-002/
   provider-spend.jsonl          provider reservations and receipts
   provider-spend.json           provider spend summary
   asset-sourcing.json           candidate search, licences, chosen previews
+  SOURCE-SHEET.md/.json/.html   per-shot/layer source map
+  stock-check/                  live fetch/probe report per source
+  generated/                    disclosed Edge TTS fallback sample
   sourcing-report.md            readable sourcing record
   sourcing/                     preview files for review (not final acquisition)
   spend-ledger.json             reservations and receipts (empty until Gate 2A)
@@ -1255,6 +1259,8 @@ src/pinconv2/level2/
   budget.py            lines, dedupe, reserve, quads, quote lifecycle
   governance.py        fal.ai/Runware provider cap, reservations, receipts
   sourcing.py          catalogue search, licence gate, previews and sourcing record
+  stockcheck.py        live fetch/probe check per stock source
+  source_sheet.py      per-shot/layer source sheet
   flow_scheduler.py    graph, batches, critical path
   build_sheet.py       builder + manifest + renderers
   review_pack.py       markdown/docx review pack

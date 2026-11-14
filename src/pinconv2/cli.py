@@ -122,6 +122,8 @@ def build_parser() -> argparse.ArgumentParser:
         ("qc", "print deterministic QC verdicts"),
         ("status", "show the Level 2 run state"),
         ("credentials", "show which provider credentials are available"),
+        ("stockcheck", "fetch and probe one item from each stock source"),
+        ("voice", "render a disclosed Edge TTS sample for the fallback voice"),
         ("build", "process imported sources after Gate 2A approval"),
         ("correct", "validate typed corrections and open a new run"),
     ]:
@@ -152,6 +154,23 @@ def build_parser() -> argparse.ArgumentParser:
         default=0.5,
         help="maximum quote for any single provider job",
     )
+    stockcheck = level2_sub.add_parser(
+        "stockcheck", help="fetch and probe one item from each stock source"
+    )
+    _common(stockcheck)
+    stockcheck.add_argument("--revision", type=int, default=None)
+    stockcheck.add_argument("--run", default=None)
+    stockcheck.add_argument("--query", default="coffee")
+    stockcheck.add_argument("--media-dir", default="dist/stock-check")
+
+    voice = level2_sub.add_parser(
+        "voice", help="render a disclosed Edge TTS sample for the fallback voice"
+    )
+    _common(voice)
+    voice.add_argument("--revision", type=int, default=None)
+    voice.add_argument("--run", default=None)
+    voice.add_argument("--text", default=None)
+    voice.add_argument("--voice", default="en-IN-NeerjaNeural")
     level2_sub.add_parser("spend", help="show fal.ai/Runware budget and spend")
     spend = level2_sub.choices["spend"]
     _common(spend)

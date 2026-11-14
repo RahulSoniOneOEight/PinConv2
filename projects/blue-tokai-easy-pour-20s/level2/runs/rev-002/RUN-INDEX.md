@@ -9,6 +9,10 @@
 | Document | What it is |
 |---|---|
 | [REVIEW-GUIDE.md](REVIEW-GUIDE.md) | How a human reviews the pack, records corrections and approves Gate 2A |
+| [SOURCE-SHEET.md](SOURCE-SHEET.md) | Every shot/layer with its actual asset source and preview |
+| [stock-check/stock-check.md](stock-check/stock-check.md) | Live fetch result per stock source, with licences |
+| [openmontage-status.json](openmontage-status.json) | OpenMontage account, version and connected providers |
+| [voice-sample.json](voice-sample.json) | ShortGPT Edge TTS fallback sample metadata |
 | [TEST-REPORT.md](TEST-REPORT.md) | Test results, gate checks, environment, raw output links |
 | [review-pack.html](review-pack.html) | Review pack that opens in any browser |
 | [review-pack.md](review-pack.md) | Human review pack: every asset, layer, shot, variant, cost |
@@ -92,34 +96,41 @@
 | [build-sheet/variants/VO-01.json](build-sheet/variants/VO-01.json) | 23,160 |
 | [capture-plan.json](capture-plan.json) | 1,480 |
 | [catalogue-resolutions.json](catalogue-resolutions.json) | 4,587 |
-| [cli-gate2a-output.json](cli-gate2a-output.json) | 2,824 |
-| [cli-plan-output.json](cli-plan-output.json) | 1,828 |
-| [cli-qc-output.json](cli-qc-output.json) | 916 |
-| [cli-spend-output.json](cli-spend-output.json) | 1,082 |
-| [events.jsonl](events.jsonl) | 8,263 |
+| [cli-gate2a-output.json](cli-gate2a-output.json) | 1,719 |
+| [cli-plan-output.json](cli-plan-output.json) | 953 |
+| [cli-qc-output.json](cli-qc-output.json) | 573 |
+| [cli-spend-output.json](cli-spend-output.json) | 660 |
+| [cli-stockcheck-output.json](cli-stockcheck-output.json) | 231 |
+| [cli-voice-output.json](cli-voice-output.json) | 329 |
+| [events.jsonl](events.jsonl) | 9,558 |
 | [feedback-form.md](feedback-form.md) | 4,580 |
 | [flow.json](flow.json) | 5,774 |
 | [gate2/packet-2a.json](gate2/packet-2a.json) | 3,229 |
+| [generated/AS-15-edge-sample.mp3](generated/AS-15-edge-sample.mp3) | 89,712 |
 | [layer-method-decisions.json](layer-method-decisions.json) | 25,090 |
-| [licence-gate-report.json](licence-gate-report.json) | 4,704 |
-| [mypy-output.txt](mypy-output.txt) | 92 |
+| [licence-gate-report.json](licence-gate-report.json) | 4,768 |
+| [mypy-output.txt](mypy-output.txt) | 46 |
+| [openmontage-status.json](openmontage-status.json) | 904 |
 | [provider-budget.json](provider-budget.json) | 283 |
 | [provider-spend.json](provider-spend.json) | 468 |
 | [provider-spend.jsonl](provider-spend.jsonl) | 0 |
-| [pytest-output.txt](pytest-output.txt) | 370 |
+| [pytest-output.txt](pytest-output.txt) | 187 |
 | [qc/budget.json](qc/budget.json) | 1,110 |
 | [qc/rights.json](qc/rights.json) | 464 |
 | [qc/semantic.json](qc/semantic.json) | 407 |
 | [qc/technical.json](qc/technical.json) | 780 |
 | [qc/visual.json](qc/visual.json) | 423 |
-| [REVIEW-GUIDE.md](REVIEW-GUIDE.md) | 7,927 |
+| [REVIEW-GUIDE.md](REVIEW-GUIDE.md) | 8,328 |
 | [review-pack.docx](review-pack.docx) | 39,142 |
-| [review-pack.html](review-pack.html) | 23,264 |
-| [review-pack.md](review-pack.md) | 16,018 |
+| [review-pack.html](review-pack.html) | 23,358 |
+| [review-pack.md](review-pack.md) | 16,094 |
 | [rights-manifest.json](rights-manifest.json) | 4,932 |
-| [ruff-output.txt](ruff-output.txt) | 42 |
+| [ruff-output.txt](ruff-output.txt) | 21 |
 | [run.json](run.json) | 117,646 |
 | [sound-plan.json](sound-plan.json) | 2,757 |
+| [SOURCE-SHEET.html](SOURCE-SHEET.html) | 13,284 |
+| [SOURCE-SHEET.json](SOURCE-SHEET.json) | 18,224 |
+| [SOURCE-SHEET.md](SOURCE-SHEET.md) | 8,565 |
 | [sourcing/CND-AS10-02-lost-roamin.mp3](sourcing/CND-AS10-02-lost-roamin.mp3) | 241,063 |
 | [sourcing/CND-AS10-03-this-is-our-music-instrumental.mp3](sourcing/CND-AS10-03-this-is-our-music-instrumental.mp3) | 241,134 |
 | [sourcing/CND-AS10-04-roman-song.mp3](sourcing/CND-AS10-04-roman-song.mp3) | 241,089 |
@@ -132,7 +143,10 @@
 | [sourcing-report.md](sourcing-report.md) | 2,081 |
 | [spend-ledger.json](spend-ledger.json) | 252 |
 | [spend-ledger.jsonl](spend-ledger.jsonl) | 0 |
-| [TEST-REPORT.md](TEST-REPORT.md) | 3,587 |
+| [stock-check/stock-check.json](stock-check/stock-check.json) | 10,412 |
+| [stock-check/stock-check.md](stock-check/stock-check.md) | 7,967 |
+| [TEST-REPORT.md](TEST-REPORT.md) | 3,708 |
 | [variants.json](variants.json) | 25,176 |
+| [voice-sample.json](voice-sample.json) | 339 |
 
 _Generated from the run artifacts; do not edit by hand._

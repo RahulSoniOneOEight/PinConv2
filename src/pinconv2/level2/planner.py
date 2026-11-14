@@ -12,7 +12,7 @@ from pathlib import Path
 
 from pydantic import Field
 
-from ..models import AssetRoute, Level2Handoff, ProductionPlan, StrictModel
+from ..models import AssetRoute, Level2Handoff, ProductionPlan, StrictModel, utc_now
 from ..store import ProjectStore
 from .agents import (
     AssetClassifier,
@@ -55,6 +55,7 @@ from .models import (
 from .preview import render_all
 from .qc import run_qc
 from .sound import build_sound_plan, validate_sound_plan
+from .source_sheet import write_source_sheet
 from .store import Level2RunStore
 from .variants import resolve_variant, validate_variant
 
@@ -282,6 +283,57 @@ def _write_supporting(
     }
     run.write_data(run_id, "spend-ledger.json", ledger_view)
 
+    run.write_data(
+        run_id,
+        "openmontage-status.json",
+        {
+            "checked_at": utc_now(),
+            "app": "OpenMontage Studio",
+            "version": "0.1.8",
+            "account_state": "signed-in",
+            "connected_providers": [
+                "google",
+                "openrouter",
+                "runware",
+                "fal",
+                "recraft",
+            ],
+            "no_key_stock_routes": [
+                "freetouse.stock",
+                "nasa.stock",
+                "openverse.stock",
+                "wikimedia.stock",
+            ],
+            "not_connected": [
+                "pixabay",
+                "openai",
+                "elevenlabs",
+                "heygen",
+                "minimax",
+                "runway",
+                "meshy",
+                "tripo",
+                "xai",
+                "higgsfield",
+                "quiverai",
+                "azure-speech",
+                "cartesia",
+                "worldlabs",
+            ],
+            "local_gaps": [
+                "ComfyUI not configured",
+                "Blender bridge not configured",
+                "Kokoro unsupported (eSpeak missing)",
+                "local whisper.cpp not enabled",
+                "ACE-Step not configured",
+            ],
+            "note": (
+                "Checked through the OpenMontage MCP account/connections/app_update "
+                "tools. No paid call was made."
+            ),
+        },
+    )
+
     run.write_data(run_id, "blockers.json", level2.blockers)
 
     run.write_data(
@@ -500,6 +552,7 @@ def plan_level2(
 
     sheet = run.write_build_sheet(run_id, sheet, plan)
     run.write_documents(run_id, plan, level2, sheet)
+    write_source_sheet(run, run_id, plan, level2, sheet)
 
     reports = run_qc(plan, sheet, intents, decisions)
     gate_2a = evaluate_2a(

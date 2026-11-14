@@ -3,7 +3,7 @@
 **Run:** `rev-002` · plan revision 2
 **Project:** `blue-tokai-easy-pour-20s`
 **Plan hash:** `1370f029b0b35730625c459cf85579bfd767d2e4a7b62016055e100d15f2aba5`
-**Generated:** 2026-11-14T20:56:10+00:00
+**Generated:** 2026-11-14T21:28:28+00:00
 **Verdict:** PASS — the spend-free Level 2 slice produced the full package; Gate 2A is ready for a human decision.
 
 ## Environment
@@ -20,7 +20,7 @@
 
 ```
 $ python -m pytest -q
-121 passed in 11.02s
+126 passed in 10.78s
 ```
 
 ```
@@ -30,7 +30,7 @@ All checks passed!
 
 ```
 $ python -m mypy
-Success: no issues found in 75 source files
+Success: no issues found in 81 source files
 ```
 
 ## Acceptance run — Blue Tokai rev-002
@@ -43,6 +43,8 @@ Success: no issues found in 75 source files
 | Effects | 6 (FX-01 … FX-06) |
 | Variant | `VO-01`, 1080×1920, 500 frames, 38 overrides |
 | Stock-sourced assets | 9 library-music candidates, 9 previews, 2 chosen, 0 final acquisitions |
+| Stock fetch check | 11 of 12 sources fetched and probed |
+| Voice fallback sample | 14.952 s via shortgpt:edge-tts |
 | Truth classes | 10 exact, 12 exact_text, 3 proof, 7 atmospheric, 6 representative |
 | Impact | 18 high, 10 medium, 10 low |
 | Cash plan | $0.00 (lean) |

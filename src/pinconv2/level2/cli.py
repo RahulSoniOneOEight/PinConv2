@@ -121,15 +121,66 @@ def run_level2_command(store: ProjectStore, args: argparse.Namespace) -> int:
         _print(status_report())
         return 0
 
+    if command == "stockcheck":
+        from .stockcheck import render_stock_check, run_stock_check
+
+        stock_report = run_stock_check(Path(str(args.media_dir)), str(args.query))
+        run.write_data(
+            run_id, "stock-check/stock-check.json", stock_report.model_dump(mode="json")
+        )
+        run.write_text(
+            run_id, "stock-check/stock-check.md", render_stock_check(stock_report)
+        )
+        _print(
+            {
+                "query": args.query,
+                "ok": stock_report.ok_count,
+                "total": len(stock_report.items),
+                "report": str(run.run_dir(run_id) / "stock-check" / "stock-check.md"),
+                "media_dir": str(Path(str(args.media_dir)).resolve()),
+            }
+        )
+        return 0
+
+    if command == "voice":
+        from .agents import VoiceAgent
+
+        plan = store.load_plan(project_id, revision)
+        text = args.text
+        if not text:
+            cue = next((cue for cue in plan.audio_cues if cue.kind.value == "vo"), None)
+            if cue is None:
+                _print({"error": "no voice cue in the plan"})
+                return 2
+            text = cue.description.split("Canonical read:", 1)[-1].strip()
+        destination = run.run_dir(run_id) / "generated" / "AS-15-edge-sample.mp3"
+        result = VoiceAgent().sample(text, destination, str(args.voice))
+        recorded = result.model_copy(
+            update={"path": f"generated/{destination.name}"}
+        )
+        run.write_json(run_id, "voice-sample.json", recorded)
+        _print(
+            {
+                "provider": result.provider,
+                "voice": result.voice,
+                "duration_seconds": result.duration_seconds,
+                "bytes": result.bytes,
+                "path": recorded.path,
+                "disclosure": result.disclosure_text,
+            }
+        )
+        return 0
+
     if command == "source":
-        from .sourcing import DEFAULT_QUERIES, source_assets
+        from .agents import SourcingAgent
+        from .sourcing import DEFAULT_QUERIES
 
         selected = {
             asset_id: DEFAULT_QUERIES[asset_id]
             for asset_id in (args.asset or list(DEFAULT_QUERIES))
             if asset_id in DEFAULT_QUERIES
         }
-        sourcing_report = source_assets(
+        sourcing_report = SourcingAgent().discover(
             store,
             project_id,
             revision,
