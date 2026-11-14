@@ -192,5 +192,5 @@ At the last run:
 - the Gate 1 packet lists the three held items and the pending exact values;
 - the exported Level 2 handoff is bound to the approved plan and bundle hashes.
 
-See `docs/level1.md` for the contracts and rules, and
-`docs/architecture.md` for the four-level model.
+See `docs/level1.md` for the contracts and rules, `docs/architecture.md` for the
+four-level model, and `docs/qc.md` for the independent QC record.
