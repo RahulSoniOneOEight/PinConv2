@@ -108,10 +108,14 @@ consistency gaps:
 
 ## Third independent pass
 
-A third GPT-5.6 Sol pass was requested after the Round 2 fixes, but the model
-returned `The usage limit has been reached`. No third review verdict is
-recorded. The corrections above were verified locally against the exact Round 2
-findings; an independent re-review is still required before Gate 1 approval.
+The third and fourth GPT-5.6 Sol attempts after the Round 2 fixes both returned
+`The usage limit has been reached`. No third review verdict is recorded. The
+corrections above were verified locally against the exact Round 2 findings; an
+independent re-review is still required before Gate 1 approval.
+
+**Blocker:** the GPT-5.6 Sol quota must be reset or raised before the required
+independent verdict can be produced. This is an external review-capacity
+constraint, not a code or content failure.
 
 ## Boundary
 
