@@ -14,6 +14,7 @@
 | [openmontage-status.json](openmontage-status.json) | OpenMontage account, version and connected providers |
 | [openmontage-check.json](openmontage-check.json) | Real NASA stock acquisition and 2-second HyperFrames render |
 | [openmontage-sourcing.json](openmontage-sourcing.json) | 5 NASA stock candidates for AS-07, search only |
+| [RENDERER-DECISION.md](RENDERER-DECISION.md) | HyperFrames vs Remotion; awaiting named-human acceptance |
 | [openmontage/candidates/](openmontage/candidates/) | Downloaded candidate previews |
 | [openmontage/render.mp4](openmontage/render.mp4) | Rendered test clip (1920?1080, 2 s, 60 frames) |
 | [shortgpt-status.json](shortgpt-status.json) | Edge TTS and local faster-whisper transcription |
@@ -102,13 +103,13 @@
 | [build-sheet/variants/VO-01.json](build-sheet/variants/VO-01.json) | 23,160 |
 | [capture-plan.json](capture-plan.json) | 1,480 |
 | [catalogue-resolutions.json](catalogue-resolutions.json) | 4,587 |
-| [cli-gate2a-output.json](cli-gate2a-output.json) | 2,181 |
-| [cli-plan-output.json](cli-plan-output.json) | 1,033 |
-| [cli-qc-output.json](cli-qc-output.json) | 747 |
-| [cli-spend-output.json](cli-spend-output.json) | 840 |
-| [cli-stockcheck-output.json](cli-stockcheck-output.json) | 273 |
+| [cli-gate2a-output.json](cli-gate2a-output.json) | 2,258 |
+| [cli-plan-output.json](cli-plan-output.json) | 1,073 |
+| [cli-qc-output.json](cli-qc-output.json) | 776 |
+| [cli-spend-output.json](cli-spend-output.json) | 870 |
+| [cli-stockcheck-output.json](cli-stockcheck-output.json) | 280 |
 | [cli-voice-output.json](cli-voice-output.json) | 239 |
-| [events.jsonl](events.jsonl) | 10,882 |
+| [events.jsonl](events.jsonl) | 11,141 |
 | [feedback-form.md](feedback-form.md) | 4,580 |
 | [flow.json](flow.json) | 5,774 |
 | [gate2/packet-2a.json](gate2/packet-2a.json) | 3,229 |
@@ -136,7 +137,8 @@
 | [qc/semantic.json](qc/semantic.json) | 407 |
 | [qc/technical.json](qc/technical.json) | 780 |
 | [qc/visual.json](qc/visual.json) | 423 |
-| [REVIEW-GUIDE.md](REVIEW-GUIDE.md) | 8,328 |
+| [RENDERER-DECISION.md](RENDERER-DECISION.md) | 1,952 |
+| [REVIEW-GUIDE.md](REVIEW-GUIDE.md) | 9,383 |
 | [review-pack.docx](review-pack.docx) | 39,142 |
 | [review-pack.html](review-pack.html) | 23,358 |
 | [review-pack.md](review-pack.md) | 16,094 |
@@ -162,7 +164,7 @@
 | [spend-ledger.jsonl](spend-ledger.jsonl) | 0 |
 | [stock-check/stock-check.json](stock-check/stock-check.json) | 10,412 |
 | [stock-check/stock-check.md](stock-check/stock-check.md) | 7,967 |
-| [TEST-REPORT.md](TEST-REPORT.md) | 4,232 |
+| [TEST-REPORT.md](TEST-REPORT.md) | 4,549 |
 | [transcription.json](transcription.json) | 756 |
 | [variants.json](variants.json) | 25,176 |
 | [voice-sample.json](voice-sample.json) | 339 |

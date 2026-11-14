@@ -9,6 +9,7 @@ downloaded or generated implicitly.
 from __future__ import annotations
 
 from pathlib import Path
+from typing import Any
 
 from pydantic import Field
 
@@ -17,6 +18,7 @@ from ..store import ProjectStore
 from .engines.base import SpendLedger
 from .engines.local import LocalEngine
 from .errors import GateOrderError
+from .generation_stage import run_generation
 from .models import GatePacket, PacketStatus, TaskStatus
 from .store import Level2RunStore
 
@@ -72,6 +74,9 @@ def run_build(
     project_id: str,
     revision: int,
     run_id: str,
+    *,
+    generation_engine: Any | None = None,
+    include_conditional: bool = False,
 ) -> BuildReport:
     run = Level2RunStore(store.project_dir(project_id))
     level2 = run.read_level2(run_id)
@@ -81,6 +86,16 @@ def run_build(
     packet = GatePacket.model_validate_json(packet_path.read_text(encoding="utf-8"))
     if packet.status is not PacketStatus.APPROVED or not packet.approved_by:
         raise GateOrderError("Gate 2A is not approved; no build may start")
+
+    if generation_engine is not None:
+        run_generation(
+            store,
+            project_id,
+            revision,
+            run_id,
+            engine=generation_engine,
+            include_conditional=include_conditional,
+        )
 
     ledger = SpendLedger(run.run_dir(run_id) / "spend-ledger.jsonl")
     engine = LocalEngine()

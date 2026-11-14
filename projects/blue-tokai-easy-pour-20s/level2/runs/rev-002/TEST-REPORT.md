@@ -3,7 +3,7 @@
 **Run:** `rev-002` · plan revision 2
 **Project:** `blue-tokai-easy-pour-20s`
 **Plan hash:** `1370f029b0b35730625c459cf85579bfd767d2e4a7b62016055e100d15f2aba5`
-**Generated:** 2026-11-14T21:56:23+00:00
+**Generated:** 2026-11-14T22:04:53+00:00
 **Verdict:** PASS — the spend-free Level 2 slice produced the full package; Gate 2A is ready for a human decision.
 
 ## Environment
@@ -20,7 +20,7 @@
 
 ```
 $ python -m pytest -q
-132 passed in 12.30s
+135 passed in 13.30s
 ```
 
 ```
@@ -30,7 +30,7 @@ All checks passed!
 
 ```
 $ python -m mypy
-Success: no issues found in 84 source files
+Success: no issues found in 85 source files
 ```
 
 ## Acceptance run — Blue Tokai rev-002
@@ -98,7 +98,11 @@ and a positive quote within the per-job maximum.
 - Gate 2A is `ready_for_approval`; only a named human can approve it. Paid
   generation and final stock acquisition stay blocked until then.
 - Remotion CLI is not installed; Studio renders authored compositions with
-  HyperFrames `0.8.123`. The recorded render is HyperFrames.
+  HyperFrames `0.8.123`. The recorded render is HyperFrames. `RENDERER-DECISION.md`
+  asks a named human to accept HyperFrames or approve installing Remotion.
+- The generation stage is wired (`run_generation` → `GenerationAgent` →
+  `OpenMontageEngine.generate` → `ProviderGovernor`) but no paid generation has
+  run; `AS-15` is conditional and Gate 2A is unapproved.
 - `AC-16` (9:16 safe area) is pending.
 - External holds `HI-01`–`HI-05` remain open.
 

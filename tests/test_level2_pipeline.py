@@ -700,6 +700,93 @@ def test_provider_cap_cannot_exceed_the_project_cap(
         )
 
 
+def test_generation_stage_uses_governor_and_engine(
+    approved: SimpleNamespace,
+) -> None:
+    import shutil
+
+    from pinconv2.level2.build import run_build
+    from pinconv2.level2.engines.base import GenerationResult
+    from pinconv2.level2.models import GatePacket
+    from pinconv2.level2.planner import plan_level2
+
+    plan_level2(
+        approved.store,
+        approved.project,
+        2,
+        "rev-gen",
+        provider_cap_usd=2.0,
+        per_job_max_usd=0.5,
+    )
+    target = approved.run.run_dir("rev-gen")
+    data = json.loads((target / "run.json").read_text(encoding="utf-8"))
+    for task in data["tasks"]:
+        if task["asset_id"] == "AS-15":
+            task["generation"]["cost_usd"] = 0.25
+    (target / "run.json").write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
+    packet = GatePacket.model_validate_json(
+        (target / "gate2" / "packet-2a.json").read_text(encoding="utf-8")
+    )
+    approved.run.write_json(
+        "rev-gen",
+        "gate2/packet-2a.json",
+        approve_packet(
+            packet,
+            approver="TestReviewer",
+            role="Brand owner",
+            evidence="pytest generation gate",
+            confirmation="APPROVE",
+        ),
+    )
+
+    class FakeEngine:
+        def generate(self, spec: object) -> GenerationResult:
+            return GenerationResult(
+                provider="runware",
+                job_id="om-job-1",
+                path="generated/AS-15.wav",
+                sha256="a" * 64,
+                cost_usd=0.25,
+                disclosed=True,
+            )
+
+    report = run_build(
+        approved.store,
+        approved.project,
+        2,
+        "rev-gen",
+        generation_engine=FakeEngine(),
+        include_conditional=True,
+    )
+    generation = json.loads((target / "generation-report.json").read_text(encoding="utf-8"))
+    assert generation["generated"] == 1
+    assert generation["spent_usd"] == 0.25
+    assert generation["entries"][0]["job_id"] == "om-job-1"
+    assert report.spent_usd == 0.0
+    spend = json.loads((target / "provider-spend.json").read_text(encoding="utf-8"))
+    assert spend["spent_usd"] == 0.25
+    assert spend["calls"] == 1
+    shutil.rmtree(target, ignore_errors=True)
+
+
+def test_generation_stage_refuses_before_gate_2a(approved: SimpleNamespace, tmp_path: Path) -> None:
+    from pinconv2.level2.engines.base import GenerationResult
+    from pinconv2.level2.generation_stage import run_generation
+
+    class FakeEngine:
+        def generate(self, spec: object) -> GenerationResult:
+            raise AssertionError("engine must not be called before approval")
+
+    with pytest.raises(GateOrderError):
+        run_generation(
+            approved.store,
+            approved.project,
+            2,
+            "rev-002",
+            engine=FakeEngine(),
+        )
+
+
 def test_build_refuses_before_gate_2a(approved: SimpleNamespace) -> None:
     from pinconv2.level2.build import run_build
 

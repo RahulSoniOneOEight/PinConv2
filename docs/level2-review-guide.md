@@ -22,6 +22,9 @@ is it ready to assemble?*
 | Technical handoff | `build-sheet/production-build-sheet.md` / `.html` |
 | Per-shot/layer sources | `SOURCE-SHEET.md` / `.html` |
 | Stock fetch check | `stock-check/stock-check.md` |
+| OpenMontage discovery | `openmontage-sourcing.json` |
+| Renderer decision | `RENDERER-DECISION.md` |
+| Generation stage | `generation-report.json` (only after Gate 2A) |
 | Voice fallback sample | `generated/AS-15-edge-sample.mp3` |
 | Gate checks | `gate2/packet-2a.json` |
 | Fill-in form | `feedback-form.md` |
@@ -123,6 +126,26 @@ the two library-music intents:
   capture — zero stock layers. Exact and proof material is never stock.
 
 Acquisition and the final music licence are part of Gate 2A.
+
+### Generation stage
+
+The generation stage is `level2.generation_stage.run_generation`. It is called
+by `run_build` when a generation engine is supplied. It:
+
+- refuses unless Gate 2A is APPROVED and has a named approver;
+- loads the project provider budget ($2 cap, $0.50 per job);
+- reserves each quoted job through `ProviderGovernor` before calling the engine;
+- receipts the actual cost and releases the reservation on failure;
+- writes `generation-report.json` and refreshes `provider-spend.json`.
+
+`AS-15` is a conditional fallback, so it is skipped unless the run explicitly
+includes conditional assets. No paid generation has run.
+
+### Renderer
+
+`RENDERER-DECISION.md` records that HyperFrames `0.8.123` is installed and
+Remotion is not. A named human must accept HyperFrames or approve installing
+Remotion before the production render path is final.
 
 ---
 
