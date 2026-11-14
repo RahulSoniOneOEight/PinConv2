@@ -1,7 +1,142 @@
 {
-  "candidates": [],
-  "note": "No sourcing round has run. Each future candidate records provider, licence, origin verification, attribution and cost here.",
-  "resolutions": [],
+  "candidates": [
+    {
+      "asset_id": "AS-10",
+      "candidate_id": "CND-AS10-02",
+      "creator": "speck",
+      "fit_score": 85,
+      "gate_verdict": "pass",
+      "licence_class": "CC-BY",
+      "licence_url": "http://creativecommons.org/licenses/by/3.0/",
+      "origin_verified": true,
+      "page_url": "https://ccmixter.org/files/speck/71077",
+      "provider": "ccmixter",
+      "title": "Lost Roamin'"
+    },
+    {
+      "asset_id": "AS-10",
+      "candidate_id": "CND-AS10-03",
+      "creator": "gabriel_shelligton",
+      "fit_score": 85,
+      "gate_verdict": "pass",
+      "licence_class": "CC-BY",
+      "licence_url": "http://creativecommons.org/licenses/by/3.0/",
+      "origin_verified": true,
+      "page_url": "https://ccmixter.org/files/gabriel_shelligton/70971",
+      "provider": "ccmixter",
+      "title": "This Is Our Music - Instrumental"
+    },
+    {
+      "asset_id": "AS-10",
+      "candidate_id": "CND-AS10-04",
+      "creator": "NiGiD",
+      "fit_score": 85,
+      "gate_verdict": "pass",
+      "licence_class": "CC-BY",
+      "licence_url": "http://creativecommons.org/licenses/by/3.0/",
+      "origin_verified": true,
+      "page_url": "https://ccmixter.org/files/NiGiD/70943",
+      "provider": "ccmixter",
+      "title": "Roman Song"
+    },
+    {
+      "asset_id": "AS-10",
+      "candidate_id": "CND-AS10-05",
+      "creator": "BOCrew",
+      "fit_score": 85,
+      "gate_verdict": "pass",
+      "licence_class": "CC-BY",
+      "licence_url": "http://creativecommons.org/licenses/by/3.0/",
+      "origin_verified": true,
+      "page_url": "https://ccmixter.org/files/BOCrew/70818",
+      "provider": "ccmixter",
+      "title": "Passing Through"
+    },
+    {
+      "asset_id": "AS-14",
+      "candidate_id": "CND-AS14-01",
+      "creator": "speck",
+      "fit_score": 85,
+      "gate_verdict": "pass",
+      "licence_class": "CC-BY",
+      "licence_url": "http://creativecommons.org/licenses/by/3.0/",
+      "origin_verified": true,
+      "page_url": "https://ccmixter.org/files/speck/71077",
+      "provider": "ccmixter",
+      "title": "Lost Roamin'"
+    },
+    {
+      "asset_id": "AS-14",
+      "candidate_id": "CND-AS14-02",
+      "creator": "gabriel_shelligton",
+      "fit_score": 85,
+      "gate_verdict": "pass",
+      "licence_class": "CC-BY",
+      "licence_url": "http://creativecommons.org/licenses/by/3.0/",
+      "origin_verified": true,
+      "page_url": "https://ccmixter.org/files/gabriel_shelligton/70971",
+      "provider": "ccmixter",
+      "title": "This Is Our Music - Instrumental"
+    },
+    {
+      "asset_id": "AS-14",
+      "candidate_id": "CND-AS14-03",
+      "creator": "NiGiD",
+      "fit_score": 85,
+      "gate_verdict": "pass",
+      "licence_class": "CC-BY",
+      "licence_url": "http://creativecommons.org/licenses/by/3.0/",
+      "origin_verified": true,
+      "page_url": "https://ccmixter.org/files/NiGiD/70943",
+      "provider": "ccmixter",
+      "title": "Roman Song"
+    },
+    {
+      "asset_id": "AS-14",
+      "candidate_id": "CND-AS14-04",
+      "creator": "BOCrew",
+      "fit_score": 85,
+      "gate_verdict": "pass",
+      "licence_class": "CC-BY",
+      "licence_url": "http://creativecommons.org/licenses/by/3.0/",
+      "origin_verified": true,
+      "page_url": "https://ccmixter.org/files/BOCrew/70818",
+      "provider": "ccmixter",
+      "title": "Passing Through"
+    },
+    {
+      "asset_id": "AS-14",
+      "candidate_id": "CND-AS14-05",
+      "creator": "speck",
+      "fit_score": 85,
+      "gate_verdict": "pass",
+      "licence_class": "CC-BY",
+      "licence_url": "http://creativecommons.org/licenses/by/3.0/",
+      "origin_verified": true,
+      "page_url": "https://ccmixter.org/files/speck/70757",
+      "provider": "ccmixter",
+      "title": "Safer Inside With My Beloved Machine"
+    }
+  ],
+  "note": "Candidates were discovered and licence-gated. Chosen previews are in sourcing/; final acquisition still needs Gate 2A.",
+  "resolutions": [
+    {
+      "asset_id": "AS-10",
+      "attribution": "\"Lost Roamin'\" by speck (CC BY 3.0)",
+      "candidate_id": "CND-AS10-02",
+      "licence_class": "CC-BY",
+      "page_url": "https://ccmixter.org/files/speck/71077",
+      "status": "discovered"
+    },
+    {
+      "asset_id": "AS-14",
+      "attribution": "\"This Is Our Music - Instrumental\" by gabriel_shelligton (CC BY 3.0)",
+      "candidate_id": "CND-AS14-02",
+      "licence_class": "CC-BY",
+      "page_url": "https://ccmixter.org/files/gabriel_shelligton/70971",
+      "status": "discovered"
+    }
+  ],
   "run_id": "rev-002",
-  "sourcing_round": "not_run"
+  "sourcing_round": "discovery"
 }

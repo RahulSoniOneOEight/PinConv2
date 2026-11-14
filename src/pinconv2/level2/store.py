@@ -223,6 +223,7 @@ class Level2RunStore:
             sheet,
             level2.variants,
             provider,
+            level2.sourcing,
         )
         self.write_text(run_id, "review-pack.md", review_markdown)
         self.write_text(

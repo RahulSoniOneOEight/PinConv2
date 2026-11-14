@@ -11,7 +11,125 @@
     "bbc-sound-effects",
     "gadm"
   ],
-  "candidates": [],
+  "candidates": [
+    {
+      "asset_id": "AS-10",
+      "candidate_id": "CND-AS10-02",
+      "creator": "speck",
+      "fit_score": 85,
+      "gate_verdict": "pass",
+      "licence_class": "CC-BY",
+      "licence_url": "http://creativecommons.org/licenses/by/3.0/",
+      "origin_verified": true,
+      "page_url": "https://ccmixter.org/files/speck/71077",
+      "provider": "ccmixter",
+      "title": "Lost Roamin'"
+    },
+    {
+      "asset_id": "AS-10",
+      "candidate_id": "CND-AS10-03",
+      "creator": "gabriel_shelligton",
+      "fit_score": 85,
+      "gate_verdict": "pass",
+      "licence_class": "CC-BY",
+      "licence_url": "http://creativecommons.org/licenses/by/3.0/",
+      "origin_verified": true,
+      "page_url": "https://ccmixter.org/files/gabriel_shelligton/70971",
+      "provider": "ccmixter",
+      "title": "This Is Our Music - Instrumental"
+    },
+    {
+      "asset_id": "AS-10",
+      "candidate_id": "CND-AS10-04",
+      "creator": "NiGiD",
+      "fit_score": 85,
+      "gate_verdict": "pass",
+      "licence_class": "CC-BY",
+      "licence_url": "http://creativecommons.org/licenses/by/3.0/",
+      "origin_verified": true,
+      "page_url": "https://ccmixter.org/files/NiGiD/70943",
+      "provider": "ccmixter",
+      "title": "Roman Song"
+    },
+    {
+      "asset_id": "AS-10",
+      "candidate_id": "CND-AS10-05",
+      "creator": "BOCrew",
+      "fit_score": 85,
+      "gate_verdict": "pass",
+      "licence_class": "CC-BY",
+      "licence_url": "http://creativecommons.org/licenses/by/3.0/",
+      "origin_verified": true,
+      "page_url": "https://ccmixter.org/files/BOCrew/70818",
+      "provider": "ccmixter",
+      "title": "Passing Through"
+    },
+    {
+      "asset_id": "AS-14",
+      "candidate_id": "CND-AS14-01",
+      "creator": "speck",
+      "fit_score": 85,
+      "gate_verdict": "pass",
+      "licence_class": "CC-BY",
+      "licence_url": "http://creativecommons.org/licenses/by/3.0/",
+      "origin_verified": true,
+      "page_url": "https://ccmixter.org/files/speck/71077",
+      "provider": "ccmixter",
+      "title": "Lost Roamin'"
+    },
+    {
+      "asset_id": "AS-14",
+      "candidate_id": "CND-AS14-02",
+      "creator": "gabriel_shelligton",
+      "fit_score": 85,
+      "gate_verdict": "pass",
+      "licence_class": "CC-BY",
+      "licence_url": "http://creativecommons.org/licenses/by/3.0/",
+      "origin_verified": true,
+      "page_url": "https://ccmixter.org/files/gabriel_shelligton/70971",
+      "provider": "ccmixter",
+      "title": "This Is Our Music - Instrumental"
+    },
+    {
+      "asset_id": "AS-14",
+      "candidate_id": "CND-AS14-03",
+      "creator": "NiGiD",
+      "fit_score": 85,
+      "gate_verdict": "pass",
+      "licence_class": "CC-BY",
+      "licence_url": "http://creativecommons.org/licenses/by/3.0/",
+      "origin_verified": true,
+      "page_url": "https://ccmixter.org/files/NiGiD/70943",
+      "provider": "ccmixter",
+      "title": "Roman Song"
+    },
+    {
+      "asset_id": "AS-14",
+      "candidate_id": "CND-AS14-04",
+      "creator": "BOCrew",
+      "fit_score": 85,
+      "gate_verdict": "pass",
+      "licence_class": "CC-BY",
+      "licence_url": "http://creativecommons.org/licenses/by/3.0/",
+      "origin_verified": true,
+      "page_url": "https://ccmixter.org/files/BOCrew/70818",
+      "provider": "ccmixter",
+      "title": "Passing Through"
+    },
+    {
+      "asset_id": "AS-14",
+      "candidate_id": "CND-AS14-05",
+      "creator": "speck",
+      "fit_score": 85,
+      "gate_verdict": "pass",
+      "licence_class": "CC-BY",
+      "licence_url": "http://creativecommons.org/licenses/by/3.0/",
+      "origin_verified": true,
+      "page_url": "https://ccmixter.org/files/speck/70757",
+      "provider": "ccmixter",
+      "title": "Safer Inside With My Beloved Machine"
+    }
+  ],
   "manual_only_sources": [
     "bbc-sound-effects",
     "bootstrap-icons",
@@ -46,5 +164,5 @@
     "videvo",
     "zapsplat"
   ],
-  "note": "No sourcing round has run. Candidate licences are unverified."
+  "note": "Sourcing round: discovery. 9 candidates checked; acquisition still needs Gate 2A."
 }

@@ -108,11 +108,18 @@ blocker, not a note.
 
 ### Stock check
 
-No stock-sourced asset is in this package. `AS-10` (music bed) and `AS-14`
-(conditional music fallback) are the only `to_source` intents; both are planned
-`M1` library audio, neither has been acquired, and the run has **0 candidates**.
-All 38 layer methods are `M0` supplied/owned, `M4` procedural or `M6` capture —
-zero `M1`/`M2`/`M3`/`M5` layers. Exact and proof material is never stock.
+No stock media is committed to the package. A sourcing discovery round ran for
+the two library-music intents:
+
+- `AS-10` music bed: 4 CC BY candidates, chosen **“Lost Roamin'” by speck**.
+- `AS-14` conditional fallback: 5 CC BY candidates, chosen **“This Is Our
+  Music - Instrumental” by gabriel_shelligton**.
+- 9 candidates passed the licence gate; nine 20-second previews are in
+  `sourcing/`; nothing has been acquired into `sourced/`.
+- All 38 layer methods remain `M0` supplied/owned, `M4` procedural or `M6`
+  capture — zero stock layers. Exact and proof material is never stock.
+
+Acquisition and the final music licence are part of Gate 2A.
 
 ---
 

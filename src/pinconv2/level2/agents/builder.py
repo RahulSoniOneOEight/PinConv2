@@ -11,6 +11,7 @@ from ..models import (
     BuildSheet,
     Correction,
     LayerMethodDecision,
+    SourcingReport,
     VariantPackage,
 )
 
@@ -31,6 +32,7 @@ class BuildSheetBuilder:
         packet_hash: str,
         preview_paths: dict[str, str] | None = None,
         corrections: list[Correction] | None = None,
+        sourcing: SourcingReport | None = None,
     ) -> BuildSheet:
         return assemble(
             plan,
@@ -45,4 +47,5 @@ class BuildSheetBuilder:
             packet_hash=packet_hash,
             preview_paths=preview_paths,
             corrections=corrections,
+            sourcing=sourcing,
         )

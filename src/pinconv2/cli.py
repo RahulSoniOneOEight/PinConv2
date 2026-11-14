@@ -156,6 +156,13 @@ def build_parser() -> argparse.ArgumentParser:
     _common(spend)
     spend.add_argument("--revision", type=int, default=None)
     spend.add_argument("--run", default=None)
+
+    source = level2_sub.add_parser("source", help="search, gate and preview music candidates")
+    _common(source)
+    source.add_argument("--revision", type=int, default=None)
+    source.add_argument("--run", default=None)
+    source.add_argument("--asset", action="append", default=[])
+    source.add_argument("--limit", type=int, default=5)
     correct = level2_sub.choices["correct"]
     correct.add_argument("--input", required=True, help="corrections.jsonl")
     correct.add_argument("--new-run", default=None)

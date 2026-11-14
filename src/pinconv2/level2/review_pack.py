@@ -14,6 +14,7 @@ from .models import (
     BuildSheet,
     LayerMethodDecision,
     ProviderSpendSummary,
+    SourcingReport,
     TaskStatus,
     VariantPackage,
 )
@@ -173,6 +174,7 @@ def render_review(
     sheet: BuildSheet,
     variants: list[VariantPackage],
     provider: ProviderSpendSummary | None = None,
+    sourcing: SourcingReport | None = None,
 ) -> str:
     summary = budget.summary
     ready = sum(1 for asset in sheet.assets if asset.status is TaskStatus.ACCEPTED)
@@ -358,12 +360,50 @@ def render_review(
                 "",
             ]
         )
-    candidates = sum(len(decision.candidates) for decision in decisions)
+    decision_candidates = sum(len(decision.candidates) for decision in decisions)
+    sourcing_candidates = (
+        sum(len(asset.candidates) for asset in sourcing.assets)
+        if sourcing is not None
+        else 0
+    )
+    candidates = decision_candidates + sourcing_candidates
+    sourcing_label = "discovery complete" if sourcing_candidates else "not run"
+    if sourcing is not None:
+        lines.extend(
+            [
+                "## Sourcing",
+                "",
+                "| Asset | Query | Status | Candidates | Chosen |",
+                "|---|---|---|---|---|",
+            ]
+        )
+        for sourcing_asset in sourcing.assets:
+            lines.append(
+                f"| {sourcing_asset.asset_id} | {sourcing_asset.query} | "
+                f"{sourcing_asset.status} | {len(sourcing_asset.candidates)} | "
+                f"{sourcing_asset.chosen_candidate or '—'} |"
+            )
+        for sourcing_asset in sourcing.assets:
+            for candidate in sourcing_asset.candidates:
+                if candidate.candidate_id != sourcing_asset.chosen_candidate:
+                    continue
+                lines.extend(
+                    [
+                        "",
+                        f"Chosen for {sourcing_asset.asset_id}: **{candidate.title}** by "
+                        f"{candidate.creator} · {candidate.licence_class.value} · "
+                        f"fit {candidate.fit_score}",
+                        f"- {candidate.attribution}",
+                        f"- {candidate.page_url}",
+                    ]
+                )
+
     lines.extend(
         [
             "## Compliance",
             "",
-            f"- Sourcing round: **not run**; {candidates} candidates recorded.",
+            f"- Sourcing round: **{sourcing_label}**; {candidates} candidates "
+            f"recorded ({sourcing_candidates} from sourcing).",
             "- Licence gate: NC, ND, share-alike, BBC Sound Effects and GADM are "
             "excluded by the catalogue.",
             "- Manual-only sources are never fetched by script.",

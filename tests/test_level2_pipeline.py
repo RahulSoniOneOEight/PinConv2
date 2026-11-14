@@ -409,6 +409,57 @@ def test_gate_checks_are_not_vacuous(approved: SimpleNamespace) -> None:
     assert catalogue_checks["G2A-06"].state is CheckState.FAIL
 
 
+def test_gate_2a_reads_sourcing_candidates(approved: SimpleNamespace) -> None:
+    from pinconv2.level2.gate2 import evaluate_2a
+    from pinconv2.level2.models import (
+        AssetSourcing,
+        CheckState,
+        GateVerdict,
+        LicenceClass,
+        SourcingCandidate,
+        SourcingReport,
+    )
+
+    candidate = SourcingCandidate(
+        candidate_id="CND-AS10-01",
+        asset_id="AS-10",
+        provider="ccmixter",
+        title="Warm Instrumental",
+        creator="artist",
+        page_url="https://ccmixter.org/files/a/1",
+        licence_class=LicenceClass.CC_BY,
+        licence_url="https://creativecommons.org/licenses/by/3.0/",
+        attribution='"Warm Instrumental" by artist (CC BY 3.0)',
+        fit_score=85,
+        gate_verdict=GateVerdict.PASS,
+    )
+    report = SourcingReport(
+        run_id="rev-002",
+        assets=[
+            AssetSourcing(
+                asset_id="AS-10",
+                query="warm",
+                status="discovered",
+                candidates=[candidate],
+                chosen_candidate=candidate.candidate_id,
+            )
+        ],
+    )
+    level2 = approved.outcome.level2.model_copy(update={"sourcing": report})
+    packet = evaluate_2a(
+        approved.store.load_plan(PROJECT, 2),
+        level2,
+        approved.outcome.sheet,
+        level2.decisions,
+        approved.outcome.qc,
+        expected_bundle_hash=approved.outcome.sheet.manifest.bundle_hash,
+        expected_packet_hash=approved.outcome.sheet.manifest.packet_hash,
+    )
+    checks = {check.id: check for check in packet.checks}
+    assert checks["G2A-06"].state is CheckState.PASS
+    assert "from sourcing" in checks["G2A-06"].detail
+
+
 def test_feedback_form_and_catalogue_resolutions(approved: SimpleNamespace) -> None:
     run_dir = approved.run.run_dir("rev-002")
     feedback = (run_dir / "feedback-form.md").read_text(encoding="utf-8")

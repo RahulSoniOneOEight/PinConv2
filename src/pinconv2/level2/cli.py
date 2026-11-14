@@ -115,6 +115,39 @@ def run_level2_command(store: ProjectStore, args: argparse.Namespace) -> int:
     level2 = run.read_level2(run_id)
     sheet = run.read_build_sheet(run_id)
 
+    if command == "source":
+        from .sourcing import DEFAULT_QUERIES, source_assets
+
+        selected = {
+            asset_id: DEFAULT_QUERIES[asset_id]
+            for asset_id in (args.asset or list(DEFAULT_QUERIES))
+            if asset_id in DEFAULT_QUERIES
+        }
+        sourcing_report = source_assets(
+            store,
+            project_id,
+            revision,
+            run_id,
+            queries=selected,
+            limit=int(args.limit),
+        )
+        _print(
+            {
+                "run": run_id,
+                "assets": [
+                    {
+                        "asset_id": asset.asset_id,
+                        "status": asset.status,
+                        "candidates": len(asset.candidates),
+                        "chosen": asset.chosen_candidate,
+                    }
+                    for asset in sourcing_report.assets
+                ],
+                "report": str(run.run_dir(run_id) / "sourcing-report.md"),
+            }
+        )
+        return 0
+
     if command == "build":
         from .build import run_build
 

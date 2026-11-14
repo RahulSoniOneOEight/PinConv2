@@ -22,6 +22,7 @@ from .models import (
     LayerMethodDecision,
     Method,
     ShotPackage,
+    SourcingReport,
     TaskStatus,
     Timeline,
     TimelineEntry,
@@ -42,9 +43,25 @@ def build_asset_packages(
     plan: ProductionPlan,
     intents: list[AssetIntent],
     tasks: list[AssetProductionTask],
+    sourcing: SourcingReport | None = None,
 ) -> list[AssetPackage]:
     task_map = {task.asset_id: task for task in tasks}
     intent_map = {intent.asset_id: intent for intent in intents}
+    chosen = (
+        {
+            asset.asset_id: next(
+                (
+                    candidate
+                    for candidate in asset.candidates
+                    if candidate.candidate_id == asset.chosen_candidate
+                ),
+                None,
+            )
+            for asset in sourcing.assets
+        }
+        if sourcing is not None
+        else {}
+    )
     packages: list[AssetPackage] = []
     for asset in plan.assets:
         task = task_map[asset.id]
@@ -52,6 +69,12 @@ def build_asset_packages(
         blockers = list(task.blockers)
         if intent.holds:
             blockers.extend(hold for hold in intent.holds if hold not in blockers)
+        selected = chosen.get(asset.id)
+        source = (
+            f"stock:{selected.provider}:{selected.title}"
+            if selected is not None
+            else f"{task.source_strategy.value}:{asset.source or 'pending acquisition'}"
+        )
         packages.append(
             AssetPackage(
                 asset_id=asset.id,
@@ -59,7 +82,7 @@ def build_asset_packages(
                 truth_class=intent.truth_class,
                 impact=intent.impact,
                 methods=list(task.methods),
-                source=f"{task.source_strategy.value}:{asset.source or 'pending acquisition'}",
+                source=source,
                 processing=[f"{op.op}" for op in task.processing],
                 bindings=list(asset.used_by),
                 acceptance=asset.acceptance or asset.description,
@@ -292,8 +315,9 @@ def assemble(
     packet_hash: str,
     preview_paths: dict[str, str] | None = None,
     corrections: list[Correction] | None = None,
+    sourcing: SourcingReport | None = None,
 ) -> BuildSheet:
-    assets = build_asset_packages(plan, intents, tasks)
+    assets = build_asset_packages(plan, intents, tasks, sourcing)
     shots = build_shot_packages(plan, decisions, tasks, preview_paths)
     manifest = build_manifest(
         run_id=run_id,

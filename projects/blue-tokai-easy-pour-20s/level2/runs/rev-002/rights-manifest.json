@@ -161,8 +161,21 @@
       "status": "needs_approval"
     }
   ],
-  "attributions": [],
-  "note": "No CC BY candidate is in the package yet.",
+  "attributions": [
+    {
+      "asset_id": "AS-10",
+      "attribution": "\"Lost Roamin'\" by speck (CC BY 3.0)",
+      "licence_class": "CC-BY",
+      "page_url": "https://ccmixter.org/files/speck/71077"
+    },
+    {
+      "asset_id": "AS-14",
+      "attribution": "\"This Is Our Music - Instrumental\" by gabriel_shelligton (CC BY 3.0)",
+      "licence_class": "CC-BY",
+      "page_url": "https://ccmixter.org/files/gabriel_shelligton/70971"
+    }
+  ],
+  "note": "CC BY attribution is required for the chosen music candidates.",
   "plan_hash": "1370f029b0b35730625c459cf85579bfd767d2e4a7b62016055e100d15f2aba5",
   "run_id": "rev-002"
 }

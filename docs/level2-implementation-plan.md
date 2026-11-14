@@ -30,7 +30,8 @@ real IDs from the approved plan, and every number is reproducible from
 | Critical path | The computed path is capture-led (`CAP-01 → AS-05/06/08 → shot → VO-01`), not the illustrative order in §15.1. |
 | Sourcing | No sourcing round runs in the spend-free slice; candidate licences are reported as unverified, not as cleared. |
 | Provider spend | fal.ai + Runware share a $2.00 cap with a $0.50 per-job maximum; every call is quoted, reserved and receipted by `ProviderGovernor`, and Gate 2A adds `G2A-14`. |
-| Verification | 119 tests pass; Ruff and mypy are clean; the Blue Tokai run produces the full artifact set under `projects/blue-tokai-easy-pour-20s/level2/runs/rev-002/`. |
+| Sourcing | `level2 source` searches ccMixter with `lic=by`, filters NC/ND/SA and vocal tracks, downloads 20-second previews, probes them, gates each candidate and records the chosen track. Final acquisition still needs Gate 2A. |
+| Verification | 121 tests pass; Ruff and mypy are clean; the Blue Tokai run produces the full artifact set under `projects/blue-tokai-easy-pour-20s/level2/runs/rev-002/`. |
 
 
 ---
@@ -167,6 +168,9 @@ projects/blue-tokai-easy-pour-20s/level2/runs/rev-002/
   provider-budget.json          fal.ai + Runware cap and per-job maximum
   provider-spend.jsonl          provider reservations and receipts
   provider-spend.json           provider spend summary
+  asset-sourcing.json           candidate search, licences, chosen previews
+  sourcing-report.md            readable sourcing record
+  sourcing/                     preview files for review (not final acquisition)
   spend-ledger.json             reservations and receipts (empty until Gate 2A)
   catalogue-resolutions.json    candidate → licence → origin verification
   licence-gate-report.json      blocks, warnings, attributions
@@ -1250,6 +1254,7 @@ src/pinconv2/level2/
   generation.py        generation spec models + allowlist
   budget.py            lines, dedupe, reserve, quads, quote lifecycle
   governance.py        fal.ai/Runware provider cap, reservations, receipts
+  sourcing.py          catalogue search, licence gate, previews and sourcing record
   flow_scheduler.py    graph, batches, critical path
   build_sheet.py       builder + manifest + renderers
   review_pack.py       markdown/docx review pack

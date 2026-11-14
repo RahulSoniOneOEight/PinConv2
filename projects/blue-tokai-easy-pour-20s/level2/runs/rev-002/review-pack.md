@@ -201,7 +201,7 @@ Raw per-asset estimates: $89.00; lean mode carries $81.00 as in-kind.
 
 - Status: **blocked**
 - Method: M1
-- Source: stock:Production music library
+- Source: stock:ccmixter:Lost Roamin'
 - Rights: needs_approval · hold `HI-03`
 - Cost: $0.00 cash · $10.00 in-kind (ES-01)
 - Acceptance: Licence covers paid YouTube; 20-second edit supports the 275 range lift and 445 resolve.
@@ -249,7 +249,7 @@ Raw per-asset estimates: $89.00; lean mode carries $81.00 as in-kind.
 
 - Status: **conditional**
 - Method: M1
-- Source: stock:Production music library
+- Source: stock:ccmixter:This Is Our Music - Instrumental
 - Rights: needs_approval · hold `HI-03`
 - Cost: $0.00 cash (fallback, unpriced)
 - Acceptance: Fallback bed matches the primary tempo and emotional resolve.
@@ -354,9 +354,23 @@ Raw per-asset estimates: $89.00; lean mode carries $81.00 as in-kind.
 - Status: pending
 - Blockers: AC-16 pending: 9:16 safe-area template not confirmed
 
+## Sourcing
+
+| Asset | Query | Status | Candidates | Chosen |
+|---|---|---|---|---|
+| AS-10 | coffee acoustic instrumental | discovered | 4 | CND-AS10-02 |
+| AS-14 | warm ambient instrumental | discovered | 5 | CND-AS14-02 |
+
+Chosen for AS-10: **Lost Roamin'** by speck · CC-BY · fit 85
+- "Lost Roamin'" by speck (CC BY 3.0)
+- https://ccmixter.org/files/speck/71077
+
+Chosen for AS-14: **This Is Our Music - Instrumental** by gabriel_shelligton · CC-BY · fit 85
+- "This Is Our Music - Instrumental" by gabriel_shelligton (CC BY 3.0)
+- https://ccmixter.org/files/gabriel_shelligton/70971
 ## Compliance
 
-- Sourcing round: **not run**; 0 candidates recorded.
+- Sourcing round: **discovery complete**; 9 candidates recorded (9 from sourcing).
 - Licence gate: NC, ND, share-alike, BBC Sound Effects and GADM are excluded by the catalogue.
 - Manual-only sources are never fetched by script.
 - Aggregator licences (Openverse, IA, Wikimedia) must resolve at the origin.

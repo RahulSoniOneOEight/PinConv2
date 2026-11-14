@@ -3,7 +3,7 @@
 **Run:** `rev-002` · plan revision 2
 **Project:** `blue-tokai-easy-pour-20s`
 **Plan hash:** `1370f029b0b35730625c459cf85579bfd767d2e4a7b62016055e100d15f2aba5`
-**Generated:** 2026-11-14T20:40:50+00:00
+**Generated:** 2026-11-14T20:56:10+00:00
 **Verdict:** PASS — the spend-free Level 2 slice produced the full package; Gate 2A is ready for a human decision.
 
 ## Environment
@@ -20,7 +20,7 @@
 
 ```
 $ python -m pytest -q
-119 passed in 12.21s
+121 passed in 11.02s
 ```
 
 ```
@@ -30,7 +30,7 @@ All checks passed!
 
 ```
 $ python -m mypy
-Success: no issues found in 74 source files
+Success: no issues found in 75 source files
 ```
 
 ## Acceptance run — Blue Tokai rev-002
@@ -42,7 +42,7 @@ Success: no issues found in 74 source files
 | Shots | 6 (SH-01 … SH-06) |
 | Effects | 6 (FX-01 … FX-06) |
 | Variant | `VO-01`, 1080×1920, 500 frames, 38 overrides |
-| Stock-sourced assets | 0 acquired; `AS-10`/`AS-14` are planned library music (`M1`), 0 candidates |
+| Stock-sourced assets | 9 library-music candidates, 9 previews, 2 chosen, 0 final acquisitions |
 | Truth classes | 10 exact, 12 exact_text, 3 proof, 7 atmospheric, 6 representative |
 | Impact | 18 high, 10 medium, 10 low |
 | Cash plan | $0.00 (lean) |
@@ -53,7 +53,7 @@ Success: no issues found in 74 source files
 
 ## Gate 2A
 
-**Status:** `ready_for_approval` · 7 pass, 7 warn, 0 fail · blockers: 0
+**Status:** `ready_for_approval` · 8 pass, 6 warn, 0 fail · blockers: 0
 
 | Check | State | Detail |
 |---|---|---|
@@ -62,7 +62,7 @@ Success: no issues found in 74 source files
 | G2A-03 Exact and proof policy | pass | no exact layer uses stock or generation and every proof layer is captured |
 | G2A-04 Budget within cap | pass | total $0.00, worst $0.00, cap $2.00, headroom $2.00 |
 | G2A-05 Rights posture | warn | 13 assets need written approval; every one names a hold owner |
-| G2A-06 Catalogue compliance | warn | no sourcing round has run; the licence gate has nothing to verify yet |
+| G2A-06 Catalogue compliance | pass | 9 candidates checked; 9 passed the licence gate; 9 with previews (9 from sourcing) |
 | G2A-07 Probe plan | pass | every M2-M7 choice has a probe before full commit |
 | G2A-08 Capture plan | warn | CAP-01 covers 4 assets at $0.00 cash ($18.00 in-kind); release HI-04 is still pending |
 | G2A-09 Technical QC | pass | 3 findings, verdict pass |

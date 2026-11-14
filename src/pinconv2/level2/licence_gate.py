@@ -45,6 +45,8 @@ def classify_licence(text: str) -> LicenceClass:
         return LicenceClass.CC0
     if "CC-BY" in normalised or "CC BY" in normalised:
         return LicenceClass.CC_BY
+    if "/BY/" in normalised or "ATTRIBUTION" in normalised:
+        return LicenceClass.CC_BY
     if "EDITORIAL" in normalised:
         return LicenceClass.EDITORIAL
     if "BLOCK" in normalised:

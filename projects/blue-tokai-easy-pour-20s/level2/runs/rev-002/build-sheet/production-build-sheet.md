@@ -133,7 +133,7 @@ Source plan hash: `1370f029b0b35730625c459cf85579bfd767d2e4a7b62016055e100d15f2a
 
 #### AS-10 · Music bed, 20 seconds
 
-- Source: stock:Production music library
+- Source: stock:ccmixter:Lost Roamin'
 - Processing: trim, fade, loudness_norm, resample, encode
 - Bindings: AU-02
 - Acceptance: Licence covers paid YouTube; 20-second edit supports the 275 range lift and 445 resolve.
@@ -169,7 +169,7 @@ Source plan hash: `1370f029b0b35730625c459cf85579bfd767d2e4a7b62016055e100d15f2a
 
 #### AS-14 · Music fallback track
 
-- Source: stock:Production music library
+- Source: stock:ccmixter:This Is Our Music - Instrumental
 - Processing: trim, fade, loudness_norm, resample, encode
 - Bindings: none
 - Acceptance: Fallback bed matches the primary tempo and emotional resolve.

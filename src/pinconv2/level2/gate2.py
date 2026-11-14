@@ -199,7 +199,14 @@ def evaluate_2a(
         rights_detail = "every asset is cleared or owned"
     checks.append(_check("G2A-05", "Rights posture", rights_state, rights_detail))
 
-    candidates = [candidate for decision in decisions for candidate in decision.candidates]
+    sourcing_candidates = (
+        [candidate for asset in level2.sourcing.assets for candidate in asset.candidates]
+        if level2.sourcing is not None
+        else []
+    )
+    candidates = [
+        candidate for decision in decisions for candidate in decision.candidates
+    ] + sourcing_candidates
     blocked_candidates = [
         candidate.candidate_id
         for candidate in candidates
@@ -227,7 +234,16 @@ def evaluate_2a(
         catalogue_detail = f"manual-only sources scripted: {manual_scripted}"
     else:
         catalogue_state = CheckState.PASS
-        catalogue_detail = "every candidate passed the licence and origin gate"
+        passed = sum(
+            1 for candidate in candidates if candidate.gate_verdict is GateVerdict.PASS
+        )
+        previewed = sum(
+            1 for candidate in candidates if getattr(candidate, "preview_path", None)
+        )
+        catalogue_detail = (
+            f"{len(candidates)} candidates checked; {passed} passed the licence gate; "
+            f"{previewed} with previews ({len(sourcing_candidates)} from sourcing)"
+        )
     checks.append(_check("G2A-06", "Catalogue compliance", catalogue_state, catalogue_detail))
 
     missing_probe = [

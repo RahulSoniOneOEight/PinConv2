@@ -6,7 +6,7 @@
   "methods": [
     "M1"
   ],
-  "source": "stock:Production music library",
+  "source": "stock:ccmixter:This Is Our Music - Instrumental",
   "processing": [
     "trim",
     "fade",

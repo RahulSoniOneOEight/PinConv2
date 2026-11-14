@@ -49,6 +49,7 @@ from .models import (
     QcReport,
     RunState,
     SourceStrategy,
+    SourcingReport,
     TaskStatus,
 )
 from .preview import render_all
@@ -186,6 +187,38 @@ def _write_supporting(
     blocked_sources = [source.id for source in SOURCES if source.licence_class.value == "BLOCKED"]
     manual_only = [source.id for source in SOURCES if not source.scriptable]
     aggregators = [source.id for source in SOURCES if source.aggregator]
+    sourcing_assets = level2.sourcing.assets if level2.sourcing is not None else []
+    candidate_rows = [
+        {
+            "asset_id": asset.asset_id,
+            "candidate_id": candidate.candidate_id,
+            "provider": candidate.provider,
+            "title": candidate.title,
+            "creator": candidate.creator,
+            "licence_class": candidate.licence_class.value,
+            "licence_url": candidate.licence_url,
+            "page_url": candidate.page_url,
+            "origin_verified": True,
+            "fit_score": candidate.fit_score,
+            "gate_verdict": candidate.gate_verdict.value,
+        }
+        for asset in sourcing_assets
+        for candidate in asset.candidates
+    ]
+    chosen_rows = [
+        {
+            "asset_id": asset.asset_id,
+            "candidate_id": candidate.candidate_id,
+            "licence_class": candidate.licence_class.value,
+            "attribution": candidate.attribution,
+            "page_url": candidate.page_url,
+            "status": asset.status,
+        }
+        for asset in sourcing_assets
+        for candidate in asset.candidates
+        if candidate.candidate_id == asset.chosen_candidate
+    ]
+    sourcing_round = "discovery" if sourcing_assets else "not_run"
     run.write_data(
         run_id,
         "licence-gate-report.json",
@@ -193,8 +226,11 @@ def _write_supporting(
             "blocked_sources": sorted(blocked_sources),
             "manual_only_sources": sorted(manual_only),
             "aggregators": sorted(aggregators),
-            "candidates": [],
-            "note": "No sourcing round has run. Candidate licences are unverified.",
+            "candidates": candidate_rows,
+            "note": (
+                f"Sourcing round: {sourcing_round}. {len(candidate_rows)} candidates "
+                "checked; acquisition still needs Gate 2A."
+            ),
         },
     )
 
@@ -214,8 +250,20 @@ def _write_supporting(
             }
             for asset in sheet.assets
         ],
-        "attributions": [],
-        "note": "No CC BY candidate is in the package yet.",
+        "attributions": [
+            {
+                "asset_id": row["asset_id"],
+                "attribution": row["attribution"],
+                "licence_class": row["licence_class"],
+                "page_url": row["page_url"],
+            }
+            for row in chosen_rows
+        ],
+        "note": (
+            "CC BY attribution is required for the chosen music candidates."
+            if chosen_rows
+            else "No CC BY candidate is in the package yet."
+        ),
     }
     run.write_data(run_id, "rights-manifest.json", rights)
 
@@ -241,12 +289,14 @@ def _write_supporting(
         "catalogue-resolutions.json",
         {
             "run_id": run_id,
-            "sourcing_round": "not_run",
-            "candidates": [],
-            "resolutions": [],
+            "sourcing_round": sourcing_round,
+            "candidates": candidate_rows,
+            "resolutions": chosen_rows,
             "note": (
-                "No sourcing round has run. Each future candidate records provider, "
-                "licence, origin verification, attribution and cost here."
+                "Candidates were discovered and licence-gated. Chosen previews are in "
+                "sourcing/; final acquisition still needs Gate 2A."
+                if candidate_rows
+                else "No sourcing round has run."
             ),
         },
     )
@@ -358,6 +408,13 @@ def plan_level2(
         run.write_text(run_id, f"build-sheet/previews/9x16/{shot_id}.svg", svg)
     preview_paths = {shot_id: f"previews/16x9/{shot_id}.svg" for shot_id in previews_16}
 
+    sourcing_path = run.run_dir(run_id) / "asset-sourcing.json"
+    sourcing = (
+        SourcingReport.model_validate_json(sourcing_path.read_text(encoding="utf-8"))
+        if sourcing_path.is_file()
+        else None
+    )
+
     sheet = BuildSheetBuilder().build(
         plan,
         intents,
@@ -371,6 +428,7 @@ def plan_level2(
         packet_hash=inputs.approval.packet_hash,
         preview_paths=preview_paths,
         corrections=corrections,
+        sourcing=sourcing,
     )
     scheduler = FlowScheduler()
     flow = scheduler.build(plan, tasks, sheet)
@@ -401,6 +459,7 @@ def plan_level2(
         budget=budget,
         budget_policy=policy,
         provider_budget=provider_budget,
+        sourcing=sourcing,
         flow=flow,
         variants=variants,
         blockers=sorted(set(blockers)),

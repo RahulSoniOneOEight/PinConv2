@@ -445,3 +445,42 @@ def test_fal_engine_never_exceeds_the_provider_cap(
     undisclosed = spec.model_copy(update={"disclosure_required": False})
     with pytest.raises(MethodMatrixError):
         engine.generate(undisclosed)
+
+
+def test_sourcing_filters_noncommercial_and_gates(tmp_path: Path) -> None:
+    from pinconv2.level2.sourcing import collect_candidates
+
+    def fetch(query: str) -> list[dict[str, object]]:
+        return [
+            {
+                "upload_name": "Night Drive",
+                "upload_tags": ",instrumental,non_commercial,",
+                "user_name": "artist-a",
+                "file_page_url": "https://ccmixter.org/files/a/1",
+                "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+                "license_name": "Attribution Noncommercial (4.0)",
+                "files": [{"download_url": "https://example.invalid/a.mp3"}],
+            },
+            {
+                "upload_name": "Warm Instrumental",
+                "upload_tags": ",instrumental,warm,coffee,",
+                "user_name": "artist-b",
+                "file_page_url": "https://ccmixter.org/files/b/2",
+                "license_url": "https://creativecommons.org/licenses/by/3.0/",
+                "license_name": "Attribution (3.0)",
+                "files": [{"download_url": "https://example.invalid/b.mp3"}],
+            },
+        ]
+
+    def download(url: str, destination: Path) -> Path:
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        destination.write_bytes(b"not-a-real-mp3")
+        return destination
+
+    candidates = collect_candidates("AS-10", "warm", tmp_path, fetch=fetch, download=download)
+    assert len(candidates) == 1
+    candidate = candidates[0]
+    assert candidate.title == "Warm Instrumental"
+    assert candidate.licence_class is LicenceClass.CC_BY
+    assert candidate.gate_verdict is GateVerdict.PASS
+    assert candidate.fit_score >= 80

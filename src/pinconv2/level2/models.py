@@ -717,6 +717,40 @@ class GatePacket(StrictModel):
         return self
 
 
+class SourcingCandidate(StrictModel):
+    candidate_id: str = Field(pattern=r"^CND-AS\d{2}-\d{2}$")
+    asset_id: str = Field(pattern=r"^AS-\d{2}$")
+    provider: str = Field(min_length=1, max_length=100)
+    title: str = Field(min_length=1, max_length=300)
+    creator: str = Field(min_length=1, max_length=200)
+    page_url: str = Field(min_length=1, max_length=1000)
+    file_url: str | None = Field(default=None, max_length=1000)
+    licence_class: LicenceClass
+    licence_url: str | None = Field(default=None, max_length=1000)
+    attribution: str | None = Field(default=None, max_length=500)
+    duration_seconds: float | None = Field(default=None, gt=0)
+    preview_path: str | None = Field(default=None, max_length=500)
+    fit_score: int = Field(ge=0, le=100)
+    gate_verdict: GateVerdict = GateVerdict.HOLD
+    gate_reasons: list[str] = Field(default_factory=list)
+    scriptable: bool = True
+
+
+class AssetSourcing(StrictModel):
+    asset_id: str = Field(pattern=r"^AS-\d{2}$")
+    query: str = Field(min_length=1, max_length=300)
+    status: str = Field(pattern=r"^(discovered|acquired|blocked|empty)$")
+    candidates: list[SourcingCandidate] = Field(default_factory=list)
+    chosen_candidate: str | None = Field(default=None, pattern=r"^CND-AS\d{2}-\d{2}$")
+    note: str | None = Field(default=None, max_length=500)
+
+
+class SourcingReport(StrictModel):
+    run_id: str = Field(min_length=1, max_length=40)
+    assets: list[AssetSourcing] = Field(min_length=1)
+    created_at: str = Field(default_factory=utc_now)
+
+
 class ProviderBudget(StrictModel):
     currency: str = Field(default="USD", min_length=3, max_length=3)
     cap_usd: float = Field(gt=0)
@@ -785,6 +819,7 @@ class Level2Plan(StrictModel):
     budget: BudgetEstimate
     budget_policy: BudgetPolicy | None = None
     provider_budget: ProviderBudget | None = None
+    sourcing: SourcingReport | None = None
     flow: FlowGraph
     variants: list[VariantPackage] = Field(default_factory=list)
     blockers: list[str] = Field(default_factory=list)

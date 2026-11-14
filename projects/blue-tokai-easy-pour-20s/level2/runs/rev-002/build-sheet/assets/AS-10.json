@@ -6,7 +6,7 @@
   "methods": [
     "M1"
   ],
-  "source": "stock:Production music library",
+  "source": "stock:ccmixter:Lost Roamin'",
   "processing": [
     "trim",
     "fade",

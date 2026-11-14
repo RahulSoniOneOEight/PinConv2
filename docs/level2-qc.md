@@ -139,6 +139,27 @@ boundary: production paths use `open_governor`, which reads
 `gate2/packet-2a.json`, and a live provider key is still required. The $2 cap
 cannot be exceeded through the governor API.
 
+## Round 8 — sourcing discovery — PASS
+
+The user correctly challenged that no assets had been sourced. The cause was
+twofold: the spend-free slice stopped at Gate 2A, and no sourcing runner had
+been implemented. A runner now exists and a real discovery round ran.
+
+- ccMixter searched with `lic=by`; NC/ND/SA and vocal tracks filtered.
+- 9 candidates for the two stock-routed music assets: 4 for `AS-10`, 5 for
+  `AS-14`; all `CC-BY 3.0`, all licence gate `pass`.
+- Nine 20-second previews downloaded (about 2.1 MB total) and probed.
+- Distinct choices: `AS-10` "Lost Roamin'" by speck; `AS-14` "This Is Our
+  Music - Instrumental" by gabriel_shelligton.
+- Build-sheet sources and the rights manifest carry the chosen titles, CC BY
+  3.0 attributions and source URLs.
+- Gate 2A `G2A-06` passes with "9 candidates checked; 9 passed the licence
+  gate; 9 with previews".
+
+One medium finding: only the top three candidates per asset were previewed
+while the gate text implied all nine. Fixed by previewing all nine before the
+final pass. Nothing was acquired into `sourced/`, and no money was spent.
+
 ## Verified numbers (re-derived, not trusted)
 
 | Claim | Result |
@@ -153,6 +174,7 @@ cannot be exceeded through the governor API.
 | Capture | one session, `ES-06` charged once; lean run $0 cash / $18 in-kind |
 | Gates | 2A `ready_for_approval`, no blockers; 2B and build refuse before approval |
 | Provider budget | fal+Runware cap 2.00, per-job 0.50, spent 0.00, remaining 2.00 |
+| Stock sourcing | 9 CC BY candidates, 9 previews, 2 chosen, 0 final acquisitions |
 | Spend | no reservation, no receipt, `spent_usd = 0.00` |
 
 ## Final verdict
@@ -164,7 +186,7 @@ path is still behind a named human Gate 2A approval.
 ## Evidence
 
 ```
-python -m pytest -q          → 119 passed
+python -m pytest -q          → 121 passed
 python -m ruff check src tests → All checks passed!
 python -m mypy               → Success: no issues found in 72 source files
 pinconv2 level2 plan ... --cap 2 --lean --provider-cap 2 --per-job-cap 0.5
@@ -181,6 +203,9 @@ pinconv2 level2 build        → error: Gate 2A is not approved (exit 2)
   `level2 plan --cap 100`.
 - Lean substitutions (self-operated capture, in-house edit, library music) need
   Gate 2A approval; they are listed individually in the review pack.
+- Nine library-music candidates were discovered and previewed; nothing has
+  been acquired into `sourced/`, so the chosen tracks still need Gate 2A and the
+  final licence confirmation.
 - No fal.ai or Runware call has been made. The full $2.00 provider cap remains
   available; a call needs an approved Gate 2A, a live provider key and a
   positive quote within the $0.50 per-job maximum.
