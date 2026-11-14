@@ -15,6 +15,8 @@ from ..models import (
     ClaimStatus,
     ContentFamily,
     DataStatus,
+    EffectAssessment,
+    EffectFamily,
     EvidenceReliability,
     EvidenceSource,
     ExactData,
@@ -29,6 +31,7 @@ from ..models import (
     ResearchQuestion,
     RightsStatus,
     Tag,
+    VisualBehaviour,
 )
 
 PROJECT_ID = "blue-tokai-easy-pour-20s"
@@ -685,12 +688,163 @@ def build_blue_tokai_research() -> ResearchPack:
         ),
     ]
 
+    effect_assessments = [
+        EffectAssessment(
+            id="EA-01",
+            family=EffectFamily.PRACTICAL,
+            name="steam_drift",
+            behaviour=VisualBehaviour.SIMULATE,
+            use_case="Signal fresh coffee and add atmosphere without hiding the pack",
+            selected=True,
+            finding_ids=["F-02", "F-12"],
+            rationale=(
+                "Steam is a small, physically legible cue that makes the coffee feel hot "
+                "and fresh without adding a claim."
+            ),
+            feasibility="In-house particle or practical steam; low render cost.",
+            rights_safety="No third-party media; keep steam clear of the exact label.",
+            fallback="Static pack plate with a slow grade shift.",
+        ),
+        EffectAssessment(
+            id="EA-02",
+            family=EffectFamily.LIQUID_FOOD,
+            name="macro_pour",
+            behaviour=VisualBehaviour.PROVE,
+            use_case="Show hot water hitting the coffee bed inside the built-in filter",
+            selected=True,
+            finding_ids=["F-02", "F-03"],
+            rationale=(
+                "The brief asks for the water hitting the grounds; a real macro pour is "
+                "the clearest proof of the brewing method."
+            ),
+            feasibility="Controlled food shoot at 50 fps, finished at 25 fps.",
+            rights_safety="Hand model release and food-safe set required.",
+            fallback="Still pour plate with animated steam and drip.",
+        ),
+        EffectAssessment(
+            id="EA-03",
+            family=EffectFamily.EDITORIAL,
+            name="time_lapse",
+            behaviour=VisualBehaviour.COMPRESS,
+            use_case="Carry the repeated pours and two-minute steep inside a 20-second film",
+            selected=True,
+            finding_ids=["F-02", "F-08"],
+            rationale=(
+                "The real brew cannot fit in 20 seconds; a visible time-lapse preserves "
+                "the method while compressing time honestly."
+            ),
+            feasibility="Edit-only; no added capture cost.",
+            rights_safety="Must carry the on-screen disclosure 'Brew sequence compressed'.",
+            fallback="Short step montage with the same disclosure.",
+        ),
+        EffectAssessment(
+            id="EA-04",
+            family=EffectFamily.PRODUCT,
+            name="range_fan",
+            behaviour=VisualBehaviour.REVEAL,
+            use_case="Show the Mixed Bag plus light, medium-dark and dark packs",
+            selected=True,
+            finding_ids=["F-01", "F-11"],
+            rationale=(
+                "A four-pack fan makes the light-to-dark range concrete without a "
+                "catalogue or a second end card."
+            ),
+            feasibility="Product stills with a single camera move.",
+            rights_safety="All four packs need brand advertising clearance.",
+            fallback="Captured four-pack still with a slow scale.",
+        ),
+        EffectAssessment(
+            id="EA-05",
+            family=EffectFamily.PRACTICAL,
+            name="finished_steam",
+            behaviour=VisualBehaviour.SIMULATE,
+            use_case="Show the finished cup as hot, fresh coffee",
+            selected=True,
+            finding_ids=["F-02", "F-12"],
+            rationale=(
+                "A thin steam plume makes the finished cup read as a real brew rather than a prop."
+            ),
+            feasibility="Practical steam on set or a small particle pass.",
+            rights_safety="Keep steam clear of the pack label and CTA.",
+            fallback="Still cup with a simple animated steam plate.",
+        ),
+        EffectAssessment(
+            id="EA-06",
+            family=EffectFamily.MOTION_TYPE,
+            name="cta_fade",
+            behaviour=VisualBehaviour.EMPHASISE,
+            use_case="Land the purchase prompt after the proof and range",
+            selected=True,
+            finding_ids=["F-07"],
+            rationale=(
+                "A short fade-up gives the CTA its own beat without competing with the "
+                "product demonstration."
+            ),
+            feasibility="Edit/motion only.",
+            rights_safety="No added claim; CTA wording remains pending ED-04.",
+            fallback="Static end card with the CTA already visible.",
+        ),
+        EffectAssessment(
+            id="EA-07",
+            family=EffectFamily.LIGHTING,
+            name="light_sweep",
+            behaviour=VisualBehaviour.REVEAL,
+            use_case="Add a premium pack sheen",
+            selected=False,
+            finding_ids=["F-07"],
+            rationale=(
+                "A sweep adds gloss but does not prove the built-in filter; the real "
+                "demo is stronger in this film."
+            ),
+            feasibility="Easy in grade or practical lighting.",
+            rights_safety="No rights issue.",
+            fallback="Not needed; effect rejected.",
+            limitations="Rejected as decoration for this brief.",
+        ),
+        EffectAssessment(
+            id="EA-08",
+            family=EffectFamily.VFX,
+            name="particle_glow",
+            behaviour=VisualBehaviour.EMPHASISE,
+            use_case="Add premium sparkle around the product",
+            selected=False,
+            finding_ids=["F-07"],
+            rationale=(
+                "Particles would compete with the pack and imply a quality cue the brand "
+                "has not asked for."
+            ),
+            feasibility="Renderable but adds cost.",
+            rights_safety="No rights issue; disclosure not needed.",
+            fallback="Not needed; effect rejected.",
+            limitations="Rejected as decoration.",
+        ),
+        EffectAssessment(
+            id="EA-09",
+            family=EffectFamily.VFX,
+            name="cgi_liquid",
+            behaviour=VisualBehaviour.TRANSFORM,
+            use_case="Build a stylised liquid ribbon around the pack",
+            selected=False,
+            finding_ids=["F-02", "F-08"],
+            rationale=(
+                "CG liquid would add cost and risk an uncanny result; the real pour is "
+                "more credible and already in the brief."
+            ),
+            feasibility="High-cost simulation and look development.",
+            rights_safety="No product claim, but simulation needs disclosure if it reads "
+            "as real evidence.",
+            fallback="Real macro pour.",
+            limitations="Rejected for cost and credibility on this brief.",
+        ),
+    ]
+
     return ResearchPack(
         project_id=PROJECT_ID,
         revision=1,
         questions=questions,
         sources=sources,
         findings=findings,
+        effect_assessments=effect_assessments,
         synthesis=(
             "The product and its core benefit are supported by Blue Tokai's own product "
             "and brewing pages: a single-serve sachet with a built-in paper filter, "

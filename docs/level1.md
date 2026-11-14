@@ -58,12 +58,14 @@ not stop the critique; it stops Gate 1.
 | `ResearchQuestion` | question, why it matters, priority, status |
 | `EvidenceSource` | locator, access date, channels actually inspected, reliability |
 | `Finding` | observation, interpretation, proposed action, source, evidence locator, confidence, status, rights status, impact/effort, linked IDs |
+| `EffectAssessment` | family, effect, behaviour, use case, selected/rejected, evidence, rationale, feasibility, rights/safety, fallback, limitations |
 | `ExactData` | field, value, status, source, evidence locator, approver, expiry |
 | `Claim` | wording, verification, approved advertising wording, limitations |
 | `ConceptOption` | treatment, look, sound, scores, rationale, risks, evidence links |
 | `HookOption` | three candidate hooks with rationale and risk |
 | `Beat` | half-open frames, purpose, spoken line, on-screen copy, action, emotion, cues |
 | `Shot` | half-open frames, framing, movement, subject, action, lighting, palette, continuity, method, fallback, status, layer/asset/check IDs |
+| `EffectSpec` | family, effect, behaviour, target shot/layer, trigger, duration, intensity, direction, easing, mask, blend, sync, fallback, acceptance, rights/safety, research reference, owner |
 | `Layer` | shot-relative frames, role, z-order, rect, text style, motion, effect, protected regions, asset or copy binding, exactness, required |
 | `Asset` | route, source, rights, technical spec, exactness, permissions, dependencies, estimate, fallback, usage |
 | `AudioCue` | frames, kind, description, asset, level, essential |

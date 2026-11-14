@@ -44,6 +44,28 @@ def research_quality_issues(pack: ResearchPack) -> list[str]:
         if finding.status is FindingStatus.VERIFIED and finding.confidence < 3:
             issues.append(f"{finding.id} is verified with confidence below 3")
 
+    if pack.effect_assessments:
+        selected = [effect for effect in pack.effect_assessments if effect.selected]
+        rejected = [effect for effect in pack.effect_assessments if not effect.selected]
+        if not selected:
+            issues.append("effect research selects no effect")
+        if not rejected:
+            issues.append("effect research records no rejected alternative")
+        seen_effects: set[str] = set()
+        for effect in pack.effect_assessments:
+            if effect.id in seen_effects:
+                issues.append(f"duplicate effect assessment {effect.id}")
+            seen_effects.add(effect.id)
+            if not effect.finding_ids:
+                issues.append(f"{effect.id} has no linked finding")
+            for finding_id in effect.finding_ids:
+                if finding_id not in finding_ids:
+                    issues.append(f"{effect.id} references unknown finding {finding_id}")
+            if effect.selected and not effect.fallback.strip():
+                issues.append(f"{effect.id} has no fallback")
+            if effect.selected and not effect.rights_safety.strip():
+                issues.append(f"{effect.id} has no rights or safety position")
+
     if not any(source.reliability.value == "primary" for source in pack.sources):
         issues.append("research has no primary source")
     if not any(finding.status is FindingStatus.ASSUMPTION for finding in pack.findings):
@@ -51,7 +73,7 @@ def research_quality_issues(pack: ResearchPack) -> list[str]:
     return issues
 
 
-def plan_detail_issues(plan: ProductionPlan) -> list[str]:
+def plan_detail_issues(plan: ProductionPlan, research: ResearchPack | None = None) -> list[str]:
     """Return reasons a plan cannot be executed without inventing a decision."""
 
     issues: list[str] = []
@@ -116,5 +138,28 @@ def plan_detail_issues(plan: ProductionPlan) -> list[str]:
             )
             if not has_alternate:
                 issues.append(f"{asset.id} requires a fallback but has none")
+
+    selected_research: set[str] = set()
+    if research is not None:
+        selected_research = {effect.id for effect in research.effect_assessments if effect.selected}
+
+    for effect in plan.effects:
+        if not effect.fallback.strip():
+            issues.append(f"{effect.id} has no fallback")
+        if not effect.acceptance.strip():
+            issues.append(f"{effect.id} has no acceptance condition")
+        if not effect.rights_or_safety.strip():
+            issues.append(f"{effect.id} has no rights or safety position")
+        if research is not None and effect.research_ref not in selected_research:
+            issues.append(
+                f"{effect.id} references {effect.research_ref}, "
+                "which is not a selected research effect"
+            )
+        for asset_id in effect.asset_ids:
+            if asset_id not in plan.asset_map:
+                issues.append(f"{effect.id} references unknown asset {asset_id}")
+
+    if plan.detail_level == "full" and not plan.effects:
+        issues.append("full-detail plan does not select any effects")
 
     return issues

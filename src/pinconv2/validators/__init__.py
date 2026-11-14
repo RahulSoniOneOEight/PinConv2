@@ -16,6 +16,7 @@ from ..models import (
 )
 from .budget import validate_budget
 from .common import FindingCollector, ValidationContext
+from .effects import validate_effects
 from .exact_data import validate_exact_data
 from .layers import validate_layers
 from .rights import validate_rights
@@ -38,6 +39,7 @@ def validate_plan(
     validate_layers(context)
     validate_budget(context)
     validate_rights(context)
+    validate_effects(context)
     validate_traceability(context)
 
     by_rule: dict[str, list[ValidationFinding]] = {}
@@ -64,9 +66,7 @@ def validate_plan(
             )
             check_status[check.id] = CheckStatus.FAIL
             continue
-        relevant = [
-            finding for rule in check.rule_refs for finding in by_rule.get(rule, [])
-        ]
+        relevant = [finding for rule in check.rule_refs for finding in by_rule.get(rule, [])]
         if any(finding.status is ValidationStatus.FAIL for finding in relevant):
             check_status[check.id] = CheckStatus.FAIL
         elif any(finding.status is ValidationStatus.WARN for finding in relevant):

@@ -345,6 +345,34 @@ class ResolutionStatus(str, Enum):
     PENDING = "pending"
 
 
+class EffectFamily(str, Enum):
+    CAMERA = "camera"
+    FOCUS = "focus"
+    LIGHTING = "lighting"
+    LIQUID_FOOD = "liquid_food"
+    PRODUCT = "product"
+    PRACTICAL = "practical"
+    EDITORIAL = "editorial"
+    MOTION_TYPE = "motion_type"
+    VFX = "vfx"
+    COLOUR = "colour"
+    SOUND_SYNC = "sound_sync"
+    PLATFORM = "platform"
+
+
+class VisualBehaviour(str, Enum):
+    REVEAL = "reveal"
+    EMPHASISE = "emphasise"
+    CONNECT = "connect"
+    TRANSFORM = "transform"
+    SIMULATE = "simulate"
+    COMPRESS = "compress"
+    ORIENT = "orient"
+    PACE = "pace"
+    BRAND = "brand"
+    PROVE = "prove"
+
+
 # ---------------------------------------------------------------------------
 # geometry and brief
 # ---------------------------------------------------------------------------
@@ -524,12 +552,28 @@ class Finding(StrictModel):
     linked_ids: list[str] = Field(default_factory=list)
 
 
+class EffectAssessment(StrictModel):
+    id: str = Field(pattern=r"^EA-\d{2}$")
+    family: EffectFamily
+    name: str = Field(min_length=1, max_length=100)
+    behaviour: VisualBehaviour
+    use_case: str = Field(min_length=1, max_length=300)
+    selected: bool
+    finding_ids: list[str] = Field(default_factory=list)
+    rationale: str = Field(min_length=1, max_length=1000)
+    feasibility: str = Field(min_length=1, max_length=1000)
+    rights_safety: str = Field(min_length=1, max_length=1000)
+    fallback: str = Field(min_length=1, max_length=1000)
+    limitations: str | None = Field(default=None, max_length=1000)
+
+
 class ResearchPack(StrictModel):
     project_id: str
     revision: int = Field(ge=1)
     questions: list[ResearchQuestion] = Field(min_length=1)
     sources: list[EvidenceSource] = Field(min_length=1)
     findings: list[Finding] = Field(min_length=1)
+    effect_assessments: list[EffectAssessment] = Field(default_factory=list)
     synthesis: str = Field(min_length=1, max_length=4000)
     created_at: str = Field(default_factory=utc_now)
 
@@ -730,6 +774,7 @@ class Layer(StrictModel):
     binding_ref: str | None = None
     exactness: Exactness = Exactness.ILLUSTRATIVE
     required: bool = True
+    effect_ids: list[str] = Field(default_factory=list)
     allowed_edits: list[str] = Field(default_factory=list)
     notes: str | None = Field(default=None, max_length=1000)
 
@@ -955,6 +1000,7 @@ class Shot(StrictModel):
     asset_ids: list[str] = Field(default_factory=list)
     check_ids: list[str] = Field(default_factory=list)
     estimate_ids: list[str] = Field(default_factory=list)
+    effect_ids: list[str] = Field(default_factory=list)
     notes: str | None = Field(default=None, max_length=1000)
 
     @model_validator(mode="after")
@@ -1013,6 +1059,35 @@ class VariantOverride(StrictModel):
     notes: str | None = Field(default=None, max_length=1000)
 
 
+class EffectSpec(StrictModel):
+    id: str = Field(pattern=r"^FX-\d{2}$")
+    family: EffectFamily
+    name: str = Field(min_length=1, max_length=100)
+    behaviour: VisualBehaviour
+    target_shot: str
+    target_layer: str | None = None
+    trigger_frame: int = Field(ge=0)
+    duration_frames: int = Field(gt=0)
+    intensity: float = Field(ge=0, le=1)
+    direction: str = Field(min_length=1, max_length=100)
+    easing: str = Field(default="linear", max_length=40)
+    mask_region: Rect | None = None
+    blend_mode: str = Field(default="normal", min_length=1, max_length=40)
+    sync_cue: str | None = Field(default=None, max_length=20)
+    fallback: str = Field(min_length=1, max_length=1000)
+    acceptance: str = Field(min_length=1, max_length=1000)
+    rights_or_safety: str = Field(min_length=1, max_length=1000)
+    owner: str = Field(min_length=1, max_length=100)
+    status: str = Field(default="proposed", pattern=r"^(proposed|approved|held|rejected)$")
+    research_ref: str = Field(pattern=r"^EA-\d{2}$")
+    asset_ids: list[str] = Field(default_factory=list)
+    notes: str | None = Field(default=None, max_length=1000)
+
+    @property
+    def end_frame(self) -> int:
+        return self.trigger_frame + self.duration_frames
+
+
 class ProductionPlan(StrictModel):
     project_id: str
     revision: int = Field(ge=1)
@@ -1027,6 +1102,7 @@ class ProductionPlan(StrictModel):
     claims: list[Claim] = Field(default_factory=list)
     assets: list[Asset] = Field(min_length=1)
     audio_cues: list[AudioCue] = Field(default_factory=list)
+    effects: list[EffectSpec] = Field(default_factory=list)
     transitions: list[Transition] = Field(default_factory=list)
     alternates: list[AlternateRoute] = Field(default_factory=list)
     variant_overrides: list[VariantOverride] = Field(default_factory=list)
@@ -1073,6 +1149,10 @@ class ProductionPlan(StrictModel):
     @property
     def estimate_map(self) -> dict[str, Estimate]:
         return {estimate.id: estimate for estimate in self.estimates}
+
+    @property
+    def effect_map(self) -> dict[str, EffectSpec]:
+        return {effect.id: effect for effect in self.effects}
 
     @property
     def beat_map(self) -> dict[str, Beat]:

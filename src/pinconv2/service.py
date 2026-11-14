@@ -120,10 +120,10 @@ def run_plan(store: ProjectStore, project_id: str = DEFAULT_PROJECT) -> Project:
     project = _project(store, project_id)
     require_state(project, ProjectState.TREATMENT)
     store.load_brief(project_id)
-    store.load_research(project_id)
+    research = store.load_research(project_id)
     store.load_concept(project_id)
     plan = _fixture_for(project_id).plan(project_id, 1, frozenset())
-    issues = plan_detail_issues(plan)
+    issues = plan_detail_issues(plan, research)
     if issues:
         raise GateFailedError("plan is not executable: " + "; ".join(issues))
     store.save_plan(plan)
@@ -210,7 +210,8 @@ def run_resolution(store: ProjectStore, project_id: str = DEFAULT_PROJECT) -> Pr
     if not fixes:
         raise GateFailedError("critique findings do not map to a planner action")
     new_plan = _fixture_for(project_id).plan(project_id, plan.revision + 1, frozenset(fixes))
-    detail_issues = plan_detail_issues(new_plan)
+    research = store.load_research(project_id)
+    detail_issues = plan_detail_issues(new_plan, research)
     if detail_issues:
         raise GateFailedError("revised plan is not executable: " + "; ".join(detail_issues))
 

@@ -194,7 +194,7 @@ src/pinconv2/
   render.py              Markdown renderers and Level 2 handoff
   validators/            timing, exact data, layers, budget, rights, traceability
   fixtures/              Toffee brief, research, concept and plan
-tests/                   62 deterministic tests
+tests/                   65 deterministic tests
 examples/                the test brief
 docs/                    Level 1 design and architecture
 ```
@@ -203,7 +203,7 @@ docs/                    Level 1 design and architecture
 
 At the last run:
 
-- 62 tests pass;
+- 65 tests pass;
 - `ruff check .` passes;
 - `mypy src/pinconv2` passes;
 - the Toffee run reaches `gate1_ready` with no blockers;

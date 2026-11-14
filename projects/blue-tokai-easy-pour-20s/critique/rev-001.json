@@ -1,7 +1,7 @@
 {
   "project_id": "blue-tokai-easy-pour-20s",
   "plan_revision": 1,
-  "plan_hash": "6ab673e9f98341f664db9eb08f196089f2356f0463d4cdfcfec81635d9709a69",
+  "plan_hash": "0238c3b4d356952c17e51dfe5d454ec0aa6a84bf0e1fd72fa2f1e187634362a7",
   "summary": "4 findings. The three highest-impact inputs are CF-01 (safe_area), CF-02 (commercial_data), CF-03 (budget). The critic reviewed the plan artifact, not the planner's reasoning.",
   "findings": [
     {
@@ -95,5 +95,5 @@
     "CF-02",
     "CF-03"
   ],
-  "created_at": "2026-11-14T16:00:21+00:00"
+  "created_at": "2026-11-14T16:42:38+00:00"
 }

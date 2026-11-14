@@ -290,6 +290,37 @@ def render_concept_note(brief: BriefRevision, research: ResearchPack, concept: C
             "",
             concept.canonical_script or "-",
             "",
+            "## Effect research",
+            "",
+            _table(
+                [
+                    "ID",
+                    "Family",
+                    "Effect",
+                    "Behaviour",
+                    "Selected",
+                    "Use case",
+                    "Rationale",
+                    "Fallback / limits",
+                ],
+                [
+                    [
+                        effect.id,
+                        effect.family.value,
+                        effect.name,
+                        effect.behaviour.value,
+                        _bool(effect.selected),
+                        effect.use_case,
+                        effect.rationale,
+                        effect.fallback
+                        + (f" / {effect.limitations}" if effect.limitations else ""),
+                    ]
+                    for effect in research.effect_assessments
+                ],
+            )
+            if research.effect_assessments
+            else "No effect assessment recorded.",
+            "",
             "## Open questions",
             "",
         ]
@@ -411,6 +442,39 @@ def render_production_plan(
         "",
         "## 5. Shot x Layer x Asset",
         "",
+        "### Effect plan",
+        "",
+        _table(
+            [
+                "ID",
+                "Family",
+                "Effect",
+                "Behaviour",
+                "Target",
+                "Timing",
+                "Intensity / direction",
+                "Sync",
+                "Fallback / acceptance",
+            ],
+            [
+                [
+                    effect.id,
+                    effect.family.value,
+                    effect.name,
+                    effect.behaviour.value,
+                    effect.target_shot
+                    + (f" / {effect.target_layer}" if effect.target_layer else ""),
+                    f"{effect.trigger_frame}-{effect.end_frame}",
+                    f"{effect.intensity:g} / {effect.direction}",
+                    effect.sync_cue or "-",
+                    f"{effect.fallback} / {effect.acceptance}",
+                ]
+                for effect in plan.effects
+            ],
+        )
+        if plan.effects
+        else "No effects selected.",
+        "",
     ]
 
     for shot in plan.shots:
@@ -427,6 +491,7 @@ def render_production_plan(
                 f"**Lens / handles:** {shot.lens_intent or '-'} · "
                 f"{shot.handles_frames} frame handles  ",
                 f"**Shot acceptance:** {shot.acceptance or '-'}  ",
+                f"**Effects:** {', '.join(shot.effect_ids) or 'none'}  ",
                 "",
             ]
         )
@@ -442,6 +507,7 @@ def render_production_plan(
                     "Z",
                     "Rect",
                     "Binding",
+                    "Effects",
                     "Text / opacity",
                     "Motion",
                     "Effect",
@@ -461,6 +527,7 @@ def render_production_plan(
                         str(layer.z_order),
                         f"{layer.rect.x},{layer.rect.y},{layer.rect.w},{layer.rect.h}",
                         f"{layer.binding_kind.value}:{layer.binding_ref or '-'}",
+                        ", ".join(layer.effect_ids) or "-",
                         _text_style(layer)
                         if layer.text_style
                         else f"opacity {layer.opacity:g}, fill {layer.fill or '-'}",

@@ -1,7 +1,7 @@
 {
   "project_id": "blue-tokai-easy-pour-20s",
   "plan_revision": 1,
-  "plan_hash": "6ab673e9f98341f664db9eb08f196089f2356f0463d4cdfcfec81635d9709a69",
+  "plan_hash": "0238c3b4d356952c17e51dfe5d454ec0aa6a84bf0e1fd72fa2f1e187634362a7",
   "findings": [
     {
       "id": "V-001",
@@ -482,6 +482,51 @@
     },
     {
       "id": "V-054",
+      "rule": "effect.ids",
+      "target": "effects",
+      "severity": "low",
+      "status": "pass",
+      "detail": "effect identifiers are unique",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-055",
+      "rule": "effect.references",
+      "target": "effects",
+      "severity": "low",
+      "status": "pass",
+      "detail": "effect targets resolve",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-056",
+      "rule": "effect.timing",
+      "target": "effects",
+      "severity": "low",
+      "status": "pass",
+      "detail": "effect timing fits its shot",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-057",
+      "rule": "effect.bindings",
+      "target": "effects",
+      "severity": "low",
+      "status": "pass",
+      "detail": "shots and layers declare their effects",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-058",
+      "rule": "effect.protection",
+      "target": "effects",
+      "severity": "low",
+      "status": "pass",
+      "detail": "effects do not obscure exact protected content",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-059",
       "rule": "trace.ids",
       "target": "plan",
       "severity": "low",
@@ -490,7 +535,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-055",
+      "id": "V-060",
       "rule": "trace.shots",
       "target": "shots",
       "severity": "low",
@@ -499,7 +544,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-056",
+      "id": "V-061",
       "rule": "trace.beats",
       "target": "beats",
       "severity": "low",
@@ -508,7 +553,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-057",
+      "id": "V-062",
       "rule": "trace.assets",
       "target": "assets",
       "severity": "low",
@@ -517,7 +562,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-058",
+      "id": "V-063",
       "rule": "trace.dependencies",
       "target": "assets",
       "severity": "low",
@@ -526,7 +571,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-059",
+      "id": "V-064",
       "rule": "trace.variants",
       "target": "variants",
       "severity": "low",
@@ -535,7 +580,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-060",
+      "id": "V-065",
       "rule": "trace.checks",
       "target": "checks",
       "severity": "low",
@@ -544,7 +589,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-061",
+      "id": "V-066",
       "rule": "trace.alternates",
       "target": "alternates",
       "severity": "low",
@@ -553,7 +598,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-062",
+      "id": "V-067",
       "rule": "trace.must_have",
       "target": "brief",
       "severity": "low",
@@ -562,7 +607,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-063",
+      "id": "V-068",
       "rule": "trace.held",
       "target": "held",
       "severity": "low",
@@ -571,7 +616,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-064",
+      "id": "V-069",
       "rule": "trace.shot_status",
       "target": "shots",
       "severity": "low",
@@ -580,7 +625,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-065",
+      "id": "V-070",
       "rule": "trace.cta",
       "target": "deliverable",
       "severity": "low",
@@ -589,7 +634,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-066",
+      "id": "V-071",
       "rule": "trace.critical_assets",
       "target": "assets",
       "severity": "low",
@@ -598,7 +643,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-067",
+      "id": "V-072",
       "rule": "trace.layers",
       "target": "layers",
       "severity": "low",
@@ -624,5 +669,5 @@
     "AC-14": "pass",
     "AC-15": "pass"
   },
-  "created_at": "2026-11-14T16:00:20+00:00"
+  "created_at": "2026-11-14T16:42:38+00:00"
 }

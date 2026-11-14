@@ -241,6 +241,9 @@
       "estimate_ids": [
         "ES-05"
       ],
+      "effect_ids": [
+        "FX-01"
+      ],
       "notes": null
     },
     {
@@ -295,6 +298,7 @@
       "estimate_ids": [
         "ES-06"
       ],
+      "effect_ids": [],
       "notes": null
     },
     {
@@ -354,6 +358,10 @@
         "ES-06",
         "ES-10"
       ],
+      "effect_ids": [
+        "FX-02",
+        "FX-03"
+      ],
       "notes": null
     },
     {
@@ -412,6 +420,9 @@
       "estimate_ids": [
         "ES-07"
       ],
+      "effect_ids": [
+        "FX-04"
+      ],
       "notes": null
     },
     {
@@ -467,6 +478,9 @@
       ],
       "estimate_ids": [
         "ES-06"
+      ],
+      "effect_ids": [
+        "FX-05"
       ],
       "notes": null
     },
@@ -525,6 +539,9 @@
         "ES-04",
         "ES-08"
       ],
+      "effect_ids": [
+        "FX-06"
+      ],
       "notes": null
     }
   ],
@@ -558,6 +575,7 @@
       "binding_ref": "AS-07",
       "exactness": "illustrative",
       "required": true,
+      "effect_ids": [],
       "allowed_edits": [
         "colour grade",
         "timing within 4 frames",
@@ -618,6 +636,7 @@
       "binding_ref": "AS-02",
       "exactness": "exact",
       "required": true,
+      "effect_ids": [],
       "allowed_edits": [
         "colour grade",
         "timing within 4 frames",
@@ -643,7 +662,7 @@
       "text_style": null,
       "motion": [],
       "effect": "steam_drift",
-      "effect_spec": "steam_drift: trigger f0; 75-frame loop; intensity 0.18; mask 900,170,760,720; non-occluding.",
+      "effect_spec": "Authored steam plate for FX-01. Timing, mask and acceptance are recorded on FX-01; this layer supplies the visual plate only.",
       "anchor": "top-left",
       "rotation_deg": 0.0,
       "acceptance": "Steam moves slowly inside its mask and never crosses the pack label.",
@@ -654,6 +673,9 @@
       "binding_ref": null,
       "exactness": "illustrative",
       "required": true,
+      "effect_ids": [
+        "FX-01"
+      ],
       "allowed_edits": [
         "opacity",
         "timing"
@@ -698,6 +720,7 @@
       "binding_ref": "CP-01",
       "exactness": "proposed_copy",
       "required": true,
+      "effect_ids": [],
       "allowed_edits": [
         "none without renewed approval"
       ],
@@ -732,6 +755,7 @@
       "binding_ref": null,
       "exactness": "illustrative",
       "required": true,
+      "effect_ids": [],
       "allowed_edits": [
         "height",
         "opacity"
@@ -776,6 +800,7 @@
       "binding_ref": "CP-07",
       "exactness": "proposed_copy",
       "required": true,
+      "effect_ids": [],
       "allowed_edits": [
         "position within safe area",
         "size within 10 percent",
@@ -812,6 +837,7 @@
       "binding_ref": "AS-07",
       "exactness": "illustrative",
       "required": true,
+      "effect_ids": [],
       "allowed_edits": [
         "colour grade",
         "timing within 4 frames",
@@ -848,6 +874,7 @@
       "binding_ref": "AS-05",
       "exactness": "illustrative",
       "required": true,
+      "effect_ids": [],
       "allowed_edits": [
         "colour grade",
         "timing within 4 frames",
@@ -891,6 +918,7 @@
       "binding_ref": "AS-02",
       "exactness": "exact",
       "required": true,
+      "effect_ids": [],
       "allowed_edits": [
         "colour grade",
         "timing within 4 frames",
@@ -936,6 +964,7 @@
       "binding_ref": "CP-03",
       "exactness": "proposed_copy",
       "required": true,
+      "effect_ids": [],
       "allowed_edits": [
         "none without renewed approval"
       ],
@@ -970,6 +999,7 @@
       "binding_ref": null,
       "exactness": "illustrative",
       "required": true,
+      "effect_ids": [],
       "allowed_edits": [
         "height",
         "opacity"
@@ -1014,6 +1044,7 @@
       "binding_ref": "CP-08",
       "exactness": "proposed_copy",
       "required": true,
+      "effect_ids": [],
       "allowed_edits": [
         "position within safe area",
         "size within 10 percent",
@@ -1050,6 +1081,7 @@
       "binding_ref": "AS-07",
       "exactness": "illustrative",
       "required": true,
+      "effect_ids": [],
       "allowed_edits": [
         "colour grade",
         "timing within 4 frames",
@@ -1086,6 +1118,10 @@
       "binding_ref": "AS-06",
       "exactness": "illustrative",
       "required": true,
+      "effect_ids": [
+        "FX-02",
+        "FX-03"
+      ],
       "allowed_edits": [
         "colour grade",
         "timing within 4 frames",
@@ -1129,6 +1165,7 @@
       "binding_ref": "AS-02",
       "exactness": "exact",
       "required": true,
+      "effect_ids": [],
       "allowed_edits": [
         "colour grade",
         "timing within 4 frames",
@@ -1174,6 +1211,7 @@
       "binding_ref": "CP-02",
       "exactness": "proposed_copy",
       "required": true,
+      "effect_ids": [],
       "allowed_edits": [
         "none without renewed approval"
       ],
@@ -1208,6 +1246,7 @@
       "binding_ref": null,
       "exactness": "illustrative",
       "required": true,
+      "effect_ids": [],
       "allowed_edits": [
         "height",
         "opacity"
@@ -1252,6 +1291,7 @@
       "binding_ref": "CP-09",
       "exactness": "proposed_copy",
       "required": true,
+      "effect_ids": [],
       "allowed_edits": [
         "position within safe area",
         "size within 10 percent",
@@ -1288,6 +1328,7 @@
       "binding_ref": "AS-07",
       "exactness": "illustrative",
       "required": true,
+      "effect_ids": [],
       "allowed_edits": [
         "colour grade",
         "timing within 4 frames",
@@ -1348,6 +1389,7 @@
       "binding_ref": "AS-02",
       "exactness": "exact",
       "required": true,
+      "effect_ids": [],
       "allowed_edits": [
         "colour grade",
         "timing within 4 frames",
@@ -1408,6 +1450,7 @@
       "binding_ref": "AS-03",
       "exactness": "exact",
       "required": true,
+      "effect_ids": [],
       "allowed_edits": [
         "colour grade",
         "timing within 4 frames",
@@ -1468,6 +1511,7 @@
       "binding_ref": "AS-04",
       "exactness": "exact",
       "required": true,
+      "effect_ids": [],
       "allowed_edits": [
         "colour grade",
         "timing within 4 frames",
@@ -1528,6 +1572,7 @@
       "binding_ref": "AS-17",
       "exactness": "exact",
       "required": true,
+      "effect_ids": [],
       "allowed_edits": [
         "colour grade",
         "timing within 4 frames",
@@ -1573,6 +1618,7 @@
       "binding_ref": "CP-04",
       "exactness": "proposed_copy",
       "required": true,
+      "effect_ids": [],
       "allowed_edits": [
         "none without renewed approval"
       ],
@@ -1607,6 +1653,7 @@
       "binding_ref": null,
       "exactness": "illustrative",
       "required": true,
+      "effect_ids": [],
       "allowed_edits": [
         "height",
         "opacity"
@@ -1651,6 +1698,7 @@
       "binding_ref": "CP-10",
       "exactness": "proposed_copy",
       "required": true,
+      "effect_ids": [],
       "allowed_edits": [
         "position within safe area",
         "size within 10 percent",
@@ -1687,6 +1735,7 @@
       "binding_ref": "AS-07",
       "exactness": "illustrative",
       "required": true,
+      "effect_ids": [],
       "allowed_edits": [
         "colour grade",
         "timing within 4 frames",
@@ -1723,6 +1772,9 @@
       "binding_ref": "AS-08",
       "exactness": "illustrative",
       "required": true,
+      "effect_ids": [
+        "FX-05"
+      ],
       "allowed_edits": [
         "colour grade",
         "timing within 4 frames",
@@ -1766,6 +1818,7 @@
       "binding_ref": "AS-02",
       "exactness": "exact",
       "required": true,
+      "effect_ids": [],
       "allowed_edits": [
         "colour grade",
         "timing within 4 frames",
@@ -1811,6 +1864,7 @@
       "binding_ref": "CP-13",
       "exactness": "proposed_copy",
       "required": true,
+      "effect_ids": [],
       "allowed_edits": [
         "none without renewed approval"
       ],
@@ -1845,6 +1899,7 @@
       "binding_ref": null,
       "exactness": "illustrative",
       "required": true,
+      "effect_ids": [],
       "allowed_edits": [
         "height",
         "opacity"
@@ -1889,6 +1944,7 @@
       "binding_ref": "CP-12",
       "exactness": "proposed_copy",
       "required": true,
+      "effect_ids": [],
       "allowed_edits": [
         "position within safe area",
         "size within 10 percent",
@@ -1925,6 +1981,7 @@
       "binding_ref": "AS-07",
       "exactness": "illustrative",
       "required": true,
+      "effect_ids": [],
       "allowed_edits": [
         "colour grade",
         "timing within 4 frames",
@@ -1968,6 +2025,7 @@
       "binding_ref": "AS-02",
       "exactness": "exact",
       "required": true,
+      "effect_ids": [],
       "allowed_edits": [
         "colour grade",
         "timing within 4 frames",
@@ -2004,6 +2062,7 @@
       "binding_ref": "AS-01",
       "exactness": "exact",
       "required": true,
+      "effect_ids": [],
       "allowed_edits": [
         "colour grade",
         "timing within 4 frames",
@@ -2066,6 +2125,9 @@
       "binding_ref": "CP-05",
       "exactness": "proposed_copy",
       "required": true,
+      "effect_ids": [
+        "FX-06"
+      ],
       "allowed_edits": [
         "none without renewed approval"
       ],
@@ -2100,6 +2162,7 @@
       "binding_ref": null,
       "exactness": "illustrative",
       "required": true,
+      "effect_ids": [],
       "allowed_edits": [
         "height",
         "opacity"
@@ -2161,6 +2224,7 @@
       "binding_ref": "CP-11",
       "exactness": "proposed_copy",
       "required": true,
+      "effect_ids": [],
       "allowed_edits": [
         "position within safe area",
         "size within 10 percent",
@@ -2206,6 +2270,7 @@
       "binding_ref": "CP-06",
       "exactness": "proposed_copy",
       "required": true,
+      "effect_ids": [],
       "allowed_edits": [
         "none without renewed approval"
       ],
@@ -2240,6 +2305,7 @@
       "binding_ref": "AS-16",
       "exactness": "illustrative",
       "required": true,
+      "effect_ids": [],
       "allowed_edits": [
         "colour grade",
         "timing within 4 frames",
@@ -3443,6 +3509,181 @@
       "notes": null
     }
   ],
+  "effects": [
+    {
+      "id": "FX-01",
+      "family": "practical",
+      "name": "steam_drift",
+      "behaviour": "simulate",
+      "target_shot": "SH-01",
+      "target_layer": "LY-012",
+      "trigger_frame": 0,
+      "duration_frames": 75,
+      "intensity": 0.18,
+      "direction": "up_right",
+      "easing": "linear",
+      "mask_region": {
+        "x": 900,
+        "y": 170,
+        "w": 240,
+        "h": 720
+      },
+      "blend_mode": "screen",
+      "sync_cue": "AU-02",
+      "fallback": "Static pack plate with a slow grade shift.",
+      "acceptance": "Steam moves inside its mask and never crosses the pack label.",
+      "rights_or_safety": "In-house particle or practical steam; no third-party media.",
+      "owner": "VFX / compositing",
+      "status": "proposed",
+      "research_ref": "EA-01",
+      "asset_ids": [],
+      "notes": null
+    },
+    {
+      "id": "FX-02",
+      "family": "liquid_food",
+      "name": "macro_pour",
+      "behaviour": "prove",
+      "target_shot": "SH-03",
+      "target_layer": "LY-031",
+      "trigger_frame": 0,
+      "duration_frames": 115,
+      "intensity": 0.8,
+      "direction": "top_down",
+      "easing": "ease_out",
+      "mask_region": {
+        "x": 0,
+        "y": 70,
+        "w": 1200,
+        "h": 900
+      },
+      "blend_mode": "normal",
+      "sync_cue": "AU-03",
+      "fallback": "Still pour plate with animated steam and drip.",
+      "acceptance": "Water visibly contacts the coffee bed; bloom and first drip read; the filter stays anchored.",
+      "rights_or_safety": "Hand-model release and food-safe set required.",
+      "owner": "Camera / food stylist",
+      "status": "proposed",
+      "research_ref": "EA-02",
+      "asset_ids": [
+        "AS-06"
+      ],
+      "notes": null
+    },
+    {
+      "id": "FX-03",
+      "family": "editorial",
+      "name": "time_lapse",
+      "behaviour": "compress",
+      "target_shot": "SH-03",
+      "target_layer": "LY-031",
+      "trigger_frame": 55,
+      "duration_frames": 60,
+      "intensity": 0.7,
+      "direction": "forward",
+      "easing": "linear",
+      "mask_region": {
+        "x": 0,
+        "y": 70,
+        "w": 1200,
+        "h": 900
+      },
+      "blend_mode": "normal",
+      "sync_cue": "AU-01",
+      "fallback": "Short step montage with the same disclosure.",
+      "acceptance": "Repeated pours and steep are compressed; disclosure is visible.",
+      "rights_or_safety": "Must carry CP-12 'Brew sequence compressed'.",
+      "owner": "Editor",
+      "status": "proposed",
+      "research_ref": "EA-03",
+      "asset_ids": [],
+      "notes": null
+    },
+    {
+      "id": "FX-04",
+      "family": "product",
+      "name": "range_fan",
+      "behaviour": "reveal",
+      "target_shot": "SH-04",
+      "target_layer": null,
+      "trigger_frame": 0,
+      "duration_frames": 105,
+      "intensity": 0.6,
+      "direction": "left_to_right",
+      "easing": "ease_out",
+      "mask_region": null,
+      "blend_mode": "normal",
+      "sync_cue": "AU-02",
+      "fallback": "Captured four-pack still with a slow scale.",
+      "acceptance": "Four pack names and descriptors read; light-to-dark order is unambiguous.",
+      "rights_or_safety": "All four packs need brand advertising clearance.",
+      "owner": "Motion / compositing",
+      "status": "proposed",
+      "research_ref": "EA-04",
+      "asset_ids": [
+        "AS-02",
+        "AS-03",
+        "AS-04",
+        "AS-17"
+      ],
+      "notes": null
+    },
+    {
+      "id": "FX-05",
+      "family": "practical",
+      "name": "finished_steam",
+      "behaviour": "simulate",
+      "target_shot": "SH-05",
+      "target_layer": "LY-051",
+      "trigger_frame": 0,
+      "duration_frames": 65,
+      "intensity": 0.12,
+      "direction": "up_right",
+      "easing": "ease_out",
+      "mask_region": {
+        "x": 180,
+        "y": 140,
+        "w": 900,
+        "h": 850
+      },
+      "blend_mode": "screen",
+      "sync_cue": "AU-02",
+      "fallback": "Still cup with a simple animated steam plate.",
+      "acceptance": "Steam reads as hot coffee and stays clear of the pack label.",
+      "rights_or_safety": "In-house practical steam; keep the cup rim clean.",
+      "owner": "VFX / compositing",
+      "status": "proposed",
+      "research_ref": "EA-05",
+      "asset_ids": [
+        "AS-08"
+      ],
+      "notes": null
+    },
+    {
+      "id": "FX-06",
+      "family": "motion_type",
+      "name": "cta_fade",
+      "behaviour": "emphasise",
+      "target_shot": "SH-06",
+      "target_layer": "LY-063",
+      "trigger_frame": 0,
+      "duration_frames": 6,
+      "intensity": 1.0,
+      "direction": "none",
+      "easing": "ease_out",
+      "mask_region": null,
+      "blend_mode": "normal",
+      "sync_cue": "AU-04",
+      "fallback": "Static end card with the CTA already visible.",
+      "acceptance": "CTA is legible by frame 6 and remains inside the end-card plate.",
+      "rights_or_safety": "No added claim; CTA wording remains pending ED-04.",
+      "owner": "Motion / edit",
+      "status": "proposed",
+      "research_ref": "EA-06",
+      "asset_ids": [],
+      "notes": null
+    }
+  ],
   "transitions": [
     {
       "id": "TR-01",
@@ -4250,5 +4491,5 @@
     "Will the brand supply cleared high-resolution pack and logo masters?",
     "Is a 9:16 Shorts variant required?"
   ],
-  "created_at": "2026-11-14T16:00:20+00:00"
+  "created_at": "2026-11-14T16:42:38+00:00"
 }

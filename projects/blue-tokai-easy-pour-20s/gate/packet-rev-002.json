@@ -1,20 +1,20 @@
 {
   "project_id": "blue-tokai-easy-pour-20s",
   "plan_revision": 2,
-  "plan_hash": "deb1119bf4013fe6e918e91773408538e72acccaafdb8e4bacc1a8a5c4097c71",
+  "plan_hash": "19f0694af2d6f52ea82009b6c58619219ee019726fbd9e36b8a2e81d1e13bccb",
   "bundle": {
     "project_id": "blue-tokai-easy-pour-20s",
     "plan_revision": 2,
     "record_hashes": {
       "brief": "f7dcb6d76d7ff18ceff2cbc3e309167132c3a7d8769e69cd37aac51427d90205",
-      "research": "ee2788cc641c344d92ea8865d1ac0fd246e35764c512773e54f625b8670dec6d",
+      "research": "053e55b98f9757d49ea09f8ac92f131c270dee7991d232a554b033a1bf0dc89f",
       "concept": "031280a3738cea27d366dfeda3f8ac3dcf5f1722b94679288ef9e008c400e21a",
-      "plan": "deb1119bf4013fe6e918e91773408538e72acccaafdb8e4bacc1a8a5c4097c71",
-      "validation": "fd29e308ba7dcf65dc3a07394b3be64d038290f8c2b389fafe1a793ab5fc7098",
-      "critique": "b4b39f0dd878b670f561cfd87c788198ce8cd824a0bcc26193f79f76f8725ccd",
+      "plan": "19f0694af2d6f52ea82009b6c58619219ee019726fbd9e36b8a2e81d1e13bccb",
+      "validation": "24c32f9f5b7c20c48da804192c18f49fa0729de9cf2af3b3e70cabff63c97f7e",
+      "critique": "c2a8fd959e0ef7eb72cc9c8ec308cf3302852e65324a13a488b8c21ad94d7ae3",
       "resolution": "20934e6d978fcbeaaa5894ac2d218ef54698f94b1e3cd9c12d14f902b05a2da7"
     },
-    "bundle_hash": "61cd86d66d1938755c5b5709e6256f62cc1ff985fb6a32fb7ce805e916e8c024"
+    "bundle_hash": "2d064ec5737fd65ee1477910f75904128e295093018ce9a4fce264d5f3307b90"
   },
   "validation_passed": true,
   "ready_shots": [
@@ -129,5 +129,5 @@
   "blockers": [],
   "input_statuses": {},
   "approval": null,
-  "created_at": "2026-11-14T16:00:21+00:00"
+  "created_at": "2026-11-14T16:42:38+00:00"
 }

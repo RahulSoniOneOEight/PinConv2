@@ -171,7 +171,7 @@ effect:
 | `name` | Controlled effect name from the catalogue |
 | `behaviour` | What job it performs for the viewer |
 | `target_shot` | Which shot it belongs to |
-| `target_layer` | Which layer it changes, or `shot` for a whole-frame effect |
+| `target_layer` | Which layer it changes, or `null` for a whole-frame effect; the target shot is named separately |
 | `trigger_frame` | Exact start frame |
 | `duration_frames` | Exact duration; must fit the shot |
 | `intensity` | How strong it is, with a defined scale |

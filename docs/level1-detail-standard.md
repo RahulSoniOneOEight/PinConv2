@@ -79,6 +79,24 @@ A Production Plan must contain:
 | Edit limits | What may change without renewed approval |
 | Acceptance | What must be true in the rendered frame |
 
+## 4a. Effect record
+
+| Field | Required detail |
+|---|---|
+| Identity | Effect ID, family, controlled effect name and visual behaviour |
+| Research | Selected `EffectAssessment` reference and evidence for the choice |
+| Target | Shot and layer, or shot-level effect |
+| Timing | Shot-relative trigger and duration |
+| Look | Intensity, direction, easing, mask, blend mode |
+| Sync | Audio cue or visual hit |
+| Fallback | Genuinely different behaviour-preserving route |
+| Acceptance | Observable condition in the rendered frame |
+| Rights / safety | Licence, consent, safety or disclosure position |
+| Owner | Who executes it in Level 2 |
+| Status | proposed, approved, held or rejected |
+
+The full catalogue and selection method are in `docs/level1-effects-reference.md`.
+
 ## 5. Asset record
 
 | Field | Required detail |

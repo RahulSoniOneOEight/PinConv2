@@ -92,8 +92,8 @@ consistency gaps:
 
 | Check | Evidence |
 |---|---|
-| Tests | `62 passed` |
-| Lint / typing | Ruff clean; mypy clean on 27 source files |
+| Tests | `65 passed` |
+| Lint / typing | Ruff clean; mypy clean on 28 source files |
 | Pipeline | `run-all` reaches `gate1_ready` |
 | Plan | revision 2, 6 shots, 38 layers, 16 assets |
 | Validation | 0 failures, 14 warnings |
@@ -145,6 +145,37 @@ boundary.
 `ED-01`, `ED-04` and `ED-05` require named-human approval; `HI-01`–`HI-05`
 require brand, rights, talent, music and typeface evidence. No approval is
 recorded and no render, sourcing purchase or publication is authorised.
+
+## Effect-planning integration QC — DeepSeek Pro
+
+The effect expansion was reviewed separately against `docs/level1-effects-reference.md`
+and the Blue Tokai plan.
+
+**Verdict: PASS WITH CONDITIONS.** Nine effect candidates were assessed, six
+selected and three rejected; every selected effect carries family, behaviour,
+target, timing, fallback, acceptance, rights/safety and research reference; shots
+and layers cross-link them; the Word outcome reproduces the selection table,
+effect plan and per-shot/per-layer effect IDs.
+
+The review found one medium and five low issues, all corrected:
+
+- `effect.protection` now scans every protected layer in the target shot, not
+  only the effect's own target layer.
+- FX-01's steam mask was narrowed so it no longer crosses the Mixed Bag label.
+- `effect.timing` now checks the target layer's end frame as well as the shot.
+- Word mask values render as coordinates, not a Python dictionary.
+- Failure-path tests now cover effect references, timing, bindings and
+  protection.
+- The reference document now specifies `null` for whole-frame effects.
+
+Final verification found one residual: LY-012's legacy `effect_spec` still
+recorded the old 760-px steam mask while FX-01 used a 240-px mask. The layer
+field now points to FX-01 as the single source of truth, and the duplicate mask
+is removed. Final plan hash: `19f0694af2d6f52ea82009b6c58619219ee019726fbd9e36b8a2e81d1e13bccb`.
+
+A final read-only DeepSeek check confirmed the residual closed, the Word layer
+and effect tables aligned, validation at 0 failures / 14 warnings, 0 critique
+findings, no blockers, and `approval: null`. No further findings remain.
 
 ## Final verdict
 

@@ -27,6 +27,8 @@ from ..models import (
     CopyRole,
     CopyStatus,
     DeliverableProfile,
+    EffectFamily,
+    EffectSpec,
     Estimate,
     EstimateBasis,
     EstimateKind,
@@ -47,6 +49,7 @@ from ..models import (
     TechSpec,
     TextStyle,
     Transition,
+    VisualBehaviour,
 )
 from .blue_tokai_concept import blue_tokai_decisions
 from .blue_tokai_research import (
@@ -132,6 +135,7 @@ def _text(
     weight: int = 700,
     align: str = "left",
     motion: list[Keyframe] | None = None,
+    effect_ids: list[str] | None = None,
 ) -> Layer:
     return Layer(
         id=layer_id,
@@ -157,6 +161,7 @@ def _text(
         exactness=Exactness.PROPOSED_COPY,
         required=True,
         motion=motion or [],
+        effect_ids=effect_ids or [],
         acceptance=(
             f"{copy_id} renders exactly, inside the safe area, with no clipping or "
             "unintended line break at final phone scale."
@@ -188,6 +193,7 @@ def _visual(
     non_occluding: bool = False,
     protected: bool = False,
     acceptance: str | None = None,
+    effect_ids: list[str] | None = None,
 ) -> Layer:
     return Layer(
         id=layer_id,
@@ -213,6 +219,7 @@ def _visual(
             f"{asset_id} reads clearly in the {role.value} layer; the protected "
             "region remains unobstructed at final phone scale."
         ),
+        effect_ids=effect_ids or [],
         allowed_edits=["colour grade", "timing within 4 frames", "crop within 5 percent"],
     )
 
@@ -1038,10 +1045,11 @@ def _layers(*, safe_fixed: bool, commercial_fixed: bool, budget_fixed: bool) -> 
             fill="#DCE8F0",
             effect="steam_drift",
             effect_spec=(
-                "steam_drift: trigger f0; 75-frame loop; intensity 0.18; "
-                "mask 900,170,760,720; non-occluding."
+                "Authored steam plate for FX-01. Timing, mask and acceptance are "
+                "recorded on FX-01; this layer supplies the visual plate only."
             ),
             acceptance="Steam moves slowly inside its mask and never crosses the pack label.",
+            effect_ids=["FX-01"],
             non_occluding=True,
             binding_kind=BindingKind.NONE,
             exactness=Exactness.ILLUSTRATIVE,
@@ -1102,7 +1110,17 @@ def _layers(*, safe_fixed: bool, commercial_fixed: bool, budget_fixed: bool) -> 
         ),
         # SH-03 pour and bloom
         _visual("LY-030", "SH-03", 0, 115, LayerRole.BACKGROUND, _r(0, 0, 1920, 1080), "AS-07", 0),
-        _visual("LY-031", "SH-03", 0, 115, LayerRole.SUBJECT, _r(0, 70, 1200, 900), "AS-06", 10),
+        _visual(
+            "LY-031",
+            "SH-03",
+            0,
+            115,
+            LayerRole.SUBJECT,
+            _r(0, 70, 1200, 900),
+            "AS-06",
+            10,
+            effect_ids=["FX-02", "FX-03"],
+        ),
         _visual(
             "LY-032",
             "SH-03",
@@ -1215,7 +1233,17 @@ def _layers(*, safe_fixed: bool, commercial_fixed: bool, budget_fixed: bool) -> 
         ),
         # SH-05 payoff
         _visual("LY-050", "SH-05", 0, 65, LayerRole.BACKGROUND, _r(0, 0, 1920, 1080), "AS-07", 0),
-        _visual("LY-051", "SH-05", 0, 65, LayerRole.SUBJECT, _r(180, 140, 900, 850), "AS-08", 10),
+        _visual(
+            "LY-051",
+            "SH-05",
+            0,
+            65,
+            LayerRole.SUBJECT,
+            _r(180, 140, 900, 850),
+            "AS-08",
+            10,
+            effect_ids=["FX-05"],
+        ),
         _visual(
             "LY-052",
             "SH-05",
@@ -1283,6 +1311,7 @@ def _layers(*, safe_fixed: bool, commercial_fixed: bool, budget_fixed: bool) -> 
                 Keyframe(frame=0, opacity=0.0),
                 Keyframe(frame=6, opacity=1.0, easing="ease_out"),
             ],
+            effect_ids=["FX-06"],
         ),
         _plate("LY-064", "SH-06", 55, z=25, rect=_r(140, 650, 1320, 300)),
         _text(
@@ -1365,6 +1394,7 @@ def _shots(*, layers: list[Layer], budget_fixed: bool) -> list[Shot]:
                 "of type and no text crosses the safe area."
             ),
             audio_ids=["AU-01", "AU-02"],
+            effect_ids=["FX-01"],
             status=ShotStatus.READY,
             layer_ids=layer_ids("SH-01"),
             asset_ids=assets_for("SH-01"),
@@ -1430,6 +1460,7 @@ def _shots(*, layers: list[Layer], budget_fixed: bool) -> list[Shot]:
                 "filter stays anchored and the mug rim does not jump."
             ),
             audio_ids=["AU-01", "AU-02", "AU-03"],
+            effect_ids=["FX-02", "FX-03"],
             status=ShotStatus.READY,
             layer_ids=layer_ids("SH-03"),
             asset_ids=assets_for("SH-03"),
@@ -1463,6 +1494,7 @@ def _shots(*, layers: list[Layer], budget_fixed: bool) -> list[Shot]:
                 "as light, medium-dark and dark with no label occluded."
             ),
             audio_ids=["AU-01", "AU-02"],
+            effect_ids=["FX-04"],
             status=ShotStatus.READY,
             layer_ids=layer_ids("SH-04"),
             asset_ids=assets_for("SH-04"),
@@ -1493,6 +1525,7 @@ def _shots(*, layers: list[Layer], budget_fixed: bool) -> list[Shot]:
                 "is legible; pack label remains clear."
             ),
             audio_ids=["AU-01", "AU-02"],
+            effect_ids=["FX-05"],
             status=ShotStatus.READY,
             layer_ids=layer_ids("SH-05"),
             asset_ids=assets_for("SH-05"),
@@ -1526,11 +1559,154 @@ def _shots(*, layers: list[Layer], budget_fixed: bool) -> list[Shot]:
                 "hold; no element is clipped by the end-card plate."
             ),
             audio_ids=["AU-01", "AU-02", "AU-04"],
+            effect_ids=["FX-06"],
             status=ShotStatus.READY,
             layer_ids=layer_ids("SH-06"),
             asset_ids=assets_for("SH-06"),
             check_ids=["AC-01", "AC-02", "AC-03", "AC-05", "AC-09", "AC-14"],
             estimate_ids=["ES-04", "ES-08"],
+        ),
+    ]
+
+
+def _effects() -> list[EffectSpec]:
+    return [
+        EffectSpec(
+            id="FX-01",
+            family=EffectFamily.PRACTICAL,
+            name="steam_drift",
+            behaviour=VisualBehaviour.SIMULATE,
+            target_shot="SH-01",
+            target_layer="LY-012",
+            trigger_frame=0,
+            duration_frames=75,
+            intensity=0.18,
+            direction="up_right",
+            easing="linear",
+            mask_region=Rect(x=900, y=170, w=240, h=720),
+            blend_mode="screen",
+            sync_cue="AU-02",
+            fallback="Static pack plate with a slow grade shift.",
+            acceptance="Steam moves inside its mask and never crosses the pack label.",
+            rights_or_safety="In-house particle or practical steam; no third-party media.",
+            owner="VFX / compositing",
+            status="proposed",
+            research_ref="EA-01",
+        ),
+        EffectSpec(
+            id="FX-02",
+            family=EffectFamily.LIQUID_FOOD,
+            name="macro_pour",
+            behaviour=VisualBehaviour.PROVE,
+            target_shot="SH-03",
+            target_layer="LY-031",
+            trigger_frame=0,
+            duration_frames=115,
+            intensity=0.8,
+            direction="top_down",
+            easing="ease_out",
+            mask_region=Rect(x=0, y=70, w=1200, h=900),
+            blend_mode="normal",
+            sync_cue="AU-03",
+            fallback="Still pour plate with animated steam and drip.",
+            acceptance=(
+                "Water visibly contacts the coffee bed; bloom and first drip read; "
+                "the filter stays anchored."
+            ),
+            rights_or_safety="Hand-model release and food-safe set required.",
+            owner="Camera / food stylist",
+            status="proposed",
+            research_ref="EA-02",
+            asset_ids=["AS-06"],
+        ),
+        EffectSpec(
+            id="FX-03",
+            family=EffectFamily.EDITORIAL,
+            name="time_lapse",
+            behaviour=VisualBehaviour.COMPRESS,
+            target_shot="SH-03",
+            target_layer="LY-031",
+            trigger_frame=55,
+            duration_frames=60,
+            intensity=0.7,
+            direction="forward",
+            easing="linear",
+            mask_region=Rect(x=0, y=70, w=1200, h=900),
+            blend_mode="normal",
+            sync_cue="AU-01",
+            fallback="Short step montage with the same disclosure.",
+            acceptance="Repeated pours and steep are compressed; disclosure is visible.",
+            rights_or_safety="Must carry CP-12 'Brew sequence compressed'.",
+            owner="Editor",
+            status="proposed",
+            research_ref="EA-03",
+        ),
+        EffectSpec(
+            id="FX-04",
+            family=EffectFamily.PRODUCT,
+            name="range_fan",
+            behaviour=VisualBehaviour.REVEAL,
+            target_shot="SH-04",
+            trigger_frame=0,
+            duration_frames=105,
+            intensity=0.6,
+            direction="left_to_right",
+            easing="ease_out",
+            blend_mode="normal",
+            sync_cue="AU-02",
+            fallback="Captured four-pack still with a slow scale.",
+            acceptance=(
+                "Four pack names and descriptors read; light-to-dark order is unambiguous."
+            ),
+            rights_or_safety="All four packs need brand advertising clearance.",
+            owner="Motion / compositing",
+            status="proposed",
+            research_ref="EA-04",
+            asset_ids=["AS-02", "AS-03", "AS-04", "AS-17"],
+        ),
+        EffectSpec(
+            id="FX-05",
+            family=EffectFamily.PRACTICAL,
+            name="finished_steam",
+            behaviour=VisualBehaviour.SIMULATE,
+            target_shot="SH-05",
+            target_layer="LY-051",
+            trigger_frame=0,
+            duration_frames=65,
+            intensity=0.12,
+            direction="up_right",
+            easing="ease_out",
+            mask_region=Rect(x=180, y=140, w=900, h=850),
+            blend_mode="screen",
+            sync_cue="AU-02",
+            fallback="Still cup with a simple animated steam plate.",
+            acceptance="Steam reads as hot coffee and stays clear of the pack label.",
+            rights_or_safety="In-house practical steam; keep the cup rim clean.",
+            owner="VFX / compositing",
+            status="proposed",
+            research_ref="EA-05",
+            asset_ids=["AS-08"],
+        ),
+        EffectSpec(
+            id="FX-06",
+            family=EffectFamily.MOTION_TYPE,
+            name="cta_fade",
+            behaviour=VisualBehaviour.EMPHASISE,
+            target_shot="SH-06",
+            target_layer="LY-063",
+            trigger_frame=0,
+            duration_frames=6,
+            intensity=1.0,
+            direction="none",
+            easing="ease_out",
+            blend_mode="normal",
+            sync_cue="AU-04",
+            fallback="Static end card with the CTA already visible.",
+            acceptance="CTA is legible by frame 6 and remains inside the end-card plate.",
+            rights_or_safety="No added claim; CTA wording remains pending ED-04.",
+            owner="Motion / edit",
+            status="proposed",
+            research_ref="EA-06",
         ),
     ]
 
@@ -1946,6 +2122,7 @@ def build_blue_tokai_plan(
         claims=claims,
         assets=assets,
         audio_cues=_audio_cues(),
+        effects=_effects(),
         transitions=_transitions(),
         alternates=_alternates(),
         variant_overrides=[],
