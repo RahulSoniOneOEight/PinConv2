@@ -1,0 +1,28 @@
+{
+  "project_id": "toffee-coffee-10s",
+  "plan_revision": 2,
+  "plan_hash": "7f655163242c99d9de162592b09586cbcb158872947de7ab937c1e370b614781",
+  "validation_passed": true,
+  "ready_shots": [
+    "SH-01",
+    "SH-02",
+    "SH-03",
+    "SH-04"
+  ],
+  "held_layers": [],
+  "conditions": [
+    "exact.critical: brand_name ED-06 is observed; Gate 1 must approve this identifier or wording",
+    "exact.critical: cta ED-05 is proposed; Gate 1 must approve this identifier or wording",
+    "exact.critical: origin ED-07 is observed; Gate 1 must approve this identifier or wording",
+    "rights.assets: rights need approval for Ethiopia pack artwork",
+    "rights.assets: rights need approval for Toffee Coffee Roasters logo"
+  ],
+  "blockers": [],
+  "input_statuses": {
+    "CF-01": "resolved",
+    "CF-02": "escalated",
+    "CF-03": "resolved"
+  },
+  "approval": null,
+  "created_at": "2026-11-14T13:15:14+00:00"
+}

@@ -1,0 +1,2705 @@
+{
+  "project_id": "toffee-coffee-10s",
+  "revision": 1,
+  "brief_revision": 1,
+  "deliverable": {
+    "id": "DP-01",
+    "platform": "Instagram Reels / YouTube Shorts",
+    "placement": "organic short video, 9:16",
+    "width": 1080,
+    "height": 1920,
+    "fps": 25,
+    "frame_count": 250,
+    "duration_seconds": 10.0,
+    "aspect_ratio": "9:16",
+    "safe_area": {
+      "top": 220,
+      "bottom": 320,
+      "left": 60,
+      "right": 140
+    },
+    "caption_rules": {
+      "max_lines": 2,
+      "max_chars_per_line": 32,
+      "max_cps": 17.0,
+      "min_hold_frames": 24
+    },
+    "cta_copy_id": "CP-05",
+    "variant_id": "hero",
+    "sound_off_legible": true
+  },
+  "beats": [
+    {
+      "id": "BT-01",
+      "start_frame": 0,
+      "end_frame": 50,
+      "purpose": "Stop the scroll with origin and texture.",
+      "spoken_line": "Ethiopia.",
+      "on_screen_copy": "ETHIOPIA",
+      "action": "Macro coffee surface shimmers; steam drifts; the origin word lands.",
+      "emotion": "intrigue",
+      "audio_cue_ids": [
+        "AU-01",
+        "AU-02",
+        "AU-03"
+      ],
+      "copy_ids": [
+        "CP-01",
+        "CP-11"
+      ]
+    },
+    {
+      "id": "BT-02",
+      "start_frame": 50,
+      "end_frame": 125,
+      "purpose": "Reveal the pack and name the format.",
+      "spoken_line": "Speciality instant coffee.",
+      "on_screen_copy": "SPECIALITY INSTANT COFFEE",
+      "action": "The pack rises into hero light; the label catches a single sweep.",
+      "emotion": "recognition",
+      "audio_cue_ids": [
+        "AU-01",
+        "AU-02"
+      ],
+      "copy_ids": [
+        "CP-02",
+        "CP-12"
+      ]
+    },
+    {
+      "id": "BT-03",
+      "start_frame": 125,
+      "end_frame": 200,
+      "purpose": "Deliver the sensory payoff.",
+      "spoken_line": "In an instant.",
+      "on_screen_copy": "IN AN INSTANT.",
+      "action": "Liquid wraps the pack; the splash peaks and falls.",
+      "emotion": "appetite",
+      "audio_cue_ids": [
+        "AU-01",
+        "AU-02",
+        "AU-04"
+      ],
+      "copy_ids": [
+        "CP-03",
+        "CP-13",
+        "CP-04"
+      ]
+    },
+    {
+      "id": "BT-04",
+      "start_frame": 200,
+      "end_frame": 250,
+      "purpose": "Close on brand and CTA.",
+      "spoken_line": "Toffee Coffee Roasters.",
+      "on_screen_copy": "TOFFEE COFFEE ROASTERS",
+      "action": "End card holds logo, pack and CTA.",
+      "emotion": "confidence",
+      "audio_cue_ids": [
+        "AU-01",
+        "AU-02",
+        "AU-05"
+      ],
+      "copy_ids": [
+        "CP-05",
+        "CP-14"
+      ]
+    }
+  ],
+  "shots": [
+    {
+      "id": "SH-01",
+      "beat_ids": [
+        "BT-01"
+      ],
+      "start_frame": 0,
+      "end_frame": 50,
+      "purpose": "Earn the next two seconds with origin and texture.",
+      "framing": "Full-frame macro; type centered in the upper third.",
+      "movement": "Slow push-in on the coffee surface; steam drifts right.",
+      "subject": "Dark coffee surface, steam and the word ETHIOPIA.",
+      "action": "The origin word lands on beat one and holds.",
+      "expression": "Premium, quiet confidence.",
+      "lighting": "Low-key warm key from the right; copper rim.",
+      "palette": "Near-black brown, cream type, copper highlight.",
+      "transition_in": "Cold open.",
+      "continuity": "Coffee texture carries into the pack reveal.",
+      "method": "Authored motion-graphics composite: macro plate, steam element, kinetic type.",
+      "fallback_method": "Static macro still with a slow scale and a type fade.",
+      "status": "ready",
+      "layer_ids": [
+        "LY-010",
+        "LY-011",
+        "LY-012",
+        "LY-013",
+        "LY-014",
+        "LY-015"
+      ],
+      "asset_ids": [
+        "AS-05",
+        "AS-04"
+      ],
+      "check_ids": [
+        "AC-01",
+        "AC-02",
+        "AC-14"
+      ],
+      "estimate_ids": [],
+      "notes": null
+    },
+    {
+      "id": "SH-02",
+      "beat_ids": [
+        "BT-02"
+      ],
+      "start_frame": 50,
+      "end_frame": 125,
+      "purpose": "Reveal the pack and name the format.",
+      "framing": "Pack hero at center, label square to camera.",
+      "movement": "Pack rises 40 px; a single light sweep crosses left to right.",
+      "subject": "Ethiopia pack with an unobstructed label.",
+      "action": "Pack settles; descriptor appears below.",
+      "expression": "Assured, tactile.",
+      "lighting": "Warm key on the pack; dark surround.",
+      "palette": "Copper, cream, deep brown.",
+      "transition_in": "Light wipe from SH-01.",
+      "continuity": "Same warm grade and pack orientation as SH-03 and SH-04.",
+      "method": "Pack hero composite with supplied art, light sweep and type.",
+      "fallback_method": "Pack still on seamless background with a simple gradient.",
+      "status": "ready",
+      "layer_ids": [
+        "LY-020",
+        "LY-021",
+        "LY-022",
+        "LY-023",
+        "LY-024",
+        "LY-025"
+      ],
+      "asset_ids": [
+        "AS-05",
+        "AS-01"
+      ],
+      "check_ids": [
+        "AC-01",
+        "AC-03",
+        "AC-09",
+        "AC-12",
+        "AC-14"
+      ],
+      "estimate_ids": [
+        "ES-05"
+      ],
+      "notes": null
+    },
+    {
+      "id": "SH-03",
+      "beat_ids": [
+        "BT-03"
+      ],
+      "start_frame": 125,
+      "end_frame": 200,
+      "purpose": "Deliver the sensory payoff and hold the label.",
+      "framing": "Pack fills the frame; liquid wraps the lower half.",
+      "movement": "Slow push-in; liquid peaks at frame 150 and falls.",
+      "subject": "Pack, liquid ribbon and macro bubbles.",
+      "action": "Splash peaks, then settles around the pack.",
+      "expression": "Appetite and craft.",
+      "lighting": "Backlit liquid with a warm edge.",
+      "palette": "Caramel, copper, near-black.",
+      "transition_in": "Match cut on the pack.",
+      "continuity": "Pack label remains unobstructed; same pack scale direction.",
+      "method": "Liquid and macro composite around the pack with type.",
+      "fallback_method": "Pack hero still with an animated light sweep; no liquid simulation.",
+      "status": "ready",
+      "layer_ids": [
+        "LY-030",
+        "LY-031",
+        "LY-033",
+        "LY-034",
+        "LY-036",
+        "LY-037",
+        "LY-032",
+        "LY-035"
+      ],
+      "asset_ids": [
+        "AS-05",
+        "AS-01",
+        "AS-03"
+      ],
+      "check_ids": [
+        "AC-01",
+        "AC-03",
+        "AC-12",
+        "AC-14"
+      ],
+      "estimate_ids": [
+        "ES-03",
+        "ES-06"
+      ],
+      "notes": null
+    },
+    {
+      "id": "SH-04",
+      "beat_ids": [
+        "BT-04"
+      ],
+      "start_frame": 200,
+      "end_frame": 250,
+      "purpose": "Close on brand and a clear CTA.",
+      "framing": "Logo top-center, pack center, CTA and caption below.",
+      "movement": "Pack settles; CTA fades up on the final beat.",
+      "subject": "Logo, pack and CTA.",
+      "action": "End card holds for the final read.",
+      "expression": "Confident, warm.",
+      "lighting": "Even warm key; logo separated from background.",
+      "palette": "Cream logo, copper pack, near-black ground.",
+      "transition_in": "Splash wipe from SH-03.",
+      "continuity": "Final pack orientation matches SH-02 and SH-03.",
+      "method": "End-card composite: logo, pack, CTA and caption.",
+      "fallback_method": "Typographic end card with logo and CTA if pack art is unavailable.",
+      "status": "ready",
+      "layer_ids": [
+        "LY-040",
+        "LY-041",
+        "LY-042",
+        "LY-043",
+        "LY-044",
+        "LY-045"
+      ],
+      "asset_ids": [
+        "AS-05",
+        "AS-01",
+        "AS-02"
+      ],
+      "check_ids": [
+        "AC-01",
+        "AC-05",
+        "AC-09",
+        "AC-12",
+        "AC-14"
+      ],
+      "estimate_ids": [
+        "ES-04",
+        "ES-10"
+      ],
+      "notes": null
+    }
+  ],
+  "layers": [
+    {
+      "id": "LY-010",
+      "shot_id": "SH-01",
+      "start_frame": 0,
+      "end_frame": 50,
+      "role": "background",
+      "z_order": 0,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "w": 1080,
+        "h": 1920
+      },
+      "opacity": 1.0,
+      "fill": null,
+      "text_style": null,
+      "motion": [],
+      "effect": null,
+      "non_occluding": false,
+      "protected": false,
+      "protected_regions": [],
+      "binding_kind": "asset",
+      "binding_ref": "AS-05",
+      "exactness": "illustrative",
+      "required": true,
+      "allowed_edits": [
+        "colour grade",
+        "timing within 4 frames"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-011",
+      "shot_id": "SH-01",
+      "start_frame": 0,
+      "end_frame": 50,
+      "role": "subject",
+      "z_order": 5,
+      "rect": {
+        "x": 0,
+        "y": 240,
+        "w": 1080,
+        "h": 1300
+      },
+      "opacity": 0.55,
+      "fill": null,
+      "text_style": null,
+      "motion": [
+        {
+          "frame": 0,
+          "x": null,
+          "y": null,
+          "scale": 1.0,
+          "opacity": null,
+          "easing": "linear"
+        },
+        {
+          "frame": 50,
+          "x": null,
+          "y": null,
+          "scale": 1.06,
+          "opacity": null,
+          "easing": "ease_out"
+        }
+      ],
+      "effect": null,
+      "non_occluding": false,
+      "protected": false,
+      "protected_regions": [],
+      "binding_kind": "asset",
+      "binding_ref": "AS-04",
+      "exactness": "illustrative",
+      "required": true,
+      "allowed_edits": [
+        "colour grade",
+        "timing within 4 frames"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-012",
+      "shot_id": "SH-01",
+      "start_frame": 0,
+      "end_frame": 50,
+      "role": "effect",
+      "z_order": 8,
+      "rect": {
+        "x": 200,
+        "y": 300,
+        "w": 680,
+        "h": 900
+      },
+      "opacity": 0.18,
+      "fill": "#E8D5B5",
+      "text_style": null,
+      "motion": [],
+      "effect": "steam_drift",
+      "non_occluding": true,
+      "protected": false,
+      "protected_regions": [],
+      "binding_kind": "none",
+      "binding_ref": null,
+      "exactness": "illustrative",
+      "required": true,
+      "allowed_edits": [
+        "opacity",
+        "timing"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-013",
+      "shot_id": "SH-01",
+      "start_frame": 0,
+      "end_frame": 50,
+      "role": "typography",
+      "z_order": 20,
+      "rect": {
+        "x": 80,
+        "y": 700,
+        "w": 860,
+        "h": 200
+      },
+      "opacity": 1.0,
+      "fill": null,
+      "text_style": {
+        "font_family": "Inter",
+        "size_px": 150,
+        "weight": 700,
+        "color": "#F7EBDD",
+        "align": "left",
+        "line_height": 1.08,
+        "tracking": -1.0,
+        "max_lines": 1
+      },
+      "motion": [],
+      "effect": null,
+      "non_occluding": false,
+      "protected": true,
+      "protected_regions": [],
+      "binding_kind": "copy",
+      "binding_ref": "CP-01",
+      "exactness": "approved_copy",
+      "required": true,
+      "allowed_edits": [
+        "none without renewed approval"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-014",
+      "shot_id": "SH-01",
+      "start_frame": 0,
+      "end_frame": 50,
+      "role": "caption_plate",
+      "z_order": 25,
+      "rect": {
+        "x": 60,
+        "y": 1430,
+        "w": 880,
+        "h": 150
+      },
+      "opacity": 0.62,
+      "fill": "#070403",
+      "text_style": null,
+      "motion": [],
+      "effect": null,
+      "non_occluding": false,
+      "protected": false,
+      "protected_regions": [],
+      "binding_kind": "none",
+      "binding_ref": null,
+      "exactness": "illustrative",
+      "required": true,
+      "allowed_edits": [
+        "height",
+        "opacity"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-015",
+      "shot_id": "SH-01",
+      "start_frame": 0,
+      "end_frame": 50,
+      "role": "caption",
+      "z_order": 30,
+      "rect": {
+        "x": 80,
+        "y": 1450,
+        "w": 800,
+        "h": 100
+      },
+      "opacity": 1.0,
+      "fill": null,
+      "text_style": {
+        "font_family": "Inter",
+        "size_px": 52,
+        "weight": 700,
+        "color": "#F7EBDD",
+        "align": "left",
+        "line_height": 1.08,
+        "tracking": -1.0,
+        "max_lines": 1
+      },
+      "motion": [],
+      "effect": null,
+      "non_occluding": false,
+      "protected": false,
+      "protected_regions": [],
+      "binding_kind": "copy",
+      "binding_ref": "CP-11",
+      "exactness": "approved_copy",
+      "required": true,
+      "allowed_edits": [
+        "position within safe area",
+        "size within 15 percent",
+        "colour grade"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-020",
+      "shot_id": "SH-02",
+      "start_frame": 0,
+      "end_frame": 75,
+      "role": "background",
+      "z_order": 0,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "w": 1080,
+        "h": 1920
+      },
+      "opacity": 1.0,
+      "fill": null,
+      "text_style": null,
+      "motion": [],
+      "effect": null,
+      "non_occluding": false,
+      "protected": false,
+      "protected_regions": [],
+      "binding_kind": "asset",
+      "binding_ref": "AS-05",
+      "exactness": "illustrative",
+      "required": true,
+      "allowed_edits": [
+        "colour grade",
+        "timing within 4 frames"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-021",
+      "shot_id": "SH-02",
+      "start_frame": 0,
+      "end_frame": 75,
+      "role": "product",
+      "z_order": 10,
+      "rect": {
+        "x": 190,
+        "y": 480,
+        "w": 700,
+        "h": 900
+      },
+      "opacity": 1.0,
+      "fill": null,
+      "text_style": null,
+      "motion": [
+        {
+          "frame": 0,
+          "x": null,
+          "y": 520.0,
+          "scale": 0.96,
+          "opacity": null,
+          "easing": "linear"
+        },
+        {
+          "frame": 10,
+          "x": null,
+          "y": 480.0,
+          "scale": 1.0,
+          "opacity": null,
+          "easing": "ease_out"
+        }
+      ],
+      "effect": null,
+      "non_occluding": false,
+      "protected": false,
+      "protected_regions": [
+        {
+          "x": 260,
+          "y": 700,
+          "w": 560,
+          "h": 320
+        }
+      ],
+      "binding_kind": "asset",
+      "binding_ref": "AS-01",
+      "exactness": "exact",
+      "required": true,
+      "allowed_edits": [
+        "colour grade",
+        "timing within 4 frames"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-022",
+      "shot_id": "SH-02",
+      "start_frame": 0,
+      "end_frame": 75,
+      "role": "effect",
+      "z_order": 15,
+      "rect": {
+        "x": 160,
+        "y": 460,
+        "w": 760,
+        "h": 940
+      },
+      "opacity": 0.5,
+      "fill": null,
+      "text_style": null,
+      "motion": [
+        {
+          "frame": 0,
+          "x": null,
+          "y": null,
+          "scale": null,
+          "opacity": 0.0,
+          "easing": "linear"
+        },
+        {
+          "frame": 8,
+          "x": null,
+          "y": null,
+          "scale": null,
+          "opacity": 0.55,
+          "easing": "linear"
+        },
+        {
+          "frame": 20,
+          "x": null,
+          "y": null,
+          "scale": null,
+          "opacity": 0.0,
+          "easing": "linear"
+        }
+      ],
+      "effect": "light_sweep",
+      "non_occluding": true,
+      "protected": false,
+      "protected_regions": [],
+      "binding_kind": "none",
+      "binding_ref": null,
+      "exactness": "illustrative",
+      "required": true,
+      "allowed_edits": [
+        "opacity",
+        "timing"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-023",
+      "shot_id": "SH-02",
+      "start_frame": 0,
+      "end_frame": 75,
+      "role": "typography",
+      "z_order": 20,
+      "rect": {
+        "x": 80,
+        "y": 1330,
+        "w": 860,
+        "h": 130
+      },
+      "opacity": 1.0,
+      "fill": null,
+      "text_style": {
+        "font_family": "Inter",
+        "size_px": 58,
+        "weight": 700,
+        "color": "#F7EBDD",
+        "align": "left",
+        "line_height": 1.08,
+        "tracking": -1.0,
+        "max_lines": 2
+      },
+      "motion": [],
+      "effect": null,
+      "non_occluding": false,
+      "protected": true,
+      "protected_regions": [],
+      "binding_kind": "copy",
+      "binding_ref": "CP-02",
+      "exactness": "approved_copy",
+      "required": true,
+      "allowed_edits": [
+        "none without renewed approval"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-024",
+      "shot_id": "SH-02",
+      "start_frame": 0,
+      "end_frame": 75,
+      "role": "caption_plate",
+      "z_order": 25,
+      "rect": {
+        "x": 60,
+        "y": 1515,
+        "w": 880,
+        "h": 120
+      },
+      "opacity": 0.62,
+      "fill": "#070403",
+      "text_style": null,
+      "motion": [],
+      "effect": null,
+      "non_occluding": false,
+      "protected": false,
+      "protected_regions": [],
+      "binding_kind": "none",
+      "binding_ref": null,
+      "exactness": "illustrative",
+      "required": true,
+      "allowed_edits": [
+        "height",
+        "opacity"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-025",
+      "shot_id": "SH-02",
+      "start_frame": 0,
+      "end_frame": 75,
+      "role": "caption",
+      "z_order": 30,
+      "rect": {
+        "x": 80,
+        "y": 1540,
+        "w": 800,
+        "h": 80
+      },
+      "opacity": 1.0,
+      "fill": null,
+      "text_style": {
+        "font_family": "Inter",
+        "size_px": 44,
+        "weight": 700,
+        "color": "#F7EBDD",
+        "align": "left",
+        "line_height": 1.08,
+        "tracking": -1.0,
+        "max_lines": 1
+      },
+      "motion": [],
+      "effect": null,
+      "non_occluding": false,
+      "protected": false,
+      "protected_regions": [],
+      "binding_kind": "copy",
+      "binding_ref": "CP-12",
+      "exactness": "approved_copy",
+      "required": true,
+      "allowed_edits": [
+        "position within safe area",
+        "size within 15 percent",
+        "colour grade"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-030",
+      "shot_id": "SH-03",
+      "start_frame": 0,
+      "end_frame": 75,
+      "role": "background",
+      "z_order": 0,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "w": 1080,
+        "h": 1920
+      },
+      "opacity": 1.0,
+      "fill": null,
+      "text_style": null,
+      "motion": [],
+      "effect": null,
+      "non_occluding": false,
+      "protected": false,
+      "protected_regions": [],
+      "binding_kind": "asset",
+      "binding_ref": "AS-05",
+      "exactness": "illustrative",
+      "required": true,
+      "allowed_edits": [
+        "colour grade",
+        "timing within 4 frames"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-031",
+      "shot_id": "SH-03",
+      "start_frame": 0,
+      "end_frame": 75,
+      "role": "subject",
+      "z_order": 5,
+      "rect": {
+        "x": 0,
+        "y": 700,
+        "w": 1080,
+        "h": 1100
+      },
+      "opacity": 0.8,
+      "fill": null,
+      "text_style": null,
+      "motion": [
+        {
+          "frame": 0,
+          "x": null,
+          "y": null,
+          "scale": 1.0,
+          "opacity": null,
+          "easing": "linear"
+        },
+        {
+          "frame": 75,
+          "x": null,
+          "y": null,
+          "scale": 1.08,
+          "opacity": null,
+          "easing": "ease_out"
+        }
+      ],
+      "effect": null,
+      "non_occluding": false,
+      "protected": false,
+      "protected_regions": [],
+      "binding_kind": "asset",
+      "binding_ref": "AS-03",
+      "exactness": "illustrative",
+      "required": true,
+      "allowed_edits": [
+        "colour grade",
+        "timing within 4 frames"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-033",
+      "shot_id": "SH-03",
+      "start_frame": 0,
+      "end_frame": 75,
+      "role": "product",
+      "z_order": 10,
+      "rect": {
+        "x": 100,
+        "y": 300,
+        "w": 880,
+        "h": 1000
+      },
+      "opacity": 1.0,
+      "fill": null,
+      "text_style": null,
+      "motion": [
+        {
+          "frame": 0,
+          "x": null,
+          "y": null,
+          "scale": 1.0,
+          "opacity": null,
+          "easing": "linear"
+        },
+        {
+          "frame": 75,
+          "x": null,
+          "y": null,
+          "scale": 1.03,
+          "opacity": null,
+          "easing": "ease_out"
+        }
+      ],
+      "effect": null,
+      "non_occluding": false,
+      "protected": false,
+      "protected_regions": [
+        {
+          "x": 160,
+          "y": 520,
+          "w": 760,
+          "h": 360
+        }
+      ],
+      "binding_kind": "asset",
+      "binding_ref": "AS-01",
+      "exactness": "exact",
+      "required": true,
+      "allowed_edits": [
+        "colour grade",
+        "timing within 4 frames"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-034",
+      "shot_id": "SH-03",
+      "start_frame": 0,
+      "end_frame": 75,
+      "role": "typography",
+      "z_order": 30,
+      "rect": {
+        "x": 80,
+        "y": 1240,
+        "w": 860,
+        "h": 160
+      },
+      "opacity": 1.0,
+      "fill": null,
+      "text_style": {
+        "font_family": "Inter",
+        "size_px": 96,
+        "weight": 700,
+        "color": "#F7EBDD",
+        "align": "left",
+        "line_height": 1.08,
+        "tracking": -1.0,
+        "max_lines": 1
+      },
+      "motion": [],
+      "effect": null,
+      "non_occluding": false,
+      "protected": true,
+      "protected_regions": [],
+      "binding_kind": "copy",
+      "binding_ref": "CP-03",
+      "exactness": "approved_copy",
+      "required": true,
+      "allowed_edits": [
+        "none without renewed approval"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-036",
+      "shot_id": "SH-03",
+      "start_frame": 0,
+      "end_frame": 75,
+      "role": "caption_plate",
+      "z_order": 40,
+      "rect": {
+        "x": 60,
+        "y": 1535,
+        "w": 880,
+        "h": 120
+      },
+      "opacity": 0.62,
+      "fill": "#070403",
+      "text_style": null,
+      "motion": [],
+      "effect": null,
+      "non_occluding": false,
+      "protected": false,
+      "protected_regions": [],
+      "binding_kind": "none",
+      "binding_ref": null,
+      "exactness": "illustrative",
+      "required": true,
+      "allowed_edits": [
+        "height",
+        "opacity"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-037",
+      "shot_id": "SH-03",
+      "start_frame": 0,
+      "end_frame": 75,
+      "role": "caption",
+      "z_order": 45,
+      "rect": {
+        "x": 80,
+        "y": 1560,
+        "w": 800,
+        "h": 90
+      },
+      "opacity": 1.0,
+      "fill": null,
+      "text_style": {
+        "font_family": "Inter",
+        "size_px": 44,
+        "weight": 700,
+        "color": "#F7EBDD",
+        "align": "left",
+        "line_height": 1.08,
+        "tracking": -1.0,
+        "max_lines": 1
+      },
+      "motion": [],
+      "effect": null,
+      "non_occluding": false,
+      "protected": false,
+      "protected_regions": [],
+      "binding_kind": "copy",
+      "binding_ref": "CP-13",
+      "exactness": "approved_copy",
+      "required": true,
+      "allowed_edits": [
+        "position within safe area",
+        "size within 15 percent",
+        "colour grade"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-040",
+      "shot_id": "SH-04",
+      "start_frame": 0,
+      "end_frame": 50,
+      "role": "background",
+      "z_order": 0,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "w": 1080,
+        "h": 1920
+      },
+      "opacity": 1.0,
+      "fill": null,
+      "text_style": null,
+      "motion": [],
+      "effect": null,
+      "non_occluding": false,
+      "protected": false,
+      "protected_regions": [],
+      "binding_kind": "asset",
+      "binding_ref": "AS-05",
+      "exactness": "illustrative",
+      "required": true,
+      "allowed_edits": [
+        "colour grade",
+        "timing within 4 frames"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-041",
+      "shot_id": "SH-04",
+      "start_frame": 0,
+      "end_frame": 50,
+      "role": "product",
+      "z_order": 10,
+      "rect": {
+        "x": 240,
+        "y": 560,
+        "w": 600,
+        "h": 760
+      },
+      "opacity": 1.0,
+      "fill": null,
+      "text_style": null,
+      "motion": [],
+      "effect": null,
+      "non_occluding": false,
+      "protected": false,
+      "protected_regions": [
+        {
+          "x": 300,
+          "y": 720,
+          "w": 480,
+          "h": 280
+        }
+      ],
+      "binding_kind": "asset",
+      "binding_ref": "AS-01",
+      "exactness": "exact",
+      "required": true,
+      "allowed_edits": [
+        "colour grade",
+        "timing within 4 frames"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-042",
+      "shot_id": "SH-04",
+      "start_frame": 0,
+      "end_frame": 50,
+      "role": "logo",
+      "z_order": 20,
+      "rect": {
+        "x": 340,
+        "y": 300,
+        "w": 400,
+        "h": 180
+      },
+      "opacity": 1.0,
+      "fill": null,
+      "text_style": null,
+      "motion": [],
+      "effect": null,
+      "non_occluding": false,
+      "protected": true,
+      "protected_regions": [],
+      "binding_kind": "asset",
+      "binding_ref": "AS-02",
+      "exactness": "exact",
+      "required": true,
+      "allowed_edits": [
+        "colour grade",
+        "timing within 4 frames"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-043",
+      "shot_id": "SH-04",
+      "start_frame": 0,
+      "end_frame": 50,
+      "role": "cta",
+      "z_order": 30,
+      "rect": {
+        "x": 140,
+        "y": 1400,
+        "w": 800,
+        "h": 100
+      },
+      "opacity": 1.0,
+      "fill": null,
+      "text_style": {
+        "font_family": "Inter",
+        "size_px": 52,
+        "weight": 700,
+        "color": "#F7EBDD",
+        "align": "left",
+        "line_height": 1.08,
+        "tracking": -1.0,
+        "max_lines": 1
+      },
+      "motion": [],
+      "effect": null,
+      "non_occluding": false,
+      "protected": true,
+      "protected_regions": [],
+      "binding_kind": "copy",
+      "binding_ref": "CP-05",
+      "exactness": "approved_copy",
+      "required": true,
+      "allowed_edits": [
+        "none without renewed approval"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-044",
+      "shot_id": "SH-04",
+      "start_frame": 0,
+      "end_frame": 50,
+      "role": "caption_plate",
+      "z_order": 25,
+      "rect": {
+        "x": 60,
+        "y": 1380,
+        "w": 880,
+        "h": 260
+      },
+      "opacity": 0.62,
+      "fill": "#070403",
+      "text_style": null,
+      "motion": [],
+      "effect": null,
+      "non_occluding": false,
+      "protected": false,
+      "protected_regions": [],
+      "binding_kind": "none",
+      "binding_ref": null,
+      "exactness": "illustrative",
+      "required": true,
+      "allowed_edits": [
+        "height",
+        "opacity"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-045",
+      "shot_id": "SH-04",
+      "start_frame": 0,
+      "end_frame": 50,
+      "role": "caption",
+      "z_order": 40,
+      "rect": {
+        "x": 80,
+        "y": 1540,
+        "w": 800,
+        "h": 80
+      },
+      "opacity": 1.0,
+      "fill": null,
+      "text_style": {
+        "font_family": "Inter",
+        "size_px": 42,
+        "weight": 700,
+        "color": "#F7EBDD",
+        "align": "left",
+        "line_height": 1.08,
+        "tracking": -1.0,
+        "max_lines": 1
+      },
+      "motion": [],
+      "effect": null,
+      "non_occluding": false,
+      "protected": false,
+      "protected_regions": [],
+      "binding_kind": "copy",
+      "binding_ref": "CP-14",
+      "exactness": "approved_copy",
+      "required": true,
+      "allowed_edits": [
+        "position within safe area",
+        "size within 15 percent",
+        "colour grade"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-032",
+      "shot_id": "SH-03",
+      "start_frame": 0,
+      "end_frame": 75,
+      "role": "subject",
+      "z_order": 6,
+      "rect": {
+        "x": 0,
+        "y": 760,
+        "w": 1080,
+        "h": 1000
+      },
+      "opacity": 0.5,
+      "fill": null,
+      "text_style": null,
+      "motion": [],
+      "effect": null,
+      "non_occluding": false,
+      "protected": false,
+      "protected_regions": [],
+      "binding_kind": "asset",
+      "binding_ref": "AS-12",
+      "exactness": "illustrative",
+      "required": true,
+      "allowed_edits": [
+        "colour grade",
+        "timing within 4 frames"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-035",
+      "shot_id": "SH-03",
+      "start_frame": 0,
+      "end_frame": 75,
+      "role": "offer",
+      "z_order": 35,
+      "rect": {
+        "x": 80,
+        "y": 1420,
+        "w": 860,
+        "h": 110
+      },
+      "opacity": 1.0,
+      "fill": null,
+      "text_style": {
+        "font_family": "Inter",
+        "size_px": 44,
+        "weight": 700,
+        "color": "#F7EBDD",
+        "align": "left",
+        "line_height": 1.08,
+        "tracking": -1.0,
+        "max_lines": 1
+      },
+      "motion": [],
+      "effect": null,
+      "non_occluding": false,
+      "protected": true,
+      "protected_regions": [],
+      "binding_kind": "copy",
+      "binding_ref": "CP-04",
+      "exactness": "approved_copy",
+      "required": true,
+      "allowed_edits": [
+        "none without renewed approval"
+      ],
+      "notes": null
+    }
+  ],
+  "copy_blocks": [
+    {
+      "id": "CP-01",
+      "text": "ETHIOPIA",
+      "role": "hook",
+      "exact_data_refs": [
+        "ED-07"
+      ],
+      "claim_refs": [],
+      "status": "proposed",
+      "reading_frames": 40,
+      "source": null,
+      "notes": "Origin word; Gate 1 approves the identifier."
+    },
+    {
+      "id": "CP-02",
+      "text": "SPECIALITY INSTANT COFFEE",
+      "role": "headline",
+      "exact_data_refs": [],
+      "claim_refs": [
+        "CL-03"
+      ],
+      "status": "proposed",
+      "reading_frames": 70,
+      "source": null,
+      "notes": null
+    },
+    {
+      "id": "CP-03",
+      "text": "IN AN INSTANT.",
+      "role": "headline",
+      "exact_data_refs": [],
+      "claim_refs": [],
+      "status": "proposed",
+      "reading_frames": 70,
+      "source": null,
+      "notes": null
+    },
+    {
+      "id": "CP-05",
+      "text": "Shop the Ethiopia range",
+      "role": "cta",
+      "exact_data_refs": [
+        "ED-05"
+      ],
+      "claim_refs": [],
+      "status": "proposed",
+      "reading_frames": 45,
+      "source": null,
+      "notes": "Proposed CTA; exact wording needs Gate 1 approval."
+    },
+    {
+      "id": "CP-11",
+      "text": "Ethiopia.",
+      "role": "caption",
+      "exact_data_refs": [
+        "ED-07"
+      ],
+      "claim_refs": [],
+      "status": "proposed",
+      "reading_frames": 45,
+      "source": null,
+      "notes": null
+    },
+    {
+      "id": "CP-12",
+      "text": "Speciality instant coffee.",
+      "role": "caption",
+      "exact_data_refs": [],
+      "claim_refs": [
+        "CL-03"
+      ],
+      "status": "proposed",
+      "reading_frames": 70,
+      "source": null,
+      "notes": null
+    },
+    {
+      "id": "CP-13",
+      "text": "In an instant.",
+      "role": "caption",
+      "exact_data_refs": [],
+      "claim_refs": [],
+      "status": "proposed",
+      "reading_frames": 70,
+      "source": null,
+      "notes": null
+    },
+    {
+      "id": "CP-14",
+      "text": "Toffee Coffee Roasters",
+      "role": "caption",
+      "exact_data_refs": [
+        "ED-06"
+      ],
+      "claim_refs": [],
+      "status": "proposed",
+      "reading_frames": 45,
+      "source": null,
+      "notes": null
+    },
+    {
+      "id": "CP-04",
+      "text": "BUY 1 GET 1 - CODE BOGO",
+      "role": "offer",
+      "exact_data_refs": [
+        "ED-03",
+        "ED-04"
+      ],
+      "claim_refs": [],
+      "status": "held",
+      "reading_frames": 60,
+      "source": null,
+      "notes": "Observed storefront offer; terms and expiry unconfirmed."
+    }
+  ],
+  "exact_data": [
+    {
+      "id": "ED-01",
+      "field": "product_name",
+      "value": "Ethiopia Speciality Instant Coffee",
+      "status": "observed",
+      "source_id": "SRC-02",
+      "evidence_locator": "Product title",
+      "approved_by": null,
+      "approved_at": null,
+      "expires_at": null,
+      "notes": "Brand product name; Gate 1 must approve the identifier."
+    },
+    {
+      "id": "ED-02",
+      "field": "price",
+      "value": "50 gm: Rs 499; 100 gm: Rs 699",
+      "status": "observed",
+      "source_id": "SRC-02",
+      "evidence_locator": "Size selector and price block",
+      "approved_by": null,
+      "approved_at": null,
+      "expires_at": null,
+      "notes": "Variant-dependent. Not approved for advertising."
+    },
+    {
+      "id": "ED-03",
+      "field": "offer",
+      "value": "Buy 1 Get 1 Free or Buy 2 Get 2 Free (+ free mug)",
+      "status": "observed",
+      "source_id": "SRC-01",
+      "evidence_locator": "Announcement bar",
+      "approved_by": null,
+      "approved_at": null,
+      "expires_at": null,
+      "notes": "Expiry and terms are not visible. Not approved for advertising."
+    },
+    {
+      "id": "ED-04",
+      "field": "promo_code",
+      "value": "BOGO / B2G2",
+      "status": "observed",
+      "source_id": "SRC-01",
+      "evidence_locator": "Announcement bar",
+      "approved_by": null,
+      "approved_at": null,
+      "expires_at": null,
+      "notes": "Code exists on the storefront; advertising use is unconfirmed."
+    },
+    {
+      "id": "ED-05",
+      "field": "cta",
+      "value": "Shop the Ethiopia range",
+      "status": "proposed",
+      "source_id": null,
+      "evidence_locator": null,
+      "approved_by": null,
+      "approved_at": null,
+      "expires_at": null,
+      "notes": "Proposed creative CTA. Gate 1 must approve the exact wording."
+    },
+    {
+      "id": "ED-06",
+      "field": "brand_name",
+      "value": "Toffee Coffee Roasters",
+      "status": "observed",
+      "source_id": "SRC-01",
+      "evidence_locator": "Header logo and footer",
+      "approved_by": null,
+      "approved_at": null,
+      "expires_at": null,
+      "notes": "Brand identifier observed on the storefront."
+    },
+    {
+      "id": "ED-07",
+      "field": "origin",
+      "value": "Ethiopia",
+      "status": "observed",
+      "source_id": "SRC-02",
+      "evidence_locator": "Ethiopia Coffee section",
+      "approved_by": null,
+      "approved_at": null,
+      "expires_at": null,
+      "notes": "Origin name from the product page."
+    },
+    {
+      "id": "ED-08",
+      "field": "pack_size",
+      "value": "50 gm / 100 gm",
+      "status": "observed",
+      "source_id": "SRC-02",
+      "evidence_locator": "Size selector",
+      "approved_by": null,
+      "approved_at": null,
+      "expires_at": null,
+      "notes": "Hero size has not been chosen."
+    }
+  ],
+  "claims": [
+    {
+      "id": "CL-01",
+      "text": "Ethiopia is the birthplace of coffee",
+      "status": "unverified",
+      "source_ids": [
+        "SRC-02"
+      ],
+      "evidence_locator": "Ethiopia Coffee bullet list",
+      "approved_wording": null,
+      "limitations": "The brand page says 'known as a Birthplace of Coffee'; this is not independent substantiation.",
+      "used_in": []
+    },
+    {
+      "id": "CL-02",
+      "text": "Makes 50 cups per 100 g",
+      "status": "verified",
+      "source_ids": [
+        "SRC-02"
+      ],
+      "evidence_locator": "Ethiopia Coffee bullet list",
+      "approved_wording": null,
+      "limitations": "Brand-authored serving estimate; advertising wording not approved.",
+      "used_in": []
+    },
+    {
+      "id": "CL-03",
+      "text": "Speciality instant coffee",
+      "status": "verified",
+      "source_ids": [
+        "SRC-02"
+      ],
+      "evidence_locator": "Product title and category",
+      "approved_wording": "speciality instant coffee",
+      "limitations": "Use as a category descriptor, not a superiority claim.",
+      "used_in": [
+        "CP-02",
+        "CP-12"
+      ]
+    },
+    {
+      "id": "CL-04",
+      "text": "Rich aroma with bold and fruity flavours",
+      "status": "verified",
+      "source_ids": [
+        "SRC-02"
+      ],
+      "evidence_locator": "Ethiopia Coffee bullet list",
+      "approved_wording": null,
+      "limitations": "Sensory description; advertising wording not approved.",
+      "used_in": []
+    },
+    {
+      "id": "CL-05",
+      "text": "Have it black or with milk or cream",
+      "status": "verified",
+      "source_ids": [
+        "SRC-02"
+      ],
+      "evidence_locator": "Ethiopia Coffee bullet list",
+      "approved_wording": null,
+      "limitations": "Serving suggestion; not used in this cut.",
+      "used_in": []
+    }
+  ],
+  "assets": [
+    {
+      "id": "AS-01",
+      "version": "1.0",
+      "name": "Ethiopia pack artwork",
+      "description": "Front pack art for Ethiopia Speciality Instant Coffee, supplied by the brand with the label unobstructed and at least 2000 px on the long edge.",
+      "route": "supplied",
+      "source": "Brand pack file",
+      "generation_spec": null,
+      "rights": {
+        "status": "needs_approval",
+        "licence_name": "Brand-supplied artwork (pending)",
+        "licence_url": null,
+        "attribution": null,
+        "commercial_use": true,
+        "modification": true,
+        "editorial_only": false,
+        "consent_ref": null,
+        "ai_generated": false,
+        "disclosure_required": false,
+        "notes": "Brand must supply pack art and confirm advertising use."
+      },
+      "tech": {
+        "format": "PNG",
+        "width": 2000,
+        "height": 2000,
+        "transparency": true,
+        "orientation": "square",
+        "fps": null,
+        "duration_frames": null,
+        "notes": "Pack silhouette on transparency; label at native resolution."
+      },
+      "exactness": "exact",
+      "allowed_edits": [
+        "minor retouch",
+        "drop shadow",
+        "colour match to grade"
+      ],
+      "dependencies": [],
+      "estimate_id": "ES-05",
+      "fallback_asset_id": null,
+      "used_by": [
+        "LY-021",
+        "LY-033",
+        "LY-041"
+      ],
+      "status": "pending",
+      "notes": null
+    },
+    {
+      "id": "AS-02",
+      "version": "1.0",
+      "name": "Toffee Coffee Roasters logo",
+      "description": "Vector logo supplied by the brand, unmodified.",
+      "route": "supplied",
+      "source": "Brand logo file",
+      "generation_spec": null,
+      "rights": {
+        "status": "needs_approval",
+        "licence_name": "Brand-supplied logo (pending)",
+        "licence_url": null,
+        "attribution": null,
+        "commercial_use": true,
+        "modification": false,
+        "editorial_only": false,
+        "consent_ref": null,
+        "ai_generated": false,
+        "disclosure_required": false,
+        "notes": "Logo may not be redrawn or recoloured."
+      },
+      "tech": {
+        "format": "SVG",
+        "width": null,
+        "height": null,
+        "transparency": true,
+        "orientation": "any",
+        "fps": null,
+        "duration_frames": null,
+        "notes": "Monochrome or full-colour version as supplied."
+      },
+      "exactness": "exact",
+      "allowed_edits": [
+        "scale proportionally"
+      ],
+      "dependencies": [],
+      "estimate_id": "ES-05",
+      "fallback_asset_id": null,
+      "used_by": [
+        "LY-042"
+      ],
+      "status": "pending",
+      "notes": null
+    },
+    {
+      "id": "AS-03",
+      "version": "1.0",
+      "name": "Liquid and macro coffee pack",
+      "description": "In-house 3D/compositing pack: dark coffee surface, steam element and a liquid ribbon that wraps the pack. Used as macro texture in SH-01 and as the payoff in SH-03.",
+      "route": "to_create",
+      "source": "In-house motion design",
+      "generation_spec": null,
+      "rights": {
+        "status": "cleared",
+        "licence_name": "In-house production asset",
+        "licence_url": null,
+        "attribution": null,
+        "commercial_use": true,
+        "modification": true,
+        "editorial_only": false,
+        "consent_ref": null,
+        "ai_generated": false,
+        "disclosure_required": false,
+        "notes": null
+      },
+      "tech": {
+        "format": "PNG sequence",
+        "width": 1080,
+        "height": 1920,
+        "transparency": true,
+        "orientation": "portrait",
+        "fps": 25,
+        "duration_frames": 100,
+        "notes": "Render at 2x for punch-in headroom."
+      },
+      "exactness": "illustrative",
+      "allowed_edits": [
+        "grade",
+        "retime within 4 frames",
+        "mask"
+      ],
+      "dependencies": [],
+      "estimate_id": "ES-06",
+      "fallback_asset_id": null,
+      "used_by": [
+        "LY-031"
+      ],
+      "status": "pending",
+      "notes": null
+    },
+    {
+      "id": "AS-05",
+      "version": "1.0",
+      "name": "Warm dark background",
+      "description": "Near-black brown gradient with a soft copper vignette, authored in the composition at 1080x1920.",
+      "route": "owned",
+      "source": "In-house composition",
+      "generation_spec": null,
+      "rights": {
+        "status": "cleared",
+        "licence_name": "In-house production asset",
+        "licence_url": null,
+        "attribution": null,
+        "commercial_use": true,
+        "modification": true,
+        "editorial_only": false,
+        "consent_ref": null,
+        "ai_generated": false,
+        "disclosure_required": false,
+        "notes": null
+      },
+      "tech": {
+        "format": "PNG",
+        "width": 1080,
+        "height": 1920,
+        "transparency": false,
+        "orientation": "portrait",
+        "fps": null,
+        "duration_frames": null,
+        "notes": null
+      },
+      "exactness": "illustrative",
+      "allowed_edits": [],
+      "dependencies": [],
+      "estimate_id": null,
+      "fallback_asset_id": null,
+      "used_by": [
+        "LY-010",
+        "LY-020",
+        "LY-030",
+        "LY-040"
+      ],
+      "status": "pending",
+      "notes": null
+    },
+    {
+      "id": "AS-07",
+      "version": "1.0",
+      "name": "Music bed, 10 seconds",
+      "description": "Warm restrained electronic bed with a lift at the pack reveal and a soft resolve at the close. One library licence.",
+      "route": "to_source",
+      "source": "Production music library",
+      "generation_spec": null,
+      "rights": {
+        "status": "unknown",
+        "licence_name": null,
+        "licence_url": null,
+        "attribution": null,
+        "commercial_use": null,
+        "modification": null,
+        "editorial_only": false,
+        "consent_ref": null,
+        "ai_generated": false,
+        "disclosure_required": false,
+        "notes": "No track selected and no licence identified."
+      },
+      "tech": {
+        "format": "WAV",
+        "width": null,
+        "height": null,
+        "transparency": false,
+        "orientation": "any",
+        "fps": 25,
+        "duration_frames": 250,
+        "notes": "48 kHz, 24-bit, instrumental, loopable tail."
+      },
+      "exactness": "illustrative",
+      "allowed_edits": [
+        "trim",
+        "fade",
+        "level"
+      ],
+      "dependencies": [],
+      "estimate_id": "ES-01",
+      "fallback_asset_id": null,
+      "used_by": [
+        "AU-02"
+      ],
+      "status": "pending",
+      "notes": null
+    },
+    {
+      "id": "AS-08",
+      "version": "1.0",
+      "name": "Voice over, warm Indian English",
+      "description": "Sparse narration: Ethiopia. Speciality instant coffee. In an instant. Recorded by a human voice artist.",
+      "route": "to_create",
+      "source": "Voice artist session",
+      "generation_spec": null,
+      "rights": {
+        "status": "needs_approval",
+        "licence_name": "Performer release (pending)",
+        "licence_url": null,
+        "attribution": null,
+        "commercial_use": true,
+        "modification": true,
+        "editorial_only": false,
+        "consent_ref": null,
+        "ai_generated": false,
+        "disclosure_required": false,
+        "notes": "Recorded VO; synthetic narration is the disclosed fallback."
+      },
+      "tech": {
+        "format": "WAV",
+        "width": null,
+        "height": null,
+        "transparency": false,
+        "orientation": "any",
+        "fps": 25,
+        "duration_frames": 230,
+        "notes": "48 kHz, 24-bit, dry studio recording."
+      },
+      "exactness": "illustrative",
+      "allowed_edits": [
+        "trim",
+        "de-noise",
+        "level"
+      ],
+      "dependencies": [],
+      "estimate_id": "ES-02",
+      "fallback_asset_id": null,
+      "used_by": [
+        "AU-01"
+      ],
+      "status": "pending",
+      "notes": null
+    },
+    {
+      "id": "AS-09",
+      "version": "1.0",
+      "name": "Reveal whoosh",
+      "description": "Short designed whoosh into the pack reveal.",
+      "route": "to_create",
+      "source": "In-house sound design",
+      "generation_spec": null,
+      "rights": {
+        "status": "cleared",
+        "licence_name": "In-house production asset",
+        "licence_url": null,
+        "attribution": null,
+        "commercial_use": true,
+        "modification": true,
+        "editorial_only": false,
+        "consent_ref": null,
+        "ai_generated": false,
+        "disclosure_required": false,
+        "notes": null
+      },
+      "tech": {
+        "format": "WAV",
+        "width": null,
+        "height": null,
+        "transparency": false,
+        "orientation": "any",
+        "fps": 25,
+        "duration_frames": 10,
+        "notes": null
+      },
+      "exactness": "illustrative",
+      "allowed_edits": [
+        "level",
+        "pitch"
+      ],
+      "dependencies": [],
+      "estimate_id": null,
+      "fallback_asset_id": null,
+      "used_by": [
+        "AU-03"
+      ],
+      "status": "pending",
+      "notes": null
+    },
+    {
+      "id": "AS-10",
+      "version": "1.0",
+      "name": "Liquid splash",
+      "description": "Designed liquid splash synced to the payoff beat.",
+      "route": "to_create",
+      "source": "In-house sound design",
+      "generation_spec": null,
+      "rights": {
+        "status": "cleared",
+        "licence_name": "In-house production asset",
+        "licence_url": null,
+        "attribution": null,
+        "commercial_use": true,
+        "modification": true,
+        "editorial_only": false,
+        "consent_ref": null,
+        "ai_generated": false,
+        "disclosure_required": false,
+        "notes": null
+      },
+      "tech": {
+        "format": "WAV",
+        "width": null,
+        "height": null,
+        "transparency": false,
+        "orientation": "any",
+        "fps": 25,
+        "duration_frames": 32,
+        "notes": null
+      },
+      "exactness": "illustrative",
+      "allowed_edits": [
+        "level",
+        "pitch"
+      ],
+      "dependencies": [],
+      "estimate_id": null,
+      "fallback_asset_id": null,
+      "used_by": [
+        "AU-04"
+      ],
+      "status": "pending",
+      "notes": null
+    },
+    {
+      "id": "AS-11",
+      "version": "1.0",
+      "name": "Brand sting",
+      "description": "Low brand sting under the end card.",
+      "route": "to_create",
+      "source": "In-house sound design",
+      "generation_spec": null,
+      "rights": {
+        "status": "cleared",
+        "licence_name": "In-house production asset",
+        "licence_url": null,
+        "attribution": null,
+        "commercial_use": true,
+        "modification": true,
+        "editorial_only": false,
+        "consent_ref": null,
+        "ai_generated": false,
+        "disclosure_required": false,
+        "notes": null
+      },
+      "tech": {
+        "format": "WAV",
+        "width": null,
+        "height": null,
+        "transparency": false,
+        "orientation": "any",
+        "fps": 25,
+        "duration_frames": 30,
+        "notes": null
+      },
+      "exactness": "illustrative",
+      "allowed_edits": [
+        "level",
+        "pitch"
+      ],
+      "dependencies": [],
+      "estimate_id": null,
+      "fallback_asset_id": null,
+      "used_by": [
+        "AU-05"
+      ],
+      "status": "pending",
+      "notes": null
+    },
+    {
+      "id": "AS-04",
+      "version": "1.0",
+      "name": "Stock bean macro",
+      "description": "Licensed macro plate of roasted coffee beans.",
+      "route": "to_source",
+      "source": "Stock library",
+      "generation_spec": null,
+      "rights": {
+        "status": "needs_approval",
+        "licence_name": "Stock licence to be purchased",
+        "licence_url": null,
+        "attribution": null,
+        "commercial_use": true,
+        "modification": true,
+        "editorial_only": false,
+        "consent_ref": null,
+        "ai_generated": false,
+        "disclosure_required": false,
+        "notes": null
+      },
+      "tech": {
+        "format": "PNG",
+        "width": 3000,
+        "height": 4000,
+        "transparency": false,
+        "orientation": "portrait",
+        "fps": null,
+        "duration_frames": null,
+        "notes": null
+      },
+      "exactness": "illustrative",
+      "allowed_edits": [
+        "crop",
+        "grade"
+      ],
+      "dependencies": [],
+      "estimate_id": "ES-07",
+      "fallback_asset_id": "AS-03",
+      "used_by": [
+        "LY-011"
+      ],
+      "status": "pending",
+      "notes": null
+    },
+    {
+      "id": "AS-12",
+      "version": "1.0",
+      "name": "Stock liquid splash",
+      "description": "Licensed splash plate layered over the created liquid.",
+      "route": "to_source",
+      "source": "Stock library",
+      "generation_spec": null,
+      "rights": {
+        "status": "needs_approval",
+        "licence_name": "Stock licence to be purchased",
+        "licence_url": null,
+        "attribution": null,
+        "commercial_use": true,
+        "modification": true,
+        "editorial_only": false,
+        "consent_ref": null,
+        "ai_generated": false,
+        "disclosure_required": false,
+        "notes": null
+      },
+      "tech": {
+        "format": "PNG sequence",
+        "width": 1080,
+        "height": 1920,
+        "transparency": false,
+        "orientation": "any",
+        "fps": 25,
+        "duration_frames": null,
+        "notes": null
+      },
+      "exactness": "illustrative",
+      "allowed_edits": [
+        "crop",
+        "grade",
+        "retime"
+      ],
+      "dependencies": [],
+      "estimate_id": "ES-09",
+      "fallback_asset_id": null,
+      "used_by": [
+        "LY-032"
+      ],
+      "status": "pending",
+      "notes": null
+    }
+  ],
+  "audio_cues": [
+    {
+      "id": "AU-01",
+      "start_frame": 0,
+      "end_frame": 230,
+      "kind": "vo",
+      "description": "Ethiopia. Speciality instant coffee. In an instant.",
+      "asset_id": "AS-08",
+      "level_db": -3.0,
+      "essential": true,
+      "notes": null
+    },
+    {
+      "id": "AU-02",
+      "start_frame": 0,
+      "end_frame": 250,
+      "kind": "music",
+      "description": "Warm restrained electronic bed with a lift at the reveal.",
+      "asset_id": "AS-07",
+      "level_db": -18.0,
+      "essential": true,
+      "notes": null
+    },
+    {
+      "id": "AU-03",
+      "start_frame": 42,
+      "end_frame": 52,
+      "kind": "sfx",
+      "description": "Short whoosh into the pack reveal.",
+      "asset_id": "AS-09",
+      "level_db": -12.0,
+      "essential": true,
+      "notes": null
+    },
+    {
+      "id": "AU-04",
+      "start_frame": 118,
+      "end_frame": 150,
+      "kind": "sfx",
+      "description": "Liquid splash on the payoff beat.",
+      "asset_id": "AS-10",
+      "level_db": -8.0,
+      "essential": true,
+      "notes": null
+    },
+    {
+      "id": "AU-05",
+      "start_frame": 195,
+      "end_frame": 225,
+      "kind": "sfx",
+      "description": "Low brand sting under the end card.",
+      "asset_id": "AS-11",
+      "level_db": -10.0,
+      "essential": true,
+      "notes": null
+    }
+  ],
+  "transitions": [
+    {
+      "id": "TR-01",
+      "from_shot_id": "SH-01",
+      "to_shot_id": "SH-02",
+      "at_frame": 50,
+      "kind": "light wipe",
+      "duration_frames": 6,
+      "notes": null
+    },
+    {
+      "id": "TR-02",
+      "from_shot_id": "SH-02",
+      "to_shot_id": "SH-03",
+      "at_frame": 125,
+      "kind": "match cut on pack",
+      "duration_frames": 4,
+      "notes": null
+    },
+    {
+      "id": "TR-03",
+      "from_shot_id": "SH-03",
+      "to_shot_id": "SH-04",
+      "at_frame": 200,
+      "kind": "splash wipe",
+      "duration_frames": 8,
+      "notes": null
+    }
+  ],
+  "alternates": [
+    {
+      "id": "ALT-03",
+      "target_ids": [
+        "SH-03"
+      ],
+      "trigger": "Liquid simulation overruns or reads poorly at phone size.",
+      "preserved": "Sensory payoff and pack clarity.",
+      "revised_dependencies": [
+        "AS-01"
+      ],
+      "cost_delta_usd": 0.0,
+      "cost_estimate_id": null,
+      "approval_scope": [
+        "SH-03"
+      ],
+      "status": "proposed"
+    },
+    {
+      "id": "ALT-04",
+      "target_ids": [
+        "CP-05"
+      ],
+      "trigger": "Brand rejects the proposed CTA wording.",
+      "preserved": "Brand close with a direct CTA.",
+      "revised_dependencies": [],
+      "cost_delta_usd": 0.0,
+      "cost_estimate_id": null,
+      "approval_scope": [
+        "SH-04"
+      ],
+      "status": "proposed"
+    }
+  ],
+  "estimates": [
+    {
+      "id": "ES-01",
+      "label": "Music library licence",
+      "amount_usd": 10.0,
+      "kind": "shared",
+      "basis": "operator_estimate",
+      "confidence": "medium",
+      "notes": null
+    },
+    {
+      "id": "ES-02",
+      "label": "Voice artist session and edit",
+      "amount_usd": 14.0,
+      "kind": "shared",
+      "basis": "operator_estimate",
+      "confidence": "medium",
+      "notes": null
+    },
+    {
+      "id": "ES-03",
+      "label": "Motion design and compositing",
+      "amount_usd": 8.0,
+      "kind": "shared",
+      "basis": "operator_estimate",
+      "confidence": "medium",
+      "notes": null
+    },
+    {
+      "id": "ES-04",
+      "label": "Colour grade and finishing",
+      "amount_usd": 3.0,
+      "kind": "shared",
+      "basis": "operator_estimate",
+      "confidence": "high",
+      "notes": null
+    },
+    {
+      "id": "ES-05",
+      "label": "Pack and logo preparation",
+      "amount_usd": 5.0,
+      "kind": "shot",
+      "basis": "operator_estimate",
+      "confidence": "medium",
+      "notes": null
+    },
+    {
+      "id": "ES-06",
+      "label": "Liquid and macro pack",
+      "amount_usd": 6.0,
+      "kind": "shot",
+      "basis": "operator_estimate",
+      "confidence": "medium",
+      "notes": null
+    },
+    {
+      "id": "ES-10",
+      "label": "End-card build",
+      "amount_usd": 2.0,
+      "kind": "shot",
+      "basis": "operator_estimate",
+      "confidence": "high",
+      "notes": null
+    },
+    {
+      "id": "ES-07",
+      "label": "Stock bean macro licence",
+      "amount_usd": 3.0,
+      "kind": "shot",
+      "basis": "operator_estimate",
+      "confidence": "low",
+      "notes": null
+    },
+    {
+      "id": "ES-09",
+      "label": "Stock splash licence",
+      "amount_usd": 8.0,
+      "kind": "shot",
+      "basis": "operator_estimate",
+      "confidence": "low",
+      "notes": null
+    }
+  ],
+  "budget": {
+    "cap_usd": 60.0,
+    "currency": "USD",
+    "estimates": [
+      {
+        "id": "ES-01",
+        "label": "Music library licence",
+        "amount_usd": 10.0,
+        "kind": "shared",
+        "basis": "operator_estimate",
+        "confidence": "medium",
+        "notes": null
+      },
+      {
+        "id": "ES-02",
+        "label": "Voice artist session and edit",
+        "amount_usd": 14.0,
+        "kind": "shared",
+        "basis": "operator_estimate",
+        "confidence": "medium",
+        "notes": null
+      },
+      {
+        "id": "ES-03",
+        "label": "Motion design and compositing",
+        "amount_usd": 8.0,
+        "kind": "shared",
+        "basis": "operator_estimate",
+        "confidence": "medium",
+        "notes": null
+      },
+      {
+        "id": "ES-04",
+        "label": "Colour grade and finishing",
+        "amount_usd": 3.0,
+        "kind": "shared",
+        "basis": "operator_estimate",
+        "confidence": "high",
+        "notes": null
+      },
+      {
+        "id": "ES-05",
+        "label": "Pack and logo preparation",
+        "amount_usd": 5.0,
+        "kind": "shot",
+        "basis": "operator_estimate",
+        "confidence": "medium",
+        "notes": null
+      },
+      {
+        "id": "ES-06",
+        "label": "Liquid and macro pack",
+        "amount_usd": 6.0,
+        "kind": "shot",
+        "basis": "operator_estimate",
+        "confidence": "medium",
+        "notes": null
+      },
+      {
+        "id": "ES-10",
+        "label": "End-card build",
+        "amount_usd": 2.0,
+        "kind": "shot",
+        "basis": "operator_estimate",
+        "confidence": "high",
+        "notes": null
+      },
+      {
+        "id": "ES-07",
+        "label": "Stock bean macro licence",
+        "amount_usd": 3.0,
+        "kind": "shot",
+        "basis": "operator_estimate",
+        "confidence": "low",
+        "notes": null
+      },
+      {
+        "id": "ES-09",
+        "label": "Stock splash licence",
+        "amount_usd": 8.0,
+        "kind": "shot",
+        "basis": "operator_estimate",
+        "confidence": "low",
+        "notes": null
+      }
+    ],
+    "retry_reserve_pct": 15.0
+  },
+  "checks": [
+    {
+      "id": "AC-01",
+      "target_ids": [
+        "DP-01",
+        "SH-01",
+        "SH-02",
+        "SH-03",
+        "SH-04"
+      ],
+      "description": "Timeline covers exactly 250 frames across four contiguous shots.",
+      "method": "structural",
+      "level": "level_1",
+      "status": "pending",
+      "evidence": null,
+      "notes": null
+    },
+    {
+      "id": "AC-02",
+      "target_ids": [
+        "SH-01",
+        "SH-02",
+        "SH-03",
+        "SH-04"
+      ],
+      "description": "All text sits inside the 1080x1920 safe area.",
+      "method": "structural",
+      "level": "level_1",
+      "status": "pending",
+      "evidence": null,
+      "notes": null
+    },
+    {
+      "id": "AC-03",
+      "target_ids": [
+        "LY-021",
+        "LY-033",
+        "LY-041",
+        "LY-042"
+      ],
+      "description": "Pack label and logo regions are not occluded by planned layers.",
+      "method": "structural",
+      "level": "level_1",
+      "status": "pending",
+      "evidence": null,
+      "notes": null
+    },
+    {
+      "id": "AC-04",
+      "target_ids": [
+        "ED-02",
+        "ED-03",
+        "ED-04"
+      ],
+      "description": "No required layer depends on unapproved price or offer data.",
+      "method": "structural",
+      "level": "level_1",
+      "status": "pending",
+      "evidence": null,
+      "notes": null
+    },
+    {
+      "id": "AC-05",
+      "target_ids": [
+        "LY-042",
+        "LY-043"
+      ],
+      "description": "Brand and CTA are legible at 50 percent scale on a 1080x1920 phone.",
+      "method": "render_pixel",
+      "level": "level_2",
+      "status": "pending",
+      "evidence": null,
+      "notes": null
+    },
+    {
+      "id": "AC-06",
+      "target_ids": [
+        "AU-01",
+        "AU-02"
+      ],
+      "description": "VO is intelligible and the music sits at least 6 dB under it.",
+      "method": "audio",
+      "level": "level_2",
+      "status": "pending",
+      "evidence": null,
+      "notes": null
+    },
+    {
+      "id": "AC-07",
+      "target_ids": [
+        "ED-01",
+        "ED-05"
+      ],
+      "description": "Exact data in final pixels matches the approved values.",
+      "method": "render_pixel",
+      "level": "level_2",
+      "status": "pending",
+      "evidence": null,
+      "notes": null
+    },
+    {
+      "id": "AC-08",
+      "target_ids": [
+        "CL-03",
+        "ED-05"
+      ],
+      "description": "Every used claim and exact value is verified or explicitly approved.",
+      "method": "structural",
+      "level": "level_1",
+      "status": "pending",
+      "evidence": null,
+      "notes": null
+    },
+    {
+      "id": "AC-09",
+      "target_ids": [
+        "SH-02",
+        "SH-04"
+      ],
+      "description": "A sound-off viewer understands the product and the brand.",
+      "method": "human",
+      "level": "level_2",
+      "status": "pending",
+      "evidence": null,
+      "notes": null
+    },
+    {
+      "id": "AC-10",
+      "target_ids": [
+        "AS-01",
+        "AS-02",
+        "AS-03",
+        "AS-05"
+      ],
+      "description": "All picture assets are owned, supplied or commissioned; no reference footage is bound.",
+      "method": "structural",
+      "level": "level_1",
+      "status": "pending",
+      "evidence": null,
+      "notes": null
+    },
+    {
+      "id": "AC-11",
+      "target_ids": [
+        "DP-01"
+      ],
+      "description": "Final file is 1080x1920, 25 fps, 10.0 s, H.264/AAC.",
+      "method": "render_pixel",
+      "level": "level_2",
+      "status": "pending",
+      "evidence": null,
+      "notes": null
+    },
+    {
+      "id": "AC-12",
+      "target_ids": [
+        "SH-02",
+        "SH-03",
+        "SH-04"
+      ],
+      "description": "Contact sheet shows the pack clear of captions and platform UI.",
+      "method": "static_preview",
+      "level": "level_2",
+      "status": "pending",
+      "evidence": null,
+      "notes": null
+    },
+    {
+      "id": "AC-13",
+      "target_ids": [
+        "DP-01"
+      ],
+      "description": "Budget total plus fallback stays inside the approved cap.",
+      "method": "structural",
+      "level": "level_1",
+      "status": "pending",
+      "evidence": null,
+      "notes": null
+    },
+    {
+      "id": "AC-14",
+      "target_ids": [
+        "SH-01",
+        "SH-02",
+        "SH-03",
+        "SH-04"
+      ],
+      "description": "Every shot has a primary and a genuinely different fallback method.",
+      "method": "structural",
+      "level": "level_1",
+      "status": "pending",
+      "evidence": null,
+      "notes": null
+    }
+  ],
+  "held_items": [
+    {
+      "id": "HI-01",
+      "title": "Price and promotion confirmation",
+      "reason": "The storefront price varies by pack size and the offer has no visible expiry or terms.",
+      "affects": [
+        "ED-02",
+        "ED-03",
+        "ED-04"
+      ],
+      "required_evidence": "Brand-approved hero size, advertising price, offer terms and expiry, with a named approver.",
+      "owner": "human"
+    },
+    {
+      "id": "HI-02",
+      "title": "Brand pack art, logo and font clearance",
+      "reason": "No brand kit or advertising-use licence was supplied.",
+      "affects": [
+        "AS-01",
+        "AS-02"
+      ],
+      "required_evidence": "Pack art and vector logo with written advertising-use confirmation, plus the brand font or approval to use the placeholder.",
+      "owner": "human"
+    },
+    {
+      "id": "HI-03",
+      "title": "Music licence",
+      "reason": "No track is selected or licensed.",
+      "affects": [
+        "AS-07"
+      ],
+      "required_evidence": "A production-library licence covering organic and paid social.",
+      "owner": "human"
+    }
+  ],
+  "decisions": [
+    {
+      "id": "DC-01",
+      "finding_ids": [
+        "F-01",
+        "F-02"
+      ],
+      "selected": "No price or promotion in the ready cut.",
+      "alternatives": [
+        "Headline the from-Rs-499 price",
+        "End on the BOGO code",
+        "Hold the price and offer for a later approved version"
+      ],
+      "rationale": "The price varies by pack size and the offer terms are not visible. Putting either in the ready cut would turn an observation into an advertising claim.",
+      "impacted_ids": [
+        "ED-02",
+        "ED-03",
+        "ED-04",
+        "CP-04",
+        "SH-03"
+      ]
+    },
+    {
+      "id": "DC-02",
+      "finding_ids": [
+        "F-05",
+        "F-06"
+      ],
+      "selected": "Premium product-led hero, with a character route as an alternative.",
+      "alternatives": [
+        "Origin journey",
+        "Character-led 3pm reset"
+      ],
+      "rationale": "A product hero communicates the SKU and brand fastest in ten seconds. The character route is credible but spends too much time before the product appears.",
+      "impacted_ids": [
+        "CO-01",
+        "CO-03",
+        "SH-01",
+        "SH-02",
+        "SH-03"
+      ]
+    },
+    {
+      "id": "DC-03",
+      "finding_ids": [
+        "F-07",
+        "F-10"
+      ],
+      "selected": "Four shots over 250 frames: 2s hook, 3s reveal, 3s payoff, 2s close.",
+      "alternatives": [
+        "Three shots",
+        "Five faster cuts"
+      ],
+      "rationale": "Four beats give the pack enough hold for label recognition while keeping the cut under ten seconds.",
+      "impacted_ids": [
+        "BT-01",
+        "BT-02",
+        "BT-03",
+        "BT-04"
+      ]
+    },
+    {
+      "id": "DC-04",
+      "finding_ids": [
+        "F-08"
+      ],
+      "selected": "Inter under the SIL OFL as a documented placeholder.",
+      "alternatives": [
+        "Wait for the brand font",
+        "Use a system font"
+      ],
+      "rationale": "The plan needs a concrete typographic specification. Inter is legally clear and easy to replace when the brand kit arrives.",
+      "impacted_ids": [
+        "CP-01",
+        "CP-02",
+        "CP-03",
+        "CP-05"
+      ]
+    },
+    {
+      "id": "DC-05",
+      "finding_ids": [
+        "F-03"
+      ],
+      "selected": "Use only the approved descriptor 'speciality instant coffee'.",
+      "alternatives": [
+        "Use the birthplace claim",
+        "Use the 50-cup claim"
+      ],
+      "rationale": "The other claims need substantiation and approved advertising wording. The category descriptor is verified and sufficient for this cut.",
+      "impacted_ids": [
+        "CL-03",
+        "CP-02",
+        "CP-12"
+      ]
+    }
+  ],
+  "assumptions": [
+    "Audience is inferred from the INR storefront and specialty range.",
+    "Safe area is a provisional operator assumption, not a platform guarantee.",
+    "Inter (SIL OFL 1.1) is a documented placeholder for the brand font.",
+    "Music and VO are planned as one licence and one human session.",
+    "Pack size is not chosen; no price appears in the ready cut."
+  ],
+  "open_questions": [
+    "Which pack size is the hero?",
+    "Is the BOGO/B2G2 promotion approved for advertising, and with what expiry?",
+    "Can the storefront pack art and logo be used in ads?",
+    "Which landing page should the CTA open?",
+    "Human or synthetic narration?"
+  ],
+  "created_at": "2026-11-14T13:15:14+00:00"
+}
