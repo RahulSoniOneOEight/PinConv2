@@ -153,6 +153,7 @@ def test_full_pipeline_with_synthetic_test_approval(store: ProjectStore) -> None
     assert handoff["exact_data_pending"] == []
     assert len(handoff["held_items"]) == 3
     assert len(handoff["shots"]) == 4
+    assert {"AC-05", "AC-06", "AC-09"}.issubset(set(handoff["pending_checks"]))
     events = store.list_events(PROJECT_ID)
     assert any(event["type"] == "gate1.approved" for event in events)
     assert any(event["type"] == "level1.exported" for event in events)

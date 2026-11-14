@@ -190,7 +190,12 @@ At the last run:
 - the critic selects safe area, commercial data and budget as the top three
   inputs, and the revision records which target records changed;
 - the Gate 1 packet lists the three held items and the pending exact values;
-- the exported Level 2 handoff is bound to the approved plan and bundle hashes.
+- Gate 1 was signed by `RahulSoniOneOEight` (repo owner) on 2026-11-14 against
+  plan hash `c2f43e7...` and bundle hash `cc38742...`;
+- the approved export contains 13 files, including the handoff and five SVG
+  layout mockups;
+- the exported Level 2 handoff is bound to the approved plan, bundle and packet
+  hashes.
 
 See `docs/level1.md` for the contracts and rules, `docs/architecture.md` for the
 four-level model, and `docs/qc.md` for the independent QC record.

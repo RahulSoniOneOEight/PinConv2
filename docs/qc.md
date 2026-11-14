@@ -98,5 +98,29 @@ Adversarial probes confirmed:
 ## Boundary
 
 No production approval was recorded during QC. Approval-dependent tests used
-isolated test stores and are labelled as test fixtures. The committed Toffee run
-ends at `gate1_ready`; the Gate 1 signature is the human step.
+isolated test stores and are labelled as test fixtures.
+
+## Post-QC Gate 1
+
+After QC passed, the repo owner explicitly approved the exact revision in the
+OpenCode session. The approval record is:
+
+```
+approver          RahulSoniOneOEight
+role              repo owner
+actor             human
+channel           opencode-chat
+evidence          Explicit Gate 1 approval in OpenCode session, 2026-11-14
+plan revision     2
+plan hash         c2f43e7aa4dd6ded9419e74d0fd4bc4bc00a49df755453b0df0f1cb411ca069b
+bundle hash       cc3874223aff25de0ea4ab98f4aaa15c2b1852dd47e91db72c0296c39d94b6f0
+packet hash       40d31c8e3e090f7e1326e3937515d47b95ed8cba2e52d7396927dcc3742ab690
+approved exact    ED-05 CTA, ED-06 brand name, ED-07 origin
+scope             SH-01, SH-02, SH-03, SH-04
+conditions        HI-01 price/promotion, HI-02 brand assets, HI-03 music licence
+```
+
+The approved export is under `projects/toffee-coffee-10s/exports/rev-002/`.
+The three held items remain open conditions for Level 2; they were not cleared
+by the approval.
+

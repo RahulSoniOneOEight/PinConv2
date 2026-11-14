@@ -1,0 +1,226 @@
+{
+  "project_id": "toffee-coffee-10s",
+  "revision": 1,
+  "brief_revision": 1,
+  "audience_summary": "Urban Indian specialty coffee buyers who already shop online and value origin, craft and convenience. They are likely to watch with sound off and decide within the first two seconds whether the product is for them.",
+  "objective": "Make Ethiopia Speciality Instant Coffee feel like a premium origin coffee that happens to be instant, and drive a click to the product page.",
+  "evidence_summary": "The product page establishes the SKU, two pack sizes and the product description. The storefront shows an active promotion without visible terms. The two references establish visual principles only; their video and audio were not inspected. Audience and safe-area conclusions are recorded as assumptions, not facts.",
+  "options": [
+    {
+      "id": "CO-01",
+      "name": "Ethiopia, in an instant",
+      "one_liner": "Origin-led macro coffee, a pack reveal, and a clean brand close.",
+      "hook": "Ethiopia. In an instant.",
+      "treatment": "Open on a dark macro coffee surface with steam catching warm light. The word ETHIOPIA lands on the first beat. The pack rises into a hero light sweep while the descriptor appears. Liquid wraps the pack for the sensory payoff, then the frame resolves to the logo, pack and CTA.",
+      "visual_style": "Premium product cinematography: near-black brown ground, cream type, copper highlights, macro texture, one controlled light sweep. The pack label stays unobstructed.",
+      "sound": "Warm, restrained electronic bed; a short whoosh into the pack reveal; a liquid splash on the payoff; a low brand sting on the close. Sparse narration: Ethiopia. Speciality instant coffee. In an instant.",
+      "scores": {
+        "audience_fit": 4,
+        "clarity": 5,
+        "distinctiveness": 3,
+        "achievable_quality": 4,
+        "cost_efficiency": 4,
+        "revision_simplicity": 4
+      },
+      "rationale": "It says origin, format and brand in ten seconds without relying on an unapproved price or claim. The visual route matches the premium reference language while remaining executable with one pack asset.",
+      "risks": [
+        "Pack art and logo are not yet cleared for advertising.",
+        "A dark grade can hide label detail if the pack is not lit separately.",
+        "'Instant' may read as lower quality without the premium treatment."
+      ],
+      "linked_finding_ids": [
+        "F-01",
+        "F-03",
+        "F-05",
+        "F-09"
+      ]
+    },
+    {
+      "id": "CO-02",
+      "name": "From the birthplace to your cup",
+      "one_liner": "An origin journey that lands on the pack and the brand.",
+      "hook": "Your cup has a birthplace.",
+      "treatment": "Start on highland greenery and drying beds, move to a roasting close-up, then dissolve into the pack and a prepared cup. End on brand and CTA.",
+      "visual_style": "Documentary warmth, natural light, earthy greens and browns, slower camera moves, archival-style texture.",
+      "sound": "Acoustic bed, field ambience, a calm narrator, a soft brand close.",
+      "scores": {
+        "audience_fit": 4,
+        "clarity": 3,
+        "distinctiveness": 4,
+        "achievable_quality": 3,
+        "cost_efficiency": 3,
+        "revision_simplicity": 3
+      },
+      "rationale": "Origin storytelling is distinctive and supports the premium positioning, but ten seconds is too short to establish place and still sell the pack.",
+      "risks": [
+        "Needs several location or stock shots that are not yet sourced.",
+        "The birthplace line is an unverified claim.",
+        "Product appears late, weakening recall."
+      ],
+      "linked_finding_ids": [
+        "F-03",
+        "F-05",
+        "F-06"
+      ]
+    },
+    {
+      "id": "CO-03",
+      "name": "The 3pm reset",
+      "one_liner": "A relatable character swaps a flat afternoon for an Ethiopia cup.",
+      "hook": "3pm called. It wants coffee.",
+      "treatment": "A character at a desk hits a mid-afternoon slump, reaches for the pack, and the frame lifts into a bright product-hero finish.",
+      "visual_style": "Bright 2D character animation, bold top captions, Indian office detail, snappy comic timing.",
+      "sound": "Playful rhythm, comic reaction, a bright brand sting.",
+      "scores": {
+        "audience_fit": 4,
+        "clarity": 4,
+        "distinctiveness": 4,
+        "achievable_quality": 3,
+        "cost_efficiency": 3,
+        "revision_simplicity": 3
+      },
+      "rationale": "It borrows the character-short energy that performs on Reels, but it needs a new character, performance and set, and the product arrives late.",
+      "risks": [
+        "Character design and animation are a separate production track.",
+        "Ten seconds leaves little room for both joke and product.",
+        "Tone may conflict with a premium single-origin positioning."
+      ],
+      "linked_finding_ids": [
+        "F-06",
+        "F-09"
+      ]
+    }
+  ],
+  "recommended_option_id": "CO-01",
+  "hooks": [
+    {
+      "id": "HK-01",
+      "text": "Ethiopia. In an instant.",
+      "rationale": "Four words, origin and format in one line, no unapproved claim, and it sets up the pack reveal.",
+      "risk": "'Instant' needs the premium treatment to avoid reading as cheap."
+    },
+    {
+      "id": "HK-02",
+      "text": "Instant coffee. Estate energy.",
+      "rationale": "Reframes instant as specialty and sets a premium visual bar.",
+      "risk": "'Estate' implies a single-estate source that the page does not establish."
+    },
+    {
+      "id": "HK-03",
+      "text": "Your cup has a birthplace.",
+      "rationale": "Curiosity and origin in one line, strong for a story-led cut.",
+      "risk": "Evokes the unverified birthplace claim and needs legal review."
+    }
+  ],
+  "why_hook": "HK-01 states origin and format in four words and works as both spoken and on-screen copy. It avoids price, promotion and the unverified birthplace claim, so the hook can survive a commercial review.",
+  "why_script": "The narration is three short phrases that mirror the four beats: origin, format, payoff. It leaves room for the pack and brand to breathe and does not depend on a claim.",
+  "why_look": "The dark warm grade and single light sweep borrow the premium product-ad language visible in the coffee reference, without reusing its media. The pack label is protected and the type stays inside the safe area.",
+  "why_sound": "A restrained bed and three designed cues carry the cut when sound is on, while the captions carry it when sound is off. Narration is sparse enough to avoid competing with the product reveal.",
+  "decisions": [
+    {
+      "id": "DC-01",
+      "finding_ids": [
+        "F-01",
+        "F-02"
+      ],
+      "selected": "No price or promotion in the ready cut.",
+      "alternatives": [
+        "Headline the from-Rs-499 price",
+        "End on the BOGO code",
+        "Hold the price and offer for a later approved version"
+      ],
+      "rationale": "The price varies by pack size and the offer terms are not visible. Putting either in the ready cut would turn an observation into an advertising claim.",
+      "impacted_ids": [
+        "ED-02",
+        "ED-03",
+        "ED-04",
+        "CP-04",
+        "SH-03"
+      ]
+    },
+    {
+      "id": "DC-02",
+      "finding_ids": [
+        "F-05",
+        "F-06"
+      ],
+      "selected": "Premium product-led hero, with a character route as an alternative.",
+      "alternatives": [
+        "Origin journey",
+        "Character-led 3pm reset"
+      ],
+      "rationale": "A product hero communicates the SKU and brand fastest in ten seconds. The character route is credible but spends too much time before the product appears.",
+      "impacted_ids": [
+        "CO-01",
+        "CO-03",
+        "SH-01",
+        "SH-02",
+        "SH-03"
+      ]
+    },
+    {
+      "id": "DC-03",
+      "finding_ids": [
+        "F-07",
+        "F-10"
+      ],
+      "selected": "Four shots over 250 frames: 2s hook, 3s reveal, 3s payoff, 2s close.",
+      "alternatives": [
+        "Three shots",
+        "Five faster cuts"
+      ],
+      "rationale": "Four beats give the pack enough hold for label recognition while keeping the cut under ten seconds.",
+      "impacted_ids": [
+        "BT-01",
+        "BT-02",
+        "BT-03",
+        "BT-04"
+      ]
+    },
+    {
+      "id": "DC-04",
+      "finding_ids": [
+        "F-08"
+      ],
+      "selected": "Inter under the SIL OFL as a documented placeholder.",
+      "alternatives": [
+        "Wait for the brand font",
+        "Use a system font"
+      ],
+      "rationale": "The plan needs a concrete typographic specification. Inter is legally clear and easy to replace when the brand kit arrives.",
+      "impacted_ids": [
+        "CP-01",
+        "CP-02",
+        "CP-03",
+        "CP-05"
+      ]
+    },
+    {
+      "id": "DC-05",
+      "finding_ids": [
+        "F-03"
+      ],
+      "selected": "Use only the approved descriptor 'speciality instant coffee'.",
+      "alternatives": [
+        "Use the birthplace claim",
+        "Use the 50-cup claim"
+      ],
+      "rationale": "The other claims need substantiation and approved advertising wording. The category descriptor is verified and sufficient for this cut.",
+      "impacted_ids": [
+        "CL-03",
+        "CP-02",
+        "CP-12"
+      ]
+    }
+  ],
+  "open_questions": [
+    "Which pack size is the hero: 50 gm or 100 gm?",
+    "Is the BOGO/B2G2 promotion approved for advertising, and what expiry and terms apply?",
+    "Can the product-page pack imagery and logo be used in organic and paid ads?",
+    "Which landing page and CTA wording does the brand want?",
+    "Is narration recorded by a human or synthesized, and what disclosure applies?",
+    "Which brand font replaces the Inter placeholder?"
+  ],
+  "planned_look": "Near-black brown ground, cream type, copper highlights, macro coffee texture, one directional light sweep, pack hero at center, logo top-center, captions in a lower-third plate above the platform UI.",
+  "created_at": "2026-11-14T13:32:28+00:00"
+}

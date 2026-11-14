@@ -840,7 +840,15 @@ def build_handoff(
     }
     pending_exact = referenced_exact - approved_exact
 
-    approved_ids = approved | set(asset_ids) | copy_ids | referenced_exact
+    approved_ids = (
+        approved
+        | {layer.id for layer in layers}
+        | set(asset_ids)
+        | copy_ids
+        | referenced_exact
+        | {cue.id for cue in plan.audio_cues if cue_overlaps(cue.start_frame, cue.end_frame)}
+        | {plan.deliverable.id}
+    )
     pending_checks = [
         check.id
         for check in plan.checks

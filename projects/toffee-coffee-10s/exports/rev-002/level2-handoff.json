@@ -1,0 +1,320 @@
+{
+  "project_id": "toffee-coffee-10s",
+  "plan_revision": 2,
+  "plan_hash": "c2f43e7aa4dd6ded9419e74d0fd4bc4bc00a49df755453b0df0f1cb411ca069b",
+  "approval": {
+    "project_id": "toffee-coffee-10s",
+    "plan_revision": 2,
+    "plan_hash": "c2f43e7aa4dd6ded9419e74d0fd4bc4bc00a49df755453b0df0f1cb411ca069b",
+    "bundle_hash": "cc3874223aff25de0ea4ab98f4aaa15c2b1852dd47e91db72c0296c39d94b6f0",
+    "record_hashes": {
+      "brief": "48f0cce1f92d5849b72a9bb36bbdbc80cb6c27ec423dddf154142ba06bc05a64",
+      "research": "327eabc04b96971410a847d04048f4e7e7afc8c34ee17152966ac10601cf10fa",
+      "concept": "41e0a832946faf1c344f1e663ac812b389625f92a5b376e6803c71574091b526",
+      "plan": "c2f43e7aa4dd6ded9419e74d0fd4bc4bc00a49df755453b0df0f1cb411ca069b",
+      "validation": "58a4200ef71e329ffa3a7036a8f1e723c4e4b8d23342956690c271a530545944",
+      "critique": "3151625bd2b0a0cd1acd2016cb925e958827051645a5ed07c6fc62dcaa4f5129",
+      "resolution": "3cf198108806f33030be6ccdc404fe0a8555530e85aace6fee17190ac8764ada"
+    },
+    "approver": "RahulSoniOneOEight",
+    "approver_role": "repo owner",
+    "actor_kind": "human",
+    "channel": "opencode-chat",
+    "evidence": "Explicit Gate 1 approval in OpenCode session, 2026-11-14",
+    "packet_hash": "40d31c8e3e090f7e1326e3937515d47b95ed8cba2e52d7396927dcc3742ab690",
+    "approved_at": "2026-11-14T13:38:55+00:00",
+    "scope": [
+      "SH-01",
+      "SH-02",
+      "SH-03",
+      "SH-04"
+    ],
+    "approved_exact_data": [
+      "ED-05",
+      "ED-06",
+      "ED-07"
+    ],
+    "conditions": [
+      "HI-01 Price and promotion confirmation: Brand-approved hero size, advertising price, offer terms and expiry, with a named approver.",
+      "HI-02 Brand pack art, logo and font clearance: Pack art and vector logo with written advertising-use confirmation, plus the brand font or approval to use the placeholder.",
+      "HI-03 Music licence: A production-library licence covering organic and paid social.",
+      "exact.identifiers: brand_name ED-06 is observed; Gate 1 must approve this identifier or wording",
+      "exact.identifiers: cta ED-05 is proposed; Gate 1 must approve this identifier or wording",
+      "exact.identifiers: origin ED-07 is observed; Gate 1 must approve this identifier or wording",
+      "rights.assets: rights need approval for Ethiopia pack artwork",
+      "rights.assets: rights need approval for Music bed, 10 seconds",
+      "rights.assets: rights need approval for Toffee Coffee Roasters logo",
+      "rights.assets: rights need approval for Voice over, warm Indian English"
+    ],
+    "allowed_substitutions": [],
+    "note": "Approved revision 2 with HI-01..HI-03 as conditions; price and promotion remain out of the cut."
+  },
+  "shots": [
+    {
+      "shot_id": "SH-01",
+      "start_frame": 0,
+      "end_frame": 50,
+      "method": "Authored motion-graphics composite: macro plate, steam element, kinetic type.",
+      "fallback_method": "Static macro still with a slow scale and a type fade.",
+      "layer_ids": [
+        "LY-010",
+        "LY-011",
+        "LY-012",
+        "LY-013",
+        "LY-014",
+        "LY-015"
+      ],
+      "asset_ids": [
+        "AS-05",
+        "AS-03"
+      ],
+      "check_ids": [
+        "AC-01",
+        "AC-02",
+        "AC-14"
+      ]
+    },
+    {
+      "shot_id": "SH-02",
+      "start_frame": 50,
+      "end_frame": 125,
+      "method": "Pack hero composite with supplied art, light sweep and type.",
+      "fallback_method": "Pack still on seamless background with a simple gradient.",
+      "layer_ids": [
+        "LY-020",
+        "LY-021",
+        "LY-022",
+        "LY-023",
+        "LY-024",
+        "LY-025"
+      ],
+      "asset_ids": [
+        "AS-05",
+        "AS-01"
+      ],
+      "check_ids": [
+        "AC-01",
+        "AC-03",
+        "AC-09",
+        "AC-12",
+        "AC-14"
+      ]
+    },
+    {
+      "shot_id": "SH-03",
+      "start_frame": 125,
+      "end_frame": 200,
+      "method": "Liquid and macro composite around the pack with type.",
+      "fallback_method": "Pack hero still with an animated light sweep; no liquid simulation.",
+      "layer_ids": [
+        "LY-030",
+        "LY-031",
+        "LY-033",
+        "LY-034",
+        "LY-036",
+        "LY-037"
+      ],
+      "asset_ids": [
+        "AS-05",
+        "AS-01",
+        "AS-03"
+      ],
+      "check_ids": [
+        "AC-01",
+        "AC-03",
+        "AC-12",
+        "AC-14"
+      ]
+    },
+    {
+      "shot_id": "SH-04",
+      "start_frame": 200,
+      "end_frame": 250,
+      "method": "End-card composite: logo, pack, CTA and caption.",
+      "fallback_method": "Typographic end card with logo and CTA if pack art is unavailable.",
+      "layer_ids": [
+        "LY-040",
+        "LY-041",
+        "LY-042",
+        "LY-043",
+        "LY-044",
+        "LY-045"
+      ],
+      "asset_ids": [
+        "AS-05",
+        "AS-01",
+        "AS-02"
+      ],
+      "check_ids": [
+        "AC-01",
+        "AC-05",
+        "AC-09",
+        "AC-12",
+        "AC-14"
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "asset_id": "AS-01",
+      "name": "Ethiopia pack artwork",
+      "route": "supplied",
+      "rights_status": "needs_approval",
+      "rights_action": "Obtain written approval before render.",
+      "exactness": "exact",
+      "specification": "PNG, 2000x2000, transparency. Pack silhouette on transparency; label at native resolution.",
+      "estimate_usd": 5.0,
+      "fallback_asset_id": "AS-06"
+    },
+    {
+      "asset_id": "AS-02",
+      "name": "Toffee Coffee Roasters logo",
+      "route": "supplied",
+      "rights_status": "needs_approval",
+      "rights_action": "Obtain written approval before render.",
+      "exactness": "exact",
+      "specification": "SVG, transparency. Monochrome or full-colour version as supplied.",
+      "estimate_usd": 5.0,
+      "fallback_asset_id": null
+    },
+    {
+      "asset_id": "AS-03",
+      "name": "Liquid and macro coffee pack",
+      "route": "to_create",
+      "rights_status": "cleared",
+      "rights_action": "Cleared. Keep any required attribution.",
+      "exactness": "illustrative",
+      "specification": "PNG sequence, 1080x1920, transparency. Render at 2x for punch-in headroom.",
+      "estimate_usd": 6.0,
+      "fallback_asset_id": null
+    },
+    {
+      "asset_id": "AS-05",
+      "name": "Warm dark background",
+      "route": "owned",
+      "rights_status": "cleared",
+      "rights_action": "Cleared. Keep any required attribution.",
+      "exactness": "illustrative",
+      "specification": "PNG, 1080x1920",
+      "estimate_usd": 0.0,
+      "fallback_asset_id": null
+    },
+    {
+      "asset_id": "AS-07",
+      "name": "Music bed, 10 seconds",
+      "route": "to_source",
+      "rights_status": "needs_approval",
+      "rights_action": "Obtain written approval before render.",
+      "exactness": "illustrative",
+      "specification": "WAV. 48 kHz, 24-bit, instrumental, loopable tail.",
+      "estimate_usd": 10.0,
+      "fallback_asset_id": "AS-13"
+    },
+    {
+      "asset_id": "AS-08",
+      "name": "Voice over, warm Indian English",
+      "route": "to_create",
+      "rights_status": "needs_approval",
+      "rights_action": "Obtain written approval before render.",
+      "exactness": "illustrative",
+      "specification": "WAV. 48 kHz, 24-bit, dry studio recording.",
+      "estimate_usd": 14.0,
+      "fallback_asset_id": "AS-14"
+    },
+    {
+      "asset_id": "AS-09",
+      "name": "Reveal whoosh",
+      "route": "to_create",
+      "rights_status": "cleared",
+      "rights_action": "Cleared. Keep any required attribution.",
+      "exactness": "illustrative",
+      "specification": "WAV",
+      "estimate_usd": 0.0,
+      "fallback_asset_id": null
+    },
+    {
+      "asset_id": "AS-10",
+      "name": "Liquid splash",
+      "route": "to_create",
+      "rights_status": "cleared",
+      "rights_action": "Cleared. Keep any required attribution.",
+      "exactness": "illustrative",
+      "specification": "WAV",
+      "estimate_usd": 0.0,
+      "fallback_asset_id": null
+    },
+    {
+      "asset_id": "AS-11",
+      "name": "Brand sting",
+      "route": "to_create",
+      "rights_status": "cleared",
+      "rights_action": "Cleared. Keep any required attribution.",
+      "exactness": "illustrative",
+      "specification": "WAV",
+      "estimate_usd": 0.0,
+      "fallback_asset_id": null
+    }
+  ],
+  "pending_checks": [
+    "AC-05",
+    "AC-06",
+    "AC-07",
+    "AC-09",
+    "AC-11",
+    "AC-12"
+  ],
+  "conditions": [
+    "HI-01 Price and promotion confirmation: Brand-approved hero size, advertising price, offer terms and expiry, with a named approver.",
+    "HI-02 Brand pack art, logo and font clearance: Pack art and vector logo with written advertising-use confirmation, plus the brand font or approval to use the placeholder.",
+    "HI-03 Music licence: A production-library licence covering organic and paid social.",
+    "exact.identifiers: brand_name ED-06 is observed; Gate 1 must approve this identifier or wording",
+    "exact.identifiers: cta ED-05 is proposed; Gate 1 must approve this identifier or wording",
+    "exact.identifiers: origin ED-07 is observed; Gate 1 must approve this identifier or wording",
+    "rights.assets: rights need approval for Ethiopia pack artwork",
+    "rights.assets: rights need approval for Music bed, 10 seconds",
+    "rights.assets: rights need approval for Toffee Coffee Roasters logo",
+    "rights.assets: rights need approval for Voice over, warm Indian English"
+  ],
+  "held_items": [
+    {
+      "id": "HI-01",
+      "title": "Price and promotion confirmation",
+      "reason": "The storefront price varies by pack size and the offer has no visible expiry or terms.",
+      "affects": [
+        "ED-02",
+        "ED-03",
+        "ED-04"
+      ],
+      "required_evidence": "Brand-approved hero size, advertising price, offer terms and expiry, with a named approver.",
+      "owner": "human"
+    },
+    {
+      "id": "HI-02",
+      "title": "Brand pack art, logo and font clearance",
+      "reason": "No brand kit or advertising-use licence was supplied.",
+      "affects": [
+        "AS-01",
+        "AS-02"
+      ],
+      "required_evidence": "Pack art and vector logo with written advertising-use confirmation, plus the brand font or approval to use the placeholder.",
+      "owner": "human"
+    },
+    {
+      "id": "HI-03",
+      "title": "Music licence",
+      "reason": "No track is selected or licensed.",
+      "affects": [
+        "AS-07"
+      ],
+      "required_evidence": "A production-library licence covering organic and paid social.",
+      "owner": "human"
+    }
+  ],
+  "exact_data_approved": [
+    "ED-05",
+    "ED-06",
+    "ED-07"
+  ],
+  "exact_data_pending": [],
+  "created_at": "2026-11-14T13:39:14+00:00"
+}
