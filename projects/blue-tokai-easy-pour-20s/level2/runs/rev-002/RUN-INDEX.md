@@ -12,6 +12,9 @@
 | [SOURCE-SHEET.md](SOURCE-SHEET.md) | Every shot/layer with its actual asset source and preview |
 | [stock-check/stock-check.md](stock-check/stock-check.md) | Live fetch result per stock source, with licences |
 | [openmontage-status.json](openmontage-status.json) | OpenMontage account, version and connected providers |
+| [openmontage-check.json](openmontage-check.json) | Real NASA stock acquisition and 2-second HyperFrames render |
+| [openmontage/render.mp4](openmontage/render.mp4) | Rendered test clip (1920?1080, 2 s, 60 frames) |
+| [shortgpt-status.json](shortgpt-status.json) | Edge TTS working; transcription explicitly unavailable |
 | [voice-sample.json](voice-sample.json) | ShortGPT Edge TTS fallback sample metadata |
 | [TEST-REPORT.md](TEST-REPORT.md) | Test results, gate checks, environment, raw output links |
 | [review-pack.html](review-pack.html) | Review pack that opens in any browser |
@@ -96,12 +99,12 @@
 | [build-sheet/variants/VO-01.json](build-sheet/variants/VO-01.json) | 23,160 |
 | [capture-plan.json](capture-plan.json) | 1,480 |
 | [catalogue-resolutions.json](catalogue-resolutions.json) | 4,587 |
-| [cli-gate2a-output.json](cli-gate2a-output.json) | 1,719 |
-| [cli-plan-output.json](cli-plan-output.json) | 953 |
-| [cli-qc-output.json](cli-qc-output.json) | 573 |
-| [cli-spend-output.json](cli-spend-output.json) | 660 |
-| [cli-stockcheck-output.json](cli-stockcheck-output.json) | 231 |
-| [cli-voice-output.json](cli-voice-output.json) | 329 |
+| [cli-gate2a-output.json](cli-gate2a-output.json) | 1,873 |
+| [cli-plan-output.json](cli-plan-output.json) | 1,033 |
+| [cli-qc-output.json](cli-qc-output.json) | 631 |
+| [cli-spend-output.json](cli-spend-output.json) | 720 |
+| [cli-stockcheck-output.json](cli-stockcheck-output.json) | 245 |
+| [cli-voice-output.json](cli-voice-output.json) | 345 |
 | [events.jsonl](events.jsonl) | 9,558 |
 | [feedback-form.md](feedback-form.md) | 4,580 |
 | [flow.json](flow.json) | 5,774 |
@@ -110,6 +113,10 @@
 | [layer-method-decisions.json](layer-method-decisions.json) | 25,090 |
 | [licence-gate-report.json](licence-gate-report.json) | 4,768 |
 | [mypy-output.txt](mypy-output.txt) | 46 |
+| [OPEN-TOOLS-STATUS.md](OPEN-TOOLS-STATUS.md) | 8,161 |
+| [openmontage/nasa-stock.jpg](openmontage/nasa-stock.jpg) | 103,961 |
+| [openmontage/render.mp4](openmontage/render.mp4) | 26,984 |
+| [openmontage-check.json](openmontage-check.json) | 1,020 |
 | [openmontage-status.json](openmontage-status.json) | 904 |
 | [provider-budget.json](provider-budget.json) | 283 |
 | [provider-spend.json](provider-spend.json) | 468 |
@@ -127,6 +134,7 @@
 | [rights-manifest.json](rights-manifest.json) | 4,932 |
 | [ruff-output.txt](ruff-output.txt) | 21 |
 | [run.json](run.json) | 117,646 |
+| [shortgpt-status.json](shortgpt-status.json) | 253 |
 | [sound-plan.json](sound-plan.json) | 2,757 |
 | [SOURCE-SHEET.html](SOURCE-SHEET.html) | 13,284 |
 | [SOURCE-SHEET.json](SOURCE-SHEET.json) | 18,224 |
@@ -145,7 +153,7 @@
 | [spend-ledger.jsonl](spend-ledger.jsonl) | 0 |
 | [stock-check/stock-check.json](stock-check/stock-check.json) | 10,412 |
 | [stock-check/stock-check.md](stock-check/stock-check.md) | 7,967 |
-| [TEST-REPORT.md](TEST-REPORT.md) | 3,708 |
+| [TEST-REPORT.md](TEST-REPORT.md) | 3,793 |
 | [variants.json](variants.json) | 25,176 |
 | [voice-sample.json](voice-sample.json) | 339 |
 

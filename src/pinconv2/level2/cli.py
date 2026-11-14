@@ -115,6 +115,30 @@ def run_level2_command(store: ProjectStore, args: argparse.Namespace) -> int:
     level2 = run.read_level2(run_id)
     sheet = run.read_build_sheet(run_id)
 
+    if command == "omcheck":
+        from .openmontage_check import run_openmontage_check
+
+        check = run_openmontage_check(
+            run.run_dir(run_id),
+            run_id,
+            query=str(args.query),
+            budget_usd=float(args.budget),
+            capability_check=True,
+        )
+        _print(
+            {
+                "project_id": check.project_id,
+                "stock": check.stock_title,
+                "stock_sha256": check.stock_sha256,
+                "render": check.render_reference,
+                "render_sha256": check.render_sha256,
+                "verification": check.render_verification,
+                "budget_usd": check.budget_usd,
+                "spent_usd": check.spent_usd,
+            }
+        )
+        return 0
+
     if command == "credentials":
         from .credentials import status_report
 
@@ -125,12 +149,8 @@ def run_level2_command(store: ProjectStore, args: argparse.Namespace) -> int:
         from .stockcheck import render_stock_check, run_stock_check
 
         stock_report = run_stock_check(Path(str(args.media_dir)), str(args.query))
-        run.write_data(
-            run_id, "stock-check/stock-check.json", stock_report.model_dump(mode="json")
-        )
-        run.write_text(
-            run_id, "stock-check/stock-check.md", render_stock_check(stock_report)
-        )
+        run.write_data(run_id, "stock-check/stock-check.json", stock_report.model_dump(mode="json"))
+        run.write_text(run_id, "stock-check/stock-check.md", render_stock_check(stock_report))
         _print(
             {
                 "query": args.query,
@@ -155,10 +175,22 @@ def run_level2_command(store: ProjectStore, args: argparse.Namespace) -> int:
             text = cue.description.split("Canonical read:", 1)[-1].strip()
         destination = run.run_dir(run_id) / "generated" / "AS-15-edge-sample.mp3"
         result = VoiceAgent().sample(text, destination, str(args.voice))
-        recorded = result.model_copy(
-            update={"path": f"generated/{destination.name}"}
-        )
+        recorded = result.model_copy(update={"path": f"generated/{destination.name}"})
         run.write_json(run_id, "voice-sample.json", recorded)
+        run.write_data(
+            run_id,
+            "shortgpt-status.json",
+            {
+                "edge_tts": "working",
+                "transcription": "unavailable",
+                "transcription_reason": (
+                    "whisper model is not downloaded; about 574 MB and needs "
+                    "explicit owner approval"
+                ),
+                "sample_path": recorded.path,
+                "duration_seconds": recorded.duration_seconds,
+            },
+        )
         _print(
             {
                 "provider": result.provider,

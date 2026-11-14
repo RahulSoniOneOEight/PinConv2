@@ -20,7 +20,7 @@
 
 ```
 $ python -m pytest -q
-126 passed in 10.78s
+129 passed in 10.92s
 ```
 
 ```
@@ -30,7 +30,7 @@ All checks passed!
 
 ```
 $ python -m mypy
-Success: no issues found in 81 source files
+Success: no issues found in 83 source files
 ```
 
 ## Acceptance run — Blue Tokai rev-002
@@ -45,6 +45,7 @@ Success: no issues found in 81 source files
 | Stock-sourced assets | 9 library-music candidates, 9 previews, 2 chosen, 0 final acquisitions |
 | Stock fetch check | 11 of 12 sources fetched and probed |
 | Voice fallback sample | 14.952 s via shortgpt:edge-tts |
+| OpenMontage check | 2022 Holiday Coffee; render passed; budget $2.0, spent $0.0 |
 | Truth classes | 10 exact, 12 exact_text, 3 proof, 7 atmospheric, 6 representative |
 | Impact | 18 high, 10 medium, 10 low |
 | Cash plan | $0.00 (lean) |

@@ -522,6 +522,31 @@ def test_shortgpt_fails_closed_without_a_venv(tmp_path: Path) -> None:
         engine.synth("hello", tmp_path / "out.mp3")
 
 
+def test_openmontage_refuses_without_an_approved_gate(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    from pinconv2.level2.engines.openmontage import OpenMontageEngine
+    from pinconv2.level2.errors import SpendNotAuthorisedError
+    from pinconv2.level2.models import PacketStatus
+
+    monkeypatch.setenv("OPENMONTAGE_ENABLED", "1")
+    ledger = SpendLedger(tmp_path / "ledger.jsonl", authorised=True)
+    gate = _approved_gate().model_copy(update={"status": PacketStatus.READY, "approved_by": None})
+    engine = OpenMontageEngine(ledger, lambda operation, payload: {}, gate=gate)
+    with pytest.raises(SpendNotAuthorisedError):
+        engine.search("AS-10", "coffee")
+
+
+def test_openmontage_check_refuses_without_gate_or_test_mode(
+    tmp_path: Path,
+) -> None:
+    from pinconv2.level2.errors import SpendNotAuthorisedError
+    from pinconv2.level2.openmontage_check import run_openmontage_check
+
+    with pytest.raises(SpendNotAuthorisedError):
+        run_openmontage_check(tmp_path, "rev-002")
+
+
 def test_openmontage_render_goes_through_the_ledger(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:

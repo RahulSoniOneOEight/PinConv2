@@ -124,6 +124,7 @@ def build_parser() -> argparse.ArgumentParser:
         ("credentials", "show which provider credentials are available"),
         ("stockcheck", "fetch and probe one item from each stock source"),
         ("voice", "render a disclosed Edge TTS sample for the fallback voice"),
+        ("omcheck", "run a separate OpenMontage stock and render capability check"),
         ("build", "process imported sources after Gate 2A approval"),
         ("correct", "validate typed corrections and open a new run"),
     ]:
@@ -171,6 +172,15 @@ def build_parser() -> argparse.ArgumentParser:
     voice.add_argument("--run", default=None)
     voice.add_argument("--text", default=None)
     voice.add_argument("--voice", default="en-IN-NeerjaNeural")
+
+    omcheck = level2_sub.add_parser(
+        "omcheck", help="run a separate OpenMontage stock and render capability check"
+    )
+    _common(omcheck)
+    omcheck.add_argument("--revision", type=int, default=None)
+    omcheck.add_argument("--run", default=None)
+    omcheck.add_argument("--query", default="coffee")
+    omcheck.add_argument("--budget", type=float, default=2.0)
     level2_sub.add_parser("spend", help="show fal.ai/Runware budget and spend")
     spend = level2_sub.choices["spend"]
     _common(spend)

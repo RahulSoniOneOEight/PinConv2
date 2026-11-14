@@ -14,9 +14,9 @@ import os
 from collections.abc import Callable
 from pathlib import Path
 
-from ..errors import Level2Error
+from ..errors import Level2Error, SpendNotAuthorisedError
 from ..licence_gate import ensure_usable, gate_candidate
-from ..models import GenerationSpec, MethodCandidate, ProcessingOp
+from ..models import GenerationSpec, MethodCandidate, PacketStatus, ProcessingOp
 from .base import (
     EngineAdapter,
     GenerationResult,
@@ -48,9 +48,15 @@ class EngineUnavailableError(Level2Error):
 class OpenMontageEngine(EngineAdapter):
     name = "openmontage"
 
-    def __init__(self, ledger: SpendLedger, client: Client | None = None) -> None:
+    def __init__(
+        self,
+        ledger: SpendLedger,
+        client: Client | None = None,
+        gate: object | None = None,
+    ) -> None:
         self.ledger = ledger
         self.client = client
+        self.gate = gate
 
     @property
     def available(self) -> bool:
@@ -84,6 +90,11 @@ class OpenMontageEngine(EngineAdapter):
     def _submit(
         self, operation: str, payload: dict[str, object], line_id: str
     ) -> dict[str, object]:
+        gate_status = getattr(self.gate, "status", None)
+        if self.gate is not None and gate_status is not PacketStatus.APPROVED:
+            raise SpendNotAuthorisedError(
+                "OpenMontage work needs an approved Gate 2A"
+            )
         if self.client is None or not self.available:
             raise EngineUnavailableError(
                 "OpenMontage is not connected; enable it and retry after Gate 2A"

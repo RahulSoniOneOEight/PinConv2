@@ -1,0 +1,7 @@
+{
+  "duration_seconds": 14.952,
+  "edge_tts": "working",
+  "sample_path": "generated/AS-15-edge-sample.mp3",
+  "transcription": "unavailable",
+  "transcription_reason": "whisper model is not downloaded; about 574 MB and needs explicit owner approval"
+}

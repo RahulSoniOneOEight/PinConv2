@@ -1,7 +1,7 @@
 {
   "provider": "shortgpt:edge-tts",
   "path": "generated/AS-15-edge-sample.mp3",
-  "sha256": "0abf21b5a51088f89b7bf9e15e98f86b8d7f5b4a7acb5ce05a4628480eb24a79",
+  "sha256": "a1f32db5f65475703578ca4ac00bbcc1d494d2f3fd7490b423c11cbb0073a6bb",
   "bytes": 89712,
   "duration_seconds": 14.952,
   "voice": "en-IN-NeerjaNeural",

@@ -18,12 +18,15 @@ from pathlib import Path
 
 from ..store import ProjectStore
 from .engines.local import LocalEngine
+from .errors import SpendNotAuthorisedError
 from .gate2 import evaluate_2a
 from .licence_gate import classify_licence, gate_candidate
 from .models import (
     AssetSourcing,
+    GatePacket,
     LicenceClass,
     MethodCandidate,
+    PacketStatus,
     ProviderSpendSummary,
     QcReport,
     SourcingCandidate,
@@ -36,6 +39,16 @@ _MAX_BYTES = 30 * 1024 * 1024
 
 Fetcher = Callable[[str], list[dict[str, object]]]
 Downloader = Callable[[str, Path], Path]
+
+
+def require_openmontage_gate(gate: GatePacket | None) -> None:
+    """OpenMontage stock/render work is film sourcing, so it needs Gate 2A."""
+
+    if gate is None or gate.status is not PacketStatus.APPROVED:
+        raise SpendNotAuthorisedError(
+            "OpenMontage stock or render work needs an approved Gate 2A"
+        )
+
 
 DEFAULT_QUERIES = {
     "AS-10": "coffee acoustic instrumental",

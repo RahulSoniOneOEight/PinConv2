@@ -1,0 +1,17 @@
+{
+  "project_id": "e2c2286d-6dc3-4f94-ae48-8aa90ff20a3f",
+  "production_root": "C:\\Users\\LENOVO\\Documents\\OpenMontage Productions\\pinconv2-level-2-openmontage-check-rev-002",
+  "stock_title": "2022 Holiday Coffee",
+  "stock_sha256": "60ef6c23198684f53fdc4185cf449c883f96c09436db4d7180d9ee2bda4d73a8",
+  "stock_reference": "project:inputs/e8f9c721-923c-4f1f-8d1b-a69814d9966d.jpg",
+  "stock_local_copy": "D:\\pinconv2\\projects\\blue-tokai-easy-pour-20s\\level2\\runs\\rev-002\\openmontage\\nasa-stock.jpg",
+  "render_reference": "project:deliverables/om-check-rev-002.mp4",
+  "render_local_copy": "D:\\pinconv2\\projects\\blue-tokai-easy-pour-20s\\level2\\runs\\rev-002\\openmontage\\render.mp4",
+  "render_sha256": "a271844321fe1127d01ebe1d2faca911db2e0a24073609bcdc11ec22e21a1ceb",
+  "render_bytes": 26984,
+  "render_duration_seconds": 2.0,
+  "render_verification": "passed",
+  "budget_usd": 2.0,
+  "spent_usd": 0.0,
+  "note": "Capability test only; not attached to the Blue Tokai production."
+}

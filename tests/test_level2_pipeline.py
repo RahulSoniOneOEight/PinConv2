@@ -415,6 +415,14 @@ def test_gate_checks_are_not_vacuous(approved: SimpleNamespace) -> None:
     assert catalogue_checks["G2A-06"].state is CheckState.FAIL
 
 
+def test_openmontage_requires_approved_gate_2a(approved: SimpleNamespace) -> None:
+    from pinconv2.level2.errors import SpendNotAuthorisedError
+    from pinconv2.level2.sourcing import require_openmontage_gate
+
+    with pytest.raises(SpendNotAuthorisedError):
+        require_openmontage_gate(approved.outcome.gate_2a)
+
+
 def test_gate_2a_reads_sourcing_candidates(approved: SimpleNamespace) -> None:
     from pinconv2.level2.gate2 import evaluate_2a
     from pinconv2.level2.models import (

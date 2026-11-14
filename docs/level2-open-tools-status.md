@@ -177,6 +177,24 @@ Jobs in queue: 0. Output directory exists.
   Gate 2A. No paid call was made for any of these checks.
 
 
+## 5a. OpenMontage bridge and live check
+
+- `mcp_bridge.py` speaks MCP stdio to `OpenMontage Studio.exe --mcp`.
+- `level2 omcheck` created a separate $2 production, acquired a NASA stock
+  image through `media.stock-tool`, attached it to the project, authored a
+  2-second HyperFrames composition, and rendered it.
+- Evidence: stock SHA-256 `60ef6c23?`, render SHA-256 `a2718443?`, 1920?1080,
+  2.0 s, 60 frames, verification passed, budget $2.00, spent $0.00.
+- It is a separate capability production; nothing was attached to Blue Tokai.
+- `sourcing.require_openmontage_gate` refuses OpenMontage stock/render work
+  unless Gate 2A is approved. `OpenMontageEngine._submit` enforces the same
+  packet when a gate is supplied. `level2 omcheck` is locked to `nasa.stock`,
+  draft quality and a $2 ceiling; without that explicit capability flag the
+  runner refuses before spawning Studio.
+- ShortGPT transcription is explicitly unavailable: `whisper_timestamped` is
+  installed but its model (about 574 MB) is not downloaded and needs owner
+  approval. Edge TTS works and produced the sample.
+
 ## 6. Recommendation
 
 - Use **OpenMontage** as the Level 2 stock/generation/render adapter where its
