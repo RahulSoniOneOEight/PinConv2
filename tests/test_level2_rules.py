@@ -67,6 +67,27 @@ def test_share_alike_is_blocked() -> None:
     assert gate_entry(entry).verdict is GateVerdict.BLOCK
 
 
+def test_credentials_loader_reads_env_then_vault(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    from pinconv2.level2 import credentials
+
+    monkeypatch.setitem(credentials.ENV_FILES, "PINCONV2_TEST_KEY", "test-key")
+    monkeypatch.setenv("PINCONV2_CREDENTIAL_VAULT", str(tmp_path))
+    monkeypatch.setenv("PINCONV2_TEST_KEY", "from-env")
+    assert credentials.provider_key("PINCONV2_TEST_KEY") == "from-env"
+    assert credentials.key_status("PINCONV2_TEST_KEY") == "env"
+
+    monkeypatch.delenv("PINCONV2_TEST_KEY")
+    (tmp_path / "test-key").write_text("from-vault\n", encoding="utf-8")
+    assert credentials.provider_key("PINCONV2_TEST_KEY") == "from-vault"
+    assert credentials.key_status("PINCONV2_TEST_KEY") == "vault"
+
+    (tmp_path / "test-key").unlink()
+    assert credentials.provider_key("PINCONV2_TEST_KEY") is None
+    assert credentials.key_status("PINCONV2_TEST_KEY") == "missing"
+
+
 def test_retired_or_blocked_image_apis_are_not_scripted() -> None:
     assert SOURCE_MAP["met-museum"].scriptable is False
     assert SOURCE_MAP["rijksmuseum"].scriptable is False

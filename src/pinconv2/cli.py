@@ -121,6 +121,7 @@ def build_parser() -> argparse.ArgumentParser:
         ("review", "print the review pack paths"),
         ("qc", "print deterministic QC verdicts"),
         ("status", "show the Level 2 run state"),
+        ("credentials", "show which provider credentials are available"),
         ("build", "process imported sources after Gate 2A approval"),
         ("correct", "validate typed corrections and open a new run"),
     ]:

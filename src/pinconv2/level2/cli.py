@@ -115,6 +115,12 @@ def run_level2_command(store: ProjectStore, args: argparse.Namespace) -> int:
     level2 = run.read_level2(run_id)
     sheet = run.read_build_sheet(run_id)
 
+    if command == "credentials":
+        from .credentials import status_report
+
+        _print(status_report())
+        return 0
+
     if command == "source":
         from .sourcing import DEFAULT_QUERIES, source_assets
 
