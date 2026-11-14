@@ -33,5 +33,9 @@ class GenerationAgent:
         except Exception:
             self.governor.release(reservation, "generation failed")
             raise
-        self.governor.receipt(reservation, result.cost_usd, result.job_id)
+        try:
+            self.governor.receipt(reservation, result.cost_usd, result.job_id)
+        except Exception:
+            self.governor.release(reservation, "receipt failed")
+            raise
         return cast(GenerationResult, result)

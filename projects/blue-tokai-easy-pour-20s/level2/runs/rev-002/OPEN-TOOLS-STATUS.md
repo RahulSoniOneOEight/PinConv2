@@ -207,8 +207,10 @@ Jobs in queue: 0. Output directory exists.
   pour”. Edge TTS produced the 14.95 s sample.
 - `OpenMontageEngine.generate` now submits `image.generate` / `video.generate`
   through the same ledger and refuses unless Gate 2A is APPROVED. No paid
-  generation was run because no human has approved Gate 2A; the code path is
-  covered by a fake-ledger test.
+  generation was run because no human has approved Gate 2A. The
+  `GenerationAgent`/`run_generation` stage reserves and receipts around the
+  engine; the test uses a real `ProviderGovernor` and a fake engine. Production
+  caller construction remains dependency-injected.
 - Remotion CLI is not installed on this machine. Studio's installed renderer is
   HyperFrames `0.8.123`, which produced the verified test clip.
 

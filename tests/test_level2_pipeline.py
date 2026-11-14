@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import json
 import zipfile
 from pathlib import Path
@@ -739,13 +740,18 @@ def test_generation_stage_uses_governor_and_engine(
         ),
     )
 
+    output = target / "generated" / "AS-15.wav"
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_bytes(b"fake generated audio")
+    output_sha = hashlib.sha256(output.read_bytes()).hexdigest()
+
     class FakeEngine:
         def generate(self, spec: object) -> GenerationResult:
             return GenerationResult(
                 provider="runware",
                 job_id="om-job-1",
                 path="generated/AS-15.wav",
-                sha256="a" * 64,
+                sha256=output_sha,
                 cost_usd=0.25,
                 disclosed=True,
             )

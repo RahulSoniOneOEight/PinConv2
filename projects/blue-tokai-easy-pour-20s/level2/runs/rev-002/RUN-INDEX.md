@@ -103,11 +103,11 @@
 | [build-sheet/variants/VO-01.json](build-sheet/variants/VO-01.json) | 23,160 |
 | [capture-plan.json](capture-plan.json) | 1,480 |
 | [catalogue-resolutions.json](catalogue-resolutions.json) | 4,587 |
-| [cli-gate2a-output.json](cli-gate2a-output.json) | 2,258 |
-| [cli-plan-output.json](cli-plan-output.json) | 1,073 |
-| [cli-qc-output.json](cli-qc-output.json) | 776 |
-| [cli-spend-output.json](cli-spend-output.json) | 870 |
-| [cli-stockcheck-output.json](cli-stockcheck-output.json) | 280 |
+| [cli-gate2a-output.json](cli-gate2a-output.json) | 2,335 |
+| [cli-plan-output.json](cli-plan-output.json) | 1,113 |
+| [cli-qc-output.json](cli-qc-output.json) | 805 |
+| [cli-spend-output.json](cli-spend-output.json) | 900 |
+| [cli-stockcheck-output.json](cli-stockcheck-output.json) | 287 |
 | [cli-voice-output.json](cli-voice-output.json) | 239 |
 | [events.jsonl](events.jsonl) | 11,141 |
 | [feedback-form.md](feedback-form.md) | 4,580 |
@@ -117,7 +117,7 @@
 | [layer-method-decisions.json](layer-method-decisions.json) | 25,090 |
 | [licence-gate-report.json](licence-gate-report.json) | 4,768 |
 | [mypy-output.txt](mypy-output.txt) | 46 |
-| [OPEN-TOOLS-STATUS.md](OPEN-TOOLS-STATUS.md) | 9,348 |
+| [OPEN-TOOLS-STATUS.md](OPEN-TOOLS-STATUS.md) | 9,511 |
 | [openmontage/candidates/AS-07-01.jpg](openmontage/candidates/AS-07-01.jpg) | 35,656 |
 | [openmontage/candidates/AS-07-02.jpg](openmontage/candidates/AS-07-02.jpg) | 47,936 |
 | [openmontage/candidates/AS-07-03.jpg](openmontage/candidates/AS-07-03.jpg) | 44,247 |

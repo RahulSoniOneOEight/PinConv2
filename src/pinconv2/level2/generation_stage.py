@@ -8,6 +8,7 @@ then reserves and receipts every job through ``ProviderGovernor``.
 
 from __future__ import annotations
 
+import hashlib
 from pathlib import Path
 from typing import Any
 
@@ -33,6 +34,7 @@ class GenerationEntry(StrictModel):
     asset_id: str = Field(pattern=r"^AS-\d{2}$")
     status: str = Field(pattern=r"^(generated|blocked|skipped)$")
     detail: str = Field(min_length=1, max_length=500)
+    provider: str | None = None
     path: str | None = None
     sha256: str | None = Field(default=None, pattern=r"^[a-f0-9]{64}$")
     job_id: str | None = None
@@ -51,13 +53,15 @@ class GenerationReport(StrictModel):
     created_at: str = Field(default_factory=utc_now)
 
 
-def _approved_packet(run_dir: Path) -> GatePacket:
+def _approved_packet(run_dir: Path, plan_hash: str) -> GatePacket:
     path = run_dir / "gate2" / "packet-2a.json"
     if not path.is_file():
         raise GateOrderError("no Gate 2A packet; run level2 plan first")
     packet = GatePacket.model_validate_json(path.read_text(encoding="utf-8"))
     if packet.status is not PacketStatus.APPROVED or not packet.approved_by:
         raise GateOrderError("Gate 2A is not approved; no generation may start")
+    if packet.plan_hash != plan_hash:
+        raise GateOrderError("Gate 2A packet does not match the current plan hash")
     return packet
 
 
@@ -76,11 +80,17 @@ def run_generation(
     run = Level2RunStore(store.project_dir(project_id))
     level2 = run.read_level2(run_id)
     run_dir = run.run_dir(run_id)
-    packet = _approved_packet(run_dir)
+    packet = _approved_packet(run_dir, level2.plan_hash)
     budget_path = run_dir / "provider-budget.json"
-    if not budget_path.is_file():
-        raise GateOrderError("no provider budget; run level2 plan first")
-    budget = ProviderBudget.model_validate_json(budget_path.read_text(encoding="utf-8"))
+    if level2.provider_budget is None:
+        raise GateOrderError("the plan has no provider budget")
+    budget = level2.provider_budget
+    if budget_path.is_file():
+        file_budget = ProviderBudget.model_validate_json(budget_path.read_text(encoding="utf-8"))
+        if file_budget.model_dump() != budget.model_dump():
+            raise GateOrderError(
+                "provider-budget.json changed after planning; re-plan before generation"
+            )
     governor = ProviderGovernor(run_dir / "provider-spend.jsonl", budget, gate=packet)
     agent = GenerationAgent(engine, governor)
 
@@ -123,14 +133,58 @@ def run_generation(
                 )
             )
             continue
+        if not result.path:
+            entries.append(
+                GenerationEntry(
+                    task_id=task.task_id,
+                    asset_id=task.asset_id,
+                    status="blocked",
+                    detail="engine returned no output path",
+                    provider=result.provider,
+                    job_id=result.job_id,
+                    cost_usd=result.cost_usd,
+                )
+            )
+            continue
+        output = Path(result.path)
+        if not output.is_absolute():
+            output = run_dir / output
+        if not output.is_file():
+            entries.append(
+                GenerationEntry(
+                    task_id=task.task_id,
+                    asset_id=task.asset_id,
+                    status="blocked",
+                    detail=f"engine output is missing: {result.path}"[:500],
+                    provider=result.provider,
+                    job_id=result.job_id,
+                    cost_usd=result.cost_usd,
+                )
+            )
+            continue
+        actual_sha = hashlib.sha256(output.read_bytes()).hexdigest()
+        if result.sha256 and actual_sha != result.sha256:
+            entries.append(
+                GenerationEntry(
+                    task_id=task.task_id,
+                    asset_id=task.asset_id,
+                    status="blocked",
+                    detail="engine output hash does not match the reported hash",
+                    provider=result.provider,
+                    job_id=result.job_id,
+                    cost_usd=result.cost_usd,
+                )
+            )
+            continue
         entries.append(
             GenerationEntry(
                 task_id=task.task_id,
                 asset_id=task.asset_id,
                 status="generated",
-                detail="generated through the OpenMontage engine and provider governor",
+                detail=(f"generated through {result.provider} and the provider governor"),
+                provider=result.provider,
                 path=result.path,
-                sha256=result.sha256,
+                sha256=actual_sha,
                 job_id=result.job_id,
                 cost_usd=result.cost_usd,
             )
