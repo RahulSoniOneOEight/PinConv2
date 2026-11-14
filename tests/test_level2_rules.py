@@ -67,6 +67,12 @@ def test_share_alike_is_blocked() -> None:
     assert gate_entry(entry).verdict is GateVerdict.BLOCK
 
 
+def test_retired_or_blocked_image_apis_are_not_scripted() -> None:
+    assert SOURCE_MAP["met-museum"].scriptable is False
+    assert SOURCE_MAP["rijksmuseum"].scriptable is False
+    assert SOURCE_MAP["library-of-congress"].scriptable is False
+
+
 def test_manual_only_sources_are_never_scripted() -> None:
     assert SOURCE_MAP["free-music-archive"].scriptable is False
     assert SOURCE_MAP["videezy"].scriptable is False

@@ -537,9 +537,12 @@ SOURCES: tuple[SourceEntry, ...] = (
         asset_types=["still"],
         licence_class=LicenceClass.CC0,
         api="collectionapi.metmuseum.org/public/collection/v1/search",
-        scriptable=True,
+        scriptable=False,
         commercial_ok=True,
-        notes="CC0 for flagged Open Access works; fastest zero-key CC0 route.",
+        notes=(
+            "CC0 for flagged Open Access works; the search endpoint was retired "
+            "on 2026-10-01, so use object records or manual import."
+        ),
     ),
     _entry(
         id="rijksmuseum",
@@ -547,9 +550,12 @@ SOURCES: tuple[SourceEntry, ...] = (
         asset_types=["still"],
         licence_class=LicenceClass.PD,
         api="rijksmuseum.nl/api/en/collection",
-        scriptable=True,
+        scriptable=False,
         commercial_ok=True,
-        notes="Public-domain images; key required; strict rate limits.",
+        notes=(
+            "Public-domain images; the collection API returned HTTP 410 in the "
+            "2026-11-15 probe, so use manual import."
+        ),
     ),
     _entry(
         id="nypl",
@@ -567,9 +573,12 @@ SOURCES: tuple[SourceEntry, ...] = (
         asset_types=["still"],
         licence_class=LicenceClass.UNKNOWN,
         api="loc.gov/search/?fo=json",
-        scriptable=True,
+        scriptable=False,
         commercial_ok=False,
-        notes="Rights vary per item; strongest for archival and documentary work.",
+        notes=(
+            "Rights vary per item; the scripted request hit a bot challenge in the "
+            "2026-11-15 probe, so use manual/browser import."
+        ),
     ),
     _entry(
         id="europeana",
