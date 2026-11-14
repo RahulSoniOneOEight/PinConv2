@@ -1,0 +1,17 @@
+{
+  "stage": "semantic",
+  "verdict": "warn",
+  "findings": [
+    {
+      "id": "QC-001",
+      "stage": "semantic",
+      "check": "cta_copy",
+      "target": "CP-05",
+      "verdict": "warn",
+      "detail": "CTA copy is still proposed; ED-04 is pending",
+      "remediation": "Approve ED-04 before publishing."
+    }
+  ],
+  "reviewer": "code:deterministic",
+  "created_at": "2026-11-14T19:45:56+00:00"
+}

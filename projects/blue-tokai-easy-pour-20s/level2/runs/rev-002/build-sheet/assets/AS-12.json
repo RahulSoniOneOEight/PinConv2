@@ -1,0 +1,27 @@
+{
+  "asset_id": "AS-12",
+  "name": "Brand sting",
+  "truth_class": "atmospheric",
+  "impact": "low",
+  "methods": [
+    "M0"
+  ],
+  "source": "owned:In-house sound design",
+  "processing": [
+    "trim",
+    "loudness_norm",
+    "encode"
+  ],
+  "output_path": null,
+  "output_sha256": null,
+  "bindings": [
+    "AU-04"
+  ],
+  "acceptance": "Sting lands under the end card and does not mask the VO.",
+  "probe_id": null,
+  "rights_status": "cleared",
+  "hold": null,
+  "conditional": false,
+  "status": "planned",
+  "blockers": []
+}

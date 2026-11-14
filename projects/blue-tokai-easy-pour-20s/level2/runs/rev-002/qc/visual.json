@@ -1,0 +1,17 @@
+{
+  "stage": "visual",
+  "verdict": "fail",
+  "findings": [
+    {
+      "id": "QC-001",
+      "stage": "visual",
+      "check": "media_available",
+      "target": "assets",
+      "verdict": "fail",
+      "detail": "no processed media exists yet; visual QC cannot run",
+      "remediation": "Acquire and process assets after Gate 2A."
+    }
+  ],
+  "reviewer": "vision:pending",
+  "created_at": "2026-11-14T19:45:56+00:00"
+}

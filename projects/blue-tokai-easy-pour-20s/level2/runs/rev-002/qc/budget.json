@@ -1,0 +1,44 @@
+{
+  "stage": "budget",
+  "verdict": "warn",
+  "findings": [
+    {
+      "id": "QC-001",
+      "stage": "budget",
+      "check": "cap",
+      "target": "budget",
+      "verdict": "pass",
+      "detail": "total 87.40 against cap 100.00",
+      "remediation": null
+    },
+    {
+      "id": "QC-002",
+      "stage": "budget",
+      "check": "worst_case",
+      "target": "budget",
+      "verdict": "pass",
+      "detail": "worst 92.40 against cap 100.00",
+      "remediation": null
+    },
+    {
+      "id": "QC-003",
+      "stage": "budget",
+      "check": "quote_status",
+      "target": "budget",
+      "verdict": "warn",
+      "detail": "every line is an operator estimate; no verified quote yet",
+      "remediation": "Collect quotes at Gate 2A."
+    },
+    {
+      "id": "QC-004",
+      "stage": "budget",
+      "check": "unpriced_fallbacks",
+      "target": "BL-011,BL-012",
+      "verdict": "warn",
+      "detail": "fallback lines carry no price",
+      "remediation": "Price them or record an explicit zero-cost swap."
+    }
+  ],
+  "reviewer": "code:deterministic",
+  "created_at": "2026-11-14T19:45:56+00:00"
+}

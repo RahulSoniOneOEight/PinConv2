@@ -1,0 +1,29 @@
+{
+  "asset_id": "AS-01",
+  "name": "Blue Tokai Coffee Roasters logo",
+  "truth_class": "exact",
+  "impact": "high",
+  "methods": [
+    "M0"
+  ],
+  "source": "supplied:User-supplied logo attachment, 2026-11-14; public footer fallback: https://bluetokaicoffee.com/cdn/shop/files/logo-footer.png?v=1688108473",
+  "processing": [
+    "alpha_cutout",
+    "grade",
+    "encode"
+  ],
+  "output_path": null,
+  "output_sha256": null,
+  "bindings": [
+    "LY-062"
+  ],
+  "acceptance": "Logo edges clean at end-card size; proportions and colour match the supplied master.",
+  "probe_id": null,
+  "rights_status": "needs_approval",
+  "hold": "HI-02",
+  "conditional": false,
+  "status": "blocked",
+  "blockers": [
+    "HI-02"
+  ]
+}

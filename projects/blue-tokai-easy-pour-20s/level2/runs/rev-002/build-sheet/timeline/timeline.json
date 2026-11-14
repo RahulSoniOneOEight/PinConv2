@@ -1,0 +1,442 @@
+{
+  "fps": 25,
+  "frame_count": 500,
+  "entries": [
+    {
+      "entry_id": "TL-001",
+      "track": "layer",
+      "ref_id": "LY-010",
+      "shot_id": "SH-01",
+      "start_frame": 0,
+      "end_frame": 75,
+      "note": "background"
+    },
+    {
+      "entry_id": "TL-002",
+      "track": "layer",
+      "ref_id": "LY-011",
+      "shot_id": "SH-01",
+      "start_frame": 0,
+      "end_frame": 75,
+      "note": "product"
+    },
+    {
+      "entry_id": "TL-003",
+      "track": "layer",
+      "ref_id": "LY-012",
+      "shot_id": "SH-01",
+      "start_frame": 0,
+      "end_frame": 75,
+      "note": "effect"
+    },
+    {
+      "entry_id": "TL-004",
+      "track": "layer",
+      "ref_id": "LY-013",
+      "shot_id": "SH-01",
+      "start_frame": 0,
+      "end_frame": 75,
+      "note": "typography"
+    },
+    {
+      "entry_id": "TL-005",
+      "track": "layer",
+      "ref_id": "LY-014",
+      "shot_id": "SH-01",
+      "start_frame": 0,
+      "end_frame": 75,
+      "note": "caption_plate"
+    },
+    {
+      "entry_id": "TL-006",
+      "track": "layer",
+      "ref_id": "LY-015",
+      "shot_id": "SH-01",
+      "start_frame": 0,
+      "end_frame": 75,
+      "note": "caption"
+    },
+    {
+      "entry_id": "TL-007",
+      "track": "layer",
+      "ref_id": "LY-020",
+      "shot_id": "SH-02",
+      "start_frame": 75,
+      "end_frame": 160,
+      "note": "background"
+    },
+    {
+      "entry_id": "TL-008",
+      "track": "layer",
+      "ref_id": "LY-021",
+      "shot_id": "SH-02",
+      "start_frame": 75,
+      "end_frame": 160,
+      "note": "subject"
+    },
+    {
+      "entry_id": "TL-009",
+      "track": "layer",
+      "ref_id": "LY-022",
+      "shot_id": "SH-02",
+      "start_frame": 75,
+      "end_frame": 160,
+      "note": "product"
+    },
+    {
+      "entry_id": "TL-010",
+      "track": "layer",
+      "ref_id": "LY-023",
+      "shot_id": "SH-02",
+      "start_frame": 75,
+      "end_frame": 160,
+      "note": "typography"
+    },
+    {
+      "entry_id": "TL-011",
+      "track": "layer",
+      "ref_id": "LY-024",
+      "shot_id": "SH-02",
+      "start_frame": 75,
+      "end_frame": 160,
+      "note": "caption_plate"
+    },
+    {
+      "entry_id": "TL-012",
+      "track": "layer",
+      "ref_id": "LY-025",
+      "shot_id": "SH-02",
+      "start_frame": 75,
+      "end_frame": 160,
+      "note": "caption"
+    },
+    {
+      "entry_id": "TL-013",
+      "track": "layer",
+      "ref_id": "LY-030",
+      "shot_id": "SH-03",
+      "start_frame": 160,
+      "end_frame": 275,
+      "note": "background"
+    },
+    {
+      "entry_id": "TL-014",
+      "track": "layer",
+      "ref_id": "LY-031",
+      "shot_id": "SH-03",
+      "start_frame": 160,
+      "end_frame": 275,
+      "note": "subject"
+    },
+    {
+      "entry_id": "TL-015",
+      "track": "layer",
+      "ref_id": "LY-032",
+      "shot_id": "SH-03",
+      "start_frame": 160,
+      "end_frame": 275,
+      "note": "product"
+    },
+    {
+      "entry_id": "TL-016",
+      "track": "layer",
+      "ref_id": "LY-033",
+      "shot_id": "SH-03",
+      "start_frame": 160,
+      "end_frame": 275,
+      "note": "typography"
+    },
+    {
+      "entry_id": "TL-017",
+      "track": "layer",
+      "ref_id": "LY-034",
+      "shot_id": "SH-03",
+      "start_frame": 160,
+      "end_frame": 275,
+      "note": "caption_plate"
+    },
+    {
+      "entry_id": "TL-018",
+      "track": "layer",
+      "ref_id": "LY-035",
+      "shot_id": "SH-03",
+      "start_frame": 160,
+      "end_frame": 275,
+      "note": "caption"
+    },
+    {
+      "entry_id": "TL-019",
+      "track": "layer",
+      "ref_id": "LY-040",
+      "shot_id": "SH-04",
+      "start_frame": 275,
+      "end_frame": 380,
+      "note": "background"
+    },
+    {
+      "entry_id": "TL-020",
+      "track": "layer",
+      "ref_id": "LY-041",
+      "shot_id": "SH-04",
+      "start_frame": 275,
+      "end_frame": 380,
+      "note": "product"
+    },
+    {
+      "entry_id": "TL-021",
+      "track": "layer",
+      "ref_id": "LY-042",
+      "shot_id": "SH-04",
+      "start_frame": 275,
+      "end_frame": 380,
+      "note": "product"
+    },
+    {
+      "entry_id": "TL-022",
+      "track": "layer",
+      "ref_id": "LY-043",
+      "shot_id": "SH-04",
+      "start_frame": 275,
+      "end_frame": 380,
+      "note": "product"
+    },
+    {
+      "entry_id": "TL-023",
+      "track": "layer",
+      "ref_id": "LY-047",
+      "shot_id": "SH-04",
+      "start_frame": 275,
+      "end_frame": 380,
+      "note": "product"
+    },
+    {
+      "entry_id": "TL-024",
+      "track": "layer",
+      "ref_id": "LY-044",
+      "shot_id": "SH-04",
+      "start_frame": 275,
+      "end_frame": 380,
+      "note": "typography"
+    },
+    {
+      "entry_id": "TL-025",
+      "track": "layer",
+      "ref_id": "LY-045",
+      "shot_id": "SH-04",
+      "start_frame": 275,
+      "end_frame": 380,
+      "note": "caption_plate"
+    },
+    {
+      "entry_id": "TL-026",
+      "track": "layer",
+      "ref_id": "LY-046",
+      "shot_id": "SH-04",
+      "start_frame": 275,
+      "end_frame": 380,
+      "note": "caption"
+    },
+    {
+      "entry_id": "TL-027",
+      "track": "layer",
+      "ref_id": "LY-050",
+      "shot_id": "SH-05",
+      "start_frame": 380,
+      "end_frame": 445,
+      "note": "background"
+    },
+    {
+      "entry_id": "TL-028",
+      "track": "layer",
+      "ref_id": "LY-051",
+      "shot_id": "SH-05",
+      "start_frame": 380,
+      "end_frame": 445,
+      "note": "subject"
+    },
+    {
+      "entry_id": "TL-029",
+      "track": "layer",
+      "ref_id": "LY-052",
+      "shot_id": "SH-05",
+      "start_frame": 380,
+      "end_frame": 445,
+      "note": "product"
+    },
+    {
+      "entry_id": "TL-030",
+      "track": "layer",
+      "ref_id": "LY-053",
+      "shot_id": "SH-05",
+      "start_frame": 380,
+      "end_frame": 445,
+      "note": "typography"
+    },
+    {
+      "entry_id": "TL-031",
+      "track": "layer",
+      "ref_id": "LY-054",
+      "shot_id": "SH-05",
+      "start_frame": 380,
+      "end_frame": 445,
+      "note": "caption_plate"
+    },
+    {
+      "entry_id": "TL-032",
+      "track": "layer",
+      "ref_id": "LY-055",
+      "shot_id": "SH-05",
+      "start_frame": 380,
+      "end_frame": 445,
+      "note": "caption"
+    },
+    {
+      "entry_id": "TL-033",
+      "track": "layer",
+      "ref_id": "LY-060",
+      "shot_id": "SH-06",
+      "start_frame": 445,
+      "end_frame": 500,
+      "note": "background"
+    },
+    {
+      "entry_id": "TL-034",
+      "track": "layer",
+      "ref_id": "LY-061",
+      "shot_id": "SH-06",
+      "start_frame": 445,
+      "end_frame": 500,
+      "note": "product"
+    },
+    {
+      "entry_id": "TL-035",
+      "track": "layer",
+      "ref_id": "LY-062",
+      "shot_id": "SH-06",
+      "start_frame": 445,
+      "end_frame": 500,
+      "note": "logo"
+    },
+    {
+      "entry_id": "TL-036",
+      "track": "layer",
+      "ref_id": "LY-063",
+      "shot_id": "SH-06",
+      "start_frame": 445,
+      "end_frame": 500,
+      "note": "cta"
+    },
+    {
+      "entry_id": "TL-037",
+      "track": "layer",
+      "ref_id": "LY-064",
+      "shot_id": "SH-06",
+      "start_frame": 445,
+      "end_frame": 500,
+      "note": "caption_plate"
+    },
+    {
+      "entry_id": "TL-038",
+      "track": "layer",
+      "ref_id": "LY-065",
+      "shot_id": "SH-06",
+      "start_frame": 445,
+      "end_frame": 500,
+      "note": "caption"
+    },
+    {
+      "entry_id": "TL-039",
+      "track": "audio",
+      "ref_id": "AU-01",
+      "shot_id": null,
+      "start_frame": 0,
+      "end_frame": 500,
+      "note": "vo"
+    },
+    {
+      "entry_id": "TL-040",
+      "track": "audio",
+      "ref_id": "AU-02",
+      "shot_id": null,
+      "start_frame": 0,
+      "end_frame": 500,
+      "note": "music"
+    },
+    {
+      "entry_id": "TL-041",
+      "track": "audio",
+      "ref_id": "AU-03",
+      "shot_id": null,
+      "start_frame": 160,
+      "end_frame": 245,
+      "note": "sfx"
+    },
+    {
+      "entry_id": "TL-042",
+      "track": "audio",
+      "ref_id": "AU-04",
+      "shot_id": null,
+      "start_frame": 440,
+      "end_frame": 485,
+      "note": "sfx"
+    },
+    {
+      "entry_id": "TL-043",
+      "track": "caption",
+      "ref_id": "LY-015",
+      "shot_id": "SH-01",
+      "start_frame": 0,
+      "end_frame": 75,
+      "note": "CP-07"
+    },
+    {
+      "entry_id": "TL-044",
+      "track": "caption",
+      "ref_id": "LY-025",
+      "shot_id": "SH-02",
+      "start_frame": 75,
+      "end_frame": 160,
+      "note": "CP-08"
+    },
+    {
+      "entry_id": "TL-045",
+      "track": "caption",
+      "ref_id": "LY-035",
+      "shot_id": "SH-03",
+      "start_frame": 160,
+      "end_frame": 275,
+      "note": "CP-09"
+    },
+    {
+      "entry_id": "TL-046",
+      "track": "caption",
+      "ref_id": "LY-046",
+      "shot_id": "SH-04",
+      "start_frame": 275,
+      "end_frame": 380,
+      "note": "CP-10"
+    },
+    {
+      "entry_id": "TL-047",
+      "track": "caption",
+      "ref_id": "LY-055",
+      "shot_id": "SH-05",
+      "start_frame": 380,
+      "end_frame": 445,
+      "note": "CP-12"
+    },
+    {
+      "entry_id": "TL-048",
+      "track": "caption",
+      "ref_id": "LY-065",
+      "shot_id": "SH-06",
+      "start_frame": 445,
+      "end_frame": 500,
+      "note": "CP-11"
+    }
+  ],
+  "caption_files": {
+    "16x9": "captions/captions-16x9.srt",
+    "9x16": "captions/captions-9x16.srt"
+  }
+}

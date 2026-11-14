@@ -1,0 +1,100 @@
+{
+  "gate": "2a",
+  "run_id": "rev-002",
+  "project_id": "blue-tokai-easy-pour-20s",
+  "plan_revision": 2,
+  "plan_hash": "1370f029b0b35730625c459cf85579bfd767d2e4a7b62016055e100d15f2aba5",
+  "status": "ready_for_approval",
+  "checks": [
+    {
+      "id": "G2A-01",
+      "name": "Hash chain",
+      "state": "pass",
+      "detail": "plan, bundle, packet and budget reconcile with the approval record",
+      "evidence": "1370f029b0b35730625c459cf85579bfd767d2e4a7b62016055e100d15f2aba5"
+    },
+    {
+      "id": "G2A-02",
+      "name": "Method selection",
+      "state": "pass",
+      "detail": "38 decisions checked against the class matrix",
+      "evidence": null
+    },
+    {
+      "id": "G2A-03",
+      "name": "Exact and proof policy",
+      "state": "pass",
+      "detail": "no exact layer uses stock or generation and every proof layer is captured",
+      "evidence": null
+    },
+    {
+      "id": "G2A-04",
+      "name": "Budget within cap",
+      "state": "pass",
+      "detail": "total $87.40, worst $92.40, cap $100.00, headroom $7.60",
+      "evidence": null
+    },
+    {
+      "id": "G2A-05",
+      "name": "Rights posture",
+      "state": "warn",
+      "detail": "13 assets need written approval; every one names a hold owner",
+      "evidence": null
+    },
+    {
+      "id": "G2A-06",
+      "name": "Catalogue compliance",
+      "state": "warn",
+      "detail": "no sourcing round has run; the licence gate has nothing to verify yet",
+      "evidence": null
+    },
+    {
+      "id": "G2A-07",
+      "name": "Probe plan",
+      "state": "pass",
+      "detail": "every M2-M7 choice has a probe before full commit",
+      "evidence": null
+    },
+    {
+      "id": "G2A-08",
+      "name": "Capture plan",
+      "state": "warn",
+      "detail": "CAP-01 covers 4 assets at $18.00; release HI-04 is still pending",
+      "evidence": "HI-04"
+    },
+    {
+      "id": "G2A-09",
+      "name": "Technical QC",
+      "state": "pass",
+      "detail": "3 findings, verdict pass",
+      "evidence": null
+    },
+    {
+      "id": "G2A-10",
+      "name": "Semantic QC",
+      "state": "warn",
+      "detail": "1 findings, verdict warn",
+      "evidence": null
+    },
+    {
+      "id": "G2A-11",
+      "name": "Rights QC",
+      "state": "warn",
+      "detail": "1 findings, verdict warn",
+      "evidence": null
+    },
+    {
+      "id": "G2A-12",
+      "name": "Budget QC",
+      "state": "warn",
+      "detail": "4 findings, verdict warn",
+      "evidence": null
+    }
+  ],
+  "blockers": [],
+  "summary": "Planning is complete and spend-free. Budget, method policy and rights posture are ready for a named human decision.",
+  "approved_by": null,
+  "approved_at": null,
+  "approval_evidence": null,
+  "created_at": "2026-11-14T19:45:56+00:00"
+}

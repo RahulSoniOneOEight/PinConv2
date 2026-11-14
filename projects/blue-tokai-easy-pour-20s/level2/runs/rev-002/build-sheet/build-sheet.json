@@ -1,0 +1,2709 @@
+{
+  "manifest": {
+    "schema_version": "2.0",
+    "run_id": "rev-002",
+    "project_id": "blue-tokai-easy-pour-20s",
+    "plan_revision": 2,
+    "source_plan_hash": "1370f029b0b35730625c459cf85579bfd767d2e4a7b62016055e100d15f2aba5",
+    "bundle_hash": "5a67ac5e48201fc48984a7f913d0f040e57327e807d072e488aad00810574cc2",
+    "packet_hash": "756d91de1005ff0c5002a12670168498f164c80bed1a4d89feacab33e949e427",
+    "generated_at": "2026-11-14T19:45:56+00:00",
+    "parts": {
+      "build-sheet/assets/AS-01.json": {
+        "sha256": "a10438b14c71897863570b921d11d332ba7ba733caa694a6a9b5b77477b98342",
+        "bytes": 720
+      },
+      "build-sheet/assets/AS-02.json": {
+        "sha256": "2f503aa8e2a6bf77011e8ac7b56193dc99b65f8674c0c92adf5f03b7146e96fa",
+        "bytes": 772
+      },
+      "build-sheet/assets/AS-03.json": {
+        "sha256": "878fba26e92d175402964c164755638d6d6ee259f87b515e4b4f119ed6c468f3",
+        "bytes": 667
+      },
+      "build-sheet/assets/AS-04.json": {
+        "sha256": "199e17b3ebbfd299bbd0f1028c7fc7c1592e07bfa56f4f34a02424502188f9ff",
+        "bytes": 640
+      },
+      "build-sheet/assets/AS-17.json": {
+        "sha256": "30bd08a817250caf7aaf093eb96fbb7dabc17c58de38b4dc88bb23d4d1728e63",
+        "bytes": 658
+      },
+      "build-sheet/assets/AS-05.json": {
+        "sha256": "a9224eb4a0ec09060539107786a4a0ad8170c1f4b7d3fae55ef75bca553a7fbb",
+        "bytes": 646
+      },
+      "build-sheet/assets/AS-06.json": {
+        "sha256": "523ba8c8356bbcac93829c90d78a2b33a45374a8f7bd31ce19e5a9b9ef183d28",
+        "bytes": 670
+      },
+      "build-sheet/assets/AS-07.json": {
+        "sha256": "1e8cf321dbe4f4a5bfd345f7502fd86c4951c038101df002c7396c819d2af6b6",
+        "bytes": 607
+      },
+      "build-sheet/assets/AS-08.json": {
+        "sha256": "facd7ab6e8d0a2f8d69a94ef0b62b9f4b5ef9ef2f4ba6f1cd9acbd433986d7dd",
+        "bytes": 636
+      },
+      "build-sheet/assets/AS-09.json": {
+        "sha256": "256646ca81340ff12234abb486b36f4c25ebf162b5638675a5925232ddc173ea",
+        "bytes": 639
+      },
+      "build-sheet/assets/AS-10.json": {
+        "sha256": "362edf25813e8ddbda506bd539086b5d0c270ad8677b0920b5f244aac927fedf",
+        "bytes": 629
+      },
+      "build-sheet/assets/AS-11.json": {
+        "sha256": "1c293f5995715660d6af0c50c5f0586a0e78aa3db151b95d6d9b64752f6be05f",
+        "bytes": 551
+      },
+      "build-sheet/assets/AS-12.json": {
+        "sha256": "01c6638d50eb045ba4c7a6b5615d1b76928665316814464024e49f58a33327fc",
+        "bytes": 531
+      },
+      "build-sheet/assets/AS-13.json": {
+        "sha256": "6508abf0d55ef071e4d062ce4bf678bb99f214e56cfdeff7d5d015955da27444",
+        "bytes": 629
+      },
+      "build-sheet/assets/AS-14.json": {
+        "sha256": "39ae36c959db137a36a45f906e9d02def01f0e37514f467271dd0b908d58043f",
+        "bytes": 617
+      },
+      "build-sheet/assets/AS-15.json": {
+        "sha256": "0b7a7e83db65ec86f65cd6b630d9ab9dba6daf726a500accf2e1695e994cec04",
+        "bytes": 672
+      },
+      "build-sheet/shots/SH-01.json": {
+        "sha256": "3f24b1bc7804d5d118e51dc378841fc65c340b55702bfc29f2c795a35ee8d56a",
+        "bytes": 2157
+      },
+      "build-sheet/shots/SH-02.json": {
+        "sha256": "c5b467e19d1518a6a421cf32823c15a5300a73a535508baf2fb88e7f8ff3133d",
+        "bytes": 2188
+      },
+      "build-sheet/shots/SH-03.json": {
+        "sha256": "c00ab57b8ca36451b114c8fcbd4c4b41458a878f3d2e708f6cc0a7306fa46da1",
+        "bytes": 2230
+      },
+      "build-sheet/shots/SH-04.json": {
+        "sha256": "359fe95eb6b9fcd0d1f6ed86cae15b5b44c41cf66968fea033a5fc14ddbc6bd5",
+        "bytes": 2801
+      },
+      "build-sheet/shots/SH-05.json": {
+        "sha256": "acfa4a6044b4ed879e6fb8978d64276aeb7186d5ddff87b05db1d4ebc6ad2896",
+        "bytes": 2238
+      },
+      "build-sheet/shots/SH-06.json": {
+        "sha256": "16249731639e2ae4b435d402378aa1684a1b8e68390bc778bf2a0c55af2c3e75",
+        "bytes": 2218
+      },
+      "build-sheet/variants/VO-01.json": {
+        "sha256": "19779ffa3483cd561f32ed302655a66da0301972ef9a979a46da7bdcb35eaba2",
+        "bytes": 23160
+      },
+      "build-sheet/timeline/timeline.json": {
+        "sha256": "2b7c7588fe8a13d5a5cfc8687a3e036b58a98f52655e4d704a7932deabc887bc",
+        "bytes": 9332
+      },
+      "build-sheet/captions/captions-16x9.srt": {
+        "sha256": "d737fd375b48d5f771a75be346c90deb92aa1dbb34005c04217eeedf91a964cd",
+        "bytes": 374
+      },
+      "build-sheet/captions/captions-9x16.srt": {
+        "sha256": "d737fd375b48d5f771a75be346c90deb92aa1dbb34005c04217eeedf91a964cd",
+        "bytes": 374
+      }
+    },
+    "counts": {
+      "assets": 16,
+      "layers": 38,
+      "shots": 6,
+      "effects": 6,
+      "variants": 1,
+      "timeline_entries": 48
+    },
+    "budget": {
+      "currency": "USD",
+      "cap_usd": 100.0,
+      "reserve_pct": 15.0,
+      "subtotal_usd": 76.0,
+      "reserve_usd": 11.4,
+      "total_usd": 87.4,
+      "fallback_usd": 5.0,
+      "worst_usd": 92.4,
+      "headroom_usd": 7.6,
+      "within_cap": true,
+      "worst_within_cap": true,
+      "verified_quote_usd": 0.0,
+      "operator_estimate_usd": 81.0,
+      "unpriced_lines": [
+        "BL-011",
+        "BL-012"
+      ]
+    }
+  },
+  "assets": [
+    {
+      "asset_id": "AS-01",
+      "name": "Blue Tokai Coffee Roasters logo",
+      "truth_class": "exact",
+      "impact": "high",
+      "methods": [
+        "M0"
+      ],
+      "source": "supplied:User-supplied logo attachment, 2026-11-14; public footer fallback: https://bluetokaicoffee.com/cdn/shop/files/logo-footer.png?v=1688108473",
+      "processing": [
+        "alpha_cutout",
+        "grade",
+        "encode"
+      ],
+      "output_path": null,
+      "output_sha256": null,
+      "bindings": [
+        "LY-062"
+      ],
+      "acceptance": "Logo edges clean at end-card size; proportions and colour match the supplied master.",
+      "probe_id": null,
+      "rights_status": "needs_approval",
+      "hold": "HI-02",
+      "conditional": false,
+      "status": "blocked",
+      "blockers": [
+        "HI-02"
+      ]
+    },
+    {
+      "asset_id": "AS-02",
+      "name": "Easy Pour Mixed Bag pack",
+      "truth_class": "exact",
+      "impact": "high",
+      "methods": [
+        "M0"
+      ],
+      "source": "supplied:https://bluetokaicoffee.com/cdn/shop/files/MixedBag__Front_c9b610f1-ce4a-4b53-8b30-f6ca758eb6bb.jpg?v=1717566490",
+      "processing": [
+        "alpha_cutout",
+        "grade",
+        "encode"
+      ],
+      "output_path": null,
+      "output_sha256": null,
+      "bindings": [
+        "LY-011",
+        "LY-022",
+        "LY-032",
+        "LY-041",
+        "LY-052",
+        "LY-061"
+      ],
+      "acceptance": "Front title, ‘Light to Dark Roasts’ and Blue Tokai mark readable at phone scale; no label crop.",
+      "probe_id": null,
+      "rights_status": "needs_approval",
+      "hold": "HI-02",
+      "conditional": false,
+      "status": "blocked",
+      "blockers": [
+        "HI-02"
+      ]
+    },
+    {
+      "asset_id": "AS-03",
+      "name": "Easy Pour Vienna pack",
+      "truth_class": "exact",
+      "impact": "high",
+      "methods": [
+        "M0"
+      ],
+      "source": "supplied:https://bluetokaicoffee.com/cdn/shop/files/ViennaRoast__Front_1_a175faba-8e5f-40b8-aaa1-0efc3a525321.jpg?v=1717565466",
+      "processing": [
+        "alpha_cutout",
+        "grade",
+        "encode"
+      ],
+      "output_path": null,
+      "output_sha256": null,
+      "bindings": [
+        "LY-042"
+      ],
+      "acceptance": "Vienna name and dark-roast descriptor readable; no label crop.",
+      "probe_id": null,
+      "rights_status": "needs_approval",
+      "hold": "HI-02",
+      "conditional": false,
+      "status": "blocked",
+      "blockers": [
+        "HI-02"
+      ]
+    },
+    {
+      "asset_id": "AS-04",
+      "name": "Easy Pour Attikan Estate pack",
+      "truth_class": "exact",
+      "impact": "high",
+      "methods": [
+        "M0"
+      ],
+      "source": "supplied:https://bluetokaicoffee.com/cdn/shop/files/AttikanEstate__Front.jpg?v=1764321548",
+      "processing": [
+        "alpha_cutout",
+        "grade",
+        "encode"
+      ],
+      "output_path": null,
+      "output_sha256": null,
+      "bindings": [
+        "LY-043"
+      ],
+      "acceptance": "Attikan name and medium-dark descriptor readable; no label crop.",
+      "probe_id": null,
+      "rights_status": "needs_approval",
+      "hold": "HI-02",
+      "conditional": false,
+      "status": "blocked",
+      "blockers": [
+        "HI-02"
+      ]
+    },
+    {
+      "asset_id": "AS-17",
+      "name": "Easy Pour Seethargundu Estate pack",
+      "truth_class": "exact",
+      "impact": "high",
+      "methods": [
+        "M0"
+      ],
+      "source": "supplied:https://bluetokaicoffee.com/cdn/shop/files/Seethargundu-Estate__Front_1.jpg?v=1764321548",
+      "processing": [
+        "alpha_cutout",
+        "grade",
+        "encode"
+      ],
+      "output_path": null,
+      "output_sha256": null,
+      "bindings": [
+        "LY-047"
+      ],
+      "acceptance": "Seethargundu name and light-roast descriptor readable; no label crop.",
+      "probe_id": null,
+      "rights_status": "needs_approval",
+      "hold": "HI-02",
+      "conditional": false,
+      "status": "blocked",
+      "blockers": [
+        "HI-02"
+      ]
+    },
+    {
+      "asset_id": "AS-05",
+      "name": "Easy Pour brewing demonstration, hands",
+      "truth_class": "proof",
+      "impact": "high",
+      "methods": [
+        "M6"
+      ],
+      "source": "capture:In-house food shoot",
+      "processing": [
+        "trim",
+        "stabilise",
+        "conform",
+        "grade",
+        "scale",
+        "encode"
+      ],
+      "output_path": null,
+      "output_sha256": null,
+      "bindings": [
+        "LY-021"
+      ],
+      "acceptance": "Tear, open and anchor actions are physically correct and match the brand instructions.",
+      "probe_id": null,
+      "rights_status": "needs_approval",
+      "hold": "HI-04",
+      "conditional": false,
+      "status": "blocked",
+      "blockers": [
+        "HI-04"
+      ]
+    },
+    {
+      "asset_id": "AS-06",
+      "name": "Hot water pour and bloom footage",
+      "truth_class": "proof",
+      "impact": "high",
+      "methods": [
+        "M6"
+      ],
+      "source": "capture:In-house food shoot",
+      "processing": [
+        "trim",
+        "stabilise",
+        "conform",
+        "speed_ramp",
+        "grade",
+        "scale",
+        "encode"
+      ],
+      "output_path": null,
+      "output_sha256": null,
+      "bindings": [
+        "LY-031"
+      ],
+      "acceptance": "Water visibly contacts the coffee bed; bloom and drip read in macro; no spill or continuity break.",
+      "probe_id": null,
+      "rights_status": "needs_approval",
+      "hold": "HI-04",
+      "conditional": false,
+      "status": "blocked",
+      "blockers": [
+        "HI-04"
+      ]
+    },
+    {
+      "asset_id": "AS-07",
+      "name": "Warm kitchen background",
+      "truth_class": "atmospheric",
+      "impact": "medium",
+      "methods": [
+        "M0"
+      ],
+      "source": "owned:In-house set build",
+      "processing": [
+        "grade",
+        "encode"
+      ],
+      "output_path": null,
+      "output_sha256": null,
+      "bindings": [
+        "LY-010",
+        "LY-020",
+        "LY-030",
+        "LY-040",
+        "LY-050",
+        "LY-060"
+      ],
+      "acceptance": "Full-canvas background holds a consistent grade across all six shots.",
+      "probe_id": null,
+      "rights_status": "cleared",
+      "hold": null,
+      "conditional": false,
+      "status": "planned",
+      "blockers": []
+    },
+    {
+      "asset_id": "AS-08",
+      "name": "Finished cup of coffee",
+      "truth_class": "proof",
+      "impact": "high",
+      "methods": [
+        "M6"
+      ],
+      "source": "capture:In-house food shoot",
+      "processing": [
+        "trim",
+        "stabilise",
+        "conform",
+        "grade",
+        "scale",
+        "encode"
+      ],
+      "output_path": null,
+      "output_sha256": null,
+      "bindings": [
+        "LY-051"
+      ],
+      "acceptance": "Finished cup matches the brewed colour; rim clean; steam visible without obscuring the pack.",
+      "probe_id": null,
+      "rights_status": "needs_approval",
+      "hold": "HI-04",
+      "conditional": false,
+      "status": "blocked",
+      "blockers": [
+        "HI-04"
+      ]
+    },
+    {
+      "asset_id": "AS-09",
+      "name": "Voice over, warm Indian English",
+      "truth_class": "representative",
+      "impact": "low",
+      "methods": [
+        "M0"
+      ],
+      "source": "supplied:Voice artist session",
+      "processing": [
+        "trim",
+        "denoise",
+        "loudness_norm",
+        "resample",
+        "encode"
+      ],
+      "output_path": null,
+      "output_sha256": null,
+      "bindings": [
+        "AU-01"
+      ],
+      "acceptance": "Performer release present; intelligible read; no claim beyond the canonical script.",
+      "probe_id": null,
+      "rights_status": "needs_approval",
+      "hold": "HI-03",
+      "conditional": false,
+      "status": "blocked",
+      "blockers": [
+        "HI-03"
+      ]
+    },
+    {
+      "asset_id": "AS-10",
+      "name": "Music bed, 20 seconds",
+      "truth_class": "atmospheric",
+      "impact": "low",
+      "methods": [
+        "M1"
+      ],
+      "source": "stock:Production music library",
+      "processing": [
+        "trim",
+        "fade",
+        "loudness_norm",
+        "resample",
+        "encode"
+      ],
+      "output_path": null,
+      "output_sha256": null,
+      "bindings": [
+        "AU-02"
+      ],
+      "acceptance": "Licence covers paid YouTube; 20-second edit supports the 275 range lift and 445 resolve.",
+      "probe_id": null,
+      "rights_status": "needs_approval",
+      "hold": "HI-03",
+      "conditional": false,
+      "status": "blocked",
+      "blockers": [
+        "HI-03"
+      ]
+    },
+    {
+      "asset_id": "AS-11",
+      "name": "Water pour sound effect",
+      "truth_class": "atmospheric",
+      "impact": "low",
+      "methods": [
+        "M0"
+      ],
+      "source": "owned:In-house sound design",
+      "processing": [
+        "trim",
+        "loudness_norm",
+        "encode"
+      ],
+      "output_path": null,
+      "output_sha256": null,
+      "bindings": [
+        "AU-03"
+      ],
+      "acceptance": "Pour sound syncs to the water action without a phasing artefact.",
+      "probe_id": null,
+      "rights_status": "cleared",
+      "hold": null,
+      "conditional": false,
+      "status": "planned",
+      "blockers": []
+    },
+    {
+      "asset_id": "AS-12",
+      "name": "Brand sting",
+      "truth_class": "atmospheric",
+      "impact": "low",
+      "methods": [
+        "M0"
+      ],
+      "source": "owned:In-house sound design",
+      "processing": [
+        "trim",
+        "loudness_norm",
+        "encode"
+      ],
+      "output_path": null,
+      "output_sha256": null,
+      "bindings": [
+        "AU-04"
+      ],
+      "acceptance": "Sting lands under the end card and does not mask the VO.",
+      "probe_id": null,
+      "rights_status": "cleared",
+      "hold": null,
+      "conditional": false,
+      "status": "planned",
+      "blockers": []
+    },
+    {
+      "asset_id": "AS-13",
+      "name": "Captured Mixed Bag fallback",
+      "truth_class": "exact",
+      "impact": "low",
+      "methods": [
+        "M6"
+      ],
+      "source": "capture:In-house studio capture",
+      "processing": [
+        "alpha_cutout",
+        "grade",
+        "scale",
+        "encode"
+      ],
+      "output_path": null,
+      "output_sha256": null,
+      "bindings": [],
+      "acceptance": "Physical pack label is square to camera and at least as legible as the supplied image.",
+      "probe_id": null,
+      "rights_status": "needs_approval",
+      "hold": "HI-02",
+      "conditional": true,
+      "status": "conditional",
+      "blockers": [
+        "HI-02",
+        "conditional fallback"
+      ]
+    },
+    {
+      "asset_id": "AS-14",
+      "name": "Music fallback track",
+      "truth_class": "atmospheric",
+      "impact": "low",
+      "methods": [
+        "M1"
+      ],
+      "source": "stock:Production music library",
+      "processing": [
+        "trim",
+        "fade",
+        "loudness_norm",
+        "resample",
+        "encode"
+      ],
+      "output_path": null,
+      "output_sha256": null,
+      "bindings": [],
+      "acceptance": "Fallback bed matches the primary tempo and emotional resolve.",
+      "probe_id": null,
+      "rights_status": "needs_approval",
+      "hold": "HI-03",
+      "conditional": true,
+      "status": "conditional",
+      "blockers": [
+        "HI-03",
+        "conditional fallback"
+      ]
+    },
+    {
+      "asset_id": "AS-15",
+      "name": "Synthetic narration fallback",
+      "truth_class": "representative",
+      "impact": "low",
+      "methods": [
+        "M7"
+      ],
+      "source": "generate:Approved speech provider",
+      "processing": [
+        "channel_map",
+        "trim",
+        "denoise",
+        "loudness_norm",
+        "resample",
+        "encode"
+      ],
+      "output_path": null,
+      "output_sha256": null,
+      "bindings": [],
+      "acceptance": "Synthetic read matches the canonical script and carries the disclosure decision.",
+      "probe_id": null,
+      "rights_status": "needs_approval",
+      "hold": "HI-03",
+      "conditional": true,
+      "status": "conditional",
+      "blockers": [
+        "HI-03",
+        "conditional fallback"
+      ]
+    }
+  ],
+  "shots": [
+    {
+      "shot_id": "SH-01",
+      "start_frame": 0,
+      "end_frame": 75,
+      "method": "Live-action counter plate with product cut-out and kinetic type.",
+      "layers": [
+        {
+          "layer_id": "LY-010",
+          "shot_id": "SH-01",
+          "asset_id": "AS-07",
+          "copy_id": null,
+          "method": "M0",
+          "z_order": 0,
+          "start_frame": 0,
+          "end_frame": 75,
+          "transform": "asset transform per layer rect and allow-list",
+          "status": "planned"
+        },
+        {
+          "layer_id": "LY-011",
+          "shot_id": "SH-01",
+          "asset_id": "AS-02",
+          "copy_id": null,
+          "method": "M0",
+          "z_order": 10,
+          "start_frame": 0,
+          "end_frame": 75,
+          "transform": "asset transform per layer rect and allow-list",
+          "status": "blocked"
+        },
+        {
+          "layer_id": "LY-012",
+          "shot_id": "SH-01",
+          "asset_id": null,
+          "copy_id": null,
+          "method": "M4",
+          "z_order": 8,
+          "start_frame": 0,
+          "end_frame": 75,
+          "transform": "procedural fill and effect",
+          "status": "planned"
+        },
+        {
+          "layer_id": "LY-013",
+          "shot_id": "SH-01",
+          "asset_id": null,
+          "copy_id": "CP-01",
+          "method": "M4",
+          "z_order": 20,
+          "start_frame": 0,
+          "end_frame": 75,
+          "transform": "text rendered from the approved copy block",
+          "status": "planned"
+        },
+        {
+          "layer_id": "LY-014",
+          "shot_id": "SH-01",
+          "asset_id": null,
+          "copy_id": null,
+          "method": "M4",
+          "z_order": 25,
+          "start_frame": 0,
+          "end_frame": 75,
+          "transform": "procedural fill and effect",
+          "status": "planned"
+        },
+        {
+          "layer_id": "LY-015",
+          "shot_id": "SH-01",
+          "asset_id": null,
+          "copy_id": "CP-07",
+          "method": "M4",
+          "z_order": 30,
+          "start_frame": 0,
+          "end_frame": 75,
+          "transform": "text rendered from the approved copy block",
+          "status": "planned"
+        }
+      ],
+      "effects": [
+        "FX-01"
+      ],
+      "audio": [
+        "AU-01",
+        "AU-02"
+      ],
+      "checks": [
+        "AC-01",
+        "AC-02",
+        "AC-03",
+        "AC-14"
+      ],
+      "preview_path": "previews/16x9/SH-01.svg",
+      "ready": false,
+      "blockers": [
+        "HI-02"
+      ]
+    },
+    {
+      "shot_id": "SH-02",
+      "start_frame": 75,
+      "end_frame": 160,
+      "method": "Real-time overhead food demonstration, one continuous take.",
+      "layers": [
+        {
+          "layer_id": "LY-020",
+          "shot_id": "SH-02",
+          "asset_id": "AS-07",
+          "copy_id": null,
+          "method": "M0",
+          "z_order": 0,
+          "start_frame": 0,
+          "end_frame": 85,
+          "transform": "asset transform per layer rect and allow-list",
+          "status": "planned"
+        },
+        {
+          "layer_id": "LY-021",
+          "shot_id": "SH-02",
+          "asset_id": "AS-05",
+          "copy_id": null,
+          "method": "M6",
+          "z_order": 10,
+          "start_frame": 0,
+          "end_frame": 85,
+          "transform": "asset transform per layer rect and allow-list",
+          "status": "blocked"
+        },
+        {
+          "layer_id": "LY-022",
+          "shot_id": "SH-02",
+          "asset_id": "AS-02",
+          "copy_id": null,
+          "method": "M0",
+          "z_order": 12,
+          "start_frame": 0,
+          "end_frame": 85,
+          "transform": "asset transform per layer rect and allow-list",
+          "status": "blocked"
+        },
+        {
+          "layer_id": "LY-023",
+          "shot_id": "SH-02",
+          "asset_id": null,
+          "copy_id": "CP-03",
+          "method": "M4",
+          "z_order": 20,
+          "start_frame": 0,
+          "end_frame": 85,
+          "transform": "text rendered from the approved copy block",
+          "status": "planned"
+        },
+        {
+          "layer_id": "LY-024",
+          "shot_id": "SH-02",
+          "asset_id": null,
+          "copy_id": null,
+          "method": "M4",
+          "z_order": 25,
+          "start_frame": 0,
+          "end_frame": 85,
+          "transform": "procedural fill and effect",
+          "status": "planned"
+        },
+        {
+          "layer_id": "LY-025",
+          "shot_id": "SH-02",
+          "asset_id": null,
+          "copy_id": "CP-08",
+          "method": "M4",
+          "z_order": 30,
+          "start_frame": 0,
+          "end_frame": 85,
+          "transform": "text rendered from the approved copy block",
+          "status": "planned"
+        }
+      ],
+      "effects": [],
+      "audio": [
+        "AU-01",
+        "AU-02"
+      ],
+      "checks": [
+        "AC-01",
+        "AC-02",
+        "AC-03",
+        "AC-09",
+        "AC-14"
+      ],
+      "preview_path": "previews/16x9/SH-02.svg",
+      "ready": false,
+      "blockers": [
+        "HI-02",
+        "HI-04"
+      ]
+    },
+    {
+      "shot_id": "SH-03",
+      "start_frame": 160,
+      "end_frame": 275,
+      "method": "Macro live-action pour at 50 fps, finished at 25 fps.",
+      "layers": [
+        {
+          "layer_id": "LY-030",
+          "shot_id": "SH-03",
+          "asset_id": "AS-07",
+          "copy_id": null,
+          "method": "M0",
+          "z_order": 0,
+          "start_frame": 0,
+          "end_frame": 115,
+          "transform": "asset transform per layer rect and allow-list",
+          "status": "planned"
+        },
+        {
+          "layer_id": "LY-031",
+          "shot_id": "SH-03",
+          "asset_id": "AS-06",
+          "copy_id": null,
+          "method": "M6",
+          "z_order": 10,
+          "start_frame": 0,
+          "end_frame": 115,
+          "transform": "asset transform per layer rect and allow-list",
+          "status": "blocked"
+        },
+        {
+          "layer_id": "LY-032",
+          "shot_id": "SH-03",
+          "asset_id": "AS-02",
+          "copy_id": null,
+          "method": "M0",
+          "z_order": 12,
+          "start_frame": 0,
+          "end_frame": 115,
+          "transform": "asset transform per layer rect and allow-list",
+          "status": "blocked"
+        },
+        {
+          "layer_id": "LY-033",
+          "shot_id": "SH-03",
+          "asset_id": null,
+          "copy_id": "CP-02",
+          "method": "M4",
+          "z_order": 20,
+          "start_frame": 0,
+          "end_frame": 115,
+          "transform": "text rendered from the approved copy block",
+          "status": "planned"
+        },
+        {
+          "layer_id": "LY-034",
+          "shot_id": "SH-03",
+          "asset_id": null,
+          "copy_id": null,
+          "method": "M4",
+          "z_order": 25,
+          "start_frame": 0,
+          "end_frame": 115,
+          "transform": "procedural fill and effect",
+          "status": "planned"
+        },
+        {
+          "layer_id": "LY-035",
+          "shot_id": "SH-03",
+          "asset_id": null,
+          "copy_id": "CP-09",
+          "method": "M4",
+          "z_order": 30,
+          "start_frame": 0,
+          "end_frame": 115,
+          "transform": "text rendered from the approved copy block",
+          "status": "planned"
+        }
+      ],
+      "effects": [
+        "FX-02",
+        "FX-03"
+      ],
+      "audio": [
+        "AU-01",
+        "AU-02",
+        "AU-03"
+      ],
+      "checks": [
+        "AC-01",
+        "AC-02",
+        "AC-03",
+        "AC-12",
+        "AC-14"
+      ],
+      "preview_path": "previews/16x9/SH-03.svg",
+      "ready": false,
+      "blockers": [
+        "HI-02",
+        "HI-04"
+      ]
+    },
+    {
+      "shot_id": "SH-04",
+      "start_frame": 275,
+      "end_frame": 380,
+      "method": "Product stills with a four-pack fan and a single camera move.",
+      "layers": [
+        {
+          "layer_id": "LY-040",
+          "shot_id": "SH-04",
+          "asset_id": "AS-07",
+          "copy_id": null,
+          "method": "M0",
+          "z_order": 0,
+          "start_frame": 0,
+          "end_frame": 105,
+          "transform": "asset transform per layer rect and allow-list",
+          "status": "planned"
+        },
+        {
+          "layer_id": "LY-041",
+          "shot_id": "SH-04",
+          "asset_id": "AS-02",
+          "copy_id": null,
+          "method": "M0",
+          "z_order": 10,
+          "start_frame": 0,
+          "end_frame": 105,
+          "transform": "asset transform per layer rect and allow-list",
+          "status": "blocked"
+        },
+        {
+          "layer_id": "LY-042",
+          "shot_id": "SH-04",
+          "asset_id": "AS-03",
+          "copy_id": null,
+          "method": "M0",
+          "z_order": 13,
+          "start_frame": 0,
+          "end_frame": 105,
+          "transform": "asset transform per layer rect and allow-list",
+          "status": "blocked"
+        },
+        {
+          "layer_id": "LY-043",
+          "shot_id": "SH-04",
+          "asset_id": "AS-04",
+          "copy_id": null,
+          "method": "M0",
+          "z_order": 12,
+          "start_frame": 0,
+          "end_frame": 105,
+          "transform": "asset transform per layer rect and allow-list",
+          "status": "blocked"
+        },
+        {
+          "layer_id": "LY-047",
+          "shot_id": "SH-04",
+          "asset_id": "AS-17",
+          "copy_id": null,
+          "method": "M0",
+          "z_order": 11,
+          "start_frame": 0,
+          "end_frame": 105,
+          "transform": "asset transform per layer rect and allow-list",
+          "status": "blocked"
+        },
+        {
+          "layer_id": "LY-044",
+          "shot_id": "SH-04",
+          "asset_id": null,
+          "copy_id": "CP-04",
+          "method": "M4",
+          "z_order": 20,
+          "start_frame": 0,
+          "end_frame": 105,
+          "transform": "text rendered from the approved copy block",
+          "status": "planned"
+        },
+        {
+          "layer_id": "LY-045",
+          "shot_id": "SH-04",
+          "asset_id": null,
+          "copy_id": null,
+          "method": "M4",
+          "z_order": 25,
+          "start_frame": 0,
+          "end_frame": 105,
+          "transform": "procedural fill and effect",
+          "status": "planned"
+        },
+        {
+          "layer_id": "LY-046",
+          "shot_id": "SH-04",
+          "asset_id": null,
+          "copy_id": "CP-10",
+          "method": "M4",
+          "z_order": 30,
+          "start_frame": 0,
+          "end_frame": 105,
+          "transform": "text rendered from the approved copy block",
+          "status": "planned"
+        }
+      ],
+      "effects": [],
+      "audio": [
+        "AU-01",
+        "AU-02",
+        "AU-03"
+      ],
+      "checks": [
+        "AC-01",
+        "AC-02",
+        "AC-03",
+        "AC-12",
+        "AC-14"
+      ],
+      "preview_path": "previews/16x9/SH-04.svg",
+      "ready": false,
+      "blockers": [
+        "HI-02"
+      ]
+    },
+    {
+      "shot_id": "SH-05",
+      "start_frame": 380,
+      "end_frame": 445,
+      "method": "Finished-cup live action with a time-lapse transition.",
+      "layers": [
+        {
+          "layer_id": "LY-050",
+          "shot_id": "SH-05",
+          "asset_id": "AS-07",
+          "copy_id": null,
+          "method": "M0",
+          "z_order": 0,
+          "start_frame": 0,
+          "end_frame": 65,
+          "transform": "asset transform per layer rect and allow-list",
+          "status": "planned"
+        },
+        {
+          "layer_id": "LY-051",
+          "shot_id": "SH-05",
+          "asset_id": "AS-08",
+          "copy_id": null,
+          "method": "M6",
+          "z_order": 10,
+          "start_frame": 0,
+          "end_frame": 65,
+          "transform": "asset transform per layer rect and allow-list",
+          "status": "blocked"
+        },
+        {
+          "layer_id": "LY-052",
+          "shot_id": "SH-05",
+          "asset_id": "AS-02",
+          "copy_id": null,
+          "method": "M0",
+          "z_order": 12,
+          "start_frame": 0,
+          "end_frame": 65,
+          "transform": "asset transform per layer rect and allow-list",
+          "status": "blocked"
+        },
+        {
+          "layer_id": "LY-053",
+          "shot_id": "SH-05",
+          "asset_id": null,
+          "copy_id": "CP-13",
+          "method": "M4",
+          "z_order": 20,
+          "start_frame": 0,
+          "end_frame": 65,
+          "transform": "text rendered from the approved copy block",
+          "status": "planned"
+        },
+        {
+          "layer_id": "LY-054",
+          "shot_id": "SH-05",
+          "asset_id": null,
+          "copy_id": null,
+          "method": "M4",
+          "z_order": 25,
+          "start_frame": 0,
+          "end_frame": 65,
+          "transform": "procedural fill and effect",
+          "status": "planned"
+        },
+        {
+          "layer_id": "LY-055",
+          "shot_id": "SH-05",
+          "asset_id": null,
+          "copy_id": "CP-12",
+          "method": "M4",
+          "z_order": 30,
+          "start_frame": 0,
+          "end_frame": 65,
+          "transform": "text rendered from the approved copy block",
+          "status": "planned"
+        }
+      ],
+      "effects": [
+        "FX-05"
+      ],
+      "audio": [
+        "AU-01",
+        "AU-02",
+        "AU-03",
+        "AU-04"
+      ],
+      "checks": [
+        "AC-01",
+        "AC-02",
+        "AC-03",
+        "AC-09",
+        "AC-15",
+        "AC-14"
+      ],
+      "preview_path": "previews/16x9/SH-05.svg",
+      "ready": false,
+      "blockers": [
+        "HI-02",
+        "HI-04"
+      ]
+    },
+    {
+      "shot_id": "SH-06",
+      "start_frame": 445,
+      "end_frame": 500,
+      "method": "End-card composite with supplied logo and pack.",
+      "layers": [
+        {
+          "layer_id": "LY-060",
+          "shot_id": "SH-06",
+          "asset_id": "AS-07",
+          "copy_id": null,
+          "method": "M0",
+          "z_order": 0,
+          "start_frame": 0,
+          "end_frame": 55,
+          "transform": "asset transform per layer rect and allow-list",
+          "status": "planned"
+        },
+        {
+          "layer_id": "LY-061",
+          "shot_id": "SH-06",
+          "asset_id": "AS-02",
+          "copy_id": null,
+          "method": "M0",
+          "z_order": 10,
+          "start_frame": 0,
+          "end_frame": 55,
+          "transform": "asset transform per layer rect and allow-list",
+          "status": "blocked"
+        },
+        {
+          "layer_id": "LY-062",
+          "shot_id": "SH-06",
+          "asset_id": "AS-01",
+          "copy_id": null,
+          "method": "M0",
+          "z_order": 20,
+          "start_frame": 0,
+          "end_frame": 55,
+          "transform": "asset transform per layer rect and allow-list",
+          "status": "blocked"
+        },
+        {
+          "layer_id": "LY-063",
+          "shot_id": "SH-06",
+          "asset_id": null,
+          "copy_id": "CP-05",
+          "method": "M4",
+          "z_order": 30,
+          "start_frame": 0,
+          "end_frame": 55,
+          "transform": "text rendered from the approved copy block",
+          "status": "planned"
+        },
+        {
+          "layer_id": "LY-064",
+          "shot_id": "SH-06",
+          "asset_id": null,
+          "copy_id": null,
+          "method": "M4",
+          "z_order": 25,
+          "start_frame": 0,
+          "end_frame": 55,
+          "transform": "procedural fill and effect",
+          "status": "planned"
+        },
+        {
+          "layer_id": "LY-065",
+          "shot_id": "SH-06",
+          "asset_id": null,
+          "copy_id": "CP-11",
+          "method": "M4",
+          "z_order": 40,
+          "start_frame": 0,
+          "end_frame": 55,
+          "transform": "text rendered from the approved copy block",
+          "status": "planned"
+        }
+      ],
+      "effects": [
+        "FX-06"
+      ],
+      "audio": [
+        "AU-01",
+        "AU-02",
+        "AU-03",
+        "AU-04"
+      ],
+      "checks": [
+        "AC-01",
+        "AC-02",
+        "AC-03",
+        "AC-05",
+        "AC-09",
+        "AC-14"
+      ],
+      "preview_path": "previews/16x9/SH-06.svg",
+      "ready": false,
+      "blockers": [
+        "HI-02"
+      ]
+    }
+  ],
+  "variants": [
+    {
+      "variant_id": "VO-01",
+      "width": 1080,
+      "height": 1920,
+      "fps": 25,
+      "frame_count": 500,
+      "safe_area": {
+        "top": 220,
+        "bottom": 320,
+        "left": 60,
+        "right": 140
+      },
+      "safe_area_basis": "Operator assumption; confirm against the current Shorts/Reels placement template before paid media.",
+      "resolutions": [
+        {
+          "layer_id": "LY-010",
+          "resolution": "override",
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-011",
+          "resolution": "override",
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-012",
+          "resolution": "override",
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-013",
+          "resolution": "override",
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-014",
+          "resolution": "override",
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-015",
+          "resolution": "override",
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-020",
+          "resolution": "override",
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-021",
+          "resolution": "override",
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-022",
+          "resolution": "override",
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-023",
+          "resolution": "override",
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-024",
+          "resolution": "override",
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-025",
+          "resolution": "override",
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-030",
+          "resolution": "override",
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-031",
+          "resolution": "override",
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-032",
+          "resolution": "override",
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-033",
+          "resolution": "override",
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-034",
+          "resolution": "override",
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-035",
+          "resolution": "override",
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-040",
+          "resolution": "override",
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-041",
+          "resolution": "override",
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-042",
+          "resolution": "override",
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-043",
+          "resolution": "override",
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-044",
+          "resolution": "override",
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-045",
+          "resolution": "override",
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-046",
+          "resolution": "override",
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-047",
+          "resolution": "override",
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-050",
+          "resolution": "override",
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-051",
+          "resolution": "override",
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-052",
+          "resolution": "override",
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-053",
+          "resolution": "override",
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-054",
+          "resolution": "override",
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-055",
+          "resolution": "override",
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-060",
+          "resolution": "override",
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-061",
+          "resolution": "override",
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-062",
+          "resolution": "override",
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-063",
+          "resolution": "override",
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-064",
+          "resolution": "override",
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-065",
+          "resolution": "override",
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        }
+      ],
+      "layer_overrides": [
+        {
+          "layer_id": "LY-010",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 1080,
+            "h": 1920
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-011",
+          "rect": {
+            "x": 120,
+            "y": 430,
+            "w": 840,
+            "h": 840
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [
+            {
+              "x": 180,
+              "y": 600,
+              "w": 720,
+              "h": 380
+            }
+          ],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-012",
+          "rect": {
+            "x": 60,
+            "y": 300,
+            "w": 300,
+            "h": 900
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-013",
+          "rect": {
+            "x": 60,
+            "y": 240,
+            "w": 860,
+            "h": 200
+          },
+          "motion": [],
+          "text_style": {
+            "font_family": "Inter",
+            "size_px": 72,
+            "weight": 700,
+            "color": "#132A3A",
+            "align": "left",
+            "line_height": 1.08,
+            "tracking": -1.0,
+            "max_lines": 2
+          },
+          "protected": true,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-014",
+          "rect": {
+            "x": 60,
+            "y": 1360,
+            "w": 880,
+            "h": 150
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-015",
+          "rect": {
+            "x": 60,
+            "y": 1390,
+            "w": 860,
+            "h": 80
+          },
+          "motion": [],
+          "text_style": {
+            "font_family": "Inter",
+            "size_px": 30,
+            "weight": 700,
+            "color": "#132A3A",
+            "align": "left",
+            "line_height": 1.08,
+            "tracking": -1.0,
+            "max_lines": 2
+          },
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-020",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 1080,
+            "h": 1920
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-021",
+          "rect": {
+            "x": 60,
+            "y": 300,
+            "w": 960,
+            "h": 980
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-022",
+          "rect": {
+            "x": 700,
+            "y": 260,
+            "w": 300,
+            "h": 300
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [
+            {
+              "x": 720,
+              "y": 320,
+              "w": 260,
+              "h": 180
+            }
+          ],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-023",
+          "rect": {
+            "x": 60,
+            "y": 250,
+            "w": 860,
+            "h": 160
+          },
+          "motion": [],
+          "text_style": {
+            "font_family": "Inter",
+            "size_px": 66,
+            "weight": 700,
+            "color": "#132A3A",
+            "align": "left",
+            "line_height": 1.08,
+            "tracking": -1.0,
+            "max_lines": 2
+          },
+          "protected": true,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-024",
+          "rect": {
+            "x": 60,
+            "y": 1360,
+            "w": 880,
+            "h": 150
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-025",
+          "rect": {
+            "x": 60,
+            "y": 1390,
+            "w": 860,
+            "h": 80
+          },
+          "motion": [],
+          "text_style": {
+            "font_family": "Inter",
+            "size_px": 30,
+            "weight": 700,
+            "color": "#132A3A",
+            "align": "left",
+            "line_height": 1.08,
+            "tracking": -1.0,
+            "max_lines": 2
+          },
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-030",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 1080,
+            "h": 1920
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-031",
+          "rect": {
+            "x": 60,
+            "y": 300,
+            "w": 960,
+            "h": 1100
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-032",
+          "rect": {
+            "x": 680,
+            "y": 420,
+            "w": 340,
+            "h": 340
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [
+            {
+              "x": 700,
+              "y": 480,
+              "w": 300,
+              "h": 200
+            }
+          ],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-033",
+          "rect": {
+            "x": 60,
+            "y": 250,
+            "w": 860,
+            "h": 160
+          },
+          "motion": [],
+          "text_style": {
+            "font_family": "Inter",
+            "size_px": 66,
+            "weight": 700,
+            "color": "#132A3A",
+            "align": "left",
+            "line_height": 1.08,
+            "tracking": -1.0,
+            "max_lines": 2
+          },
+          "protected": true,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-034",
+          "rect": {
+            "x": 60,
+            "y": 1360,
+            "w": 880,
+            "h": 150
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-035",
+          "rect": {
+            "x": 60,
+            "y": 1390,
+            "w": 860,
+            "h": 80
+          },
+          "motion": [],
+          "text_style": {
+            "font_family": "Inter",
+            "size_px": 30,
+            "weight": 700,
+            "color": "#132A3A",
+            "align": "left",
+            "line_height": 1.08,
+            "tracking": -1.0,
+            "max_lines": 2
+          },
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-040",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 1080,
+            "h": 1920
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-041",
+          "rect": {
+            "x": 120,
+            "y": 400,
+            "w": 360,
+            "h": 360
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [
+            {
+              "x": 140,
+              "y": 430,
+              "w": 320,
+              "h": 300
+            }
+          ],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-042",
+          "rect": {
+            "x": 600,
+            "y": 780,
+            "w": 360,
+            "h": 360
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [
+            {
+              "x": 620,
+              "y": 810,
+              "w": 320,
+              "h": 300
+            }
+          ],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-043",
+          "rect": {
+            "x": 120,
+            "y": 780,
+            "w": 360,
+            "h": 360
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [
+            {
+              "x": 140,
+              "y": 810,
+              "w": 320,
+              "h": 300
+            }
+          ],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-047",
+          "rect": {
+            "x": 600,
+            "y": 400,
+            "w": 360,
+            "h": 360
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [
+            {
+              "x": 620,
+              "y": 430,
+              "w": 320,
+              "h": 300
+            }
+          ],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-044",
+          "rect": {
+            "x": 60,
+            "y": 250,
+            "w": 860,
+            "h": 150
+          },
+          "motion": [],
+          "text_style": {
+            "font_family": "Inter",
+            "size_px": 66,
+            "weight": 700,
+            "color": "#132A3A",
+            "align": "left",
+            "line_height": 1.08,
+            "tracking": -1.0,
+            "max_lines": 2
+          },
+          "protected": true,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-045",
+          "rect": {
+            "x": 60,
+            "y": 1360,
+            "w": 880,
+            "h": 150
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-046",
+          "rect": {
+            "x": 60,
+            "y": 1390,
+            "w": 860,
+            "h": 80
+          },
+          "motion": [],
+          "text_style": {
+            "font_family": "Inter",
+            "size_px": 28,
+            "weight": 700,
+            "color": "#132A3A",
+            "align": "left",
+            "line_height": 1.08,
+            "tracking": -1.0,
+            "max_lines": 2
+          },
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-050",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 1080,
+            "h": 1920
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-051",
+          "rect": {
+            "x": 120,
+            "y": 300,
+            "w": 840,
+            "h": 900
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-052",
+          "rect": {
+            "x": 700,
+            "y": 260,
+            "w": 300,
+            "h": 300
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [
+            {
+              "x": 720,
+              "y": 320,
+              "w": 260,
+              "h": 180
+            }
+          ],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-053",
+          "rect": {
+            "x": 60,
+            "y": 1180,
+            "w": 860,
+            "h": 140
+          },
+          "motion": [],
+          "text_style": {
+            "font_family": "Inter",
+            "size_px": 52,
+            "weight": 700,
+            "color": "#132A3A",
+            "align": "left",
+            "line_height": 1.08,
+            "tracking": -1.0,
+            "max_lines": 2
+          },
+          "protected": true,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-054",
+          "rect": {
+            "x": 60,
+            "y": 1360,
+            "w": 880,
+            "h": 150
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-055",
+          "rect": {
+            "x": 60,
+            "y": 1390,
+            "w": 860,
+            "h": 80
+          },
+          "motion": [],
+          "text_style": {
+            "font_family": "Inter",
+            "size_px": 26,
+            "weight": 700,
+            "color": "#132A3A",
+            "align": "left",
+            "line_height": 1.08,
+            "tracking": -1.0,
+            "max_lines": 2
+          },
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-060",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 1080,
+            "h": 1920
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-061",
+          "rect": {
+            "x": 240,
+            "y": 520,
+            "w": 600,
+            "h": 600
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [
+            {
+              "x": 280,
+              "y": 650,
+              "w": 520,
+              "h": 360
+            }
+          ],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-062",
+          "rect": {
+            "x": 280,
+            "y": 260,
+            "w": 520,
+            "h": 220
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": true,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-063",
+          "rect": {
+            "x": 60,
+            "y": 1200,
+            "w": 860,
+            "h": 100
+          },
+          "motion": [
+            {
+              "frame": 0,
+              "x": null,
+              "y": null,
+              "scale": null,
+              "opacity": 0.0,
+              "easing": "linear"
+            },
+            {
+              "frame": 6,
+              "x": null,
+              "y": null,
+              "scale": null,
+              "opacity": 1.0,
+              "easing": "ease_out"
+            }
+          ],
+          "text_style": {
+            "font_family": "Inter",
+            "size_px": 52,
+            "weight": 700,
+            "color": "#132A3A",
+            "align": "left",
+            "line_height": 1.08,
+            "tracking": -1.0,
+            "max_lines": 2
+          },
+          "protected": true,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-064",
+          "rect": {
+            "x": 60,
+            "y": 1140,
+            "w": 880,
+            "h": 360
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-065",
+          "rect": {
+            "x": 60,
+            "y": 1410,
+            "w": 860,
+            "h": 70
+          },
+          "motion": [
+            {
+              "frame": 8,
+              "x": null,
+              "y": null,
+              "scale": null,
+              "opacity": 0.0,
+              "easing": "linear"
+            },
+            {
+              "frame": 14,
+              "x": null,
+              "y": null,
+              "scale": null,
+              "opacity": 1.0,
+              "easing": "ease_out"
+            }
+          ],
+          "text_style": {
+            "font_family": "Inter",
+            "size_px": 28,
+            "weight": 700,
+            "color": "#132A3A",
+            "align": "left",
+            "line_height": 1.08,
+            "tracking": -1.0,
+            "max_lines": 2
+          },
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        }
+      ],
+      "effect_masks": [
+        {
+          "effect_id": "FX-01",
+          "mask_region": {
+            "x": 60,
+            "y": 300,
+            "w": 110,
+            "h": 900
+          },
+          "intensity": 0.18,
+          "notes": null
+        },
+        {
+          "effect_id": "FX-02",
+          "mask_region": {
+            "x": 60,
+            "y": 300,
+            "w": 620,
+            "h": 1100
+          },
+          "intensity": 0.8,
+          "notes": null
+        },
+        {
+          "effect_id": "FX-03",
+          "mask_region": {
+            "x": 60,
+            "y": 300,
+            "w": 620,
+            "h": 1100
+          },
+          "intensity": 0.7,
+          "notes": null
+        },
+        {
+          "effect_id": "FX-05",
+          "mask_region": {
+            "x": 60,
+            "y": 300,
+            "w": 640,
+            "h": 900
+          },
+          "intensity": 0.12,
+          "notes": null
+        }
+      ],
+      "effect_overrides": [
+        "FX-01",
+        "FX-02",
+        "FX-03",
+        "FX-05"
+      ],
+      "cost_usd": 6.0,
+      "check_ids": [
+        "AC-16"
+      ],
+      "check_status": "pending",
+      "ready": false,
+      "blockers": [
+        "AC-16 pending: 9:16 safe-area template not confirmed"
+      ]
+    }
+  ],
+  "timeline": {
+    "fps": 25,
+    "frame_count": 500,
+    "entries": [
+      {
+        "entry_id": "TL-001",
+        "track": "layer",
+        "ref_id": "LY-010",
+        "shot_id": "SH-01",
+        "start_frame": 0,
+        "end_frame": 75,
+        "note": "background"
+      },
+      {
+        "entry_id": "TL-002",
+        "track": "layer",
+        "ref_id": "LY-011",
+        "shot_id": "SH-01",
+        "start_frame": 0,
+        "end_frame": 75,
+        "note": "product"
+      },
+      {
+        "entry_id": "TL-003",
+        "track": "layer",
+        "ref_id": "LY-012",
+        "shot_id": "SH-01",
+        "start_frame": 0,
+        "end_frame": 75,
+        "note": "effect"
+      },
+      {
+        "entry_id": "TL-004",
+        "track": "layer",
+        "ref_id": "LY-013",
+        "shot_id": "SH-01",
+        "start_frame": 0,
+        "end_frame": 75,
+        "note": "typography"
+      },
+      {
+        "entry_id": "TL-005",
+        "track": "layer",
+        "ref_id": "LY-014",
+        "shot_id": "SH-01",
+        "start_frame": 0,
+        "end_frame": 75,
+        "note": "caption_plate"
+      },
+      {
+        "entry_id": "TL-006",
+        "track": "layer",
+        "ref_id": "LY-015",
+        "shot_id": "SH-01",
+        "start_frame": 0,
+        "end_frame": 75,
+        "note": "caption"
+      },
+      {
+        "entry_id": "TL-007",
+        "track": "layer",
+        "ref_id": "LY-020",
+        "shot_id": "SH-02",
+        "start_frame": 75,
+        "end_frame": 160,
+        "note": "background"
+      },
+      {
+        "entry_id": "TL-008",
+        "track": "layer",
+        "ref_id": "LY-021",
+        "shot_id": "SH-02",
+        "start_frame": 75,
+        "end_frame": 160,
+        "note": "subject"
+      },
+      {
+        "entry_id": "TL-009",
+        "track": "layer",
+        "ref_id": "LY-022",
+        "shot_id": "SH-02",
+        "start_frame": 75,
+        "end_frame": 160,
+        "note": "product"
+      },
+      {
+        "entry_id": "TL-010",
+        "track": "layer",
+        "ref_id": "LY-023",
+        "shot_id": "SH-02",
+        "start_frame": 75,
+        "end_frame": 160,
+        "note": "typography"
+      },
+      {
+        "entry_id": "TL-011",
+        "track": "layer",
+        "ref_id": "LY-024",
+        "shot_id": "SH-02",
+        "start_frame": 75,
+        "end_frame": 160,
+        "note": "caption_plate"
+      },
+      {
+        "entry_id": "TL-012",
+        "track": "layer",
+        "ref_id": "LY-025",
+        "shot_id": "SH-02",
+        "start_frame": 75,
+        "end_frame": 160,
+        "note": "caption"
+      },
+      {
+        "entry_id": "TL-013",
+        "track": "layer",
+        "ref_id": "LY-030",
+        "shot_id": "SH-03",
+        "start_frame": 160,
+        "end_frame": 275,
+        "note": "background"
+      },
+      {
+        "entry_id": "TL-014",
+        "track": "layer",
+        "ref_id": "LY-031",
+        "shot_id": "SH-03",
+        "start_frame": 160,
+        "end_frame": 275,
+        "note": "subject"
+      },
+      {
+        "entry_id": "TL-015",
+        "track": "layer",
+        "ref_id": "LY-032",
+        "shot_id": "SH-03",
+        "start_frame": 160,
+        "end_frame": 275,
+        "note": "product"
+      },
+      {
+        "entry_id": "TL-016",
+        "track": "layer",
+        "ref_id": "LY-033",
+        "shot_id": "SH-03",
+        "start_frame": 160,
+        "end_frame": 275,
+        "note": "typography"
+      },
+      {
+        "entry_id": "TL-017",
+        "track": "layer",
+        "ref_id": "LY-034",
+        "shot_id": "SH-03",
+        "start_frame": 160,
+        "end_frame": 275,
+        "note": "caption_plate"
+      },
+      {
+        "entry_id": "TL-018",
+        "track": "layer",
+        "ref_id": "LY-035",
+        "shot_id": "SH-03",
+        "start_frame": 160,
+        "end_frame": 275,
+        "note": "caption"
+      },
+      {
+        "entry_id": "TL-019",
+        "track": "layer",
+        "ref_id": "LY-040",
+        "shot_id": "SH-04",
+        "start_frame": 275,
+        "end_frame": 380,
+        "note": "background"
+      },
+      {
+        "entry_id": "TL-020",
+        "track": "layer",
+        "ref_id": "LY-041",
+        "shot_id": "SH-04",
+        "start_frame": 275,
+        "end_frame": 380,
+        "note": "product"
+      },
+      {
+        "entry_id": "TL-021",
+        "track": "layer",
+        "ref_id": "LY-042",
+        "shot_id": "SH-04",
+        "start_frame": 275,
+        "end_frame": 380,
+        "note": "product"
+      },
+      {
+        "entry_id": "TL-022",
+        "track": "layer",
+        "ref_id": "LY-043",
+        "shot_id": "SH-04",
+        "start_frame": 275,
+        "end_frame": 380,
+        "note": "product"
+      },
+      {
+        "entry_id": "TL-023",
+        "track": "layer",
+        "ref_id": "LY-047",
+        "shot_id": "SH-04",
+        "start_frame": 275,
+        "end_frame": 380,
+        "note": "product"
+      },
+      {
+        "entry_id": "TL-024",
+        "track": "layer",
+        "ref_id": "LY-044",
+        "shot_id": "SH-04",
+        "start_frame": 275,
+        "end_frame": 380,
+        "note": "typography"
+      },
+      {
+        "entry_id": "TL-025",
+        "track": "layer",
+        "ref_id": "LY-045",
+        "shot_id": "SH-04",
+        "start_frame": 275,
+        "end_frame": 380,
+        "note": "caption_plate"
+      },
+      {
+        "entry_id": "TL-026",
+        "track": "layer",
+        "ref_id": "LY-046",
+        "shot_id": "SH-04",
+        "start_frame": 275,
+        "end_frame": 380,
+        "note": "caption"
+      },
+      {
+        "entry_id": "TL-027",
+        "track": "layer",
+        "ref_id": "LY-050",
+        "shot_id": "SH-05",
+        "start_frame": 380,
+        "end_frame": 445,
+        "note": "background"
+      },
+      {
+        "entry_id": "TL-028",
+        "track": "layer",
+        "ref_id": "LY-051",
+        "shot_id": "SH-05",
+        "start_frame": 380,
+        "end_frame": 445,
+        "note": "subject"
+      },
+      {
+        "entry_id": "TL-029",
+        "track": "layer",
+        "ref_id": "LY-052",
+        "shot_id": "SH-05",
+        "start_frame": 380,
+        "end_frame": 445,
+        "note": "product"
+      },
+      {
+        "entry_id": "TL-030",
+        "track": "layer",
+        "ref_id": "LY-053",
+        "shot_id": "SH-05",
+        "start_frame": 380,
+        "end_frame": 445,
+        "note": "typography"
+      },
+      {
+        "entry_id": "TL-031",
+        "track": "layer",
+        "ref_id": "LY-054",
+        "shot_id": "SH-05",
+        "start_frame": 380,
+        "end_frame": 445,
+        "note": "caption_plate"
+      },
+      {
+        "entry_id": "TL-032",
+        "track": "layer",
+        "ref_id": "LY-055",
+        "shot_id": "SH-05",
+        "start_frame": 380,
+        "end_frame": 445,
+        "note": "caption"
+      },
+      {
+        "entry_id": "TL-033",
+        "track": "layer",
+        "ref_id": "LY-060",
+        "shot_id": "SH-06",
+        "start_frame": 445,
+        "end_frame": 500,
+        "note": "background"
+      },
+      {
+        "entry_id": "TL-034",
+        "track": "layer",
+        "ref_id": "LY-061",
+        "shot_id": "SH-06",
+        "start_frame": 445,
+        "end_frame": 500,
+        "note": "product"
+      },
+      {
+        "entry_id": "TL-035",
+        "track": "layer",
+        "ref_id": "LY-062",
+        "shot_id": "SH-06",
+        "start_frame": 445,
+        "end_frame": 500,
+        "note": "logo"
+      },
+      {
+        "entry_id": "TL-036",
+        "track": "layer",
+        "ref_id": "LY-063",
+        "shot_id": "SH-06",
+        "start_frame": 445,
+        "end_frame": 500,
+        "note": "cta"
+      },
+      {
+        "entry_id": "TL-037",
+        "track": "layer",
+        "ref_id": "LY-064",
+        "shot_id": "SH-06",
+        "start_frame": 445,
+        "end_frame": 500,
+        "note": "caption_plate"
+      },
+      {
+        "entry_id": "TL-038",
+        "track": "layer",
+        "ref_id": "LY-065",
+        "shot_id": "SH-06",
+        "start_frame": 445,
+        "end_frame": 500,
+        "note": "caption"
+      },
+      {
+        "entry_id": "TL-039",
+        "track": "audio",
+        "ref_id": "AU-01",
+        "shot_id": null,
+        "start_frame": 0,
+        "end_frame": 500,
+        "note": "vo"
+      },
+      {
+        "entry_id": "TL-040",
+        "track": "audio",
+        "ref_id": "AU-02",
+        "shot_id": null,
+        "start_frame": 0,
+        "end_frame": 500,
+        "note": "music"
+      },
+      {
+        "entry_id": "TL-041",
+        "track": "audio",
+        "ref_id": "AU-03",
+        "shot_id": null,
+        "start_frame": 160,
+        "end_frame": 245,
+        "note": "sfx"
+      },
+      {
+        "entry_id": "TL-042",
+        "track": "audio",
+        "ref_id": "AU-04",
+        "shot_id": null,
+        "start_frame": 440,
+        "end_frame": 485,
+        "note": "sfx"
+      },
+      {
+        "entry_id": "TL-043",
+        "track": "caption",
+        "ref_id": "LY-015",
+        "shot_id": "SH-01",
+        "start_frame": 0,
+        "end_frame": 75,
+        "note": "CP-07"
+      },
+      {
+        "entry_id": "TL-044",
+        "track": "caption",
+        "ref_id": "LY-025",
+        "shot_id": "SH-02",
+        "start_frame": 75,
+        "end_frame": 160,
+        "note": "CP-08"
+      },
+      {
+        "entry_id": "TL-045",
+        "track": "caption",
+        "ref_id": "LY-035",
+        "shot_id": "SH-03",
+        "start_frame": 160,
+        "end_frame": 275,
+        "note": "CP-09"
+      },
+      {
+        "entry_id": "TL-046",
+        "track": "caption",
+        "ref_id": "LY-046",
+        "shot_id": "SH-04",
+        "start_frame": 275,
+        "end_frame": 380,
+        "note": "CP-10"
+      },
+      {
+        "entry_id": "TL-047",
+        "track": "caption",
+        "ref_id": "LY-055",
+        "shot_id": "SH-05",
+        "start_frame": 380,
+        "end_frame": 445,
+        "note": "CP-12"
+      },
+      {
+        "entry_id": "TL-048",
+        "track": "caption",
+        "ref_id": "LY-065",
+        "shot_id": "SH-06",
+        "start_frame": 445,
+        "end_frame": 500,
+        "note": "CP-11"
+      }
+    ],
+    "caption_files": {
+      "16x9": "captions/captions-16x9.srt",
+      "9x16": "captions/captions-9x16.srt"
+    }
+  },
+  "corrections": []
+}

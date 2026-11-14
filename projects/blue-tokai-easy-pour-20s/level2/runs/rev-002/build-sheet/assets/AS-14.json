@@ -1,0 +1,30 @@
+{
+  "asset_id": "AS-14",
+  "name": "Music fallback track",
+  "truth_class": "atmospheric",
+  "impact": "low",
+  "methods": [
+    "M1"
+  ],
+  "source": "stock:Production music library",
+  "processing": [
+    "trim",
+    "fade",
+    "loudness_norm",
+    "resample",
+    "encode"
+  ],
+  "output_path": null,
+  "output_sha256": null,
+  "bindings": [],
+  "acceptance": "Fallback bed matches the primary tempo and emotional resolve.",
+  "probe_id": null,
+  "rights_status": "needs_approval",
+  "hold": "HI-03",
+  "conditional": true,
+  "status": "conditional",
+  "blockers": [
+    "HI-03",
+    "conditional fallback"
+  ]
+}

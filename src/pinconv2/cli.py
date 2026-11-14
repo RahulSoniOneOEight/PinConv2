@@ -112,6 +112,45 @@ def build_parser() -> argparse.ArgumentParser:
     )
     run_all_parser.add_argument("--fixture", default=DEFAULT_PROJECT, choices=sorted(FIXTURES))
 
+    level2 = sub.add_parser("level2", help="Level 2 asset production planning")
+    level2_sub = level2.add_subparsers(dest="level2_command", required=True)
+    for name, help_text in [
+        ("ingest", "validate the approved handoff and print its hashes"),
+        ("plan", "derive decisions, budget, flow, build sheet and Gate 2A packet"),
+        ("budget", "print the Level 2 budget estimate"),
+        ("review", "print the review pack paths"),
+        ("qc", "print deterministic QC verdicts"),
+        ("status", "show the Level 2 run state"),
+        ("build", "process imported sources after Gate 2A approval"),
+        ("correct", "validate typed corrections and open a new run"),
+    ]:
+        command = level2_sub.add_parser(name, help=help_text)
+        _common(command)
+        command.add_argument("--revision", type=int, default=None)
+        command.add_argument("--run", default=None)
+    correct = level2_sub.choices["correct"]
+    correct.add_argument("--input", required=True, help="corrections.jsonl")
+    correct.add_argument("--new-run", default=None)
+    correct.add_argument(
+        "--apply",
+        action="store_true",
+        help="build a new run that carries the accepted corrections",
+    )
+
+    gate = level2_sub.add_parser("gate", help="inspect or record a Gate 2 decision")
+    _common(gate)
+    gate.add_argument("--revision", type=int, default=None)
+    gate.add_argument("--run", default=None)
+    gate.add_argument("--gate", required=True, choices=["2a", "2b", "2c"])
+    gate.add_argument("--approve", action="store_true")
+    gate.add_argument("--reviewer", default=None)
+    gate.add_argument("--role", default=None)
+    gate.add_argument("--evidence", default=None)
+    gate.add_argument("--confirm", default="")
+    gate.add_argument("--deliverable", action="append", default=[])
+    gate.add_argument("--captions-ok", action="store_true")
+    gate.add_argument("--reviewer-name", default=None)
+
     return parser
 
 
@@ -128,6 +167,10 @@ def main(argv: list[str] | None = None) -> int:
     store = ProjectStore(Path(args.data_dir))
     project = getattr(args, "project", DEFAULT_PROJECT)
     try:
+        if args.command == "level2":
+            from .level2.cli import run_level2_command
+
+            return run_level2_command(store, args)
         if args.command == "init":
             created = init_project(store, args.fixture)
             _print(

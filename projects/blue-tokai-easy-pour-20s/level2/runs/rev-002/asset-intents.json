@@ -1,0 +1,394 @@
+[
+  {
+    "acceptance": "Logo edges clean at end-card size; proportions and colour match the supplied master.",
+    "asset_id": "AS-01",
+    "dependencies": [],
+    "disclosure_required": false,
+    "estimate_id": null,
+    "estimate_usd": 0.0,
+    "exactness": "exact",
+    "fallback_asset_id": null,
+    "holds": [
+      "HI-02"
+    ],
+    "impact": "high",
+    "name": "Blue Tokai Coffee Roasters logo",
+    "notes": null,
+    "rights_status": "needs_approval",
+    "route": "supplied",
+    "scope": "approved",
+    "specification": "PNG, alpha, Use the largest available master; do not upscale a thumbnail.",
+    "truth_class": "exact",
+    "used_by": [
+      "LY-062"
+    ]
+  },
+  {
+    "acceptance": "Front title, \u2018Light to Dark Roasts\u2019 and Blue Tokai mark readable at phone scale; no label crop.",
+    "asset_id": "AS-02",
+    "dependencies": [],
+    "disclosure_required": false,
+    "estimate_id": "ES-05",
+    "estimate_usd": 4.0,
+    "exactness": "exact",
+    "fallback_asset_id": "AS-13",
+    "holds": [
+      "HI-02"
+    ],
+    "impact": "high",
+    "name": "Easy Pour Mixed Bag pack",
+    "notes": null,
+    "rights_status": "needs_approval",
+    "route": "supplied",
+    "scope": "approved",
+    "specification": "JPEG, 1800x1800, Crop only to the pack edge; do not crop the front label.",
+    "truth_class": "exact",
+    "used_by": [
+      "LY-011",
+      "LY-022",
+      "LY-032",
+      "LY-041",
+      "LY-052",
+      "LY-061"
+    ]
+  },
+  {
+    "acceptance": "Vienna name and dark-roast descriptor readable; no label crop.",
+    "asset_id": "AS-03",
+    "dependencies": [],
+    "disclosure_required": false,
+    "estimate_id": "ES-07",
+    "estimate_usd": 3.0,
+    "exactness": "exact",
+    "fallback_asset_id": null,
+    "holds": [
+      "HI-02"
+    ],
+    "impact": "high",
+    "name": "Easy Pour Vienna pack",
+    "notes": null,
+    "rights_status": "needs_approval",
+    "route": "supplied",
+    "scope": "approved",
+    "specification": "JPEG, 1800x1800, Front pack only; keep the roast descriptor visible.",
+    "truth_class": "exact",
+    "used_by": [
+      "LY-042"
+    ]
+  },
+  {
+    "acceptance": "Attikan name and medium-dark descriptor readable; no label crop.",
+    "asset_id": "AS-04",
+    "dependencies": [],
+    "disclosure_required": false,
+    "estimate_id": "ES-07",
+    "estimate_usd": 3.0,
+    "exactness": "exact",
+    "fallback_asset_id": null,
+    "holds": [
+      "HI-02"
+    ],
+    "impact": "high",
+    "name": "Easy Pour Attikan Estate pack",
+    "notes": null,
+    "rights_status": "needs_approval",
+    "route": "supplied",
+    "scope": "approved",
+    "specification": "JPEG, 1800x1800, Front pack only; keep the roast descriptor visible.",
+    "truth_class": "exact",
+    "used_by": [
+      "LY-043"
+    ]
+  },
+  {
+    "acceptance": "Seethargundu name and light-roast descriptor readable; no label crop.",
+    "asset_id": "AS-17",
+    "dependencies": [],
+    "disclosure_required": false,
+    "estimate_id": "ES-07",
+    "estimate_usd": 3.0,
+    "exactness": "exact",
+    "fallback_asset_id": null,
+    "holds": [
+      "HI-02"
+    ],
+    "impact": "high",
+    "name": "Easy Pour Seethargundu Estate pack",
+    "notes": null,
+    "rights_status": "needs_approval",
+    "route": "supplied",
+    "scope": "approved",
+    "specification": "JPEG, 1800x1800, Front pack only; keep the light-roast descriptor visible.",
+    "truth_class": "exact",
+    "used_by": [
+      "LY-047"
+    ]
+  },
+  {
+    "acceptance": "Tear, open and anchor actions are physically correct and match the brand instructions.",
+    "asset_id": "AS-05",
+    "dependencies": [
+      "AS-02"
+    ],
+    "disclosure_required": false,
+    "estimate_id": "ES-06",
+    "estimate_usd": 18.0,
+    "exactness": "illustrative",
+    "fallback_asset_id": null,
+    "holds": [
+      "HI-04"
+    ],
+    "impact": "high",
+    "name": "Easy Pour brewing demonstration, hands",
+    "notes": null,
+    "rights_status": "needs_approval",
+    "route": "to_capture",
+    "scope": "approved",
+    "specification": "ProRes 422 HQ, 3840x2160, 25 fps, 170 frames, Shoot 4K for a 1080p master crop; 180-degree shutter.",
+    "truth_class": "proof",
+    "used_by": [
+      "LY-021"
+    ]
+  },
+  {
+    "acceptance": "Water visibly contacts the coffee bed; bloom and drip read in macro; no spill or continuity break.",
+    "asset_id": "AS-06",
+    "dependencies": [
+      "AS-05"
+    ],
+    "disclosure_required": false,
+    "estimate_id": "ES-06",
+    "estimate_usd": 18.0,
+    "exactness": "illustrative",
+    "fallback_asset_id": null,
+    "holds": [
+      "HI-04"
+    ],
+    "impact": "high",
+    "name": "Hot water pour and bloom footage",
+    "notes": null,
+    "rights_status": "needs_approval",
+    "route": "to_capture",
+    "scope": "approved",
+    "specification": "ProRes 422 HQ, 3840x2160, 50 fps, 140 frames, Source timebase 50 fps; conform to the 25 fps master at 50 percent speed.",
+    "truth_class": "proof",
+    "used_by": [
+      "LY-031"
+    ]
+  },
+  {
+    "acceptance": "Full-canvas background holds a consistent grade across all six shots.",
+    "asset_id": "AS-07",
+    "dependencies": [],
+    "disclosure_required": false,
+    "estimate_id": null,
+    "estimate_usd": 0.0,
+    "exactness": "illustrative",
+    "fallback_asset_id": null,
+    "holds": [],
+    "impact": "medium",
+    "name": "Warm kitchen background",
+    "notes": null,
+    "rights_status": "cleared",
+    "route": "owned",
+    "scope": "approved",
+    "specification": "PNG, 1920x1080",
+    "truth_class": "atmospheric",
+    "used_by": [
+      "LY-010",
+      "LY-020",
+      "LY-030",
+      "LY-040",
+      "LY-050",
+      "LY-060"
+    ]
+  },
+  {
+    "acceptance": "Finished cup matches the brewed colour; rim clean; steam visible without obscuring the pack.",
+    "asset_id": "AS-08",
+    "dependencies": [
+      "AS-06"
+    ],
+    "disclosure_required": false,
+    "estimate_id": "ES-06",
+    "estimate_usd": 18.0,
+    "exactness": "illustrative",
+    "fallback_asset_id": null,
+    "holds": [
+      "HI-04"
+    ],
+    "impact": "high",
+    "name": "Finished cup of coffee",
+    "notes": null,
+    "rights_status": "needs_approval",
+    "route": "to_capture",
+    "scope": "approved",
+    "specification": "ProRes 422 HQ, 3840x2160, 25 fps, 90 frames, Shoot 4K; keep the cup rim and coffee surface in focus.",
+    "truth_class": "proof",
+    "used_by": [
+      "LY-051"
+    ]
+  },
+  {
+    "acceptance": "Performer release present; intelligible read; no claim beyond the canonical script.",
+    "asset_id": "AS-09",
+    "dependencies": [],
+    "disclosure_required": false,
+    "estimate_id": "ES-02",
+    "estimate_usd": 12.0,
+    "exactness": "illustrative",
+    "fallback_asset_id": "AS-15",
+    "holds": [
+      "HI-03"
+    ],
+    "impact": "low",
+    "name": "Voice over, warm Indian English",
+    "notes": null,
+    "rights_status": "needs_approval",
+    "route": "to_create",
+    "scope": "approved",
+    "specification": "WAV, 25 fps, 500 frames, 48 kHz, 24-bit, dry studio recording; full 20-second read.",
+    "truth_class": "representative",
+    "used_by": [
+      "AU-01"
+    ]
+  },
+  {
+    "acceptance": "Licence covers paid YouTube; 20-second edit supports the 275 range lift and 445 resolve.",
+    "asset_id": "AS-10",
+    "dependencies": [],
+    "disclosure_required": false,
+    "estimate_id": "ES-01",
+    "estimate_usd": 10.0,
+    "exactness": "illustrative",
+    "fallback_asset_id": "AS-14",
+    "holds": [
+      "HI-03"
+    ],
+    "impact": "low",
+    "name": "Music bed, 20 seconds",
+    "notes": null,
+    "rights_status": "needs_approval",
+    "route": "to_source",
+    "scope": "approved",
+    "specification": "WAV, 25 fps, 500 frames, 48 kHz, 24-bit, instrumental, loopable tail.",
+    "truth_class": "atmospheric",
+    "used_by": [
+      "AU-02"
+    ]
+  },
+  {
+    "acceptance": "Pour sound syncs to the water action without a phasing artefact.",
+    "asset_id": "AS-11",
+    "dependencies": [],
+    "disclosure_required": false,
+    "estimate_id": null,
+    "estimate_usd": 0.0,
+    "exactness": "illustrative",
+    "fallback_asset_id": null,
+    "holds": [],
+    "impact": "low",
+    "name": "Water pour sound effect",
+    "notes": null,
+    "rights_status": "cleared",
+    "route": "owned",
+    "scope": "approved",
+    "specification": "WAV, 25 fps, 85 frames",
+    "truth_class": "atmospheric",
+    "used_by": [
+      "AU-03"
+    ]
+  },
+  {
+    "acceptance": "Sting lands under the end card and does not mask the VO.",
+    "asset_id": "AS-12",
+    "dependencies": [],
+    "disclosure_required": false,
+    "estimate_id": null,
+    "estimate_usd": 0.0,
+    "exactness": "illustrative",
+    "fallback_asset_id": null,
+    "holds": [],
+    "impact": "low",
+    "name": "Brand sting",
+    "notes": null,
+    "rights_status": "cleared",
+    "route": "owned",
+    "scope": "approved",
+    "specification": "WAV, 25 fps, 45 frames",
+    "truth_class": "atmospheric",
+    "used_by": [
+      "AU-04"
+    ]
+  },
+  {
+    "acceptance": "Physical pack label is square to camera and at least as legible as the supplied image.",
+    "asset_id": "AS-13",
+    "dependencies": [
+      "AS-02"
+    ],
+    "disclosure_required": false,
+    "estimate_id": "ES-09",
+    "estimate_usd": 5.0,
+    "exactness": "exact",
+    "fallback_asset_id": null,
+    "holds": [
+      "HI-02"
+    ],
+    "impact": "low",
+    "name": "Captured Mixed Bag fallback",
+    "notes": null,
+    "rights_status": "needs_approval",
+    "route": "to_capture",
+    "scope": "conditional_fallback",
+    "specification": "PNG, 2400x2400, Front label square to camera; four angles.",
+    "truth_class": "exact",
+    "used_by": []
+  },
+  {
+    "acceptance": "Fallback bed matches the primary tempo and emotional resolve.",
+    "asset_id": "AS-14",
+    "dependencies": [],
+    "disclosure_required": false,
+    "estimate_id": null,
+    "estimate_usd": 0.0,
+    "exactness": "illustrative",
+    "fallback_asset_id": null,
+    "holds": [
+      "HI-03"
+    ],
+    "impact": "low",
+    "name": "Music fallback track",
+    "notes": null,
+    "rights_status": "needs_approval",
+    "route": "to_source",
+    "scope": "conditional_fallback",
+    "specification": "WAV, 25 fps, 500 frames",
+    "truth_class": "atmospheric",
+    "used_by": []
+  },
+  {
+    "acceptance": "Synthetic read matches the canonical script and carries the disclosure decision.",
+    "asset_id": "AS-15",
+    "dependencies": [
+      "AS-09"
+    ],
+    "disclosure_required": true,
+    "estimate_id": null,
+    "estimate_usd": 0.0,
+    "exactness": "illustrative",
+    "fallback_asset_id": null,
+    "holds": [
+      "HI-03"
+    ],
+    "impact": "low",
+    "name": "Synthetic narration fallback",
+    "notes": null,
+    "rights_status": "needs_approval",
+    "route": "to_generate",
+    "scope": "conditional_fallback",
+    "specification": "WAV, 25 fps, 500 frames",
+    "truth_class": "representative",
+    "used_by": []
+  }
+]

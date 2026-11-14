@@ -1,0 +1,31 @@
+{
+  "asset_id": "AS-10",
+  "name": "Music bed, 20 seconds",
+  "truth_class": "atmospheric",
+  "impact": "low",
+  "methods": [
+    "M1"
+  ],
+  "source": "stock:Production music library",
+  "processing": [
+    "trim",
+    "fade",
+    "loudness_norm",
+    "resample",
+    "encode"
+  ],
+  "output_path": null,
+  "output_sha256": null,
+  "bindings": [
+    "AU-02"
+  ],
+  "acceptance": "Licence covers paid YouTube; 20-second edit supports the 275 range lift and 445 resolve.",
+  "probe_id": null,
+  "rights_status": "needs_approval",
+  "hold": "HI-03",
+  "conditional": false,
+  "status": "blocked",
+  "blockers": [
+    "HI-03"
+  ]
+}

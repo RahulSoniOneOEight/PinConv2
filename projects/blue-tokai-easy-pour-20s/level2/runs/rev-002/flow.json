@@ -1,0 +1,312 @@
+{
+  "nodes": [
+    {
+      "node_id": "AS-01",
+      "kind": "asset",
+      "batch": "B1",
+      "dependencies": [],
+      "critical_path": false,
+      "duration_frames": 20
+    },
+    {
+      "node_id": "AS-02",
+      "kind": "asset",
+      "batch": "B1",
+      "dependencies": [],
+      "critical_path": false,
+      "duration_frames": 20
+    },
+    {
+      "node_id": "AS-03",
+      "kind": "asset",
+      "batch": "B1",
+      "dependencies": [],
+      "critical_path": false,
+      "duration_frames": 20
+    },
+    {
+      "node_id": "AS-04",
+      "kind": "asset",
+      "batch": "B1",
+      "dependencies": [],
+      "critical_path": false,
+      "duration_frames": 20
+    },
+    {
+      "node_id": "AS-07",
+      "kind": "asset",
+      "batch": "B1",
+      "dependencies": [],
+      "critical_path": false,
+      "duration_frames": 10
+    },
+    {
+      "node_id": "AS-09",
+      "kind": "asset",
+      "batch": "B1",
+      "dependencies": [],
+      "critical_path": false,
+      "duration_frames": 20
+    },
+    {
+      "node_id": "AS-11",
+      "kind": "asset",
+      "batch": "B1",
+      "dependencies": [],
+      "critical_path": false,
+      "duration_frames": 10
+    },
+    {
+      "node_id": "AS-12",
+      "kind": "asset",
+      "batch": "B1",
+      "dependencies": [],
+      "critical_path": false,
+      "duration_frames": 10
+    },
+    {
+      "node_id": "AS-17",
+      "kind": "asset",
+      "batch": "B1",
+      "dependencies": [],
+      "critical_path": false,
+      "duration_frames": 20
+    },
+    {
+      "node_id": "AS-05",
+      "kind": "asset",
+      "batch": "B2",
+      "dependencies": [
+        "CAP-01",
+        "AS-02"
+      ],
+      "critical_path": true,
+      "duration_frames": 120
+    },
+    {
+      "node_id": "AS-06",
+      "kind": "asset",
+      "batch": "B2",
+      "dependencies": [
+        "CAP-01",
+        "AS-05"
+      ],
+      "critical_path": true,
+      "duration_frames": 120
+    },
+    {
+      "node_id": "AS-08",
+      "kind": "asset",
+      "batch": "B2",
+      "dependencies": [
+        "CAP-01",
+        "AS-06"
+      ],
+      "critical_path": true,
+      "duration_frames": 120
+    },
+    {
+      "node_id": "AS-13",
+      "kind": "asset",
+      "batch": "B2",
+      "dependencies": [
+        "CAP-01",
+        "AS-02"
+      ],
+      "critical_path": false,
+      "duration_frames": 120
+    },
+    {
+      "node_id": "CAP-01",
+      "kind": "capture",
+      "batch": "B2",
+      "dependencies": [],
+      "critical_path": true,
+      "duration_frames": 240
+    },
+    {
+      "node_id": "AS-10",
+      "kind": "asset",
+      "batch": "B4",
+      "dependencies": [],
+      "critical_path": false,
+      "duration_frames": 30
+    },
+    {
+      "node_id": "AS-14",
+      "kind": "asset",
+      "batch": "B4",
+      "dependencies": [],
+      "critical_path": false,
+      "duration_frames": 30
+    },
+    {
+      "node_id": "AS-15",
+      "kind": "asset",
+      "batch": "B4",
+      "dependencies": [
+        "AS-09"
+      ],
+      "critical_path": false,
+      "duration_frames": 60
+    },
+    {
+      "node_id": "MIX-01",
+      "kind": "audio",
+      "batch": "B4",
+      "dependencies": [
+        "AS-09",
+        "AS-10",
+        "AS-11",
+        "AS-12",
+        "AS-14"
+      ],
+      "critical_path": false,
+      "duration_frames": 60
+    },
+    {
+      "node_id": "CAPTIONS-01",
+      "kind": "audio",
+      "batch": "B5",
+      "dependencies": [
+        "MIX-01"
+      ],
+      "critical_path": false,
+      "duration_frames": 30
+    },
+    {
+      "node_id": "SH-01",
+      "kind": "shot",
+      "batch": "B5",
+      "dependencies": [
+        "AS-07",
+        "AS-02"
+      ],
+      "critical_path": false,
+      "duration_frames": 75
+    },
+    {
+      "node_id": "SH-02",
+      "kind": "shot",
+      "batch": "B5",
+      "dependencies": [
+        "AS-07",
+        "AS-05",
+        "AS-02"
+      ],
+      "critical_path": false,
+      "duration_frames": 85
+    },
+    {
+      "node_id": "SH-03",
+      "kind": "shot",
+      "batch": "B5",
+      "dependencies": [
+        "AS-07",
+        "AS-06",
+        "AS-02"
+      ],
+      "critical_path": false,
+      "duration_frames": 115
+    },
+    {
+      "node_id": "SH-04",
+      "kind": "shot",
+      "batch": "B5",
+      "dependencies": [
+        "AS-07",
+        "AS-02",
+        "AS-03",
+        "AS-04",
+        "AS-17"
+      ],
+      "critical_path": false,
+      "duration_frames": 105
+    },
+    {
+      "node_id": "SH-05",
+      "kind": "shot",
+      "batch": "B5",
+      "dependencies": [
+        "AS-07",
+        "AS-08",
+        "AS-02"
+      ],
+      "critical_path": true,
+      "duration_frames": 65
+    },
+    {
+      "node_id": "SH-06",
+      "kind": "shot",
+      "batch": "B5",
+      "dependencies": [
+        "AS-07",
+        "AS-02",
+        "AS-01"
+      ],
+      "critical_path": false,
+      "duration_frames": 55
+    },
+    {
+      "node_id": "VO-01",
+      "kind": "variant",
+      "batch": "B5",
+      "dependencies": [
+        "SH-01",
+        "SH-02",
+        "SH-03",
+        "SH-04",
+        "SH-05",
+        "SH-06",
+        "CAPTIONS-01"
+      ],
+      "critical_path": true,
+      "duration_frames": 500
+    }
+  ],
+  "batches": {
+    "B2": [
+      "AS-05",
+      "AS-06",
+      "AS-08",
+      "AS-13",
+      "CAP-01"
+    ],
+    "B1": [
+      "AS-01",
+      "AS-02",
+      "AS-03",
+      "AS-04",
+      "AS-07",
+      "AS-09",
+      "AS-11",
+      "AS-12",
+      "AS-17"
+    ],
+    "B4": [
+      "AS-10",
+      "AS-14",
+      "AS-15",
+      "MIX-01"
+    ],
+    "B5": [
+      "CAPTIONS-01",
+      "SH-01",
+      "SH-02",
+      "SH-03",
+      "SH-04",
+      "SH-05",
+      "SH-06",
+      "VO-01"
+    ]
+  },
+  "critical_path": [
+    "CAP-01",
+    "AS-05",
+    "AS-06",
+    "AS-08",
+    "SH-05",
+    "VO-01"
+  ],
+  "acyclic": true
+}

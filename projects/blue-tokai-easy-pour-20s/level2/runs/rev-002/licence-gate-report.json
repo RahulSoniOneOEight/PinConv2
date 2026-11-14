@@ -1,0 +1,50 @@
+{
+  "aggregators": [
+    "europeana",
+    "iconify",
+    "internet-archive",
+    "openverse",
+    "openverse-audio",
+    "wikimedia"
+  ],
+  "blocked_sources": [
+    "bbc-sound-effects",
+    "gadm"
+  ],
+  "candidates": [],
+  "manual_only_sources": [
+    "bbc-sound-effects",
+    "bootstrap-icons",
+    "common-voice",
+    "font-awesome-free",
+    "fontshare",
+    "free-music-archive",
+    "gadm",
+    "heroicons",
+    "humaaans",
+    "incompetech",
+    "iwltbap",
+    "kenney",
+    "lucide",
+    "mixkit-video",
+    "musopen",
+    "nasa-3d",
+    "open-peeps",
+    "openclipart",
+    "opengameart",
+    "openmoji",
+    "our-world-in-data",
+    "pixabay-music",
+    "pixabay-sfx",
+    "sonniss",
+    "soundbible",
+    "storyset",
+    "svg-repo",
+    "tabler",
+    "undraw",
+    "videezy",
+    "videvo",
+    "zapsplat"
+  ],
+  "note": "No sourcing round has run. Candidate licences are unverified."
+}

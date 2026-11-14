@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920">
+<rect x="0" y="0" width="1080" height="1920" fill="#0B0604"/>
+<rect x="0" y="0" width="1080" height="1920" fill="#1A0F0A" fill-opacity="0.85" rx="12"/>
+
+<rect x="60" y="300" width="960" height="980" fill="#5A2E1A" fill-opacity="0.85" rx="12"/>
+
+<rect x="700" y="260" width="300" height="300" fill="#8A4B2A" fill-opacity="0.85" rx="12"/>
+
+<rect x="60" y="250" width="860" height="160" fill="#F7F3EC" fill-opacity="0.85" rx="12"/>
+<text x="60" y="332" font-family="Inter, Segoe UI, sans-serif" font-size="82" font-weight="700" fill="#132A3A">TEAR. ANCHOR. POUR.</text>
+<rect x="60" y="250" width="860" height="160" fill="none" stroke="#FF6B6B" stroke-width="3" stroke-dasharray="12 8"/>
+<rect x="60" y="1360" width="880" height="150" fill="#000000" fill-opacity="0.55" />
+
+<rect x="60" y="1390" width="860" height="80" fill="#F7F3EC" fill-opacity="0.85" rx="12"/>
+<text x="60" y="1428" font-family="Inter, Segoe UI, sans-serif" font-size="38" font-weight="700" fill="#132A3A">Tear, anchor, pour.</text>
+<rect x="60" y="220" width="880" height="1380" fill="none" stroke="#4ADE80" stroke-width="4" stroke-dasharray="16 10"/>
+<text x="24" y="1896" font-family="Inter, Segoe UI, sans-serif" font-size="28" fill="#FFFFFF" fill-opacity="0.7">SH-02 · VO-01</text>
+</svg>

@@ -1,0 +1,32 @@
+{
+  "asset_id": "AS-08",
+  "name": "Finished cup of coffee",
+  "truth_class": "proof",
+  "impact": "high",
+  "methods": [
+    "M6"
+  ],
+  "source": "capture:In-house food shoot",
+  "processing": [
+    "trim",
+    "stabilise",
+    "conform",
+    "grade",
+    "scale",
+    "encode"
+  ],
+  "output_path": null,
+  "output_sha256": null,
+  "bindings": [
+    "LY-051"
+  ],
+  "acceptance": "Finished cup matches the brewed colour; rim clean; steam visible without obscuring the pack.",
+  "probe_id": null,
+  "rights_status": "needs_approval",
+  "hold": "HI-04",
+  "conditional": false,
+  "status": "blocked",
+  "blockers": [
+    "HI-04"
+  ]
+}

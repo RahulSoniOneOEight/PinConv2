@@ -1,0 +1,238 @@
+{
+  "lines": [
+    {
+      "line_id": "BL-001",
+      "label": "Music library licence",
+      "estimate_id": "ES-01",
+      "asset_id": "AS-10",
+      "asset_ids": [
+        "AS-10"
+      ],
+      "kind": "acquisition",
+      "amount_usd": 10.0,
+      "basis": "operator_estimate",
+      "quote_ref": null,
+      "quote_expires_at": null,
+      "dedupe_key": "ES-01:line",
+      "in_worst_case": false,
+      "unpriced": false,
+      "notes": null
+    },
+    {
+      "line_id": "BL-002",
+      "label": "Voice artist session and edit",
+      "estimate_id": "ES-02",
+      "asset_id": "AS-09",
+      "asset_ids": [
+        "AS-09"
+      ],
+      "kind": "acquisition",
+      "amount_usd": 12.0,
+      "basis": "operator_estimate",
+      "quote_ref": null,
+      "quote_expires_at": null,
+      "dedupe_key": "ES-02:line",
+      "in_worst_case": false,
+      "unpriced": false,
+      "notes": null
+    },
+    {
+      "line_id": "BL-003",
+      "label": "Edit, motion and compositing",
+      "estimate_id": "ES-03",
+      "asset_id": null,
+      "asset_ids": [],
+      "kind": "project",
+      "amount_usd": 15.0,
+      "basis": "operator_estimate",
+      "quote_ref": null,
+      "quote_expires_at": null,
+      "dedupe_key": "ES-03:line",
+      "in_worst_case": false,
+      "unpriced": false,
+      "notes": null
+    },
+    {
+      "line_id": "BL-004",
+      "label": "Colour grade and finishing",
+      "estimate_id": "ES-04",
+      "asset_id": null,
+      "asset_ids": [],
+      "kind": "project",
+      "amount_usd": 5.0,
+      "basis": "operator_estimate",
+      "quote_ref": null,
+      "quote_expires_at": null,
+      "dedupe_key": "ES-04:line",
+      "in_worst_case": false,
+      "unpriced": false,
+      "notes": null
+    },
+    {
+      "line_id": "BL-005",
+      "label": "Mixed Bag pack preparation",
+      "estimate_id": "ES-05",
+      "asset_id": "AS-02",
+      "asset_ids": [
+        "AS-02"
+      ],
+      "kind": "processing",
+      "amount_usd": 4.0,
+      "basis": "operator_estimate",
+      "quote_ref": null,
+      "quote_expires_at": null,
+      "dedupe_key": "ES-05:line",
+      "in_worst_case": false,
+      "unpriced": false,
+      "notes": null
+    },
+    {
+      "line_id": "BL-006",
+      "label": "Demo and finished-cup capture",
+      "estimate_id": "ES-06",
+      "asset_id": "AS-05",
+      "asset_ids": [
+        "AS-05",
+        "AS-06",
+        "AS-08"
+      ],
+      "kind": "capture",
+      "amount_usd": 18.0,
+      "basis": "operator_estimate",
+      "quote_ref": null,
+      "quote_expires_at": null,
+      "dedupe_key": "ES-06:session",
+      "in_worst_case": false,
+      "unpriced": false,
+      "notes": null
+    },
+    {
+      "line_id": "BL-007",
+      "label": "Range pack preparation",
+      "estimate_id": "ES-07",
+      "asset_id": "AS-03",
+      "asset_ids": [
+        "AS-03",
+        "AS-04",
+        "AS-17"
+      ],
+      "kind": "processing",
+      "amount_usd": 3.0,
+      "basis": "operator_estimate",
+      "quote_ref": null,
+      "quote_expires_at": null,
+      "dedupe_key": "ES-07:session",
+      "in_worst_case": false,
+      "unpriced": false,
+      "notes": null
+    },
+    {
+      "line_id": "BL-008",
+      "label": "End-card build",
+      "estimate_id": "ES-08",
+      "asset_id": null,
+      "asset_ids": [],
+      "kind": "project",
+      "amount_usd": 3.0,
+      "basis": "operator_estimate",
+      "quote_ref": null,
+      "quote_expires_at": null,
+      "dedupe_key": "ES-08:line",
+      "in_worst_case": false,
+      "unpriced": false,
+      "notes": null
+    },
+    {
+      "line_id": "BL-009",
+      "label": "Captured pack fallback",
+      "estimate_id": "ES-09",
+      "asset_id": "AS-13",
+      "asset_ids": [
+        "AS-13"
+      ],
+      "kind": "fallback",
+      "amount_usd": 5.0,
+      "basis": "operator_estimate",
+      "quote_ref": null,
+      "quote_expires_at": null,
+      "dedupe_key": "ES-09:line",
+      "in_worst_case": true,
+      "unpriced": false,
+      "notes": null
+    },
+    {
+      "line_id": "BL-010",
+      "label": "9:16 vertical re-edit and end-card rebuild",
+      "estimate_id": "ES-11",
+      "asset_id": null,
+      "asset_ids": [],
+      "kind": "variant",
+      "amount_usd": 6.0,
+      "basis": "operator_estimate",
+      "quote_ref": null,
+      "quote_expires_at": null,
+      "dedupe_key": "ES-11:line",
+      "in_worst_case": false,
+      "unpriced": false,
+      "notes": null
+    },
+    {
+      "line_id": "BL-011",
+      "label": "AS-14 fallback (unpriced)",
+      "estimate_id": null,
+      "asset_id": "AS-14",
+      "asset_ids": [
+        "AS-14"
+      ],
+      "kind": "fallback",
+      "amount_usd": 0.0,
+      "basis": "operator_estimate",
+      "quote_ref": null,
+      "quote_expires_at": null,
+      "dedupe_key": "fallback:AS-14",
+      "in_worst_case": true,
+      "unpriced": true,
+      "notes": "Gap B-2: second licensed bed, assumed under the same licence."
+    },
+    {
+      "line_id": "BL-012",
+      "label": "AS-15 fallback (unpriced)",
+      "estimate_id": null,
+      "asset_id": "AS-15",
+      "asset_ids": [
+        "AS-15"
+      ],
+      "kind": "fallback",
+      "amount_usd": 0.0,
+      "basis": "operator_estimate",
+      "quote_ref": null,
+      "quote_expires_at": null,
+      "dedupe_key": "fallback:AS-15",
+      "in_worst_case": true,
+      "unpriced": true,
+      "notes": "Gap B-1: synthetic narration fallback has no estimate or quote."
+    }
+  ],
+  "summary": {
+    "currency": "USD",
+    "cap_usd": 100.0,
+    "reserve_pct": 15.0,
+    "subtotal_usd": 76.0,
+    "reserve_usd": 11.4,
+    "total_usd": 87.4,
+    "fallback_usd": 5.0,
+    "worst_usd": 92.4,
+    "headroom_usd": 7.6,
+    "within_cap": true,
+    "worst_within_cap": true,
+    "verified_quote_usd": 0.0,
+    "operator_estimate_usd": 81.0,
+    "unpriced_lines": [
+      "BL-011",
+      "BL-012"
+    ]
+  },
+  "raw_attributed_usd": 89.0,
+  "dedupe_savings_usd": 42.0,
+  "created_at": "2026-11-14T19:45:56+00:00"
+}

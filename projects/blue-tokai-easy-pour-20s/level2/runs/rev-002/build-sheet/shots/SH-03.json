@@ -1,0 +1,102 @@
+{
+  "shot_id": "SH-03",
+  "start_frame": 160,
+  "end_frame": 275,
+  "method": "Macro live-action pour at 50 fps, finished at 25 fps.",
+  "layers": [
+    {
+      "layer_id": "LY-030",
+      "shot_id": "SH-03",
+      "asset_id": "AS-07",
+      "copy_id": null,
+      "method": "M0",
+      "z_order": 0,
+      "start_frame": 0,
+      "end_frame": 115,
+      "transform": "asset transform per layer rect and allow-list",
+      "status": "planned"
+    },
+    {
+      "layer_id": "LY-031",
+      "shot_id": "SH-03",
+      "asset_id": "AS-06",
+      "copy_id": null,
+      "method": "M6",
+      "z_order": 10,
+      "start_frame": 0,
+      "end_frame": 115,
+      "transform": "asset transform per layer rect and allow-list",
+      "status": "blocked"
+    },
+    {
+      "layer_id": "LY-032",
+      "shot_id": "SH-03",
+      "asset_id": "AS-02",
+      "copy_id": null,
+      "method": "M0",
+      "z_order": 12,
+      "start_frame": 0,
+      "end_frame": 115,
+      "transform": "asset transform per layer rect and allow-list",
+      "status": "blocked"
+    },
+    {
+      "layer_id": "LY-033",
+      "shot_id": "SH-03",
+      "asset_id": null,
+      "copy_id": "CP-02",
+      "method": "M4",
+      "z_order": 20,
+      "start_frame": 0,
+      "end_frame": 115,
+      "transform": "text rendered from the approved copy block",
+      "status": "planned"
+    },
+    {
+      "layer_id": "LY-034",
+      "shot_id": "SH-03",
+      "asset_id": null,
+      "copy_id": null,
+      "method": "M4",
+      "z_order": 25,
+      "start_frame": 0,
+      "end_frame": 115,
+      "transform": "procedural fill and effect",
+      "status": "planned"
+    },
+    {
+      "layer_id": "LY-035",
+      "shot_id": "SH-03",
+      "asset_id": null,
+      "copy_id": "CP-09",
+      "method": "M4",
+      "z_order": 30,
+      "start_frame": 0,
+      "end_frame": 115,
+      "transform": "text rendered from the approved copy block",
+      "status": "planned"
+    }
+  ],
+  "effects": [
+    "FX-02",
+    "FX-03"
+  ],
+  "audio": [
+    "AU-01",
+    "AU-02",
+    "AU-03"
+  ],
+  "checks": [
+    "AC-01",
+    "AC-02",
+    "AC-03",
+    "AC-12",
+    "AC-14"
+  ],
+  "preview_path": "previews/16x9/SH-03.svg",
+  "ready": false,
+  "blockers": [
+    "HI-02",
+    "HI-04"
+  ]
+}

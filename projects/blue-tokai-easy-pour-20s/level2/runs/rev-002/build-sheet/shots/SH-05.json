@@ -1,0 +1,103 @@
+{
+  "shot_id": "SH-05",
+  "start_frame": 380,
+  "end_frame": 445,
+  "method": "Finished-cup live action with a time-lapse transition.",
+  "layers": [
+    {
+      "layer_id": "LY-050",
+      "shot_id": "SH-05",
+      "asset_id": "AS-07",
+      "copy_id": null,
+      "method": "M0",
+      "z_order": 0,
+      "start_frame": 0,
+      "end_frame": 65,
+      "transform": "asset transform per layer rect and allow-list",
+      "status": "planned"
+    },
+    {
+      "layer_id": "LY-051",
+      "shot_id": "SH-05",
+      "asset_id": "AS-08",
+      "copy_id": null,
+      "method": "M6",
+      "z_order": 10,
+      "start_frame": 0,
+      "end_frame": 65,
+      "transform": "asset transform per layer rect and allow-list",
+      "status": "blocked"
+    },
+    {
+      "layer_id": "LY-052",
+      "shot_id": "SH-05",
+      "asset_id": "AS-02",
+      "copy_id": null,
+      "method": "M0",
+      "z_order": 12,
+      "start_frame": 0,
+      "end_frame": 65,
+      "transform": "asset transform per layer rect and allow-list",
+      "status": "blocked"
+    },
+    {
+      "layer_id": "LY-053",
+      "shot_id": "SH-05",
+      "asset_id": null,
+      "copy_id": "CP-13",
+      "method": "M4",
+      "z_order": 20,
+      "start_frame": 0,
+      "end_frame": 65,
+      "transform": "text rendered from the approved copy block",
+      "status": "planned"
+    },
+    {
+      "layer_id": "LY-054",
+      "shot_id": "SH-05",
+      "asset_id": null,
+      "copy_id": null,
+      "method": "M4",
+      "z_order": 25,
+      "start_frame": 0,
+      "end_frame": 65,
+      "transform": "procedural fill and effect",
+      "status": "planned"
+    },
+    {
+      "layer_id": "LY-055",
+      "shot_id": "SH-05",
+      "asset_id": null,
+      "copy_id": "CP-12",
+      "method": "M4",
+      "z_order": 30,
+      "start_frame": 0,
+      "end_frame": 65,
+      "transform": "text rendered from the approved copy block",
+      "status": "planned"
+    }
+  ],
+  "effects": [
+    "FX-05"
+  ],
+  "audio": [
+    "AU-01",
+    "AU-02",
+    "AU-03",
+    "AU-04"
+  ],
+  "checks": [
+    "AC-01",
+    "AC-02",
+    "AC-03",
+    "AC-09",
+    "AC-15",
+    "AC-14"
+  ],
+  "preview_path": "previews/16x9/SH-05.svg",
+  "ready": false,
+  "blockers": [
+    "HI-02",
+    "HI-04"
+  ]
+}

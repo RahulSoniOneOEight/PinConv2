@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<rect x="0" y="0" width="1920" height="1080" fill="#0B0604"/>
+<rect x="0" y="0" width="1920" height="1080" fill="#1A0F0A" fill-opacity="0.85" rx="12"/>
+
+<rect x="900" y="170" width="760" height="720" fill="#E8D5B5" fill-opacity="0.18" rx="12"/>
+
+<rect x="1080" y="180" width="700" height="700" fill="#8A4B2A" fill-opacity="0.85" rx="12"/>
+
+<rect x="120" y="150" width="1000" height="180" fill="#F7F3EC" fill-opacity="0.85" rx="12"/>
+<text x="120" y="236" font-family="Inter, Segoe UI, sans-serif" font-size="86" font-weight="700" fill="#132A3A">SPECIALTY COFFEE.</text>
+<rect x="120" y="150" width="1000" height="180" fill="none" stroke="#FF6B6B" stroke-width="3" stroke-dasharray="12 8"/>
+<rect x="110" y="880" width="1320" height="110" fill="#000000" fill-opacity="0.55" />
+
+<rect x="120" y="900" width="1300" height="70" fill="#F7F3EC" fill-opacity="0.85" rx="12"/>
+<text x="120" y="938" font-family="Inter, Segoe UI, sans-serif" font-size="38" font-weight="700" fill="#132A3A">The filter is built into the sachet.</text>
+<rect x="80" y="70" width="1760" height="920" fill="none" stroke="#4ADE80" stroke-width="4" stroke-dasharray="16 10"/>
+<text x="24" y="1056" font-family="Inter, Segoe UI, sans-serif" font-size="28" fill="#FFFFFF" fill-opacity="0.7">SH-01 · 16:9</text>
+</svg>

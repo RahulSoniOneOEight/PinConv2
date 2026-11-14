@@ -1,0 +1,31 @@
+{
+  "asset_id": "AS-09",
+  "name": "Voice over, warm Indian English",
+  "truth_class": "representative",
+  "impact": "low",
+  "methods": [
+    "M0"
+  ],
+  "source": "supplied:Voice artist session",
+  "processing": [
+    "trim",
+    "denoise",
+    "loudness_norm",
+    "resample",
+    "encode"
+  ],
+  "output_path": null,
+  "output_sha256": null,
+  "bindings": [
+    "AU-01"
+  ],
+  "acceptance": "Performer release present; intelligible read; no claim beyond the canonical script.",
+  "probe_id": null,
+  "rights_status": "needs_approval",
+  "hold": "HI-03",
+  "conditional": false,
+  "status": "blocked",
+  "blockers": [
+    "HI-03"
+  ]
+}

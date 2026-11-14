@@ -1,0 +1,168 @@
+{
+  "assets": [
+    {
+      "asset_id": "AS-01",
+      "attribution": null,
+      "commercial_use": true,
+      "conditional": false,
+      "hold": "HI-02",
+      "licence_name": "Brand logo advertising licence (pending)",
+      "modification": true,
+      "status": "needs_approval"
+    },
+    {
+      "asset_id": "AS-02",
+      "attribution": null,
+      "commercial_use": true,
+      "conditional": false,
+      "hold": "HI-02",
+      "licence_name": "Brand pack advertising licence (pending)",
+      "modification": true,
+      "status": "needs_approval"
+    },
+    {
+      "asset_id": "AS-03",
+      "attribution": null,
+      "commercial_use": true,
+      "conditional": false,
+      "hold": "HI-02",
+      "licence_name": "Brand pack advertising licence (pending)",
+      "modification": true,
+      "status": "needs_approval"
+    },
+    {
+      "asset_id": "AS-04",
+      "attribution": null,
+      "commercial_use": true,
+      "conditional": false,
+      "hold": "HI-02",
+      "licence_name": "Brand pack advertising licence (pending)",
+      "modification": true,
+      "status": "needs_approval"
+    },
+    {
+      "asset_id": "AS-17",
+      "attribution": null,
+      "commercial_use": true,
+      "conditional": false,
+      "hold": "HI-02",
+      "licence_name": "Brand pack advertising licence (pending)",
+      "modification": true,
+      "status": "needs_approval"
+    },
+    {
+      "asset_id": "AS-05",
+      "attribution": null,
+      "commercial_use": true,
+      "conditional": false,
+      "hold": "HI-04",
+      "licence_name": "Talent and hand release (pending)",
+      "modification": true,
+      "status": "needs_approval"
+    },
+    {
+      "asset_id": "AS-06",
+      "attribution": null,
+      "commercial_use": true,
+      "conditional": false,
+      "hold": "HI-04",
+      "licence_name": "In-house capture approval (pending)",
+      "modification": true,
+      "status": "needs_approval"
+    },
+    {
+      "asset_id": "AS-07",
+      "attribution": null,
+      "commercial_use": true,
+      "conditional": false,
+      "hold": null,
+      "licence_name": "In-house production asset",
+      "modification": true,
+      "status": "cleared"
+    },
+    {
+      "asset_id": "AS-08",
+      "attribution": null,
+      "commercial_use": true,
+      "conditional": false,
+      "hold": "HI-04",
+      "licence_name": "In-house capture approval (pending)",
+      "modification": true,
+      "status": "needs_approval"
+    },
+    {
+      "asset_id": "AS-09",
+      "attribution": null,
+      "commercial_use": true,
+      "conditional": false,
+      "hold": "HI-03",
+      "licence_name": "Performer release (pending)",
+      "modification": true,
+      "status": "needs_approval"
+    },
+    {
+      "asset_id": "AS-10",
+      "attribution": null,
+      "commercial_use": true,
+      "conditional": false,
+      "hold": "HI-03",
+      "licence_name": "Library licence to be purchased",
+      "modification": true,
+      "status": "needs_approval"
+    },
+    {
+      "asset_id": "AS-11",
+      "attribution": null,
+      "commercial_use": true,
+      "conditional": false,
+      "hold": null,
+      "licence_name": "In-house production asset",
+      "modification": true,
+      "status": "cleared"
+    },
+    {
+      "asset_id": "AS-12",
+      "attribution": null,
+      "commercial_use": true,
+      "conditional": false,
+      "hold": null,
+      "licence_name": "In-house production asset",
+      "modification": true,
+      "status": "cleared"
+    },
+    {
+      "asset_id": "AS-13",
+      "attribution": null,
+      "commercial_use": true,
+      "conditional": true,
+      "hold": "HI-02",
+      "licence_name": "Brand pack capture approval (pending)",
+      "modification": true,
+      "status": "needs_approval"
+    },
+    {
+      "asset_id": "AS-14",
+      "attribution": null,
+      "commercial_use": true,
+      "conditional": true,
+      "hold": "HI-03",
+      "licence_name": "Library licence to be purchased",
+      "modification": true,
+      "status": "needs_approval"
+    },
+    {
+      "asset_id": "AS-15",
+      "attribution": null,
+      "commercial_use": true,
+      "conditional": true,
+      "hold": "HI-03",
+      "licence_name": "Provider terms and AI disclosure (pending)",
+      "modification": true,
+      "status": "needs_approval"
+    }
+  ],
+  "attributions": [],
+  "note": "No CC BY candidate is in the package yet.",
+  "plan_hash": "1370f029b0b35730625c459cf85579bfd767d2e4a7b62016055e100d15f2aba5",
+  "run_id": "rev-002"
+}

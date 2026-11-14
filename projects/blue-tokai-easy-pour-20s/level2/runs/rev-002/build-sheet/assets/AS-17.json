@@ -1,0 +1,29 @@
+{
+  "asset_id": "AS-17",
+  "name": "Easy Pour Seethargundu Estate pack",
+  "truth_class": "exact",
+  "impact": "high",
+  "methods": [
+    "M0"
+  ],
+  "source": "supplied:https://bluetokaicoffee.com/cdn/shop/files/Seethargundu-Estate__Front_1.jpg?v=1764321548",
+  "processing": [
+    "alpha_cutout",
+    "grade",
+    "encode"
+  ],
+  "output_path": null,
+  "output_sha256": null,
+  "bindings": [
+    "LY-047"
+  ],
+  "acceptance": "Seethargundu name and light-roast descriptor readable; no label crop.",
+  "probe_id": null,
+  "rights_status": "needs_approval",
+  "hold": "HI-02",
+  "conditional": false,
+  "status": "blocked",
+  "blockers": [
+    "HI-02"
+  ]
+}

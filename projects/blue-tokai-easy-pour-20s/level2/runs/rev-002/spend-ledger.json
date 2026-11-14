@@ -1,0 +1,12 @@
+{
+  "cap_usd": 100.0,
+  "currency": "USD",
+  "entries": [],
+  "note": "Empty until Gate 2A approval. No paid call has been made.",
+  "open_reservations": 0,
+  "receipts": 0,
+  "releases": 0,
+  "reservations": 0,
+  "run_id": "rev-002",
+  "spent_usd": 0
+}

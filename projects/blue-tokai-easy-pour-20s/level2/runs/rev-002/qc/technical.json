@@ -1,0 +1,35 @@
+{
+  "stage": "technical",
+  "verdict": "pass",
+  "findings": [
+    {
+      "id": "QC-001",
+      "stage": "technical",
+      "check": "asset_coverage",
+      "target": "build_sheet",
+      "verdict": "pass",
+      "detail": "16 assets",
+      "remediation": null
+    },
+    {
+      "id": "QC-002",
+      "stage": "technical",
+      "check": "timeline_length",
+      "target": "timeline",
+      "verdict": "pass",
+      "detail": "500 frames",
+      "remediation": null
+    },
+    {
+      "id": "QC-003",
+      "stage": "technical",
+      "check": "variant_resolution",
+      "target": "VO-01",
+      "verdict": "pass",
+      "detail": "all 38 layers resolved",
+      "remediation": null
+    }
+  ],
+  "reviewer": "code:deterministic",
+  "created_at": "2026-11-14T19:45:56+00:00"
+}

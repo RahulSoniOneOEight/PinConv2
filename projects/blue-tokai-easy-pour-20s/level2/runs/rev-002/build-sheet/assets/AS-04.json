@@ -1,0 +1,29 @@
+{
+  "asset_id": "AS-04",
+  "name": "Easy Pour Attikan Estate pack",
+  "truth_class": "exact",
+  "impact": "high",
+  "methods": [
+    "M0"
+  ],
+  "source": "supplied:https://bluetokaicoffee.com/cdn/shop/files/AttikanEstate__Front.jpg?v=1764321548",
+  "processing": [
+    "alpha_cutout",
+    "grade",
+    "encode"
+  ],
+  "output_path": null,
+  "output_sha256": null,
+  "bindings": [
+    "LY-043"
+  ],
+  "acceptance": "Attikan name and medium-dark descriptor readable; no label crop.",
+  "probe_id": null,
+  "rights_status": "needs_approval",
+  "hold": "HI-02",
+  "conditional": false,
+  "status": "blocked",
+  "blockers": [
+    "HI-02"
+  ]
+}

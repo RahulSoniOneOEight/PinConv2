@@ -1,0 +1,31 @@
+{
+  "asset_id": "AS-07",
+  "name": "Warm kitchen background",
+  "truth_class": "atmospheric",
+  "impact": "medium",
+  "methods": [
+    "M0"
+  ],
+  "source": "owned:In-house set build",
+  "processing": [
+    "grade",
+    "encode"
+  ],
+  "output_path": null,
+  "output_sha256": null,
+  "bindings": [
+    "LY-010",
+    "LY-020",
+    "LY-030",
+    "LY-040",
+    "LY-050",
+    "LY-060"
+  ],
+  "acceptance": "Full-canvas background holds a consistent grade across all six shots.",
+  "probe_id": null,
+  "rights_status": "cleared",
+  "hold": null,
+  "conditional": false,
+  "status": "planned",
+  "blockers": []
+}

@@ -1,0 +1,31 @@
+{
+  "asset_id": "AS-15",
+  "name": "Synthetic narration fallback",
+  "truth_class": "representative",
+  "impact": "low",
+  "methods": [
+    "M7"
+  ],
+  "source": "generate:Approved speech provider",
+  "processing": [
+    "channel_map",
+    "trim",
+    "denoise",
+    "loudness_norm",
+    "resample",
+    "encode"
+  ],
+  "output_path": null,
+  "output_sha256": null,
+  "bindings": [],
+  "acceptance": "Synthetic read matches the canonical script and carries the disclosure decision.",
+  "probe_id": null,
+  "rights_status": "needs_approval",
+  "hold": "HI-03",
+  "conditional": true,
+  "status": "conditional",
+  "blockers": [
+    "HI-03",
+    "conditional fallback"
+  ]
+}

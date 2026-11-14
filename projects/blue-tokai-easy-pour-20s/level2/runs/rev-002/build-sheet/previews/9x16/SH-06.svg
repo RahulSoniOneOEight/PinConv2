@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920">
+<rect x="0" y="0" width="1080" height="1920" fill="#0B0604"/>
+<rect x="0" y="0" width="1080" height="1920" fill="#1A0F0A" fill-opacity="0.85" rx="12"/>
+
+<rect x="240" y="520" width="600" height="600" fill="#8A4B2A" fill-opacity="0.85" rx="12"/>
+
+<rect x="280" y="260" width="520" height="220" fill="#E8C9A0" fill-opacity="0.85" rx="12"/>
+
+<rect x="280" y="260" width="520" height="220" fill="none" stroke="#FF6B6B" stroke-width="3" stroke-dasharray="12 8"/>
+<rect x="60" y="1140" width="880" height="360" fill="#000000" fill-opacity="0.55" />
+
+<rect x="60" y="1200" width="860" height="100" fill="#F7F3EC" fill-opacity="0.85" rx="12"/>
+<text x="60" y="1258" font-family="Inter, Segoe UI, sans-serif" font-size="58" font-weight="700" fill="#132A3A">Shop Easy Pour</text>
+<rect x="60" y="1200" width="860" height="100" fill="none" stroke="#FF6B6B" stroke-width="3" stroke-dasharray="12 8"/>
+<rect x="60" y="1410" width="860" height="70" fill="#F7F3EC" fill-opacity="0.85" rx="12"/>
+<text x="60" y="1444" font-family="Inter, Segoe UI, sans-serif" font-size="34" font-weight="700" fill="#132A3A">Blue Tokai Coffee Roasters</text>
+<rect x="60" y="220" width="880" height="1380" fill="none" stroke="#4ADE80" stroke-width="4" stroke-dasharray="16 10"/>
+<text x="24" y="1896" font-family="Inter, Segoe UI, sans-serif" font-size="28" fill="#FFFFFF" fill-opacity="0.7">SH-06 · VO-01</text>
+</svg>

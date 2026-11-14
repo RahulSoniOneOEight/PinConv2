@@ -1,0 +1,33 @@
+{
+  "asset_id": "AS-06",
+  "name": "Hot water pour and bloom footage",
+  "truth_class": "proof",
+  "impact": "high",
+  "methods": [
+    "M6"
+  ],
+  "source": "capture:In-house food shoot",
+  "processing": [
+    "trim",
+    "stabilise",
+    "conform",
+    "speed_ramp",
+    "grade",
+    "scale",
+    "encode"
+  ],
+  "output_path": null,
+  "output_sha256": null,
+  "bindings": [
+    "LY-031"
+  ],
+  "acceptance": "Water visibly contacts the coffee bed; bloom and drip read in macro; no spill or continuity break.",
+  "probe_id": null,
+  "rights_status": "needs_approval",
+  "hold": "HI-04",
+  "conditional": false,
+  "status": "blocked",
+  "blockers": [
+    "HI-04"
+  ]
+}

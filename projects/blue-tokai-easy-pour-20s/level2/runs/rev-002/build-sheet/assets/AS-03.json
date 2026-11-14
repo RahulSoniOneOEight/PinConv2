@@ -1,0 +1,29 @@
+{
+  "asset_id": "AS-03",
+  "name": "Easy Pour Vienna pack",
+  "truth_class": "exact",
+  "impact": "high",
+  "methods": [
+    "M0"
+  ],
+  "source": "supplied:https://bluetokaicoffee.com/cdn/shop/files/ViennaRoast__Front_1_a175faba-8e5f-40b8-aaa1-0efc3a525321.jpg?v=1717565466",
+  "processing": [
+    "alpha_cutout",
+    "grade",
+    "encode"
+  ],
+  "output_path": null,
+  "output_sha256": null,
+  "bindings": [
+    "LY-042"
+  ],
+  "acceptance": "Vienna name and dark-roast descriptor readable; no label crop.",
+  "probe_id": null,
+  "rights_status": "needs_approval",
+  "hold": "HI-02",
+  "conditional": false,
+  "status": "blocked",
+  "blockers": [
+    "HI-02"
+  ]
+}

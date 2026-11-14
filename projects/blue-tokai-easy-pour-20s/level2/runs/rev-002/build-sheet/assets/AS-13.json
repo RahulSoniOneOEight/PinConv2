@@ -1,0 +1,29 @@
+{
+  "asset_id": "AS-13",
+  "name": "Captured Mixed Bag fallback",
+  "truth_class": "exact",
+  "impact": "low",
+  "methods": [
+    "M6"
+  ],
+  "source": "capture:In-house studio capture",
+  "processing": [
+    "alpha_cutout",
+    "grade",
+    "scale",
+    "encode"
+  ],
+  "output_path": null,
+  "output_sha256": null,
+  "bindings": [],
+  "acceptance": "Physical pack label is square to camera and at least as legible as the supplied image.",
+  "probe_id": null,
+  "rights_status": "needs_approval",
+  "hold": "HI-02",
+  "conditional": true,
+  "status": "conditional",
+  "blockers": [
+    "HI-02",
+    "conditional fallback"
+  ]
+}

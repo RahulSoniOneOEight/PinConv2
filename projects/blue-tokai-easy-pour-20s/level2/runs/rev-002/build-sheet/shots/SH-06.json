@@ -1,0 +1,102 @@
+{
+  "shot_id": "SH-06",
+  "start_frame": 445,
+  "end_frame": 500,
+  "method": "End-card composite with supplied logo and pack.",
+  "layers": [
+    {
+      "layer_id": "LY-060",
+      "shot_id": "SH-06",
+      "asset_id": "AS-07",
+      "copy_id": null,
+      "method": "M0",
+      "z_order": 0,
+      "start_frame": 0,
+      "end_frame": 55,
+      "transform": "asset transform per layer rect and allow-list",
+      "status": "planned"
+    },
+    {
+      "layer_id": "LY-061",
+      "shot_id": "SH-06",
+      "asset_id": "AS-02",
+      "copy_id": null,
+      "method": "M0",
+      "z_order": 10,
+      "start_frame": 0,
+      "end_frame": 55,
+      "transform": "asset transform per layer rect and allow-list",
+      "status": "blocked"
+    },
+    {
+      "layer_id": "LY-062",
+      "shot_id": "SH-06",
+      "asset_id": "AS-01",
+      "copy_id": null,
+      "method": "M0",
+      "z_order": 20,
+      "start_frame": 0,
+      "end_frame": 55,
+      "transform": "asset transform per layer rect and allow-list",
+      "status": "blocked"
+    },
+    {
+      "layer_id": "LY-063",
+      "shot_id": "SH-06",
+      "asset_id": null,
+      "copy_id": "CP-05",
+      "method": "M4",
+      "z_order": 30,
+      "start_frame": 0,
+      "end_frame": 55,
+      "transform": "text rendered from the approved copy block",
+      "status": "planned"
+    },
+    {
+      "layer_id": "LY-064",
+      "shot_id": "SH-06",
+      "asset_id": null,
+      "copy_id": null,
+      "method": "M4",
+      "z_order": 25,
+      "start_frame": 0,
+      "end_frame": 55,
+      "transform": "procedural fill and effect",
+      "status": "planned"
+    },
+    {
+      "layer_id": "LY-065",
+      "shot_id": "SH-06",
+      "asset_id": null,
+      "copy_id": "CP-11",
+      "method": "M4",
+      "z_order": 40,
+      "start_frame": 0,
+      "end_frame": 55,
+      "transform": "text rendered from the approved copy block",
+      "status": "planned"
+    }
+  ],
+  "effects": [
+    "FX-06"
+  ],
+  "audio": [
+    "AU-01",
+    "AU-02",
+    "AU-03",
+    "AU-04"
+  ],
+  "checks": [
+    "AC-01",
+    "AC-02",
+    "AC-03",
+    "AC-05",
+    "AC-09",
+    "AC-14"
+  ],
+  "preview_path": "previews/16x9/SH-06.svg",
+  "ready": false,
+  "blockers": [
+    "HI-02"
+  ]
+}

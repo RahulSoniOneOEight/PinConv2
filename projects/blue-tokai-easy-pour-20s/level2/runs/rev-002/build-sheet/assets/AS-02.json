@@ -1,0 +1,34 @@
+{
+  "asset_id": "AS-02",
+  "name": "Easy Pour Mixed Bag pack",
+  "truth_class": "exact",
+  "impact": "high",
+  "methods": [
+    "M0"
+  ],
+  "source": "supplied:https://bluetokaicoffee.com/cdn/shop/files/MixedBag__Front_c9b610f1-ce4a-4b53-8b30-f6ca758eb6bb.jpg?v=1717566490",
+  "processing": [
+    "alpha_cutout",
+    "grade",
+    "encode"
+  ],
+  "output_path": null,
+  "output_sha256": null,
+  "bindings": [
+    "LY-011",
+    "LY-022",
+    "LY-032",
+    "LY-041",
+    "LY-052",
+    "LY-061"
+  ],
+  "acceptance": "Front title, ‘Light to Dark Roasts’ and Blue Tokai mark readable at phone scale; no label crop.",
+  "probe_id": null,
+  "rights_status": "needs_approval",
+  "hold": "HI-02",
+  "conditional": false,
+  "status": "blocked",
+  "blockers": [
+    "HI-02"
+  ]
+}

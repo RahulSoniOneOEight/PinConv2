@@ -1,0 +1,53 @@
+{
+  "session_id": "CAP-01",
+  "members": [
+    {
+      "asset_id": "AS-05",
+      "role": "pack tear, anchor and pour demonstration",
+      "frame_rate": 25,
+      "notes": null
+    },
+    {
+      "asset_id": "AS-06",
+      "role": "hot water pour and bloom, 50 fps for the ramp",
+      "frame_rate": 50,
+      "notes": null
+    },
+    {
+      "asset_id": "AS-08",
+      "role": "finished cup with live steam",
+      "frame_rate": 25,
+      "notes": null
+    },
+    {
+      "asset_id": "AS-13",
+      "role": "conditional captured pack fallback, four angles",
+      "frame_rate": 25,
+      "notes": "Conditional: shoot only if the schedule allows."
+    }
+  ],
+  "foley": [
+    "pack tear",
+    "filter seat and anchor",
+    "water pour",
+    "cup set-down"
+  ],
+  "marginal_items": [
+    "second angle on the steep pour",
+    "steam plate reference for FX-01 and FX-05",
+    "room tone for the mix"
+  ],
+  "studio": "Studio TBC by the producer",
+  "hand_model_release": "Pending signed release",
+  "release_hold": "HI-04",
+  "cost_usd": 18.0,
+  "estimate_id": "ES-06",
+  "shot_list": [
+    "SH-02",
+    "SH-03",
+    "SH-05"
+  ],
+  "colour_target": "Warm 3200K practical light, neutral grade, no baked look",
+  "audio_rig": "Close-mic foley plus 30 seconds of room tone",
+  "acceptance": "Tear, anchor and pour are visible in one continuous take; the pack label stays legible; the finished cup shows live steam."
+}

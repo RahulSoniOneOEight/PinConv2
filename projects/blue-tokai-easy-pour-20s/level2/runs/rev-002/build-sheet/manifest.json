@@ -1,0 +1,143 @@
+{
+  "schema_version": "2.0",
+  "run_id": "rev-002",
+  "project_id": "blue-tokai-easy-pour-20s",
+  "plan_revision": 2,
+  "source_plan_hash": "1370f029b0b35730625c459cf85579bfd767d2e4a7b62016055e100d15f2aba5",
+  "bundle_hash": "5a67ac5e48201fc48984a7f913d0f040e57327e807d072e488aad00810574cc2",
+  "packet_hash": "756d91de1005ff0c5002a12670168498f164c80bed1a4d89feacab33e949e427",
+  "generated_at": "2026-11-14T19:45:56+00:00",
+  "parts": {
+    "build-sheet/assets/AS-01.json": {
+      "sha256": "a10438b14c71897863570b921d11d332ba7ba733caa694a6a9b5b77477b98342",
+      "bytes": 720
+    },
+    "build-sheet/assets/AS-02.json": {
+      "sha256": "2f503aa8e2a6bf77011e8ac7b56193dc99b65f8674c0c92adf5f03b7146e96fa",
+      "bytes": 772
+    },
+    "build-sheet/assets/AS-03.json": {
+      "sha256": "878fba26e92d175402964c164755638d6d6ee259f87b515e4b4f119ed6c468f3",
+      "bytes": 667
+    },
+    "build-sheet/assets/AS-04.json": {
+      "sha256": "199e17b3ebbfd299bbd0f1028c7fc7c1592e07bfa56f4f34a02424502188f9ff",
+      "bytes": 640
+    },
+    "build-sheet/assets/AS-17.json": {
+      "sha256": "30bd08a817250caf7aaf093eb96fbb7dabc17c58de38b4dc88bb23d4d1728e63",
+      "bytes": 658
+    },
+    "build-sheet/assets/AS-05.json": {
+      "sha256": "a9224eb4a0ec09060539107786a4a0ad8170c1f4b7d3fae55ef75bca553a7fbb",
+      "bytes": 646
+    },
+    "build-sheet/assets/AS-06.json": {
+      "sha256": "523ba8c8356bbcac93829c90d78a2b33a45374a8f7bd31ce19e5a9b9ef183d28",
+      "bytes": 670
+    },
+    "build-sheet/assets/AS-07.json": {
+      "sha256": "1e8cf321dbe4f4a5bfd345f7502fd86c4951c038101df002c7396c819d2af6b6",
+      "bytes": 607
+    },
+    "build-sheet/assets/AS-08.json": {
+      "sha256": "facd7ab6e8d0a2f8d69a94ef0b62b9f4b5ef9ef2f4ba6f1cd9acbd433986d7dd",
+      "bytes": 636
+    },
+    "build-sheet/assets/AS-09.json": {
+      "sha256": "256646ca81340ff12234abb486b36f4c25ebf162b5638675a5925232ddc173ea",
+      "bytes": 639
+    },
+    "build-sheet/assets/AS-10.json": {
+      "sha256": "362edf25813e8ddbda506bd539086b5d0c270ad8677b0920b5f244aac927fedf",
+      "bytes": 629
+    },
+    "build-sheet/assets/AS-11.json": {
+      "sha256": "1c293f5995715660d6af0c50c5f0586a0e78aa3db151b95d6d9b64752f6be05f",
+      "bytes": 551
+    },
+    "build-sheet/assets/AS-12.json": {
+      "sha256": "01c6638d50eb045ba4c7a6b5615d1b76928665316814464024e49f58a33327fc",
+      "bytes": 531
+    },
+    "build-sheet/assets/AS-13.json": {
+      "sha256": "6508abf0d55ef071e4d062ce4bf678bb99f214e56cfdeff7d5d015955da27444",
+      "bytes": 629
+    },
+    "build-sheet/assets/AS-14.json": {
+      "sha256": "39ae36c959db137a36a45f906e9d02def01f0e37514f467271dd0b908d58043f",
+      "bytes": 617
+    },
+    "build-sheet/assets/AS-15.json": {
+      "sha256": "0b7a7e83db65ec86f65cd6b630d9ab9dba6daf726a500accf2e1695e994cec04",
+      "bytes": 672
+    },
+    "build-sheet/shots/SH-01.json": {
+      "sha256": "3f24b1bc7804d5d118e51dc378841fc65c340b55702bfc29f2c795a35ee8d56a",
+      "bytes": 2157
+    },
+    "build-sheet/shots/SH-02.json": {
+      "sha256": "c5b467e19d1518a6a421cf32823c15a5300a73a535508baf2fb88e7f8ff3133d",
+      "bytes": 2188
+    },
+    "build-sheet/shots/SH-03.json": {
+      "sha256": "c00ab57b8ca36451b114c8fcbd4c4b41458a878f3d2e708f6cc0a7306fa46da1",
+      "bytes": 2230
+    },
+    "build-sheet/shots/SH-04.json": {
+      "sha256": "359fe95eb6b9fcd0d1f6ed86cae15b5b44c41cf66968fea033a5fc14ddbc6bd5",
+      "bytes": 2801
+    },
+    "build-sheet/shots/SH-05.json": {
+      "sha256": "acfa4a6044b4ed879e6fb8978d64276aeb7186d5ddff87b05db1d4ebc6ad2896",
+      "bytes": 2238
+    },
+    "build-sheet/shots/SH-06.json": {
+      "sha256": "16249731639e2ae4b435d402378aa1684a1b8e68390bc778bf2a0c55af2c3e75",
+      "bytes": 2218
+    },
+    "build-sheet/variants/VO-01.json": {
+      "sha256": "19779ffa3483cd561f32ed302655a66da0301972ef9a979a46da7bdcb35eaba2",
+      "bytes": 23160
+    },
+    "build-sheet/timeline/timeline.json": {
+      "sha256": "2b7c7588fe8a13d5a5cfc8687a3e036b58a98f52655e4d704a7932deabc887bc",
+      "bytes": 9332
+    },
+    "build-sheet/captions/captions-16x9.srt": {
+      "sha256": "d737fd375b48d5f771a75be346c90deb92aa1dbb34005c04217eeedf91a964cd",
+      "bytes": 374
+    },
+    "build-sheet/captions/captions-9x16.srt": {
+      "sha256": "d737fd375b48d5f771a75be346c90deb92aa1dbb34005c04217eeedf91a964cd",
+      "bytes": 374
+    }
+  },
+  "counts": {
+    "assets": 16,
+    "layers": 38,
+    "shots": 6,
+    "effects": 6,
+    "variants": 1,
+    "timeline_entries": 48
+  },
+  "budget": {
+    "currency": "USD",
+    "cap_usd": 100.0,
+    "reserve_pct": 15.0,
+    "subtotal_usd": 76.0,
+    "reserve_usd": 11.4,
+    "total_usd": 87.4,
+    "fallback_usd": 5.0,
+    "worst_usd": 92.4,
+    "headroom_usd": 7.6,
+    "within_cap": true,
+    "worst_within_cap": true,
+    "verified_quote_usd": 0.0,
+    "operator_estimate_usd": 81.0,
+    "unpriced_lines": [
+      "BL-011",
+      "BL-012"
+    ]
+  }
+}
