@@ -49,6 +49,8 @@ from ..models import (
     TechSpec,
     TextStyle,
     Transition,
+    VariantEffectOverride,
+    VariantLayerOverride,
     VariantOverride,
     VisualBehaviour,
 )
@@ -1581,7 +1583,102 @@ def _shots(*, layers: list[Layer], budget_fixed: bool) -> list[Shot]:
     ]
 
 
-def _variant() -> VariantOverride:
+def _variant(layers: list[Layer]) -> VariantOverride:
+    rects = {
+        "LY-010": _r(0, 0, 1080, 1920),
+        "LY-011": _r(120, 430, 840, 840),
+        "LY-012": _r(60, 300, 300, 900),
+        "LY-013": _r(60, 240, 860, 200),
+        "LY-014": _r(60, 1360, 880, 150),
+        "LY-015": _r(60, 1390, 860, 80),
+        "LY-020": _r(0, 0, 1080, 1920),
+        "LY-021": _r(60, 300, 960, 980),
+        "LY-022": _r(700, 260, 300, 300),
+        "LY-023": _r(60, 250, 860, 160),
+        "LY-024": _r(60, 1360, 880, 150),
+        "LY-025": _r(60, 1390, 860, 80),
+        "LY-030": _r(0, 0, 1080, 1920),
+        "LY-031": _r(60, 300, 960, 1100),
+        "LY-032": _r(680, 420, 340, 340),
+        "LY-033": _r(60, 250, 860, 160),
+        "LY-034": _r(60, 1360, 880, 150),
+        "LY-035": _r(60, 1390, 860, 80),
+        "LY-040": _r(0, 0, 1080, 1920),
+        "LY-041": _r(120, 400, 360, 360),
+        "LY-042": _r(600, 780, 360, 360),
+        "LY-043": _r(120, 780, 360, 360),
+        "LY-044": _r(60, 250, 860, 150),
+        "LY-045": _r(60, 1360, 880, 150),
+        "LY-046": _r(60, 1390, 860, 80),
+        "LY-047": _r(600, 400, 360, 360),
+        "LY-050": _r(0, 0, 1080, 1920),
+        "LY-051": _r(120, 300, 840, 900),
+        "LY-052": _r(700, 260, 300, 300),
+        "LY-053": _r(60, 1180, 860, 140),
+        "LY-054": _r(60, 1360, 880, 150),
+        "LY-055": _r(60, 1390, 860, 80),
+        "LY-060": _r(0, 0, 1080, 1920),
+        "LY-061": _r(240, 520, 600, 600),
+        "LY-062": _r(280, 260, 520, 220),
+        "LY-063": _r(60, 1200, 860, 100),
+        "LY-064": _r(60, 1140, 880, 360),
+        "LY-065": _r(60, 1410, 860, 70),
+    }
+    sizes = {
+        "LY-013": 72,
+        "LY-015": 30,
+        "LY-023": 66,
+        "LY-025": 30,
+        "LY-033": 66,
+        "LY-035": 30,
+        "LY-044": 66,
+        "LY-046": 28,
+        "LY-053": 52,
+        "LY-055": 26,
+        "LY-063": 52,
+        "LY-065": 28,
+    }
+    protected = {
+        "LY-011": [_r(180, 600, 720, 380)],
+        "LY-022": [_r(720, 320, 260, 180)],
+        "LY-032": [_r(700, 480, 300, 200)],
+        "LY-041": [_r(140, 430, 320, 300)],
+        "LY-042": [_r(620, 810, 320, 300)],
+        "LY-043": [_r(140, 810, 320, 300)],
+        "LY-047": [_r(620, 430, 320, 300)],
+        "LY-052": [_r(720, 320, 260, 180)],
+        "LY-061": [_r(280, 650, 520, 360)],
+    }
+    layer_overrides = []
+    for layer in layers:
+        if layer.id not in rects:
+            continue
+        text_style = layer.text_style
+        if text_style is not None and layer.id in sizes:
+            text_style = text_style.model_copy(update={"size_px": sizes[layer.id]})
+        motion = []
+        if layer.id == "LY-063":
+            motion = [
+                Keyframe(frame=0, opacity=0.0),
+                Keyframe(frame=6, opacity=1.0, easing="ease_out"),
+            ]
+        elif layer.id == "LY-065":
+            motion = [
+                Keyframe(frame=8, opacity=0.0),
+                Keyframe(frame=14, opacity=1.0, easing="ease_out"),
+            ]
+        layer_overrides.append(
+            VariantLayerOverride(
+                layer_id=layer.id,
+                rect=rects[layer.id],
+                motion=motion,
+                text_style=text_style,
+                protected=layer.protected,
+                protected_regions=protected.get(layer.id, []),
+                notes="9:16 recompose; keep exact content and protected regions.",
+            )
+        )
+
     return VariantOverride(
         id="VO-01",
         deliverable_id="DP-01",
@@ -1603,11 +1700,13 @@ def _variant() -> VariantOverride:
             "Rebuild the end card for a vertical logo, pack and CTA stack.",
         ],
         cost_delta_usd=6.0,
+        cost_estimate_id="ES-11",
         check_ids=["AC-16"],
         approval_scope=["SH-01", "SH-02", "SH-03", "SH-04", "SH-05", "SH-06"],
         width=1080,
         height=1920,
         aspect_ratio="9:16",
+        fps=25,
         frame_count=500,
         duration_seconds=20.0,
         safe_area=SafeArea(top=220, bottom=320, left=60, right=140),
@@ -1617,6 +1716,34 @@ def _variant() -> VariantOverride:
             max_cps=16.0,
             min_hold_frames=36,
         ),
+        placement="Vertical placement pending media-owner decision",
+        safe_area_basis=(
+            "Operator assumption; confirm against the current Shorts/Reels placement "
+            "template before paid media."
+        ),
+        layer_overrides=layer_overrides,
+        effect_overrides=[
+            VariantEffectOverride(
+                effect_id="FX-01",
+                mask_region=_r(60, 300, 110, 900),
+                intensity=0.18,
+            ),
+            VariantEffectOverride(
+                effect_id="FX-02",
+                mask_region=_r(60, 300, 620, 1100),
+                intensity=0.8,
+            ),
+            VariantEffectOverride(
+                effect_id="FX-03",
+                mask_region=_r(60, 300, 620, 1100),
+                intensity=0.7,
+            ),
+            VariantEffectOverride(
+                effect_id="FX-05",
+                mask_region=_r(60, 300, 640, 900),
+                intensity=0.12,
+            ),
+        ],
         notes="Separate vertical cut required by the named human approval.",
     )
 
@@ -2196,7 +2323,7 @@ def build_blue_tokai_plan(
         effects=_effects(),
         transitions=_transitions(),
         alternates=_alternates(),
-        variant_overrides=[_variant()],
+        variant_overrides=[_variant(layers)],
         estimates=estimates,
         budget=BudgetPlan(
             cap_usd=100.0,

@@ -3836,6 +3836,7 @@
         "Rebuild the end card for a vertical logo, pack and CTA stack."
       ],
       "cost_delta_usd": 6.0,
+      "cost_estimate_id": "ES-11",
       "check_ids": [
         "AC-16"
       ],
@@ -3850,6 +3851,7 @@
       "width": 1080,
       "height": 1920,
       "aspect_ratio": "9:16",
+      "fps": 25,
       "frame_count": 500,
       "duration_seconds": 20.0,
       "safe_area": {
@@ -3864,6 +3866,794 @@
         "max_cps": 16.0,
         "min_hold_frames": 36
       },
+      "placement": "Vertical placement pending media-owner decision",
+      "placement_safe_areas": {},
+      "safe_area_basis": "Operator assumption; confirm against the current Shorts/Reels placement template before paid media.",
+      "layer_overrides": [
+        {
+          "layer_id": "LY-010",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 1080,
+            "h": 1920
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-011",
+          "rect": {
+            "x": 120,
+            "y": 430,
+            "w": 840,
+            "h": 840
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [
+            {
+              "x": 180,
+              "y": 600,
+              "w": 720,
+              "h": 380
+            }
+          ],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-012",
+          "rect": {
+            "x": 60,
+            "y": 300,
+            "w": 300,
+            "h": 900
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-013",
+          "rect": {
+            "x": 60,
+            "y": 240,
+            "w": 860,
+            "h": 200
+          },
+          "motion": [],
+          "text_style": {
+            "font_family": "Inter",
+            "size_px": 72,
+            "weight": 700,
+            "color": "#132A3A",
+            "align": "left",
+            "line_height": 1.08,
+            "tracking": -1.0,
+            "max_lines": 2
+          },
+          "protected": true,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-014",
+          "rect": {
+            "x": 60,
+            "y": 1360,
+            "w": 880,
+            "h": 150
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-015",
+          "rect": {
+            "x": 60,
+            "y": 1390,
+            "w": 860,
+            "h": 80
+          },
+          "motion": [],
+          "text_style": {
+            "font_family": "Inter",
+            "size_px": 30,
+            "weight": 700,
+            "color": "#132A3A",
+            "align": "left",
+            "line_height": 1.08,
+            "tracking": -1.0,
+            "max_lines": 2
+          },
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-020",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 1080,
+            "h": 1920
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-021",
+          "rect": {
+            "x": 60,
+            "y": 300,
+            "w": 960,
+            "h": 980
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-022",
+          "rect": {
+            "x": 700,
+            "y": 260,
+            "w": 300,
+            "h": 300
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [
+            {
+              "x": 720,
+              "y": 320,
+              "w": 260,
+              "h": 180
+            }
+          ],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-023",
+          "rect": {
+            "x": 60,
+            "y": 250,
+            "w": 860,
+            "h": 160
+          },
+          "motion": [],
+          "text_style": {
+            "font_family": "Inter",
+            "size_px": 66,
+            "weight": 700,
+            "color": "#132A3A",
+            "align": "left",
+            "line_height": 1.08,
+            "tracking": -1.0,
+            "max_lines": 2
+          },
+          "protected": true,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-024",
+          "rect": {
+            "x": 60,
+            "y": 1360,
+            "w": 880,
+            "h": 150
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-025",
+          "rect": {
+            "x": 60,
+            "y": 1390,
+            "w": 860,
+            "h": 80
+          },
+          "motion": [],
+          "text_style": {
+            "font_family": "Inter",
+            "size_px": 30,
+            "weight": 700,
+            "color": "#132A3A",
+            "align": "left",
+            "line_height": 1.08,
+            "tracking": -1.0,
+            "max_lines": 2
+          },
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-030",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 1080,
+            "h": 1920
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-031",
+          "rect": {
+            "x": 60,
+            "y": 300,
+            "w": 960,
+            "h": 1100
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-032",
+          "rect": {
+            "x": 680,
+            "y": 420,
+            "w": 340,
+            "h": 340
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [
+            {
+              "x": 700,
+              "y": 480,
+              "w": 300,
+              "h": 200
+            }
+          ],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-033",
+          "rect": {
+            "x": 60,
+            "y": 250,
+            "w": 860,
+            "h": 160
+          },
+          "motion": [],
+          "text_style": {
+            "font_family": "Inter",
+            "size_px": 66,
+            "weight": 700,
+            "color": "#132A3A",
+            "align": "left",
+            "line_height": 1.08,
+            "tracking": -1.0,
+            "max_lines": 2
+          },
+          "protected": true,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-034",
+          "rect": {
+            "x": 60,
+            "y": 1360,
+            "w": 880,
+            "h": 150
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-035",
+          "rect": {
+            "x": 60,
+            "y": 1390,
+            "w": 860,
+            "h": 80
+          },
+          "motion": [],
+          "text_style": {
+            "font_family": "Inter",
+            "size_px": 30,
+            "weight": 700,
+            "color": "#132A3A",
+            "align": "left",
+            "line_height": 1.08,
+            "tracking": -1.0,
+            "max_lines": 2
+          },
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-040",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 1080,
+            "h": 1920
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-041",
+          "rect": {
+            "x": 120,
+            "y": 400,
+            "w": 360,
+            "h": 360
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [
+            {
+              "x": 140,
+              "y": 430,
+              "w": 320,
+              "h": 300
+            }
+          ],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-042",
+          "rect": {
+            "x": 600,
+            "y": 780,
+            "w": 360,
+            "h": 360
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [
+            {
+              "x": 620,
+              "y": 810,
+              "w": 320,
+              "h": 300
+            }
+          ],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-043",
+          "rect": {
+            "x": 120,
+            "y": 780,
+            "w": 360,
+            "h": 360
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [
+            {
+              "x": 140,
+              "y": 810,
+              "w": 320,
+              "h": 300
+            }
+          ],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-047",
+          "rect": {
+            "x": 600,
+            "y": 400,
+            "w": 360,
+            "h": 360
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [
+            {
+              "x": 620,
+              "y": 430,
+              "w": 320,
+              "h": 300
+            }
+          ],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-044",
+          "rect": {
+            "x": 60,
+            "y": 250,
+            "w": 860,
+            "h": 150
+          },
+          "motion": [],
+          "text_style": {
+            "font_family": "Inter",
+            "size_px": 66,
+            "weight": 700,
+            "color": "#132A3A",
+            "align": "left",
+            "line_height": 1.08,
+            "tracking": -1.0,
+            "max_lines": 2
+          },
+          "protected": true,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-045",
+          "rect": {
+            "x": 60,
+            "y": 1360,
+            "w": 880,
+            "h": 150
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-046",
+          "rect": {
+            "x": 60,
+            "y": 1390,
+            "w": 860,
+            "h": 80
+          },
+          "motion": [],
+          "text_style": {
+            "font_family": "Inter",
+            "size_px": 28,
+            "weight": 700,
+            "color": "#132A3A",
+            "align": "left",
+            "line_height": 1.08,
+            "tracking": -1.0,
+            "max_lines": 2
+          },
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-050",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 1080,
+            "h": 1920
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-051",
+          "rect": {
+            "x": 120,
+            "y": 300,
+            "w": 840,
+            "h": 900
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-052",
+          "rect": {
+            "x": 700,
+            "y": 260,
+            "w": 300,
+            "h": 300
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [
+            {
+              "x": 720,
+              "y": 320,
+              "w": 260,
+              "h": 180
+            }
+          ],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-053",
+          "rect": {
+            "x": 60,
+            "y": 1180,
+            "w": 860,
+            "h": 140
+          },
+          "motion": [],
+          "text_style": {
+            "font_family": "Inter",
+            "size_px": 52,
+            "weight": 700,
+            "color": "#132A3A",
+            "align": "left",
+            "line_height": 1.08,
+            "tracking": -1.0,
+            "max_lines": 2
+          },
+          "protected": true,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-054",
+          "rect": {
+            "x": 60,
+            "y": 1360,
+            "w": 880,
+            "h": 150
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-055",
+          "rect": {
+            "x": 60,
+            "y": 1390,
+            "w": 860,
+            "h": 80
+          },
+          "motion": [],
+          "text_style": {
+            "font_family": "Inter",
+            "size_px": 26,
+            "weight": 700,
+            "color": "#132A3A",
+            "align": "left",
+            "line_height": 1.08,
+            "tracking": -1.0,
+            "max_lines": 2
+          },
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-060",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 1080,
+            "h": 1920
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-061",
+          "rect": {
+            "x": 240,
+            "y": 520,
+            "w": 600,
+            "h": 600
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [
+            {
+              "x": 280,
+              "y": 650,
+              "w": 520,
+              "h": 360
+            }
+          ],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-062",
+          "rect": {
+            "x": 280,
+            "y": 260,
+            "w": 520,
+            "h": 220
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": true,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-063",
+          "rect": {
+            "x": 60,
+            "y": 1200,
+            "w": 860,
+            "h": 100
+          },
+          "motion": [
+            {
+              "frame": 0,
+              "x": null,
+              "y": null,
+              "scale": null,
+              "opacity": 0.0,
+              "easing": "linear"
+            },
+            {
+              "frame": 6,
+              "x": null,
+              "y": null,
+              "scale": null,
+              "opacity": 1.0,
+              "easing": "ease_out"
+            }
+          ],
+          "text_style": {
+            "font_family": "Inter",
+            "size_px": 52,
+            "weight": 700,
+            "color": "#132A3A",
+            "align": "left",
+            "line_height": 1.08,
+            "tracking": -1.0,
+            "max_lines": 2
+          },
+          "protected": true,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-064",
+          "rect": {
+            "x": 60,
+            "y": 1140,
+            "w": 880,
+            "h": 360
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-065",
+          "rect": {
+            "x": 60,
+            "y": 1410,
+            "w": 860,
+            "h": 70
+          },
+          "motion": [
+            {
+              "frame": 8,
+              "x": null,
+              "y": null,
+              "scale": null,
+              "opacity": 0.0,
+              "easing": "linear"
+            },
+            {
+              "frame": 14,
+              "x": null,
+              "y": null,
+              "scale": null,
+              "opacity": 1.0,
+              "easing": "ease_out"
+            }
+          ],
+          "text_style": {
+            "font_family": "Inter",
+            "size_px": 28,
+            "weight": 700,
+            "color": "#132A3A",
+            "align": "left",
+            "line_height": 1.08,
+            "tracking": -1.0,
+            "max_lines": 2
+          },
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        }
+      ],
+      "effect_overrides": [
+        {
+          "effect_id": "FX-01",
+          "mask_region": {
+            "x": 60,
+            "y": 300,
+            "w": 110,
+            "h": 900
+          },
+          "intensity": 0.18,
+          "notes": null
+        },
+        {
+          "effect_id": "FX-02",
+          "mask_region": {
+            "x": 60,
+            "y": 300,
+            "w": 620,
+            "h": 1100
+          },
+          "intensity": 0.8,
+          "notes": null
+        },
+        {
+          "effect_id": "FX-03",
+          "mask_region": {
+            "x": 60,
+            "y": 300,
+            "w": 620,
+            "h": 1100
+          },
+          "intensity": 0.7,
+          "notes": null
+        },
+        {
+          "effect_id": "FX-05",
+          "mask_region": {
+            "x": 60,
+            "y": 300,
+            "w": 640,
+            "h": 900
+          },
+          "intensity": 0.12,
+          "notes": null
+        }
+      ],
       "notes": "Separate vertical cut required by the named human approval."
     }
   ],
@@ -4583,5 +5373,5 @@
     "Will the brand supply cleared high-resolution pack and logo masters?",
     "Is a 9:16 Shorts variant required?"
   ],
-  "created_at": "2026-11-14T17:19:31+00:00"
+  "created_at": "2026-11-14T17:37:50+00:00"
 }

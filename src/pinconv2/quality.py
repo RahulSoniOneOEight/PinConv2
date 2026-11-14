@@ -162,4 +162,13 @@ def plan_detail_issues(plan: ProductionPlan, research: ResearchPack | None = Non
     if plan.detail_level == "full" and not plan.effects:
         issues.append("full-detail plan does not select any effects")
 
+    for variant in plan.variant_overrides:
+        if variant.width and variant.height:
+            if not variant.layer_overrides:
+                issues.append(f"{variant.id} has dimensions but no layer overrides")
+            if not variant.safe_area_basis:
+                issues.append(f"{variant.id} has no safe-area basis")
+            if variant.cost_estimate_id is None:
+                issues.append(f"{variant.id} has no cost estimate reference")
+
     return issues

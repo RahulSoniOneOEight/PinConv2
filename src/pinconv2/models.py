@@ -1048,22 +1048,73 @@ class HeldItem(StrictModel):
     owner: Owner
 
 
+class VariantLayerOverride(StrictModel):
+    layer_id: str
+    rect: Rect
+    motion: list[Keyframe] = Field(default_factory=list)
+    text_style: TextStyle | None = None
+    protected: bool | None = None
+    protected_regions: list[Rect] = Field(default_factory=list)
+    notes: str | None = Field(default=None, max_length=1000)
+
+
+class VariantEffectOverride(StrictModel):
+    effect_id: str
+    mask_region: Rect | None = None
+    intensity: float | None = Field(default=None, ge=0, le=1)
+    notes: str | None = Field(default=None, max_length=1000)
+
+
 class VariantOverride(StrictModel):
     id: str = Field(pattern=r"^VO-\d{2}$")
     deliverable_id: str
     reference_ids: list[str] = Field(min_length=1)
     changes: list[str] = Field(min_length=1)
     cost_delta_usd: float = 0
+    cost_estimate_id: str | None = None
     check_ids: list[str] = Field(min_length=1)
     approval_scope: list[str] = Field(min_length=1)
     width: int | None = Field(default=None, gt=0)
     height: int | None = Field(default=None, gt=0)
     aspect_ratio: str | None = Field(default=None, pattern=r"^\d{1,2}:\d{1,2}$")
+    fps: int | None = Field(default=None, gt=0, le=120)
     frame_count: int | None = Field(default=None, gt=0)
     duration_seconds: float | None = Field(default=None, gt=0)
     safe_area: SafeArea | None = None
     caption_rules: CaptionRules | None = None
+    placement: str | None = Field(default=None, max_length=200)
+    placement_safe_areas: dict[str, SafeArea] = Field(default_factory=dict)
+    safe_area_basis: str | None = Field(default=None, max_length=1000)
+    layer_overrides: list[VariantLayerOverride] = Field(default_factory=list)
+    effect_overrides: list[VariantEffectOverride] = Field(default_factory=list)
     notes: str | None = Field(default=None, max_length=1000)
+
+    @model_validator(mode="after")
+    def variant_profile_is_executable(self) -> VariantOverride:
+        if self.width and self.height and self.aspect_ratio:
+            expected = self.aspect_ratio.split(":")
+            if (
+                len(expected) == 2
+                and int(expected[0]) * self.height != int(expected[1]) * self.width
+            ):
+                raise ValueError(f"{self.id} dimensions do not match {self.aspect_ratio}")
+        if self.frame_count and self.duration_seconds and self.fps:
+            expected_frames = round(self.duration_seconds * self.fps)
+            if self.frame_count != expected_frames:
+                raise ValueError(
+                    f"{self.id} frame_count {self.frame_count} does not match {expected_frames}"
+                )
+        if (
+            self.safe_area
+            and self.width
+            and self.height
+            and (
+                self.safe_area.left + self.safe_area.right >= self.width
+                or self.safe_area.top + self.safe_area.bottom >= self.height
+            )
+        ):
+            raise ValueError(f"{self.id} safe area leaves no usable canvas")
+        return self
 
 
 class EffectSpec(StrictModel):
@@ -1301,6 +1352,7 @@ class Gate1Approval(StrictModel):
     approved_at: str = Field(default_factory=utc_now)
     scope: list[str] = Field(min_length=1)
     approved_exact_data: list[str] = Field(default_factory=list)
+    approved_variants: list[str] = Field(default_factory=list)
     conditions: list[str] = Field(default_factory=list)
     allowed_substitutions: list[str] = Field(default_factory=list)
     note: str | None = Field(default=None, max_length=2000)
@@ -1313,6 +1365,7 @@ class Gate1Packet(StrictModel):
     bundle: BundleManifest
     validation_passed: bool
     ready_shots: list[str]
+    ready_variants: list[str] = Field(default_factory=list)
     held_layers: list[str]
     held_items: list[HeldItem]
     exact_data_approved: list[str]
@@ -1347,6 +1400,27 @@ class HandoffAsset(StrictModel):
     fallback_asset_id: str | None
 
 
+class HandoffVariant(StrictModel):
+    variant_id: str
+    deliverable_id: str
+    width: int | None = None
+    height: int | None = None
+    aspect_ratio: str | None = None
+    fps: int | None = None
+    frame_count: int | None = None
+    duration_seconds: float | None = None
+    safe_area: SafeArea | None = None
+    caption_rules: CaptionRules | None = None
+    placement: str | None = None
+    safe_area_basis: str | None = None
+    changes: list[str] = Field(default_factory=list)
+    layer_overrides: list[VariantLayerOverride] = Field(default_factory=list)
+    effect_overrides: list[VariantEffectOverride] = Field(default_factory=list)
+    cost_delta_usd: float = 0
+    check_ids: list[str] = Field(default_factory=list)
+    approval_scope: list[str] = Field(default_factory=list)
+
+
 class Level2Handoff(StrictModel):
     project_id: str
     plan_revision: int = Field(ge=1)
@@ -1354,6 +1428,7 @@ class Level2Handoff(StrictModel):
     approval: Gate1Approval
     shots: list[HandoffShot]
     assets: list[HandoffAsset]
+    variants: list[HandoffVariant] = Field(default_factory=list)
     pending_checks: list[str]
     conditions: list[str]
     held_items: list[HeldItem]

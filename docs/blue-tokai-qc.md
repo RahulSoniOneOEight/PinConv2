@@ -92,11 +92,11 @@ consistency gaps:
 
 | Check | Evidence |
 |---|---|
-| Tests | `65 passed` |
+| Tests | `66 passed` |
 | Lint / typing | Ruff clean; mypy clean on 28 source files |
 | Pipeline | `run-all` reaches `gate1_ready` |
 | Plan | revision 2, 6 shots, 38 layers, 16 assets |
-| Validation | 0 failures, 15 warnings |
+| Validation | 0 failures, 14 warnings |
 | Critique | 0 findings |
 | Gate blockers | none |
 | Exact data | `ED-01`, `ED-04`, `ED-05` pending; no approval record |
@@ -179,18 +179,20 @@ approved and the 9:16 variant added.
 
 ## Approved outcome — 14 November 2026
 
-- **Plan:** revision 2, hash `4a0a0023536440ef6d9014048dd91554086ef0d44ff08b08eb989991cd688434`.
+- **Plan:** revision 2, hash `1370f029b0b35730625c459cf85579bfd767d2e4a7b62016055e100d15f2aba5`.
 - **Approver:** `RahulSoniOneOEight`, repo owner, human, `opencode-chat`.
 - **Scope:** SH-01–SH-06.
 - **Approved exact data:** ED-01, ED-04, ED-05.
 - **9:16 cut:** approved as variant VO-01, 1080×1920, 500 frames, 20s,
   safe area top 220 / bottom 320 / left 60 / right 140, cost USD 6.00.
+- **9:16 geometry:** 38 explicit layer overrides and 4 effect-mask overrides;
+  approved variant scope VO-01.
 - **Logo:** user-supplied Blue Tokai circular attachment; public footer URL
   retained as fallback.
 - **Hero:** Easy Pour Mixed Bag retained. The Rich & Bold Trio is recorded as a
   dark-range reference only; it is not Easy Pour.
-- **Validation:** 0 failures, 15 warnings; 0 critique findings; no blockers.
-- **Tests:** 65 passed; Ruff clean; mypy clean on 28 source files.
+- **Validation:** 0 failures, 14 warnings; 0 critique findings; no blockers.
+- **Tests:** 66 passed; Ruff clean; mypy clean on 29 source files.
 
 A final read-only DeepSeek check confirmed every prior finding closed: no stale
 approval text, approved exact-data tables, 9:16 VO-01 aligned across plan,

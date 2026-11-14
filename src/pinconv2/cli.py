@@ -98,6 +98,11 @@ def build_parser() -> argparse.ArgumentParser:
         default=None,
         help="comma-separated exact-data ids, or 'all' for every pending value",
     )
+    approve.add_argument(
+        "--approve-variants",
+        default=None,
+        help="comma-separated variant ids, or 'all' for every ready variant",
+    )
     approve.add_argument("--condition", action="append", default=[])
     approve.add_argument("--note", default=None)
 
@@ -207,9 +212,16 @@ def main(argv: list[str] | None = None) -> int:
                 approved_exact = list(packet.exact_data_pending)
             elif args.approve_exact_data:
                 approved_exact = [
-                    item.strip()
-                    for item in args.approve_exact_data.split(",")
-                    if item.strip()
+                    item.strip() for item in args.approve_exact_data.split(",") if item.strip()
+                ]
+            approved_variants: list[str] | None = None
+            if args.approve_variants == "all":
+                plan_revision = store.latest_plan_revision(project)
+                packet = store.load_packet(project, plan_revision)
+                approved_variants = list(packet.ready_variants)
+            elif args.approve_variants:
+                approved_variants = [
+                    item.strip() for item in args.approve_variants.split(",") if item.strip()
                 ]
             approval = run_approval(
                 store,
@@ -220,10 +232,9 @@ def main(argv: list[str] | None = None) -> int:
                 actor_kind="human",
                 human_confirmation=args.confirm,
                 channel=args.channel,
-                scope=[item.strip() for item in args.scope.split(",")]
-                if args.scope
-                else None,
+                scope=[item.strip() for item in args.scope.split(",")] if args.scope else None,
                 approved_exact_data=approved_exact,
+                approved_variants=approved_variants,
                 conditions=list(args.condition),
                 note=args.note,
             )
@@ -237,6 +248,7 @@ def main(argv: list[str] | None = None) -> int:
                     "approver": approval.approver,
                     "scope": approval.scope,
                     "approved_exact_data": approval.approved_exact_data,
+                    "approved_variants": approval.approved_variants,
                 }
             )
         elif args.command == "previews":

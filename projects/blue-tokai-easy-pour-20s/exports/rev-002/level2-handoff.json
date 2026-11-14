@@ -1,28 +1,28 @@
 {
   "project_id": "blue-tokai-easy-pour-20s",
   "plan_revision": 2,
-  "plan_hash": "4a0a0023536440ef6d9014048dd91554086ef0d44ff08b08eb989991cd688434",
+  "plan_hash": "1370f029b0b35730625c459cf85579bfd767d2e4a7b62016055e100d15f2aba5",
   "approval": {
     "project_id": "blue-tokai-easy-pour-20s",
     "plan_revision": 2,
-    "plan_hash": "4a0a0023536440ef6d9014048dd91554086ef0d44ff08b08eb989991cd688434",
-    "bundle_hash": "9bd6c0040224de7a22e42fc6a7491d007ed3675f3ab4aadc2b31e9c27ebdc529",
+    "plan_hash": "1370f029b0b35730625c459cf85579bfd767d2e4a7b62016055e100d15f2aba5",
+    "bundle_hash": "5a67ac5e48201fc48984a7f913d0f040e57327e807d072e488aad00810574cc2",
     "record_hashes": {
       "brief": "f7dcb6d76d7ff18ceff2cbc3e309167132c3a7d8769e69cd37aac51427d90205",
       "research": "bf0b9457d08d5422219f7617bf5845d9b56c074ddfc685acbb2eacf1c4402448",
       "concept": "75b53aab5c444dea7d4b06ea526f59673a3881e00348b68f024912e7980c7ad1",
-      "plan": "4a0a0023536440ef6d9014048dd91554086ef0d44ff08b08eb989991cd688434",
-      "validation": "4cca5982e56549d80e15e28a14086eddafbece369995b2c320f96bb7bebb84e7",
-      "critique": "b7d50738b85f92cd92ab580b09aae61c6b8e03b6c226fa2586f1310ab03477b6",
+      "plan": "1370f029b0b35730625c459cf85579bfd767d2e4a7b62016055e100d15f2aba5",
+      "validation": "8bdb86adc96e912aa3a0d149c9632393ae9c7252aceda1d1bb9dad0421236193",
+      "critique": "4f660af24089a441e9a8a55a8aba9d0d6a9916438cada43ad1fc5c8ed6813838",
       "resolution": "d2e12a85e300ee51454261f352e266abee2692090fd4e279b2f8fc98edfe0b06"
     },
     "approver": "RahulSoniOneOEight",
     "approver_role": "repo owner",
     "actor_kind": "human",
     "channel": "opencode-chat",
-    "evidence": "Explicit Gate 1 approval and all decisions approved in OpenCode session, 2026-11-14; separate 9:16 cut requested",
-    "packet_hash": "ca8f9af4c9097d15c80ee10ee42804823e740c4a02a4e53c3388c1803f0caaec",
-    "approved_at": "2026-11-14T17:19:37+00:00",
+    "evidence": "All decisions approved; explicit 9:16 cut request and per-layer gap-closure instruction, 2026-11-14",
+    "packet_hash": "756d91de1005ff0c5002a12670168498f164c80bed1a4d89feacab33e949e427",
+    "approved_at": "2026-11-14T17:37:51+00:00",
     "scope": [
       "SH-01",
       "SH-02",
@@ -36,13 +36,15 @@
       "ED-04",
       "ED-05"
     ],
+    "approved_variants": [
+      "VO-01"
+    ],
     "conditions": [
       "HI-01 Price and hero pack size: Brand-approved hero pack size and advertising price with a named approver.",
       "HI-02 Brand pack and logo advertising rights: Written paid-media approval and high-resolution pack and logo masters.",
       "HI-03 Voice and music licences: Signed performer release and a production-library licence covering paid YouTube.",
       "HI-04 Demonstration and talent release: Signed hand-model/performer release and approval to film the product demonstration.",
       "HI-05 Brand typeface: Brand font files and typography guidance, or written approval to use Inter for this production.",
-      "budget.references: estimate is not referenced by an asset or shot",
       "exact.identifiers: brand_name ED-05 is observed; Gate 1 must approve this identifier or wording",
       "exact.identifiers: cta ED-04 is proposed; Gate 1 must approve this identifier or wording",
       "exact.identifiers: product_name ED-01 is observed; Gate 1 must approve this identifier or wording",
@@ -58,7 +60,7 @@
       "rights.assets: rights need approval for Voice over, warm Indian English"
     ],
     "allowed_substitutions": [],
-    "note": "Hero remains Easy Pour Mixed Bag; Blue Tokai circular logo supplied; separate 9:16 cut requested. Rights and talent/music holds remain conditions."
+    "note": "Hero remains Easy Pour Mixed Bag; Blue Tokai circular logo supplied; 9:16 VO-01 geometry approved; rights, talent, music, typeface and CTA destination remain holds."
   },
   "shots": [
     {
@@ -373,6 +375,836 @@
       "fallback_asset_id": null
     }
   ],
+  "variants": [
+    {
+      "variant_id": "VO-01",
+      "deliverable_id": "DP-01",
+      "width": 1080,
+      "height": 1920,
+      "aspect_ratio": "9:16",
+      "fps": 25,
+      "frame_count": 500,
+      "duration_seconds": 20.0,
+      "safe_area": {
+        "top": 220,
+        "bottom": 320,
+        "left": 60,
+        "right": 140
+      },
+      "caption_rules": {
+        "max_lines": 2,
+        "max_chars_per_line": 32,
+        "max_cps": 16.0,
+        "min_hold_frames": 36
+      },
+      "placement": "Vertical placement pending media-owner decision",
+      "safe_area_basis": "Operator assumption; confirm against the current Shorts/Reels placement template before paid media.",
+      "changes": [
+        "Reframe the 16:9 master to 1080x1920, 500 frames at 25 fps.",
+        "Apply 9:16 safe area top 220, bottom 320, left 60, right 140.",
+        "Recentre the pack and stack CTA, caption and disclaimer vertically.",
+        "Keep the same six-shot order, audio, effects and disclosure.",
+        "Rebuild the end card for a vertical logo, pack and CTA stack."
+      ],
+      "layer_overrides": [
+        {
+          "layer_id": "LY-010",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 1080,
+            "h": 1920
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-011",
+          "rect": {
+            "x": 120,
+            "y": 430,
+            "w": 840,
+            "h": 840
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [
+            {
+              "x": 180,
+              "y": 600,
+              "w": 720,
+              "h": 380
+            }
+          ],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-012",
+          "rect": {
+            "x": 60,
+            "y": 300,
+            "w": 300,
+            "h": 900
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-013",
+          "rect": {
+            "x": 60,
+            "y": 240,
+            "w": 860,
+            "h": 200
+          },
+          "motion": [],
+          "text_style": {
+            "font_family": "Inter",
+            "size_px": 72,
+            "weight": 700,
+            "color": "#132A3A",
+            "align": "left",
+            "line_height": 1.08,
+            "tracking": -1.0,
+            "max_lines": 2
+          },
+          "protected": true,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-014",
+          "rect": {
+            "x": 60,
+            "y": 1360,
+            "w": 880,
+            "h": 150
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-015",
+          "rect": {
+            "x": 60,
+            "y": 1390,
+            "w": 860,
+            "h": 80
+          },
+          "motion": [],
+          "text_style": {
+            "font_family": "Inter",
+            "size_px": 30,
+            "weight": 700,
+            "color": "#132A3A",
+            "align": "left",
+            "line_height": 1.08,
+            "tracking": -1.0,
+            "max_lines": 2
+          },
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-020",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 1080,
+            "h": 1920
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-021",
+          "rect": {
+            "x": 60,
+            "y": 300,
+            "w": 960,
+            "h": 980
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-022",
+          "rect": {
+            "x": 700,
+            "y": 260,
+            "w": 300,
+            "h": 300
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [
+            {
+              "x": 720,
+              "y": 320,
+              "w": 260,
+              "h": 180
+            }
+          ],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-023",
+          "rect": {
+            "x": 60,
+            "y": 250,
+            "w": 860,
+            "h": 160
+          },
+          "motion": [],
+          "text_style": {
+            "font_family": "Inter",
+            "size_px": 66,
+            "weight": 700,
+            "color": "#132A3A",
+            "align": "left",
+            "line_height": 1.08,
+            "tracking": -1.0,
+            "max_lines": 2
+          },
+          "protected": true,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-024",
+          "rect": {
+            "x": 60,
+            "y": 1360,
+            "w": 880,
+            "h": 150
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-025",
+          "rect": {
+            "x": 60,
+            "y": 1390,
+            "w": 860,
+            "h": 80
+          },
+          "motion": [],
+          "text_style": {
+            "font_family": "Inter",
+            "size_px": 30,
+            "weight": 700,
+            "color": "#132A3A",
+            "align": "left",
+            "line_height": 1.08,
+            "tracking": -1.0,
+            "max_lines": 2
+          },
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-030",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 1080,
+            "h": 1920
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-031",
+          "rect": {
+            "x": 60,
+            "y": 300,
+            "w": 960,
+            "h": 1100
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-032",
+          "rect": {
+            "x": 680,
+            "y": 420,
+            "w": 340,
+            "h": 340
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [
+            {
+              "x": 700,
+              "y": 480,
+              "w": 300,
+              "h": 200
+            }
+          ],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-033",
+          "rect": {
+            "x": 60,
+            "y": 250,
+            "w": 860,
+            "h": 160
+          },
+          "motion": [],
+          "text_style": {
+            "font_family": "Inter",
+            "size_px": 66,
+            "weight": 700,
+            "color": "#132A3A",
+            "align": "left",
+            "line_height": 1.08,
+            "tracking": -1.0,
+            "max_lines": 2
+          },
+          "protected": true,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-034",
+          "rect": {
+            "x": 60,
+            "y": 1360,
+            "w": 880,
+            "h": 150
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-035",
+          "rect": {
+            "x": 60,
+            "y": 1390,
+            "w": 860,
+            "h": 80
+          },
+          "motion": [],
+          "text_style": {
+            "font_family": "Inter",
+            "size_px": 30,
+            "weight": 700,
+            "color": "#132A3A",
+            "align": "left",
+            "line_height": 1.08,
+            "tracking": -1.0,
+            "max_lines": 2
+          },
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-040",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 1080,
+            "h": 1920
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-041",
+          "rect": {
+            "x": 120,
+            "y": 400,
+            "w": 360,
+            "h": 360
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [
+            {
+              "x": 140,
+              "y": 430,
+              "w": 320,
+              "h": 300
+            }
+          ],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-042",
+          "rect": {
+            "x": 600,
+            "y": 780,
+            "w": 360,
+            "h": 360
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [
+            {
+              "x": 620,
+              "y": 810,
+              "w": 320,
+              "h": 300
+            }
+          ],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-043",
+          "rect": {
+            "x": 120,
+            "y": 780,
+            "w": 360,
+            "h": 360
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [
+            {
+              "x": 140,
+              "y": 810,
+              "w": 320,
+              "h": 300
+            }
+          ],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-047",
+          "rect": {
+            "x": 600,
+            "y": 400,
+            "w": 360,
+            "h": 360
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [
+            {
+              "x": 620,
+              "y": 430,
+              "w": 320,
+              "h": 300
+            }
+          ],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-044",
+          "rect": {
+            "x": 60,
+            "y": 250,
+            "w": 860,
+            "h": 150
+          },
+          "motion": [],
+          "text_style": {
+            "font_family": "Inter",
+            "size_px": 66,
+            "weight": 700,
+            "color": "#132A3A",
+            "align": "left",
+            "line_height": 1.08,
+            "tracking": -1.0,
+            "max_lines": 2
+          },
+          "protected": true,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-045",
+          "rect": {
+            "x": 60,
+            "y": 1360,
+            "w": 880,
+            "h": 150
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-046",
+          "rect": {
+            "x": 60,
+            "y": 1390,
+            "w": 860,
+            "h": 80
+          },
+          "motion": [],
+          "text_style": {
+            "font_family": "Inter",
+            "size_px": 28,
+            "weight": 700,
+            "color": "#132A3A",
+            "align": "left",
+            "line_height": 1.08,
+            "tracking": -1.0,
+            "max_lines": 2
+          },
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-050",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 1080,
+            "h": 1920
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-051",
+          "rect": {
+            "x": 120,
+            "y": 300,
+            "w": 840,
+            "h": 900
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-052",
+          "rect": {
+            "x": 700,
+            "y": 260,
+            "w": 300,
+            "h": 300
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [
+            {
+              "x": 720,
+              "y": 320,
+              "w": 260,
+              "h": 180
+            }
+          ],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-053",
+          "rect": {
+            "x": 60,
+            "y": 1180,
+            "w": 860,
+            "h": 140
+          },
+          "motion": [],
+          "text_style": {
+            "font_family": "Inter",
+            "size_px": 52,
+            "weight": 700,
+            "color": "#132A3A",
+            "align": "left",
+            "line_height": 1.08,
+            "tracking": -1.0,
+            "max_lines": 2
+          },
+          "protected": true,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-054",
+          "rect": {
+            "x": 60,
+            "y": 1360,
+            "w": 880,
+            "h": 150
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-055",
+          "rect": {
+            "x": 60,
+            "y": 1390,
+            "w": 860,
+            "h": 80
+          },
+          "motion": [],
+          "text_style": {
+            "font_family": "Inter",
+            "size_px": 26,
+            "weight": 700,
+            "color": "#132A3A",
+            "align": "left",
+            "line_height": 1.08,
+            "tracking": -1.0,
+            "max_lines": 2
+          },
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-060",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 1080,
+            "h": 1920
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-061",
+          "rect": {
+            "x": 240,
+            "y": 520,
+            "w": 600,
+            "h": 600
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [
+            {
+              "x": 280,
+              "y": 650,
+              "w": 520,
+              "h": 360
+            }
+          ],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-062",
+          "rect": {
+            "x": 280,
+            "y": 260,
+            "w": 520,
+            "h": 220
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": true,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-063",
+          "rect": {
+            "x": 60,
+            "y": 1200,
+            "w": 860,
+            "h": 100
+          },
+          "motion": [
+            {
+              "frame": 0,
+              "x": null,
+              "y": null,
+              "scale": null,
+              "opacity": 0.0,
+              "easing": "linear"
+            },
+            {
+              "frame": 6,
+              "x": null,
+              "y": null,
+              "scale": null,
+              "opacity": 1.0,
+              "easing": "ease_out"
+            }
+          ],
+          "text_style": {
+            "font_family": "Inter",
+            "size_px": 52,
+            "weight": 700,
+            "color": "#132A3A",
+            "align": "left",
+            "line_height": 1.08,
+            "tracking": -1.0,
+            "max_lines": 2
+          },
+          "protected": true,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-064",
+          "rect": {
+            "x": 60,
+            "y": 1140,
+            "w": 880,
+            "h": 360
+          },
+          "motion": [],
+          "text_style": null,
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        },
+        {
+          "layer_id": "LY-065",
+          "rect": {
+            "x": 60,
+            "y": 1410,
+            "w": 860,
+            "h": 70
+          },
+          "motion": [
+            {
+              "frame": 8,
+              "x": null,
+              "y": null,
+              "scale": null,
+              "opacity": 0.0,
+              "easing": "linear"
+            },
+            {
+              "frame": 14,
+              "x": null,
+              "y": null,
+              "scale": null,
+              "opacity": 1.0,
+              "easing": "ease_out"
+            }
+          ],
+          "text_style": {
+            "font_family": "Inter",
+            "size_px": 28,
+            "weight": 700,
+            "color": "#132A3A",
+            "align": "left",
+            "line_height": 1.08,
+            "tracking": -1.0,
+            "max_lines": 2
+          },
+          "protected": false,
+          "protected_regions": [],
+          "notes": "9:16 recompose; keep exact content and protected regions."
+        }
+      ],
+      "effect_overrides": [
+        {
+          "effect_id": "FX-01",
+          "mask_region": {
+            "x": 60,
+            "y": 300,
+            "w": 110,
+            "h": 900
+          },
+          "intensity": 0.18,
+          "notes": null
+        },
+        {
+          "effect_id": "FX-02",
+          "mask_region": {
+            "x": 60,
+            "y": 300,
+            "w": 620,
+            "h": 1100
+          },
+          "intensity": 0.8,
+          "notes": null
+        },
+        {
+          "effect_id": "FX-03",
+          "mask_region": {
+            "x": 60,
+            "y": 300,
+            "w": 620,
+            "h": 1100
+          },
+          "intensity": 0.7,
+          "notes": null
+        },
+        {
+          "effect_id": "FX-05",
+          "mask_region": {
+            "x": 60,
+            "y": 300,
+            "w": 640,
+            "h": 900
+          },
+          "intensity": 0.12,
+          "notes": null
+        }
+      ],
+      "cost_delta_usd": 6.0,
+      "check_ids": [
+        "AC-16"
+      ],
+      "approval_scope": [
+        "SH-01",
+        "SH-02",
+        "SH-03",
+        "SH-04",
+        "SH-05",
+        "SH-06"
+      ]
+    }
+  ],
   "pending_checks": [
     "AC-05",
     "AC-06",
@@ -388,7 +1220,6 @@
     "HI-03 Voice and music licences: Signed performer release and a production-library licence covering paid YouTube.",
     "HI-04 Demonstration and talent release: Signed hand-model/performer release and approval to film the product demonstration.",
     "HI-05 Brand typeface: Brand font files and typography guidance, or written approval to use Inter for this production.",
-    "budget.references: estimate is not referenced by an asset or shot",
     "exact.identifiers: brand_name ED-05 is observed; Gate 1 must approve this identifier or wording",
     "exact.identifiers: cta ED-04 is proposed; Gate 1 must approve this identifier or wording",
     "exact.identifiers: product_name ED-01 is observed; Gate 1 must approve this identifier or wording",
@@ -483,5 +1314,5 @@
     "ED-05"
   ],
   "exact_data_pending": [],
-  "created_at": "2026-11-14T17:19:37+00:00"
+  "created_at": "2026-11-14T17:37:51+00:00"
 }

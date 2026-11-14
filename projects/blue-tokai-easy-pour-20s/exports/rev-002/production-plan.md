@@ -2,7 +2,7 @@
 
 **Project:** blue-tokai-easy-pour-20s  
 **Plan revision:** 2  
-**Plan hash:** `4a0a0023536440ef6d9014048dd91554086ef0d44ff08b08eb989991cd688434`  
+**Plan hash:** `1370f029b0b35730625c459cf85579bfd767d2e4a7b62016055e100d15f2aba5`  
 **Brief revision:** 1  
 **Validation:** PASS  
 **Gate 1:** approved by RahulSoniOneOEight (repo owner)
@@ -573,7 +573,7 @@
 
 **Passed:** yes  
 **Failures:** 0  
-**Warnings:** 15
+**Warnings:** 14
 
 | ID | Rule | Target | Status | Detail |
 |---|---|---|---|---|
@@ -581,7 +581,6 @@
 | V-010 | exact.identifiers | LY-046 | warn | product_name ED-01 is observed; Gate 1 must approve this identifier or wording |
 | V-011 | exact.identifiers | LY-063 | warn | cta ED-04 is proposed; Gate 1 must approve this identifier or wording |
 | V-012 | exact.identifiers | LY-065 | warn | brand_name ED-05 is observed; Gate 1 must approve this identifier or wording |
-| V-035 | budget.references | ES-11 | warn | estimate is not referenced by an asset or shot |
 | V-038 | rights.assets | AS-01 | warn | rights need approval for Blue Tokai Coffee Roasters logo |
 | V-039 | rights.assets | AS-02 | warn | rights need approval for Easy Pour Mixed Bag pack |
 | V-040 | rights.assets | AS-03 | warn | rights need approval for Easy Pour Vienna pack |
@@ -608,7 +607,6 @@ No material findings. The ready plan has no unapproved commercial layer, no safe
 - HI-03 Voice and music licences: Signed performer release and a production-library licence covering paid YouTube.
 - HI-04 Demonstration and talent release: Signed hand-model/performer release and approval to film the product demonstration.
 - HI-05 Brand typeface: Brand font files and typography guidance, or written approval to use Inter for this production.
-- budget.references: estimate is not referenced by an asset or shot
 - exact.identifiers: brand_name ED-05 is observed; Gate 1 must approve this identifier or wording
 - exact.identifiers: cta ED-04 is proposed; Gate 1 must approve this identifier or wording
 - exact.identifiers: product_name ED-01 is observed; Gate 1 must approve this identifier or wording

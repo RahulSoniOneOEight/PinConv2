@@ -1,7 +1,7 @@
 {
   "project_id": "blue-tokai-easy-pour-20s",
   "plan_revision": 2,
-  "plan_hash": "4a0a0023536440ef6d9014048dd91554086ef0d44ff08b08eb989991cd688434",
+  "plan_hash": "1370f029b0b35730625c459cf85579bfd767d2e4a7b62016055e100d15f2aba5",
   "findings": [
     {
       "id": "V-001",
@@ -312,11 +312,11 @@
     {
       "id": "V-035",
       "rule": "budget.references",
-      "target": "ES-11",
-      "severity": "medium",
-      "status": "warn",
-      "detail": "estimate is not referenced by an asset or shot",
-      "remediation": "Remove it or attach it to the work it prices."
+      "target": "budget",
+      "severity": "low",
+      "status": "pass",
+      "detail": "estimate references resolve and are typed",
+      "remediation": "No action required."
     },
     {
       "id": "V-036",
@@ -509,6 +509,60 @@
     },
     {
       "id": "V-057",
+      "rule": "variant.dimensions",
+      "target": "variants",
+      "severity": "low",
+      "status": "pass",
+      "detail": "variant profiles are internally coherent",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-058",
+      "rule": "variant.geometry",
+      "target": "variants",
+      "severity": "low",
+      "status": "pass",
+      "detail": "a resized variant overrides every layer",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-059",
+      "rule": "variant.layers",
+      "target": "variants",
+      "severity": "low",
+      "status": "pass",
+      "detail": "variant layers fit the canvas and safe area",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-060",
+      "rule": "variant.effects",
+      "target": "variants",
+      "severity": "low",
+      "status": "pass",
+      "detail": "variant effect masks fit the canvas",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-061",
+      "rule": "variant.captions",
+      "target": "variants",
+      "severity": "low",
+      "status": "pass",
+      "detail": "variant captions fit the declared rules",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-062",
+      "rule": "variant.basis",
+      "target": "variants",
+      "severity": "low",
+      "status": "pass",
+      "detail": "variant safe areas declare their basis",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-063",
       "rule": "trace.ids",
       "target": "plan",
       "severity": "low",
@@ -517,7 +571,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-058",
+      "id": "V-064",
       "rule": "trace.shots",
       "target": "shots",
       "severity": "low",
@@ -526,7 +580,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-059",
+      "id": "V-065",
       "rule": "trace.beats",
       "target": "beats",
       "severity": "low",
@@ -535,7 +589,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-060",
+      "id": "V-066",
       "rule": "trace.assets",
       "target": "assets",
       "severity": "low",
@@ -544,7 +598,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-061",
+      "id": "V-067",
       "rule": "trace.dependencies",
       "target": "assets",
       "severity": "low",
@@ -553,7 +607,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-062",
+      "id": "V-068",
       "rule": "trace.variants",
       "target": "variants",
       "severity": "low",
@@ -562,7 +616,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-063",
+      "id": "V-069",
       "rule": "trace.checks",
       "target": "checks",
       "severity": "low",
@@ -571,7 +625,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-064",
+      "id": "V-070",
       "rule": "trace.alternates",
       "target": "alternates",
       "severity": "low",
@@ -580,7 +634,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-065",
+      "id": "V-071",
       "rule": "trace.must_have",
       "target": "brief",
       "severity": "low",
@@ -589,7 +643,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-066",
+      "id": "V-072",
       "rule": "trace.held",
       "target": "held",
       "severity": "low",
@@ -598,7 +652,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-067",
+      "id": "V-073",
       "rule": "trace.shot_status",
       "target": "shots",
       "severity": "low",
@@ -607,7 +661,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-068",
+      "id": "V-074",
       "rule": "trace.cta",
       "target": "deliverable",
       "severity": "low",
@@ -616,7 +670,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-069",
+      "id": "V-075",
       "rule": "trace.critical_assets",
       "target": "assets",
       "severity": "low",
@@ -625,7 +679,7 @@
       "remediation": "No action required."
     },
     {
-      "id": "V-070",
+      "id": "V-076",
       "rule": "trace.layers",
       "target": "layers",
       "severity": "low",
@@ -652,5 +706,5 @@
     "AC-15": "pass",
     "AC-16": "pending"
   },
-  "created_at": "2026-11-14T17:19:31+00:00"
+  "created_at": "2026-11-14T17:37:50+00:00"
 }

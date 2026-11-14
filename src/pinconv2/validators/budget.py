@@ -118,6 +118,27 @@ def validate_budget(context: ValidationContext) -> None:
                         f"shot references {estimate.kind.value} estimate {estimate_id}",
                         "Shot work should reference a shot or shared estimate.",
                     )
+        for variant in plan.variant_overrides:
+            if variant.cost_estimate_id is None:
+                continue
+            used_estimates.add(variant.cost_estimate_id)
+            estimate = estimate_map.get(variant.cost_estimate_id)
+            if estimate is None:
+                context.fail(
+                    "budget.references",
+                    variant.id,
+                    Severity.HIGH,
+                    f"variant references unknown estimate {variant.cost_estimate_id}",
+                    "Create the variant estimate.",
+                )
+            elif estimate.kind is not EstimateKind.VARIANT:
+                context.fail(
+                    "budget.references",
+                    variant.id,
+                    Severity.MEDIUM,
+                    f"variant references {estimate.kind.value} estimate {variant.cost_estimate_id}",
+                    "Use a variant estimate for variant cost.",
+                )
         for estimate in plan.estimates:
             if estimate.id not in used_estimates:
                 context.warn(

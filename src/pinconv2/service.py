@@ -444,6 +444,9 @@ def build_gate_packet(store: ProjectStore, project_id: str = DEFAULT_PROJECT) ->
         bundle=bundle,
         validation_passed=validation.passed,
         ready_shots=ready_shots,
+        ready_variants=[
+            variant.id for variant in plan.variant_overrides if variant.layer_overrides
+        ],
         held_layers=[
             layer.id
             for layer in plan.layers
@@ -481,6 +484,7 @@ def run_approval(
     channel: str,
     scope: list[str] | None = None,
     approved_exact_data: list[str] | None = None,
+    approved_variants: list[str] | None = None,
     conditions: list[str] | None = None,
     note: str | None = None,
 ) -> Gate1Approval:
@@ -530,6 +534,15 @@ def run_approval(
     if unknown_exact:
         raise GateFailedError(f"approval names exact data that is not pending: {unknown_exact}")
 
+    approved_variant_scope = sorted(set(approved_variants or []))
+    unknown_variants = [
+        variant_id
+        for variant_id in approved_variant_scope
+        if variant_id not in packet.ready_variants
+    ]
+    if unknown_variants:
+        raise GateFailedError(f"approval names variants that are not ready: {unknown_variants}")
+
     packet_hash = content_hash(packet.model_copy(update={"approval": None}))
     approval = Gate1Approval(
         project_id=project_id,
@@ -545,6 +558,7 @@ def run_approval(
         packet_hash=packet_hash,
         scope=approved_scope,
         approved_exact_data=approved_exact,
+        approved_variants=approved_variant_scope,
         conditions=sorted(set(packet.conditions + (conditions or []))),
         note=note,
     )

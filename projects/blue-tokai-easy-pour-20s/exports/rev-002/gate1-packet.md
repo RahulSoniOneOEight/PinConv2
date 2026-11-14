@@ -2,10 +2,10 @@
 
 **Project:** blue-tokai-easy-pour-20s  
 **Plan revision:** 2  
-**Plan hash:** `4a0a0023536440ef6d9014048dd91554086ef0d44ff08b08eb989991cd688434`  
-**Bundle hash:** `9bd6c0040224de7a22e42fc6a7491d007ed3675f3ab4aadc2b31e9c27ebdc529`  
+**Plan hash:** `1370f029b0b35730625c459cf85579bfd767d2e4a7b62016055e100d15f2aba5`  
+**Bundle hash:** `5a67ac5e48201fc48984a7f913d0f040e57327e807d072e488aad00810574cc2`  
 **Validation:** PASS  
-**Approval:** RahulSoniOneOEight (repo owner), evidence: Explicit Gate 1 approval and all decisions approved in OpenCode session, 2026-11-14; separate 9:16 cut requested
+**Approval:** RahulSoniOneOEight (repo owner), evidence: All decisions approved; explicit 9:16 cut request and per-layer gap-closure instruction, 2026-11-14
 
 ## Ready shots
 
@@ -44,9 +44,9 @@
 | brief | `f7dcb6d76d7ff18ceff2cbc3e309167132c3a7d8769e69cd37aac51427d90205` |
 | research | `bf0b9457d08d5422219f7617bf5845d9b56c074ddfc685acbb2eacf1c4402448` |
 | concept | `75b53aab5c444dea7d4b06ea526f59673a3881e00348b68f024912e7980c7ad1` |
-| plan | `4a0a0023536440ef6d9014048dd91554086ef0d44ff08b08eb989991cd688434` |
-| validation | `4cca5982e56549d80e15e28a14086eddafbece369995b2c320f96bb7bebb84e7` |
-| critique | `b7d50738b85f92cd92ab580b09aae61c6b8e03b6c226fa2586f1310ab03477b6` |
+| plan | `1370f029b0b35730625c459cf85579bfd767d2e4a7b62016055e100d15f2aba5` |
+| validation | `8bdb86adc96e912aa3a0d149c9632393ae9c7252aceda1d1bb9dad0421236193` |
+| critique | `4f660af24089a441e9a8a55a8aba9d0d6a9916438cada43ad1fc5c8ed6813838` |
 | resolution | `d2e12a85e300ee51454261f352e266abee2692090fd4e279b2f8fc98edfe0b06` |
 
 ## Conditions
@@ -56,7 +56,6 @@
 - HI-03 Voice and music licences: Signed performer release and a production-library licence covering paid YouTube.
 - HI-04 Demonstration and talent release: Signed hand-model/performer release and approval to film the product demonstration.
 - HI-05 Brand typeface: Brand font files and typography guidance, or written approval to use Inter for this production.
-- budget.references: estimate is not referenced by an asset or shot
 - exact.identifiers: brand_name ED-05 is observed; Gate 1 must approve this identifier or wording
 - exact.identifiers: cta ED-04 is proposed; Gate 1 must approve this identifier or wording
 - exact.identifiers: product_name ED-01 is observed; Gate 1 must approve this identifier or wording
@@ -81,7 +80,7 @@
 
 ## Evidence
 
-- Validation findings: 70 (0 fail, 15 warn)
+- Validation findings: 76 (0 fail, 14 warn)
 - Critique findings: 0
 - Shots in plan: 6
 - Assets in plan: 16

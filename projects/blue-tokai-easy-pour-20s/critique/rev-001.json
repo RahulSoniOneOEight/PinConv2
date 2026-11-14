@@ -1,8 +1,8 @@
 {
   "project_id": "blue-tokai-easy-pour-20s",
   "plan_revision": 1,
-  "plan_hash": "110fade102e576c76191ac17f3a6f7f467ee9e5ec9300a0abf6f619522aefbf3",
-  "summary": "4 findings. The three highest-impact inputs are CF-01 (safe_area), CF-02 (commercial_data), CF-03 (budget). The critic reviewed the plan artifact, not the planner's reasoning.",
+  "plan_hash": "695d147910701d49346dff407bf7fe20b36e54e7103b94dc28b2824d4c5a42fb",
+  "summary": "5 findings. The three highest-impact inputs are CF-01 (safe_area), CF-02 (commercial_data), CF-03 (budget). The critic reviewed the plan artifact, not the planner's reasoning.",
   "findings": [
     {
       "id": "CF-01",
@@ -89,6 +89,24 @@
       "owner": "planner",
       "disposition": "open",
       "resolution": null
+    },
+    {
+      "id": "CF-05",
+      "category": "validator_failure",
+      "severity": "high",
+      "observation": "Structural validator failed: variant.geometry.",
+      "evidence": "missing layer overrides: LY-036, LY-056",
+      "proposed_action": "Author every layer for the variant canvas.",
+      "impact": 4,
+      "confidence": 5,
+      "effort": 2,
+      "blocking_weight": 2,
+      "target_ids": [
+        "VO-01"
+      ],
+      "owner": "planner",
+      "disposition": "open",
+      "resolution": null
     }
   ],
   "top3": [
@@ -96,5 +114,5 @@
     "CF-02",
     "CF-03"
   ],
-  "created_at": "2026-11-14T17:19:31+00:00"
+  "created_at": "2026-11-14T17:37:50+00:00"
 }

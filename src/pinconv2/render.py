@@ -15,6 +15,7 @@ from .models import (
     Gate1Packet,
     HandoffAsset,
     HandoffShot,
+    HandoffVariant,
     Layer,
     Level2Handoff,
     ProductionPlan,
@@ -1098,6 +1099,30 @@ def build_handoff(
             target in approved_ids or target == plan.deliverable.id for target in check.target_ids
         )
     ]
+    handoff_variants = [
+        HandoffVariant(
+            variant_id=variant.id,
+            deliverable_id=variant.deliverable_id,
+            width=variant.width,
+            height=variant.height,
+            aspect_ratio=variant.aspect_ratio,
+            fps=variant.fps,
+            frame_count=variant.frame_count,
+            duration_seconds=variant.duration_seconds,
+            safe_area=variant.safe_area,
+            caption_rules=variant.caption_rules,
+            placement=variant.placement,
+            safe_area_basis=variant.safe_area_basis,
+            changes=variant.changes,
+            layer_overrides=variant.layer_overrides,
+            effect_overrides=variant.effect_overrides,
+            cost_delta_usd=variant.cost_delta_usd,
+            check_ids=variant.check_ids,
+            approval_scope=variant.approval_scope,
+        )
+        for variant in plan.variant_overrides
+        if variant.id in set(approval.approved_variants)
+    ]
     return Level2Handoff(
         project_id=plan.project_id,
         plan_revision=plan.revision,
@@ -1105,6 +1130,7 @@ def build_handoff(
         approval=approval,
         shots=handoff_shots,
         assets=handoff_assets,
+        variants=handoff_variants,
         pending_checks=pending_checks,
         conditions=approval.conditions,
         held_items=plan.held_items,

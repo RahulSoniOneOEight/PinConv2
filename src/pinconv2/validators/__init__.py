@@ -22,6 +22,7 @@ from .layers import validate_layers
 from .rights import validate_rights
 from .timing import validate_timing
 from .traceability import validate_traceability
+from .variants import validate_variants
 
 
 def validate_plan(
@@ -40,6 +41,7 @@ def validate_plan(
     validate_budget(context)
     validate_rights(context)
     validate_effects(context)
+    validate_variants(context)
     validate_traceability(context)
 
     by_rule: dict[str, list[ValidationFinding]] = {}

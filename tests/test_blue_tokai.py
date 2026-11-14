@@ -112,6 +112,24 @@ def test_effect_timing_binding_and_protection_are_validated() -> None:
     assert "effect.protection" in protection_rules
 
 
+def test_variant_effect_mask_protection_is_validated() -> None:
+    plan = build_blue_tokai_plan(
+        revision=2,
+        applied=revision_two_applied(),
+    )
+    variant = plan.variant_overrides[0]
+    broken_effect_overrides = [
+        item.model_copy(update={"mask_region": Rect(x=180, y=600, w=720, h=380)})
+        if item.effect_id == "FX-01"
+        else item
+        for item in variant.effect_overrides
+    ]
+    broken_variant = variant.model_copy(update={"effect_overrides": broken_effect_overrides})
+    broken = plan.model_copy(update={"variant_overrides": [broken_variant]})
+    rules = {finding.rule for finding in validate_plan(broken, build_blue_tokai_brief()).findings}
+    assert "variant.effects" in rules
+
+
 def test_blue_tokai_run_reaches_gate1_ready(tmp_path: Path) -> None:
     store = ProjectStore(tmp_path / "projects")
     result = run_all(store, PROJECT_ID)

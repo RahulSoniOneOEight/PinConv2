@@ -77,6 +77,6 @@
     "commercial",
     "safe_area"
   ],
-  "created_at": "2026-11-14T17:19:31+00:00",
+  "created_at": "2026-11-14T17:37:50+00:00",
   "notes": "Revision 2 applies the planner fixes selected by the critic. Every top-three input names at least one target record that changed or was removed; the diff is recorded in verified_impacts."
 }
