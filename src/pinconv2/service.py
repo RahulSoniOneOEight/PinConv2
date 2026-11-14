@@ -6,6 +6,9 @@ predecessor state, writes its record, and only then advances the project.
 
 from __future__ import annotations
 
+import hashlib
+import json
+from collections.abc import Sequence
 from pathlib import Path
 from typing import Any
 
@@ -18,11 +21,12 @@ from .fixtures import (
     build_plan,
     build_research_pack,
 )
-from .fixtures.toffee_plan import revision_two_applied
 from .models import (
+    BundleManifest,
     CheckLevel,
     CheckStatus,
     CritiqueReport,
+    DataStatus,
     Disposition,
     Gate1Approval,
     Gate1Packet,
@@ -34,6 +38,7 @@ from .models import (
     ResolutionReport,
     ResolutionStatus,
     ValidationReport,
+    content_hash,
 )
 from .preview import write_previews
 from .render import (
@@ -192,21 +197,45 @@ def run_resolution(store: ProjectStore, project_id: str = DEFAULT_PROJECT) -> Pr
         for index, action in enumerate(actions, start=1)
     ]
 
+    fixes = {
+        CATEGORY_FIXES[finding.category]
+        for finding in critique.findings
+        if finding.category in CATEGORY_FIXES
+    }
+    if not fixes:
+        raise GateFailedError("critique findings do not map to a planner action")
     new_plan = build_plan(
         project_id=project_id,
         revision=plan.revision + 1,
-        applied=revision_two_applied(),
+        applied=frozenset(fixes),
     )
+
+    verified: dict[str, list[str]] = {}
+    for resolution in inputs:
+        changed = [
+            target
+            for target in resolution.impacted_ids
+            if _record_payload(plan, target) != _record_payload(new_plan, target)
+        ]
+        if not changed:
+            raise GateFailedError(
+                f"{resolution.critique_finding_id} claims changes but no target "
+                "record changed or was removed"
+            )
+        verified[resolution.critique_finding_id] = changed
+
     store.save_plan(new_plan)
     report = ResolutionReport(
         project_id=project_id,
         from_revision=plan.revision,
         to_revision=new_plan.revision,
         inputs=inputs,
+        verified_impacts=verified,
+        applied_fixes=sorted(fixes),
         notes=(
-            "Top three inputs resolved or escalated. The planner also applied the "
-            "pack-capture fallback and the music/voice rights route as hardening; both "
-            "remain Gate 1 conditions."
+            "Revision 2 applies the planner fixes selected by the critic. Every "
+            "top-three input names at least one target record that changed or was "
+            "removed; the diff is recorded in verified_impacts."
         ),
     )
     store.save_resolution(report)
@@ -214,6 +243,85 @@ def run_resolution(store: ProjectStore, project_id: str = DEFAULT_PROJECT) -> Pr
     project = next_state(project, ProjectState.INPUTS_UPDATED)
     store.save_project(project)
     return new_plan
+
+
+def _bundle(
+    store: ProjectStore,
+    project_id: str,
+    plan: ProductionPlan,
+    validation: ValidationReport,
+    critique: CritiqueReport,
+) -> BundleManifest:
+    brief = store.load_brief(project_id)
+    research = store.load_research(project_id)
+    concept = store.load_concept(project_id)
+    hashes = {
+        "brief": content_hash(brief),
+        "research": content_hash(research),
+        "concept": content_hash(concept),
+        "plan": plan.plan_hash(),
+        "validation": content_hash(validation),
+        "critique": content_hash(critique),
+    }
+    resolution = store.latest_resolution(project_id)
+    if resolution is not None and resolution.to_revision == plan.revision:
+        hashes["resolution"] = content_hash(resolution)
+    encoded = json.dumps(hashes, sort_keys=True, separators=(",", ":")).encode("utf-8")
+    return BundleManifest(
+        project_id=project_id,
+        plan_revision=plan.revision,
+        record_hashes=hashes,
+        bundle_hash=hashlib.sha256(encoded).hexdigest(),
+    )
+
+
+def _referenced_exact_data(plan: ProductionPlan, shot_ids: set[str]) -> set[str]:
+    referenced: set[str] = set()
+    for layer in plan.layers:
+        if layer.shot_id not in shot_ids:
+            continue
+        if layer.binding_kind.value != "copy" or not layer.binding_ref:
+            continue
+        copy_block = plan.copy_map.get(layer.binding_ref)
+        if copy_block is None:
+            continue
+        referenced.update(copy_block.exact_data_refs)
+    return referenced
+
+
+CATEGORY_FIXES = {
+    "safe_area": "safe_area",
+    "commercial_data": "commercial",
+    "budget": "budget",
+    "text_density": "commercial",
+    "missing_fallback": "fallback",
+    "rights_unknown": "rights",
+}
+
+
+def _record_payload(plan: ProductionPlan, record_id: str) -> dict[str, Any] | None:
+    collections: list[Sequence[Any]] = [
+        plan.shots,
+        plan.beats,
+        plan.layers,
+        plan.copy_blocks,
+        plan.exact_data,
+        plan.claims,
+        plan.assets,
+        plan.audio_cues,
+        plan.transitions,
+        plan.alternates,
+        plan.estimates,
+        plan.checks,
+        plan.held_items,
+        plan.decisions,
+    ]
+    for collection in collections:
+        for record in collection:
+            if record.id == record_id:
+                payload: dict[str, Any] = record.model_dump(mode="json")
+                return payload
+    return None
 
 
 def _l1_check_failures(plan: ProductionPlan, validation: ValidationReport) -> list[str]:
@@ -297,13 +405,32 @@ def build_gate_packet(
         if finding.severity.value in {"medium", "low"}
         and finding.disposition is Disposition.OPEN
     )
+    conditions.extend(
+        f"{held.id} {held.title}: {held.required_evidence}"
+        for held in plan.held_items
+    )
+
+    ready_shots = [shot.id for shot in plan.shots if shot.status.value == "ready"]
+    referenced = _referenced_exact_data(plan, set(ready_shots))
+    exact_approved = sorted(
+        exact_id
+        for exact_id in referenced
+        if plan.exact_map[exact_id].status is DataStatus.APPROVED
+    )
+    exact_pending = sorted(
+        exact_id
+        for exact_id in referenced
+        if plan.exact_map[exact_id].status is not DataStatus.APPROVED
+    )
+    bundle = _bundle(store, project_id, plan, validation, critique)
 
     packet = Gate1Packet(
         project_id=project_id,
         plan_revision=plan.revision,
         plan_hash=plan.plan_hash(),
+        bundle=bundle,
         validation_passed=validation.passed,
-        ready_shots=[shot.id for shot in plan.shots if shot.status.value == "ready"],
+        ready_shots=ready_shots,
         held_layers=[
             layer.id
             for layer in plan.layers
@@ -314,6 +441,9 @@ def build_gate_packet(
                 and plan.copy_map[layer.binding_ref].status.value == "held"
             )
         ],
+        held_items=plan.held_items,
+        exact_data_approved=exact_approved,
+        exact_data_pending=exact_pending,
         conditions=sorted(set(conditions)),
         blockers=sorted(set(blockers)),
         input_statuses=(
@@ -338,12 +468,22 @@ def run_approval(
     *,
     approver: str,
     role: str,
+    evidence: str,
+    actor_kind: str = "human",
     scope: list[str] | None = None,
+    approved_exact_data: list[str] | None = None,
     conditions: list[str] | None = None,
     note: str | None = None,
 ) -> Gate1Approval:
     project = _project(store, project_id)
     require_state(project, ProjectState.GATE1_READY)
+    if actor_kind != "human":
+        raise GateFailedError(
+            "Gate 1 approval must come from a human actor; agents and automation "
+            "cannot record it"
+        )
+    if not evidence.strip():
+        raise GateFailedError("Gate 1 approval needs an evidence reference")
     plan = store.load_latest_plan(project_id)
     packet = store.load_packet(project_id, plan.revision)
     if packet.blockers:
@@ -352,22 +492,48 @@ def run_approval(
         raise GateFailedError("Gate 1 requires a passing validation report")
     if packet.plan_hash != plan.plan_hash():
         raise GateFailedError("Gate 1 packet is bound to a different plan hash")
+    validation = store.load_validation(project_id, plan.revision)
+    critique = store.load_critique(project_id, plan.revision)
+    current_bundle = _bundle(store, project_id, plan, validation, critique)
+    if (
+        current_bundle.bundle_hash != packet.bundle.bundle_hash
+        or current_bundle.record_hashes != packet.bundle.record_hashes
+    ):
+        raise GateFailedError(
+            "the brief, research, concept or plan changed after the Gate 1 packet "
+            "was built; rebuild the packet before approval"
+        )
 
     approved_scope = scope or packet.ready_shots
-    known_shots = {shot.id for shot in plan.shots}
-    unknown = [item for item in approved_scope if item not in known_shots]
+    unknown = [item for item in approved_scope if item not in packet.ready_shots]
     if unknown:
-        raise GateFailedError(f"approval scope contains unknown shots: {unknown}")
+        raise GateFailedError(
+            f"approval scope contains shots that are not ready: {unknown}"
+        )
     if not approved_scope:
         raise GateFailedError("approval scope is empty")
+
+    approved_exact = sorted(set(approved_exact_data or []))
+    unknown_exact = [
+        exact_id for exact_id in approved_exact if exact_id not in packet.exact_data_pending
+    ]
+    if unknown_exact:
+        raise GateFailedError(
+            f"approval names exact data that is not pending: {unknown_exact}"
+        )
 
     approval = Gate1Approval(
         project_id=project_id,
         plan_revision=plan.revision,
         plan_hash=plan.plan_hash(),
+        bundle_hash=current_bundle.bundle_hash,
+        record_hashes=current_bundle.record_hashes,
         approver=approver,
         approver_role=role,
+        actor_kind=actor_kind,
+        evidence=evidence,
         scope=approved_scope,
+        approved_exact_data=approved_exact,
         conditions=sorted(set(packet.conditions + (conditions or []))),
         note=note,
     )
@@ -391,6 +557,15 @@ def run_export(store: ProjectStore, project_id: str = DEFAULT_PROJECT) -> list[P
     brief = store.load_brief(project_id)
     research = store.load_research(project_id)
     concept = store.load_concept(project_id)
+    current_bundle = _bundle(store, project_id, plan, validation, critique)
+    if (
+        approval.bundle_hash != current_bundle.bundle_hash
+        or approval.record_hashes != current_bundle.record_hashes
+    ):
+        raise GateFailedError(
+            "the brief, research, concept or plan changed after approval; "
+            "the Gate 1 approval no longer covers the current records"
+        )
 
     handoff = build_handoff(plan, approval, validation)
     paths = [

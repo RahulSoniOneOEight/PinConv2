@@ -190,7 +190,7 @@ def critique_plan(
             confidence=5,
             effort=2,
             blocking_weight=2,
-            target_ids=[estimate.id for estimate in largest],
+            target_ids=[estimate.id for estimate in plan.estimates],
             owner=Owner.PLANNER,
         )
 
@@ -235,24 +235,24 @@ def critique_plan(
             and layer.binding_ref == asset.id
             for layer in plan.layers
         )
-        if not required:
+        if not required or not asset.fallback_required:
             continue
         has_alternate = asset.fallback_asset_id is not None or any(
             asset.id in alternate.target_ids for alternate in plan.alternates
         )
         has_hold = any(asset.id in item.affects for item in plan.held_items)
-        if not has_alternate and not has_hold:
+        if not has_alternate:
             add(
                 category="missing_fallback",
                 severity=Severity.MEDIUM,
                 observation=(
-                    f"Critical exact asset {asset.id} has no fallback, alternate route "
-                    "or hold."
+                    f"Critical exact asset {asset.id} has no executable alternate route"
+                    + ("; a hold exists but Level 2 still has no fallback." if has_hold else ".")
                 ),
                 evidence=f"{asset.name}; route {asset.route.value}",
                 proposed_action=(
-                    "Add a viable capture or supplied-asset fallback, or record what "
-                    "evidence would clear the hold."
+                    "Add a viable capture or supplied-asset fallback, and keep the "
+                    "hold as a separate condition."
                 ),
                 impact=3,
                 confidence=4,

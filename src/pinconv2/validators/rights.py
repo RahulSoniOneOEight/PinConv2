@@ -20,9 +20,9 @@ def _required_assets(context: ValidationContext) -> set[str]:
             continue
         if layer.binding_kind is BindingKind.ASSET and layer.binding_ref:
             required.add(layer.binding_ref)
-    audio_map = context.plan.audio_map
+    asset_map = context.plan.asset_map
     for cue in context.plan.audio_cues:
-        if cue.essential and cue.asset_id and cue.asset_id in audio_map:
+        if cue.essential and cue.asset_id and cue.asset_id in asset_map:
             required.add(cue.asset_id)
     return required
 
@@ -90,6 +90,29 @@ def validate_rights(context: ValidationContext) -> None:
                 )
                 continue
             _check_asset(context, asset)
+
+    with context.group(
+        "rights.audio", "audio", "every essential audio cue resolves to an asset"
+    ):
+        for cue in plan.audio_cues:
+            if not cue.essential:
+                continue
+            if cue.asset_id is None:
+                context.fail(
+                    "rights.audio",
+                    cue.id,
+                    Severity.HIGH,
+                    "essential cue has no asset",
+                    "Create an asset requirement or mark the cue optional.",
+                )
+            elif cue.asset_id not in plan.asset_map:
+                context.fail(
+                    "rights.audio",
+                    cue.id,
+                    Severity.HIGH,
+                    f"essential cue references unknown asset {cue.asset_id}",
+                    "Create the asset requirement.",
+                )
 
     with context.group(
         "rights.reference", "sources", "reference media is not bound as production asset"

@@ -73,9 +73,25 @@ def build_parser() -> argparse.ArgumentParser:
     approve.add_argument("--reviewer", required=True)
     approve.add_argument("--role", required=True)
     approve.add_argument(
+        "--evidence",
+        required=True,
+        help="ticket, email or signed-note reference for the human decision",
+    )
+    approve.add_argument(
+        "--confirm",
+        required=True,
+        choices=["APPROVE"],
+        help="type APPROVE to confirm this is a human decision",
+    )
+    approve.add_argument(
         "--scope",
         default=None,
         help="comma-separated shot ids; defaults to the ready shots",
+    )
+    approve.add_argument(
+        "--approve-exact-data",
+        default=None,
+        help="comma-separated exact-data ids, or 'all' for every pending value",
     )
     approve.add_argument("--condition", action="append", default=[])
     approve.add_argument("--note", default=None)
@@ -179,14 +195,27 @@ def main(argv: list[str] | None = None) -> int:
                 }
             )
         elif args.command == "approve":
+            approved_exact: list[str] | None = None
+            if args.approve_exact_data == "all":
+                plan_revision = store.latest_plan_revision(project)
+                packet = store.load_packet(project, plan_revision)
+                approved_exact = list(packet.exact_data_pending)
+            elif args.approve_exact_data:
+                approved_exact = [
+                    item.strip()
+                    for item in args.approve_exact_data.split(",")
+                    if item.strip()
+                ]
             approval = run_approval(
                 store,
                 project,
                 approver=args.reviewer,
                 role=args.role,
+                evidence=args.evidence,
                 scope=[item.strip() for item in args.scope.split(",")]
                 if args.scope
                 else None,
+                approved_exact_data=approved_exact,
                 conditions=list(args.condition),
                 note=args.note,
             )
@@ -195,8 +224,10 @@ def main(argv: list[str] | None = None) -> int:
                     "approved": True,
                     "plan_revision": approval.plan_revision,
                     "plan_hash": approval.plan_hash,
+                    "bundle_hash": approval.bundle_hash,
                     "approver": approval.approver,
                     "scope": approval.scope,
+                    "approved_exact_data": approval.approved_exact_data,
                 }
             )
         elif args.command == "previews":

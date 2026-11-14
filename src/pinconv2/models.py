@@ -798,6 +798,7 @@ class Asset(StrictModel):
     dependencies: list[str] = Field(default_factory=list)
     estimate_id: str | None = None
     fallback_asset_id: str | None = None
+    fallback_required: bool = True
     used_by: list[str] = Field(default_factory=list)
     status: AssetStatus = AssetStatus.PENDING
     notes: str | None = Field(default=None, max_length=1000)
@@ -951,6 +952,7 @@ class AcceptanceCheck(StrictModel):
     description: str = Field(min_length=1, max_length=1000)
     method: CheckMethod
     level: CheckLevel
+    rule_refs: list[str] = Field(min_length=1)
     status: CheckStatus = CheckStatus.PENDING
     evidence: str | None = Field(default=None, max_length=1000)
     notes: str | None = Field(default=None, max_length=1000)
@@ -977,6 +979,17 @@ class HeldItem(StrictModel):
     owner: Owner
 
 
+class VariantOverride(StrictModel):
+    id: str = Field(pattern=r"^VO-\d{2}$")
+    deliverable_id: str
+    reference_ids: list[str] = Field(min_length=1)
+    changes: list[str] = Field(min_length=1)
+    cost_delta_usd: float = 0
+    check_ids: list[str] = Field(min_length=1)
+    approval_scope: list[str] = Field(min_length=1)
+    notes: str | None = Field(default=None, max_length=1000)
+
+
 class ProductionPlan(StrictModel):
     project_id: str
     revision: int = Field(ge=1)
@@ -992,6 +1005,7 @@ class ProductionPlan(StrictModel):
     audio_cues: list[AudioCue] = Field(default_factory=list)
     transitions: list[Transition] = Field(default_factory=list)
     alternates: list[AlternateRoute] = Field(default_factory=list)
+    variant_overrides: list[VariantOverride] = Field(default_factory=list)
     estimates: list[Estimate] = Field(min_length=1)
     budget: BudgetPlan
     checks: list[AcceptanceCheck] = Field(min_length=1)
@@ -1148,18 +1162,32 @@ class ResolutionReport(StrictModel):
     from_revision: int = Field(ge=1)
     to_revision: int = Field(ge=2)
     inputs: list[InputResolution] = Field(min_length=1)
+    verified_impacts: dict[str, list[str]] = Field(default_factory=dict)
+    applied_fixes: list[str] = Field(default_factory=list)
     created_at: str = Field(default_factory=utc_now)
     notes: str | None = Field(default=None, max_length=2000)
+
+
+class BundleManifest(StrictModel):
+    project_id: str
+    plan_revision: int = Field(ge=1)
+    record_hashes: dict[str, str] = Field(min_length=1)
+    bundle_hash: str = Field(pattern=r"^[a-f0-9]{64}$")
 
 
 class Gate1Approval(StrictModel):
     project_id: str
     plan_revision: int = Field(ge=1)
     plan_hash: str = Field(pattern=r"^[a-f0-9]{64}$")
+    bundle_hash: str = Field(pattern=r"^[a-f0-9]{64}$")
+    record_hashes: dict[str, str] = Field(min_length=1)
     approver: str = Field(min_length=2, max_length=200)
     approver_role: str = Field(min_length=2, max_length=200)
+    actor_kind: str = Field(pattern=r"^(human|agent|automation)$")
+    evidence: str = Field(min_length=3, max_length=500)
     approved_at: str = Field(default_factory=utc_now)
     scope: list[str] = Field(min_length=1)
+    approved_exact_data: list[str] = Field(default_factory=list)
     conditions: list[str] = Field(default_factory=list)
     allowed_substitutions: list[str] = Field(default_factory=list)
     note: str | None = Field(default=None, max_length=2000)
@@ -1169,9 +1197,13 @@ class Gate1Packet(StrictModel):
     project_id: str
     plan_revision: int = Field(ge=1)
     plan_hash: str = Field(pattern=r"^[a-f0-9]{64}$")
+    bundle: BundleManifest
     validation_passed: bool
     ready_shots: list[str]
     held_layers: list[str]
+    held_items: list[HeldItem]
+    exact_data_approved: list[str]
+    exact_data_pending: list[str]
     conditions: list[str]
     blockers: list[str]
     input_statuses: dict[str, str]
@@ -1211,7 +1243,9 @@ class Level2Handoff(StrictModel):
     assets: list[HandoffAsset]
     pending_checks: list[str]
     conditions: list[str]
+    held_items: list[HeldItem]
     exact_data_approved: list[str]
+    exact_data_pending: list[str]
     created_at: str = Field(default_factory=utc_now)
 
 

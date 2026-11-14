@@ -24,6 +24,12 @@ def test_cli_run_all_approve_and_export(tmp_path: Path, capsys) -> None:
                 "CLI Test Reviewer",
                 "--role",
                 "Automated CLI test",
+                "--evidence",
+                "pytest://cli-test",
+                "--confirm",
+                "APPROVE",
+                "--approve-exact-data",
+                "all",
             ]
         )
         == 0

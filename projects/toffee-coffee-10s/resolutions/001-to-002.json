@@ -48,13 +48,41 @@
         "Kept a costed pack-capture fallback inside the cap."
       ],
       "impacted_ids": [
-        "ES-02",
         "ES-01",
-        "ES-03"
+        "ES-02",
+        "ES-03",
+        "ES-04",
+        "ES-05",
+        "ES-06",
+        "ES-10",
+        "ES-07",
+        "ES-09"
       ],
       "status": "resolved"
     }
   ],
-  "created_at": "2026-11-14T13:15:14+00:00",
-  "notes": "Top three inputs resolved or escalated. The planner also applied the pack-capture fallback and the music/voice rights route as hardening; both remain Gate 1 conditions."
+  "verified_impacts": {
+    "CF-01": [
+      "LY-025",
+      "LY-037",
+      "LY-045"
+    ],
+    "CF-02": [
+      "CP-04",
+      "LY-035"
+    ],
+    "CF-03": [
+      "ES-07",
+      "ES-09"
+    ]
+  },
+  "applied_fixes": [
+    "budget",
+    "commercial",
+    "fallback",
+    "rights",
+    "safe_area"
+  ],
+  "created_at": "2026-11-14T13:24:02+00:00",
+  "notes": "Revision 2 applies the planner fixes selected by the critic. Every top-three input names at least one target record that changed or was removed; the diff is recorded in verified_impacts."
 }

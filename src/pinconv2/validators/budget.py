@@ -14,6 +14,18 @@ def validate_budget(context: ValidationContext) -> None:
     brief = context.brief
 
     with context.group(
+        "budget.sync", "budget", "the plan and budget share one estimate list"
+    ):
+        if plan.budget.estimates != plan.estimates:
+            context.fail(
+                "budget.sync",
+                "budget",
+                Severity.BLOCKER,
+                "plan estimates and budget estimates differ",
+                "Use one estimate list for arithmetic and references.",
+            )
+
+    with context.group(
         "budget.cap_match", "budget", "the plan budget matches the approved brief cap"
     ):
         if abs(budget.cap_usd - brief.budget_cap_usd) > TOLERANCE:

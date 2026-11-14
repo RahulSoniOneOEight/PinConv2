@@ -1,16 +1,14 @@
-{"created_at": "2026-11-14T13:15:14+00:00", "detail": {"state": "init", "title": "Toffee Coffee Roasters 10-second vertical ad"}, "type": "project.created"}
-{"created_at": "2026-11-14T13:15:14+00:00", "detail": {"must_have": 9, "revision": 1}, "type": "brief.recorded"}
-{"created_at": "2026-11-14T13:15:14+00:00", "detail": {"content_family": "ad", "duration_seconds": 10.0, "fps": 25, "must_have": 9}, "type": "brief.normalised"}
-{"created_at": "2026-11-14T13:15:14+00:00", "detail": {"findings": 12, "sources": 6}, "type": "research.recorded"}
-{"created_at": "2026-11-14T13:15:14+00:00", "detail": {"recommended": "CO-01", "revision": 1}, "type": "concept.recorded"}
-{"created_at": "2026-11-14T13:15:14+00:00", "detail": {"assets": 11, "hash": "e488a76e6f84fe8249264b476e44e6fc464a15f7e4c46d7d653fc72a6b332a64", "layers": 26, "revision": 1, "shots": 4}, "type": "plan.recorded"}
-{"created_at": "2026-11-14T13:15:14+00:00", "detail": {"failures": 8, "passed": false, "revision": 1, "warnings": 9}, "type": "plan.validated"}
-{"created_at": "2026-11-14T13:15:14+00:00", "detail": {"findings": 5, "revision": 1, "top3": ["CF-01", "CF-02", "CF-03"]}, "type": "plan.critiqued"}
-{"created_at": "2026-11-14T13:15:14+00:00", "detail": {"assets": 12, "hash": "7f655163242c99d9de162592b09586cbcb158872947de7ab937c1e370b614781", "layers": 24, "revision": 2, "shots": 4}, "type": "plan.recorded"}
-{"created_at": "2026-11-14T13:15:14+00:00", "detail": {"from": 1, "inputs": 3, "to": 2}, "type": "inputs.updated"}
-{"created_at": "2026-11-14T13:15:14+00:00", "detail": {"failures": 0, "passed": true, "revision": 2, "warnings": 6}, "type": "plan.validated"}
-{"created_at": "2026-11-14T13:15:14+00:00", "detail": {"findings": 0, "revision": 2, "top3": []}, "type": "plan.critiqued"}
-{"created_at": "2026-11-14T13:15:14+00:00", "detail": {"files": ["SH-01.svg", "SH-02.svg", "SH-03.svg", "SH-04.svg", "contact-sheet.svg"], "revision": 2}, "type": "previews.written"}
-{"created_at": "2026-11-14T13:15:14+00:00", "detail": {"blockers": 0, "revision": 2, "validation_passed": true}, "type": "gate1.packet"}
-{"created_at": "2026-11-14T13:15:21+00:00", "detail": {"files": ["SH-01.svg", "SH-02.svg", "SH-03.svg", "SH-04.svg", "contact-sheet.svg"], "revision": 2}, "type": "previews.written"}
-{"created_at": "2026-11-14T13:15:32+00:00", "detail": {"files": ["SH-01.svg", "SH-02.svg", "SH-03.svg", "SH-04.svg", "contact-sheet.svg"], "revision": 2}, "type": "previews.written"}
+{"created_at": "2026-11-14T13:24:02+00:00", "detail": {"state": "init", "title": "Toffee Coffee Roasters 10-second vertical ad"}, "type": "project.created"}
+{"created_at": "2026-11-14T13:24:02+00:00", "detail": {"must_have": 9, "revision": 1}, "type": "brief.recorded"}
+{"created_at": "2026-11-14T13:24:02+00:00", "detail": {"content_family": "ad", "duration_seconds": 10.0, "fps": 25, "must_have": 9}, "type": "brief.normalised"}
+{"created_at": "2026-11-14T13:24:02+00:00", "detail": {"findings": 12, "sources": 6}, "type": "research.recorded"}
+{"created_at": "2026-11-14T13:24:02+00:00", "detail": {"recommended": "CO-01", "revision": 1}, "type": "concept.recorded"}
+{"created_at": "2026-11-14T13:24:02+00:00", "detail": {"assets": 11, "hash": "3a3b94749c66f4443ec86887199d4055e61d2a1bff05d7073b391b5a8c016f7b", "layers": 26, "revision": 1, "shots": 4}, "type": "plan.recorded"}
+{"created_at": "2026-11-14T13:24:02+00:00", "detail": {"failures": 8, "passed": false, "revision": 1, "warnings": 12}, "type": "plan.validated"}
+{"created_at": "2026-11-14T13:24:02+00:00", "detail": {"findings": 6, "revision": 1, "top3": ["CF-01", "CF-02", "CF-03"]}, "type": "plan.critiqued"}
+{"created_at": "2026-11-14T13:24:02+00:00", "detail": {"assets": 12, "hash": "c2f43e7aa4dd6ded9419e74d0fd4bc4bc00a49df755453b0df0f1cb411ca069b", "layers": 24, "revision": 2, "shots": 4}, "type": "plan.recorded"}
+{"created_at": "2026-11-14T13:24:02+00:00", "detail": {"from": 1, "inputs": 3, "to": 2}, "type": "inputs.updated"}
+{"created_at": "2026-11-14T13:24:02+00:00", "detail": {"failures": 0, "passed": true, "revision": 2, "warnings": 8}, "type": "plan.validated"}
+{"created_at": "2026-11-14T13:24:02+00:00", "detail": {"findings": 0, "revision": 2, "top3": []}, "type": "plan.critiqued"}
+{"created_at": "2026-11-14T13:24:02+00:00", "detail": {"files": ["SH-01.svg", "SH-02.svg", "SH-03.svg", "SH-04.svg", "contact-sheet.svg"], "revision": 2}, "type": "previews.written"}
+{"created_at": "2026-11-14T13:24:02+00:00", "detail": {"blockers": 0, "revision": 2, "validation_passed": true}, "type": "gate1.packet"}

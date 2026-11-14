@@ -52,16 +52,21 @@ _PLAN_PATTERN = re.compile(r"^rev-(\d{3})\.json$")
 
 class ProjectStore:
     def __init__(self, root: Path) -> None:
-        self.root = Path(root)
+        self.root = Path(root).resolve()
         self.root.mkdir(parents=True, exist_ok=True)
 
     # -- paths ------------------------------------------------------------
 
     def project_dir(self, project_id: str) -> Path:
-        return self.root / project_id
+        return self._path(project_id)
 
     def _path(self, project_id: str, *parts: str) -> Path:
-        return self.project_dir(project_id).joinpath(*parts)
+        if not re.fullmatch(r"[a-z0-9][a-z0-9-]{2,60}", project_id):
+            raise StoreError(f"invalid project id: {project_id!r}")
+        target = (self.root / project_id).joinpath(*parts).resolve()
+        if not target.is_relative_to(self.root):
+            raise StoreError(f"path escapes the data root: {project_id!r}")
+        return target
 
     @staticmethod
     def _rev(revision: int) -> str:
@@ -215,10 +220,20 @@ class ProjectStore:
     # -- validation and critique -----------------------------------------
 
     def save_validation(self, report: ValidationReport) -> None:
-        self._write_model(
-            self._path(report.project_id, "validation", self._rev(report.plan_revision)),
-            report,
+        path = self._path(
+            report.project_id, "validation", self._rev(report.plan_revision)
         )
+        if path.exists():
+            existing = self.load_validation(report.project_id, report.plan_revision)
+            if existing.model_dump(exclude={"created_at"}) == report.model_dump(
+                exclude={"created_at"}
+            ):
+                return
+            raise StoreError(
+                f"validation for revision {report.plan_revision} already exists "
+                "with different content"
+            )
+        self._write_model(path, report)
         self.append_event(
             report.project_id,
             "plan.validated",
@@ -236,9 +251,20 @@ class ProjectStore:
         )
 
     def save_critique(self, report: CritiqueReport) -> None:
-        self._write_model(
-            self._path(report.project_id, "critique", self._rev(report.plan_revision)), report
+        path = self._path(
+            report.project_id, "critique", self._rev(report.plan_revision)
         )
+        if path.exists():
+            existing = self.load_critique(report.project_id, report.plan_revision)
+            if existing.model_dump(exclude={"created_at"}) == report.model_dump(
+                exclude={"created_at"}
+            ):
+                return
+            raise StoreError(
+                f"critique for revision {report.plan_revision} already exists "
+                "with different content"
+            )
+        self._write_model(path, report)
         self.append_event(
             report.project_id,
             "plan.critiqued",
@@ -258,7 +284,15 @@ class ProjectStore:
 
     def save_resolution(self, report: ResolutionReport) -> None:
         name = f"{report.from_revision:03d}-to-{report.to_revision:03d}.json"
-        self._write_model(self._path(report.project_id, "resolutions", name), report)
+        path = self._path(report.project_id, "resolutions", name)
+        if path.exists():
+            existing = self._read_model(path, ResolutionReport)
+            if existing.model_dump(exclude={"created_at"}) == report.model_dump(
+                exclude={"created_at"}
+            ):
+                return
+            raise StoreError(f"resolution already exists with different content: {name}")
+        self._write_model(path, report)
         self.append_event(
             report.project_id,
             "inputs.updated",
@@ -309,10 +343,14 @@ class ProjectStore:
         )
 
     def save_approval(self, approval: Gate1Approval) -> None:
-        self._write_model(
-            self._path(approval.project_id, "approvals", self._rev(approval.plan_revision)),
-            approval,
+        path = self._path(
+            approval.project_id, "approvals", self._rev(approval.plan_revision)
         )
+        if path.exists():
+            raise StoreError(
+                f"an approval already exists for revision {approval.plan_revision}"
+            )
+        self._write_model(path, approval)
         self.append_event(
             approval.project_id,
             "gate1.approved",

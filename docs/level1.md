@@ -55,14 +55,15 @@ not stop the critique; it stops Gate 1.
 | `AudioCue` | frames, kind, description, asset, level, essential |
 | `AlternateRoute` | trigger, preserved requirement, revised dependencies, cost delta, approval scope |
 | `Estimate` / `BudgetPlan` | shared/shot/variant/fallback cost, basis, confidence, retry reserve |
-| `AcceptanceCheck` | target, observable condition, method, level, status |
+| `AcceptanceCheck` | target, observable condition, method, level, rule references, status |
 | `HeldItem` | what is blocked, why, what evidence clears it, owner |
 | `ValidationReport` | rule, target, severity, pass/fail/warn, remediation, check status |
 | `CritiqueFinding` | category, observation, evidence, action, impact, confidence, effort, blocking weight, owner, disposition |
 | `ResolutionReport` | top-three rank, mode, decision, changes, impacted IDs, status |
-| `Gate1Packet` | hash, validation, ready shots, held layers, conditions, blockers, input statuses |
-| `Gate1Approval` | approver, role, timestamp, scope, conditions, hash |
-| `Level2Handoff` | approved shots, asset briefs, rights actions, pending checks, exact data |
+| `BundleManifest` | hashes of brief, research, concept, plan, validation, critique and resolution; one bundle hash |
+| `Gate1Packet` | plan and bundle hashes, validation, ready shots, held layers, held items, exact data pending, conditions, blockers, input statuses |
+| `Gate1Approval` | approver, role, actor kind, evidence, timestamp, scope, approved exact data, plan and bundle hashes |
+| `Level2Handoff` | approved shots, asset briefs, rights actions, pending checks, held items, approved and pending exact data |
 
 All records are frozen Pydantic models. A plan revision is immutable. Writing a
 different plan to the same revision is refused.
@@ -151,7 +152,10 @@ worst    = total + costed fallbacks
 | Traceability | unique IDs, shot/beat/asset/check references, two-way asset usage, must-have coverage, alternate scope, held-item scope, shot status, CTA binding, critical asset fallback |
 
 Each group writes a PASS finding when clean. Failures include the exact target
-and a remediation.
+and a remediation. A structural acceptance check is evaluated only against its
+own `rule_refs`: a check fails if one of its rules fails, stays pending if one
+of its rules warns, and passes only when its own evidence is clean. An
+unrelated budget failure does not mark the timing check failed.
 
 ## 9. Critique and the top three
 
@@ -175,7 +179,10 @@ priority = impact x confidence x blocking_weight / effort
 ```
 
 The top three are handled as **auto-resolved** or **escalated**. The revised
-plan records every change. In the Toffee run:
+plan records every change, and each top-three input must name at least one
+target record that changed or was removed in the new revision; otherwise the
+revision is refused. All other auto-resolvable findings are applied too and
+listed in `applied_fixes`. In the Toffee run:
 
 | Rank | Finding | Mode | Outcome |
 |---|---|---|---|
@@ -188,26 +195,33 @@ plan records every change. In the Toffee run:
 Gate 1 requires:
 
 - validation pass on the exact revision;
-- every Level 1 check PASS;
+- every Level 1 check PASS against its own rule references;
 - no open blocker or high finding;
-- a resolution record for every top-three input;
-- a named human approver and role;
-- a non-empty approval scope;
-- a packet hash equal to the plan hash.
+- a resolution record for every top-three input, with a verified target diff;
+- a named human approver, role and evidence reference;
+- an actor kind of `human`; agents and automation are rejected;
+- an approval scope drawn only from the ready shots;
+- a packet plan hash equal to the plan hash;
+- a bundle hash matching the current brief, research, concept, plan,
+  validation, critique and resolution.
 
-The packet lists ready shots, held layers, conditions and blockers. Approval
-does not clear a held commercial value; it approves the plan around it.
+The packet lists ready shots, held layers, held items, exact data still pending,
+conditions and blockers. Approval does not clear a held commercial value; it
+approves the plan around it. The approver explicitly names any pending exact
+values they approve; unapproved values stay pending in the Level 2 handoff.
 
 ## 11. Level 2 handoff
 
 The handoff contains:
 
-- the approval and its hash;
+- the approval and its plan and bundle hashes;
 - approved shots with method, fallback, layer, asset and check IDs;
-- asset briefs with rights actions and estimates;
+- asset briefs with rights actions and estimates, filtered to the approved
+  scope and the audio cues that overlap it;
 - pending Level 2 checks;
-- conditions;
-- the exact data approved by Gate 1.
+- held items and conditions;
+- exact data explicitly approved by Gate 1, with everything else in a separate
+  pending list.
 
 Level 2 receives an executable brief, not permission to invent missing values.
 
@@ -220,4 +234,11 @@ Level 2 receives an executable brief, not permission to invent missing values.
   geometric;
 - one critique cycle and one plan revision are allowed;
 - the Toffee test is a planning exercise, not a brand engagement; every
-  commercial value remains unapproved.
+  commercial value remains unapproved;
+- the duck fixture from the governing note is deferred because the requested
+  scope is one Toffee test run; a `VariantOverride` contract exists but is not
+  exercised;
+- identity is recorded, not authenticated: the CLI requires a named human, an
+  evidence reference and the typed confirmation `APPROVE`, but a local operator
+  could still enter false details. Real identity needs an authenticated
+  approval channel.

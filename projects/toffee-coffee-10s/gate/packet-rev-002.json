@@ -1,7 +1,21 @@
 {
   "project_id": "toffee-coffee-10s",
   "plan_revision": 2,
-  "plan_hash": "7f655163242c99d9de162592b09586cbcb158872947de7ab937c1e370b614781",
+  "plan_hash": "c2f43e7aa4dd6ded9419e74d0fd4bc4bc00a49df755453b0df0f1cb411ca069b",
+  "bundle": {
+    "project_id": "toffee-coffee-10s",
+    "plan_revision": 2,
+    "record_hashes": {
+      "brief": "48f0cce1f92d5849b72a9bb36bbdbc80cb6c27ec423dddf154142ba06bc05a64",
+      "research": "327eabc04b96971410a847d04048f4e7e7afc8c34ee17152966ac10601cf10fa",
+      "concept": "41e0a832946faf1c344f1e663ac812b389625f92a5b376e6803c71574091b526",
+      "plan": "c2f43e7aa4dd6ded9419e74d0fd4bc4bc00a49df755453b0df0f1cb411ca069b",
+      "validation": "c1ea2cb9249b3bb686cb8e277e99a5caed3596de516d67f6f4279dac33f5ee2e",
+      "critique": "3151625bd2b0a0cd1acd2016cb925e958827051645a5ed07c6fc62dcaa4f5129",
+      "resolution": "3cf198108806f33030be6ccdc404fe0a8555530e85aace6fee17190ac8764ada"
+    },
+    "bundle_hash": "1b86f21ec06d3407793995fbcdab48bb0ea640949fe7446a8621da0c5d92d134"
+  },
   "validation_passed": true,
   "ready_shots": [
     "SH-01",
@@ -10,12 +24,58 @@
     "SH-04"
   ],
   "held_layers": [],
+  "held_items": [
+    {
+      "id": "HI-01",
+      "title": "Price and promotion confirmation",
+      "reason": "The storefront price varies by pack size and the offer has no visible expiry or terms.",
+      "affects": [
+        "ED-02",
+        "ED-03",
+        "ED-04"
+      ],
+      "required_evidence": "Brand-approved hero size, advertising price, offer terms and expiry, with a named approver.",
+      "owner": "human"
+    },
+    {
+      "id": "HI-02",
+      "title": "Brand pack art, logo and font clearance",
+      "reason": "No brand kit or advertising-use licence was supplied.",
+      "affects": [
+        "AS-01",
+        "AS-02"
+      ],
+      "required_evidence": "Pack art and vector logo with written advertising-use confirmation, plus the brand font or approval to use the placeholder.",
+      "owner": "human"
+    },
+    {
+      "id": "HI-03",
+      "title": "Music licence",
+      "reason": "No track is selected or licensed.",
+      "affects": [
+        "AS-07"
+      ],
+      "required_evidence": "A production-library licence covering organic and paid social.",
+      "owner": "human"
+    }
+  ],
+  "exact_data_approved": [],
+  "exact_data_pending": [
+    "ED-05",
+    "ED-06",
+    "ED-07"
+  ],
   "conditions": [
-    "exact.critical: brand_name ED-06 is observed; Gate 1 must approve this identifier or wording",
-    "exact.critical: cta ED-05 is proposed; Gate 1 must approve this identifier or wording",
-    "exact.critical: origin ED-07 is observed; Gate 1 must approve this identifier or wording",
+    "HI-01 Price and promotion confirmation: Brand-approved hero size, advertising price, offer terms and expiry, with a named approver.",
+    "HI-02 Brand pack art, logo and font clearance: Pack art and vector logo with written advertising-use confirmation, plus the brand font or approval to use the placeholder.",
+    "HI-03 Music licence: A production-library licence covering organic and paid social.",
+    "exact.identifiers: brand_name ED-06 is observed; Gate 1 must approve this identifier or wording",
+    "exact.identifiers: cta ED-05 is proposed; Gate 1 must approve this identifier or wording",
+    "exact.identifiers: origin ED-07 is observed; Gate 1 must approve this identifier or wording",
     "rights.assets: rights need approval for Ethiopia pack artwork",
-    "rights.assets: rights need approval for Toffee Coffee Roasters logo"
+    "rights.assets: rights need approval for Music bed, 10 seconds",
+    "rights.assets: rights need approval for Toffee Coffee Roasters logo",
+    "rights.assets: rights need approval for Voice over, warm Indian English"
   ],
   "blockers": [],
   "input_statuses": {
@@ -24,5 +84,5 @@
     "CF-03": "resolved"
   },
   "approval": null,
-  "created_at": "2026-11-14T13:15:14+00:00"
+  "created_at": "2026-11-14T13:24:02+00:00"
 }

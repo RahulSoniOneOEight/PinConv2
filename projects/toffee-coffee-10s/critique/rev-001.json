@@ -1,8 +1,8 @@
 {
   "project_id": "toffee-coffee-10s",
   "plan_revision": 1,
-  "plan_hash": "e488a76e6f84fe8249264b476e44e6fc464a15f7e4c46d7d653fc72a6b332a64",
-  "summary": "5 findings. The three highest-impact inputs are CF-01 (safe_area), CF-02 (commercial_data), CF-03 (budget). The critic reviewed the plan artifact, not the planner's reasoning.",
+  "plan_hash": "3a3b94749c66f4443ec86887199d4055e61d2a1bff05d7073b391b5a8c016f7b",
+  "summary": "6 findings. The three highest-impact inputs are CF-01 (safe_area), CF-02 (commercial_data), CF-03 (budget). The critic reviewed the plan artifact, not the planner's reasoning.",
   "findings": [
     {
       "id": "CF-01",
@@ -55,9 +55,15 @@
       "effort": 2,
       "blocking_weight": 2,
       "target_ids": [
-        "ES-02",
         "ES-01",
-        "ES-03"
+        "ES-02",
+        "ES-03",
+        "ES-04",
+        "ES-05",
+        "ES-06",
+        "ES-10",
+        "ES-07",
+        "ES-09"
       ],
       "owner": "planner",
       "disposition": "open",
@@ -86,6 +92,24 @@
     },
     {
       "id": "CF-05",
+      "category": "missing_fallback",
+      "severity": "medium",
+      "observation": "Critical exact asset AS-01 has no executable alternate route; a hold exists but Level 2 still has no fallback.",
+      "evidence": "Ethiopia pack artwork; route supplied",
+      "proposed_action": "Add a viable capture or supplied-asset fallback, and keep the hold as a separate condition.",
+      "impact": 3,
+      "confidence": 4,
+      "effort": 2,
+      "blocking_weight": 2,
+      "target_ids": [
+        "AS-01"
+      ],
+      "owner": "planner",
+      "disposition": "open",
+      "resolution": null
+    },
+    {
+      "id": "CF-06",
       "category": "rights_unknown",
       "severity": "medium",
       "observation": "Required asset AS-07 has no identified licence.",
@@ -108,5 +132,5 @@
     "CF-02",
     "CF-03"
   ],
-  "created_at": "2026-11-14T13:15:14+00:00"
+  "created_at": "2026-11-14T13:24:02+00:00"
 }

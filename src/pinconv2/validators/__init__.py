@@ -9,6 +9,8 @@ from ..models import (
     CheckMethod,
     CheckStatus,
     ProductionPlan,
+    Severity,
+    ValidationFinding,
     ValidationReport,
     ValidationStatus,
 )
@@ -38,19 +40,39 @@ def validate_plan(
     validate_rights(context)
     validate_traceability(context)
 
-    any_failure = any(
-        finding.status is ValidationStatus.FAIL for finding in collector.items
-    )
+    by_rule: dict[str, list[ValidationFinding]] = {}
+    for finding in collector.items:
+        by_rule.setdefault(finding.rule, []).append(finding)
+
     check_status: dict[str, CheckStatus] = {}
     for check in plan.checks:
         if check.status is CheckStatus.NOT_APPLICABLE:
             check_status[check.id] = CheckStatus.NOT_APPLICABLE
-        elif check.method is CheckMethod.STRUCTURAL:
-            check_status[check.id] = (
-                CheckStatus.FAIL if any_failure else CheckStatus.PASS
-            )
-        else:
+            continue
+        if check.method is not CheckMethod.STRUCTURAL:
             check_status[check.id] = CheckStatus.PENDING
+            continue
+        missing = [rule for rule in check.rule_refs if rule not in by_rule]
+        if missing:
+            collector.add(
+                "validation.check_evidence",
+                check.id,
+                Severity.HIGH,
+                ValidationStatus.FAIL,
+                f"check references rules with no evidence: {', '.join(missing)}",
+                "Point the check at rules the validator actually runs.",
+            )
+            check_status[check.id] = CheckStatus.FAIL
+            continue
+        relevant = [
+            finding for rule in check.rule_refs for finding in by_rule.get(rule, [])
+        ]
+        if any(finding.status is ValidationStatus.FAIL for finding in relevant):
+            check_status[check.id] = CheckStatus.FAIL
+        elif any(finding.status is ValidationStatus.WARN for finding in relevant):
+            check_status[check.id] = CheckStatus.PENDING
+        else:
+            check_status[check.id] = CheckStatus.PASS
 
     return ValidationReport(
         project_id=plan.project_id,

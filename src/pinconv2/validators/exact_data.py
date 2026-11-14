@@ -120,7 +120,7 @@ def validate_exact_data(context: ValidationContext) -> None:
                     )
                 elif record.status in {DataStatus.OBSERVED, DataStatus.PROPOSED}:
                     context.warn(
-                        "exact.critical",
+                        "exact.identifiers",
                         layer_id,
                         f"{record.field.value} {record.id} is {record.status.value}; "
                         "Gate 1 must approve this identifier or wording",

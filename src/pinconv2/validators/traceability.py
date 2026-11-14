@@ -216,6 +216,68 @@ def validate_traceability(context: ValidationContext) -> None:
                     "Remove it or bind it to the work that needs it.",
                 )
 
+    with context.group(
+        "trace.dependencies", "assets", "asset dependencies resolve and are acyclic"
+    ):
+        graph: dict[str, list[str]] = {}
+        for asset in plan.assets:
+            resolved: list[str] = []
+            for dependency in asset.dependencies:
+                if dependency == asset.id:
+                    context.fail(
+                        "trace.dependencies",
+                        asset.id,
+                        Severity.HIGH,
+                        "asset depends on itself",
+                        "Remove the self dependency.",
+                    )
+                elif dependency not in asset_map:
+                    context.fail(
+                        "trace.dependencies",
+                        asset.id,
+                        Severity.HIGH,
+                        f"unknown dependency {dependency}",
+                        "Create the dependency or remove the reference.",
+                    )
+                else:
+                    resolved.append(dependency)
+            graph[asset.id] = resolved
+
+        visiting: set[str] = set()
+        visited: set[str] = set()
+
+        def visit(node: str, path: list[str]) -> None:
+            if node in visiting:
+                context.fail(
+                    "trace.dependencies",
+                    node,
+                    Severity.HIGH,
+                    "dependency cycle: " + " -> ".join([*path, node]),
+                    "Break the cycle.",
+                )
+                return
+            if node in visited:
+                return
+            visiting.add(node)
+            for dependency in graph.get(node, []):
+                visit(dependency, [*path, node])
+            visiting.remove(node)
+            visited.add(node)
+
+        for asset_id in graph:
+            visit(asset_id, [])
+
+        for alternate in plan.alternates:
+            for dependency in alternate.revised_dependencies:
+                if dependency not in known:
+                    context.fail(
+                        "trace.dependencies",
+                        alternate.id,
+                        Severity.HIGH,
+                        f"alternate depends on unknown record {dependency}",
+                        "Point the alternate at existing work.",
+                    )
+
     with context.group("trace.checks", "checks", "acceptance checks target real work"):
         for check in plan.checks:
             for target in check.target_ids:

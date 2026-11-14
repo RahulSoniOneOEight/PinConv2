@@ -341,6 +341,7 @@ def _assets(
             exactness=Exactness.EXACT,
             allowed_edits=["scale proportionally"],
             estimate_id="ES-05",
+            fallback_required=False,
             used_by=["LY-042"],
         ),
         Asset(
@@ -1197,6 +1198,7 @@ def _checks() -> list[AcceptanceCheck]:
             description="Timeline covers exactly 250 frames across four contiguous shots.",
             method=CheckMethod.STRUCTURAL,
             level=CheckLevel.L1,
+            rule_refs=["timing.deliverable", "timing.shots"],
         ),
         AcceptanceCheck(
             id="AC-02",
@@ -1204,6 +1206,7 @@ def _checks() -> list[AcceptanceCheck]:
             description="All text sits inside the 1080x1920 safe area.",
             method=CheckMethod.STRUCTURAL,
             level=CheckLevel.L1,
+            rule_refs=["layer.safe_area"],
         ),
         AcceptanceCheck(
             id="AC-03",
@@ -1211,6 +1214,7 @@ def _checks() -> list[AcceptanceCheck]:
             description="Pack label and logo regions are not occluded by planned layers.",
             method=CheckMethod.STRUCTURAL,
             level=CheckLevel.L1,
+            rule_refs=["layer.occlusion"],
         ),
         AcceptanceCheck(
             id="AC-04",
@@ -1218,6 +1222,7 @@ def _checks() -> list[AcceptanceCheck]:
             description="No required layer depends on unapproved price or offer data.",
             method=CheckMethod.STRUCTURAL,
             level=CheckLevel.L1,
+            rule_refs=["exact.critical"],
         ),
         AcceptanceCheck(
             id="AC-05",
@@ -1225,6 +1230,7 @@ def _checks() -> list[AcceptanceCheck]:
             description="Brand and CTA are legible at 50 percent scale on a 1080x1920 phone.",
             method=CheckMethod.RENDER_PIXEL,
             level=CheckLevel.L2,
+            rule_refs=["pending.level2.brand_legibility"],
         ),
         AcceptanceCheck(
             id="AC-06",
@@ -1232,6 +1238,7 @@ def _checks() -> list[AcceptanceCheck]:
             description="VO is intelligible and the music sits at least 6 dB under it.",
             method=CheckMethod.AUDIO,
             level=CheckLevel.L2,
+            rule_refs=["pending.level2.audio"],
         ),
         AcceptanceCheck(
             id="AC-07",
@@ -1239,13 +1246,15 @@ def _checks() -> list[AcceptanceCheck]:
             description="Exact data in final pixels matches the approved values.",
             method=CheckMethod.RENDER_PIXEL,
             level=CheckLevel.L2,
+            rule_refs=["pending.level2.exact_pixels"],
         ),
         AcceptanceCheck(
             id="AC-08",
             target_ids=["CL-03", "ED-05"],
-            description="Every used claim and exact value is verified or explicitly approved.",
+            description="Every used claim is verified and every exact reference resolves.",
             method=CheckMethod.STRUCTURAL,
             level=CheckLevel.L1,
+            rule_refs=["exact.claims", "exact.references"],
         ),
         AcceptanceCheck(
             id="AC-09",
@@ -1253,6 +1262,7 @@ def _checks() -> list[AcceptanceCheck]:
             description="A sound-off viewer understands the product and the brand.",
             method=CheckMethod.HUMAN,
             level=CheckLevel.L2,
+            rule_refs=["pending.level2.human_review"],
         ),
         AcceptanceCheck(
             id="AC-10",
@@ -1263,6 +1273,7 @@ def _checks() -> list[AcceptanceCheck]:
             ),
             method=CheckMethod.STRUCTURAL,
             level=CheckLevel.L1,
+            rule_refs=["layer.binding_exactness", "rights.reference"],
         ),
         AcceptanceCheck(
             id="AC-11",
@@ -1270,6 +1281,7 @@ def _checks() -> list[AcceptanceCheck]:
             description="Final file is 1080x1920, 25 fps, 10.0 s, H.264/AAC.",
             method=CheckMethod.RENDER_PIXEL,
             level=CheckLevel.L2,
+            rule_refs=["pending.level2.delivery"],
         ),
         AcceptanceCheck(
             id="AC-12",
@@ -1277,6 +1289,7 @@ def _checks() -> list[AcceptanceCheck]:
             description="Contact sheet shows the pack clear of captions and platform UI.",
             method=CheckMethod.STATIC_PREVIEW,
             level=CheckLevel.L2,
+            rule_refs=["pending.level2.contact_sheet"],
         ),
         AcceptanceCheck(
             id="AC-13",
@@ -1284,6 +1297,7 @@ def _checks() -> list[AcceptanceCheck]:
             description="Budget total plus fallback stays inside the approved cap.",
             method=CheckMethod.STRUCTURAL,
             level=CheckLevel.L1,
+            rule_refs=["budget.cap", "budget.worst_case"],
         ),
         AcceptanceCheck(
             id="AC-14",
@@ -1291,6 +1305,7 @@ def _checks() -> list[AcceptanceCheck]:
             description="Every shot has a primary and a genuinely different fallback method.",
             method=CheckMethod.STRUCTURAL,
             level=CheckLevel.L1,
+            rule_refs=["trace.shots"],
         ),
     ]
 

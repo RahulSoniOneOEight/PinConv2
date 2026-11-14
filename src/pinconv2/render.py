@@ -651,10 +651,12 @@ def render_gate_packet(
         f"**Project:** {packet.project_id}  ",
         f"**Plan revision:** {packet.plan_revision}  ",
         f"**Plan hash:** `{packet.plan_hash}`  ",
+        f"**Bundle hash:** `{packet.bundle.bundle_hash}`  ",
         f"**Validation:** {'PASS' if packet.validation_passed else 'FAIL'}  ",
         "**Approval:** "
         + (
-            f"{packet.approval.approver} ({packet.approval.approver_role})"
+            f"{packet.approval.approver} ({packet.approval.approver_role}), "
+            f"evidence: {packet.approval.evidence}"
             if packet.approval
             else "pending a named human"
         ),
@@ -665,6 +667,45 @@ def render_gate_packet(
     lines.extend(f"- {shot_id}" for shot_id in packet.ready_shots or ["none"])
     lines.extend(["", "## Held layers", ""])
     lines.extend(f"- {layer_id}" for layer_id in packet.held_layers or ["none"])
+    lines.extend(["", "## Held items", ""])
+    if packet.held_items:
+        lines.append(
+            _table(
+                ["ID", "Hold", "Affects", "Owner", "Evidence needed"],
+                [
+                    [
+                        held.id,
+                        held.title,
+                        ", ".join(held.affects),
+                        held.owner.value,
+                        held.required_evidence,
+                    ]
+                    for held in packet.held_items
+                ],
+            )
+        )
+    else:
+        lines.append("None.")
+    lines.extend(["", "## Exact data", ""])
+    lines.append(
+        _table(
+            ["State", "Records"],
+            [
+                ["Approved", ", ".join(packet.exact_data_approved) or "none"],
+                [
+                    "Pending Gate 1 approval",
+                    ", ".join(packet.exact_data_pending) or "none",
+                ],
+            ],
+        )
+    )
+    lines.extend(["", "## Record hashes", ""])
+    lines.append(
+        _table(
+            ["Record", "Hash"],
+            [[name, f"`{value}`"] for name, value in packet.bundle.record_hashes.items()],
+        )
+    )
     lines.extend(["", "## Conditions", ""])
     lines.extend(f"- {condition}" for condition in packet.conditions or ["none"])
     lines.extend(["", "## Blockers", ""])
@@ -687,8 +728,9 @@ def render_gate_packet(
             f"- Shots in plan: {len(plan.shots)}",
             f"- Assets in plan: {len(plan.assets)}",
             "",
-            "Approval is bound to the plan revision and hash above. A changed plan "
-            "creates a new revision and invalidates this packet.",
+            "Approval is bound to the plan revision, the plan hash and the bundle "
+            "hash above. Changing the brief, research, concept or plan invalidates "
+            "this packet.",
             "",
         ]
     )
@@ -721,8 +763,18 @@ def build_handoff(
         for layer in layers
         if layer.binding_kind.value == "asset" and layer.binding_ref
     }
+    approved_ranges = [(shot.start_frame, shot.end_frame) for shot in shots]
+
+    def cue_overlaps(cue_start: int, cue_end: int) -> bool:
+        return any(
+            cue_start < end and cue_end > start for start, end in approved_ranges
+        )
+
     asset_ids.update(
-        cue.asset_id for cue in plan.audio_cues if cue.asset_id is not None
+        cue.asset_id
+        for cue in plan.audio_cues
+        if cue.asset_id is not None
+        and cue_overlaps(cue.start_frame, cue.end_frame)
     )
     handoff_shots = [
         HandoffShot(
@@ -768,22 +820,35 @@ def build_handoff(
             )
         )
 
-    approved_exact: set[str] = set()
+    referenced_exact: set[str] = set()
+    copy_ids: set[str] = set()
     for layer in layers:
         if layer.binding_kind.value != "copy" or not layer.binding_ref:
             continue
         copy_block = plan.copy_map.get(layer.binding_ref)
         if copy_block is None:
             continue
-        for exact_id in copy_block.exact_data_refs:
-            record = plan.exact_map.get(exact_id)
-            if record is not None and record.status.value not in {"held", "rejected"}:
-                approved_exact.add(exact_id)
+        copy_ids.add(copy_block.id)
+        referenced_exact.update(copy_block.exact_data_refs)
 
+    explicit = set(approval.approved_exact_data)
+    approved_exact = {
+        exact_id
+        for exact_id in referenced_exact
+        if exact_id in explicit
+        or plan.exact_map[exact_id].status.value == "approved"
+    }
+    pending_exact = referenced_exact - approved_exact
+
+    approved_ids = approved | set(asset_ids) | copy_ids | referenced_exact
     pending_checks = [
         check.id
         for check in plan.checks
         if validation.check_status.get(check.id) is CheckStatus.PENDING
+        and any(
+            target in approved_ids or target == plan.deliverable.id
+            for target in check.target_ids
+        )
     ]
     return Level2Handoff(
         project_id=plan.project_id,
@@ -794,5 +859,7 @@ def build_handoff(
         assets=handoff_assets,
         pending_checks=pending_checks,
         conditions=approval.conditions,
+        held_items=plan.held_items,
         exact_data_approved=sorted(approved_exact),
+        exact_data_pending=sorted(pending_exact),
     )

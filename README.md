@@ -65,13 +65,19 @@ The packet stops before approval. A named human then runs:
 pinconv2 --data-dir projects approve \
   --reviewer "Your Name" \
   --role "Brand producer" \
+  --evidence "email 2026-11-14 14:32, subject: Gate 1" \
+  --confirm APPROVE \
+  --approve-exact-data all \
   --condition "Price and promotion remain out of the cut."
 
 pinconv2 --data-dir projects export
 ```
 
-`approve` is the only command that records a human decision. Agents must never
-run it on a human's behalf.
+`approve` is the only command that records a human decision. It requires a
+named reviewer, a role, an evidence reference and the typed confirmation
+`APPROVE`; agents and automation are rejected. `--approve-exact-data all`
+approves the pending identifiers (origin, brand name and CTA) that the packet
+lists. Omit it and those values stay pending in the handoff.
 
 To drive the stages one at a time:
 
@@ -126,14 +132,20 @@ of truth.
 
 ## Gate 1 rules
 
-- The plan hash binds the validation report, critique, packet and approval.
-- A changed plan creates a new revision and invalidates the old approval.
+- A bundle hash binds the brief, research, concept note, plan, validation,
+  critique and resolution together.
+- The plan hash and bundle hash bind the packet and approval.
+- A changed plan or concept creates a new revision and invalidates the old
+  approval; export rechecks the bundle.
 - Validation must pass: timing, safe area, layer bindings, protected regions,
   commercial exactness, budget, rights and traceability.
-- Every Level 1 acceptance check must pass.
+- Every Level 1 acceptance check is evaluated against its own rule references.
 - No blocker or high-severity critique finding may remain open.
-- Every top-three input must have a resolution record.
-- The approver must be a named human with a role.
+- Every top-three input must name a target record that actually changed or was
+  removed in the new revision.
+- The approver must be a named human with a role and an evidence reference.
+- The packet lists every held item (price/promotion, brand assets, music) and
+  every exact value still pending approval.
 - A held commercial value remains blocked until its evidence exists.
 
 ## What Level 1 will not do
@@ -157,7 +169,7 @@ src/pinconv2/
   render.py              Markdown renderers and Level 2 handoff
   validators/            timing, exact data, layers, budget, rights, traceability
   fixtures/              Toffee brief, research, concept and plan
-tests/                   38 deterministic tests
+tests/                   53 deterministic tests
 examples/                the test brief
 docs/                    Level 1 design and architecture
 ```
@@ -166,14 +178,15 @@ docs/                    Level 1 design and architecture
 
 At the last run:
 
-- 38 tests pass;
+- 53 tests pass;
 - `ruff check .` passes;
 - `mypy src/pinconv2` passes;
 - the Toffee run reaches `gate1_ready` with no blockers;
 - revision 1 fails with 8 reviewable failures and revision 2 passes;
 - the critic selects safe area, commercial data and budget as the top three
-  inputs;
-- the exported Level 2 handoff is bound to the approved plan hash.
+  inputs, and the revision records which target records changed;
+- the Gate 1 packet lists the three held items and the pending exact values;
+- the exported Level 2 handoff is bound to the approved plan and bundle hashes.
 
 See `docs/level1.md` for the contracts and rules, and
 `docs/architecture.md` for the four-level model.

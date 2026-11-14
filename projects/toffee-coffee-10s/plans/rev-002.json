@@ -1520,6 +1520,7 @@
       "dependencies": [],
       "estimate_id": "ES-05",
       "fallback_asset_id": "AS-06",
+      "fallback_required": true,
       "used_by": [
         "LY-021",
         "LY-033",
@@ -1566,6 +1567,7 @@
       "dependencies": [],
       "estimate_id": "ES-05",
       "fallback_asset_id": null,
+      "fallback_required": false,
       "used_by": [
         "LY-042"
       ],
@@ -1612,6 +1614,7 @@
       "dependencies": [],
       "estimate_id": "ES-06",
       "fallback_asset_id": null,
+      "fallback_required": true,
       "used_by": [
         "LY-011",
         "LY-031"
@@ -1655,6 +1658,7 @@
       "dependencies": [],
       "estimate_id": null,
       "fallback_asset_id": null,
+      "fallback_required": true,
       "used_by": [
         "LY-010",
         "LY-020",
@@ -1704,6 +1708,7 @@
       "dependencies": [],
       "estimate_id": "ES-01",
       "fallback_asset_id": "AS-13",
+      "fallback_required": true,
       "used_by": [
         "AU-02"
       ],
@@ -1750,6 +1755,7 @@
       "dependencies": [],
       "estimate_id": "ES-02",
       "fallback_asset_id": "AS-14",
+      "fallback_required": true,
       "used_by": [
         "AU-01"
       ],
@@ -1795,6 +1801,7 @@
       "dependencies": [],
       "estimate_id": null,
       "fallback_asset_id": null,
+      "fallback_required": true,
       "used_by": [
         "AU-03"
       ],
@@ -1840,6 +1847,7 @@
       "dependencies": [],
       "estimate_id": null,
       "fallback_asset_id": null,
+      "fallback_required": true,
       "used_by": [
         "AU-04"
       ],
@@ -1885,6 +1893,7 @@
       "dependencies": [],
       "estimate_id": null,
       "fallback_asset_id": null,
+      "fallback_required": true,
       "used_by": [
         "AU-05"
       ],
@@ -1930,6 +1939,7 @@
       "dependencies": [],
       "estimate_id": "ES-08",
       "fallback_asset_id": null,
+      "fallback_required": true,
       "used_by": [],
       "status": "pending",
       "notes": null
@@ -1974,6 +1984,7 @@
       "dependencies": [],
       "estimate_id": null,
       "fallback_asset_id": null,
+      "fallback_required": true,
       "used_by": [],
       "status": "pending",
       "notes": null
@@ -2017,6 +2028,7 @@
       "dependencies": [],
       "estimate_id": null,
       "fallback_asset_id": null,
+      "fallback_required": true,
       "used_by": [],
       "status": "pending",
       "notes": null
@@ -2178,6 +2190,7 @@
       "status": "proposed"
     }
   ],
+  "variant_overrides": [],
   "estimates": [
     {
       "id": "ES-01",
@@ -2344,6 +2357,10 @@
       "description": "Timeline covers exactly 250 frames across four contiguous shots.",
       "method": "structural",
       "level": "level_1",
+      "rule_refs": [
+        "timing.deliverable",
+        "timing.shots"
+      ],
       "status": "pending",
       "evidence": null,
       "notes": null
@@ -2359,6 +2376,9 @@
       "description": "All text sits inside the 1080x1920 safe area.",
       "method": "structural",
       "level": "level_1",
+      "rule_refs": [
+        "layer.safe_area"
+      ],
       "status": "pending",
       "evidence": null,
       "notes": null
@@ -2374,6 +2394,9 @@
       "description": "Pack label and logo regions are not occluded by planned layers.",
       "method": "structural",
       "level": "level_1",
+      "rule_refs": [
+        "layer.occlusion"
+      ],
       "status": "pending",
       "evidence": null,
       "notes": null
@@ -2388,6 +2411,9 @@
       "description": "No required layer depends on unapproved price or offer data.",
       "method": "structural",
       "level": "level_1",
+      "rule_refs": [
+        "exact.critical"
+      ],
       "status": "pending",
       "evidence": null,
       "notes": null
@@ -2401,6 +2427,9 @@
       "description": "Brand and CTA are legible at 50 percent scale on a 1080x1920 phone.",
       "method": "render_pixel",
       "level": "level_2",
+      "rule_refs": [
+        "pending.level2.brand_legibility"
+      ],
       "status": "pending",
       "evidence": null,
       "notes": null
@@ -2414,6 +2443,9 @@
       "description": "VO is intelligible and the music sits at least 6 dB under it.",
       "method": "audio",
       "level": "level_2",
+      "rule_refs": [
+        "pending.level2.audio"
+      ],
       "status": "pending",
       "evidence": null,
       "notes": null
@@ -2427,6 +2459,9 @@
       "description": "Exact data in final pixels matches the approved values.",
       "method": "render_pixel",
       "level": "level_2",
+      "rule_refs": [
+        "pending.level2.exact_pixels"
+      ],
       "status": "pending",
       "evidence": null,
       "notes": null
@@ -2437,9 +2472,13 @@
         "CL-03",
         "ED-05"
       ],
-      "description": "Every used claim and exact value is verified or explicitly approved.",
+      "description": "Every used claim is verified and every exact reference resolves.",
       "method": "structural",
       "level": "level_1",
+      "rule_refs": [
+        "exact.claims",
+        "exact.references"
+      ],
       "status": "pending",
       "evidence": null,
       "notes": null
@@ -2453,6 +2492,9 @@
       "description": "A sound-off viewer understands the product and the brand.",
       "method": "human",
       "level": "level_2",
+      "rule_refs": [
+        "pending.level2.human_review"
+      ],
       "status": "pending",
       "evidence": null,
       "notes": null
@@ -2468,6 +2510,10 @@
       "description": "All picture assets are owned, supplied or commissioned; no reference footage is bound.",
       "method": "structural",
       "level": "level_1",
+      "rule_refs": [
+        "layer.binding_exactness",
+        "rights.reference"
+      ],
       "status": "pending",
       "evidence": null,
       "notes": null
@@ -2480,6 +2526,9 @@
       "description": "Final file is 1080x1920, 25 fps, 10.0 s, H.264/AAC.",
       "method": "render_pixel",
       "level": "level_2",
+      "rule_refs": [
+        "pending.level2.delivery"
+      ],
       "status": "pending",
       "evidence": null,
       "notes": null
@@ -2494,6 +2543,9 @@
       "description": "Contact sheet shows the pack clear of captions and platform UI.",
       "method": "static_preview",
       "level": "level_2",
+      "rule_refs": [
+        "pending.level2.contact_sheet"
+      ],
       "status": "pending",
       "evidence": null,
       "notes": null
@@ -2506,6 +2558,10 @@
       "description": "Budget total plus fallback stays inside the approved cap.",
       "method": "structural",
       "level": "level_1",
+      "rule_refs": [
+        "budget.cap",
+        "budget.worst_case"
+      ],
       "status": "pending",
       "evidence": null,
       "notes": null
@@ -2521,6 +2577,9 @@
       "description": "Every shot has a primary and a genuinely different fallback method.",
       "method": "structural",
       "level": "level_1",
+      "rule_refs": [
+        "trace.shots"
+      ],
       "status": "pending",
       "evidence": null,
       "notes": null
@@ -2672,5 +2731,5 @@
     "Which landing page should the CTA open?",
     "Human or synthetic narration?"
   ],
-  "created_at": "2026-11-14T13:15:14+00:00"
+  "created_at": "2026-11-14T13:24:02+00:00"
 }

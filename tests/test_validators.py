@@ -119,3 +119,70 @@ def test_validation_is_deterministic(plan_v2, brief) -> None:
     second = validate_plan(plan_v2, brief)
     assert first.plan_hash == second.plan_hash
     assert [item.rule for item in first.findings] == [item.rule for item in second.findings]
+
+
+def test_blocked_essential_audio_is_detected(plan_v2, brief) -> None:
+    assets = [
+        asset.model_copy(
+            update={
+                "rights": RightsRecord(
+                    status=RightsStatus.BLOCKED,
+                    commercial_use=False,
+                )
+            }
+        )
+        if asset.id == "AS-07"
+        else asset
+        for asset in plan_v2.assets
+    ]
+    broken = plan_v2.model_copy(update={"assets": assets})
+    rules = _rules(broken, brief)
+    assert "rights.assets" in rules
+
+
+def test_unknown_asset_dependency_is_detected(plan_v2, brief) -> None:
+    assets = [
+        asset.model_copy(update={"dependencies": ["AS-MISSING"]})
+        if asset.id == "AS-03"
+        else asset
+        for asset in plan_v2.assets
+    ]
+    broken = plan_v2.model_copy(update={"assets": assets})
+    assert "trace.dependencies" in _rules(broken, brief)
+
+
+def test_unknown_alternate_dependency_is_detected(plan_v2, brief) -> None:
+    alternates = [
+        alternate.model_copy(update={"revised_dependencies": ["AS-MISSING"]})
+        if alternate.id == "ALT-03"
+        else alternate
+        for alternate in plan_v2.alternates
+    ]
+    broken = plan_v2.model_copy(update={"alternates": alternates})
+    assert "trace.dependencies" in _rules(broken, brief)
+
+
+def test_split_estimate_lists_are_detected(plan_v2, brief) -> None:
+    budget = plan_v2.budget.model_copy(
+        update={"estimates": plan_v2.budget.estimates[:-1]}
+    )
+    broken = plan_v2.model_copy(update={"budget": budget})
+    assert "budget.sync" in _rules(broken, brief)
+
+
+def test_checks_evaluate_their_own_rules(plan_v2, brief) -> None:
+    report = validate_plan(plan_v2, brief)
+    assert report.check_status["AC-01"].value == "pass"
+    assert report.check_status["AC-04"].value == "pass"
+    assert report.check_status["AC-08"].value == "pass"
+    assert report.check_status["AC-13"].value == "pass"
+
+    copies = [
+        block.model_copy(update={"claim_refs": ["CL-01"]}) if block.id == "CP-02" else block
+        for block in plan_v2.copy_blocks
+    ]
+    broken = validate_plan(
+        plan_v2.model_copy(update={"copy_blocks": copies}), brief
+    )
+    assert broken.check_status["AC-08"].value == "fail"
+    assert broken.check_status["AC-01"].value == "pass"

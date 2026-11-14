@@ -61,9 +61,10 @@ class ValidationContext:
 
     @contextmanager
     def group(self, rule: str, target: str, pass_detail: str) -> Iterator[None]:
-        before = len(self.collector.items)
+        before = sum(1 for item in self.collector.items if item.rule == rule)
         yield
-        if len(self.collector.items) == before:
+        after = sum(1 for item in self.collector.items if item.rule == rule)
+        if after == before:
             self.collector.add(
                 rule, target, Severity.LOW, ValidationStatus.PASS, pass_detail
             )
