@@ -27,7 +27,7 @@ real IDs from the approved plan, and every number is reproducible from
 | Budget | Handoff per-asset lines sum to $89.00; dedupe removes $42.00 of repeated `ES-06`/`ES-07`, leaving the approved $76.00 subtotal and $87.40 total. |
 | Critical path | The computed path is capture-led (`CAP-01 → AS-05/06/08 → shot → VO-01`), not the illustrative order in §15.1. |
 | Sourcing | No sourcing round runs in the spend-free slice; candidate licences are reported as unverified, not as cleared. |
-| Verification | 112 tests pass; Ruff and mypy are clean; the Blue Tokai run produces the full artifact set under `projects/blue-tokai-easy-pour-20s/level2/runs/rev-002/`. |
+| Verification | 113 tests pass; Ruff and mypy are clean; the Blue Tokai run produces the full artifact set under `projects/blue-tokai-easy-pour-20s/level2/runs/rev-002/`. |
 
 
 ---

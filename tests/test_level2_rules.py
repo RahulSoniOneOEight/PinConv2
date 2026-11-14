@@ -215,6 +215,36 @@ def test_local_engine_processes_audio(tmp_path: Path) -> None:
     assert result.bytes > 0
 
 
+def test_local_engine_assembles_clips(tmp_path: Path) -> None:
+    clips: list[Path] = []
+    for index, colour in enumerate(("red", "blue")):
+        clip = tmp_path / f"clip-{index}.mp4"
+        subprocess.run(
+            [
+                "ffmpeg",
+                "-y",
+                "-f",
+                "lavfi",
+                "-i",
+                f"color=c={colour}:s=320x180:d=0.5:r=25",
+                "-c:v",
+                "libx264",
+                "-pix_fmt",
+                "yuv420p",
+                str(clip),
+            ],
+            check=True,
+            capture_output=True,
+        )
+        clips.append(clip)
+    engine = LocalEngine()
+    output = engine.assemble(clips, tmp_path / "rough-cut.mp4")
+    probe = engine.probe(output)
+    assert probe.width == 320 and probe.height == 180
+    assert probe.duration_seconds is not None
+    assert 0.9 <= probe.duration_seconds <= 1.2
+
+
 def test_docx_writer_is_a_valid_package(tmp_path: Path) -> None:
     builder = DocxBuilder()
     builder.heading("Gate 2 review")

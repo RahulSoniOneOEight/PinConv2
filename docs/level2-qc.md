@@ -111,13 +111,16 @@ path is still behind a named human Gate 2A approval.
 ## Evidence
 
 ```
-python -m pytest -q          → 112 passed
+python -m pytest -q          → 112 passed at review time
 python -m ruff check src tests → All checks passed!
 python -m mypy               → Success: no issues found in 72 source files
 pinconv2 level2 plan ...     → state quoted, gate 2a ready_for_approval
 pinconv2 level2 gate --gate 2b → error: Gate 2A is not approved (exit 2)
 pinconv2 level2 build        → error: Gate 2A is not approved (exit 2)
 ```
+
+Post-review, one additional test was added for the local rough-cut assembler;
+the final suite is 113 passing tests with the same Ruff and mypy results.
 
 ## Limits
 
