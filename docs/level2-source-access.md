@@ -62,6 +62,68 @@ python -m pinconv2 --data-dir projects level2 credentials ...
 
 No key value is written to git, logs or the run artifacts.
 
+## Browser-only, no key — open licences
+
+These work in a browser without credentials, but they are **manual import** for
+the agent (`scriptable: false`). Check the licence on each file page; “open” here
+means public domain or a Creative Commons licence, not “free of obligations”.
+
+### Image
+
+| Source | Browser URL | Typical licence |
+|---|---|---|
+| Wikimedia Commons | `commons.wikimedia.org` | Per-file CC / PD |
+| Openverse | `openverse.org` | CC / PD aggregate; verify origin |
+| NASA Image Library | `images.nasa.gov` | Mostly US public domain |
+| The Met Open Access | `metmuseum.org/art/collection/search?showOnly=openAccess` | CC0 |
+| Rijksmuseum | `rijksmuseum.nl/en/collection` | Public domain |
+| Smithsonian Open Access | `si.edu/openaccess` | CC0 per record |
+| Library of Congress — Free to Use | `loc.gov/free-to-use` | PD / free-to-use sets |
+| NYPL Digital Collections | `digitalcollections.nypl.org` | Item-level PD |
+| Europeana | `europeana.eu` | Mixed; filter at institution |
+| Internet Archive | `archive.org` | Item-specific PD / CC |
+| Biodiversity Heritage Library | `biodiversitylibrary.org` | PD / CC |
+| Public Domain Review | `publicdomainreview.org` | Curated PD |
+| Rawpixel Public Domain | `rawpixel.com/public-domain` | CC0 / PD |
+| Old Book Illustrations | `oldbookillustrations.com` | PD |
+| Wellcome Collection | `wellcomecollection.org` | CC BY / PD, some exceptions |
+| Flickr Commons | `flickr.com/commons` | “No known copyright restrictions” |
+
+### Video
+
+| Source | Browser URL | Typical licence |
+|---|---|---|
+| Internet Archive / Prelinger | `archive.org/details/prelinger` | Public domain |
+| Wikimedia Commons video | `commons.wikimedia.org` | Per-file CC / PD |
+| NASA video | `images.nasa.gov` | Mostly US public domain |
+| Library of Congress — National Screening Room | `loc.gov/collections/national-screening-room` | Public domain |
+
+### Sound
+
+| Source | Browser URL | Typical licence |
+|---|---|---|
+| ccMixter | `ccmixter.org` | CC BY / NC per track |
+| Openverse audio | `openverse.org/audio` | CC / PD aggregate |
+| Internet Archive audio | `archive.org/details/audio` | Item-specific PD / CC |
+| Wikimedia Commons audio | `commons.wikimedia.org` | Per-file CC / PD |
+| LibriVox | `librivox.org` | PD recordings; script must match the PD text |
+| Musopen | `musopen.org` | PD / CC; some NC |
+| Free Music Archive | `freemusicarchive.org` | CC per track; API retired |
+| Incompetech | `incompetech.com` | CC BY, attribution mandatory |
+| Freesound | `freesound.org` | Account; CC0 / BY / NC per sound |
+| Sonniss GDC bundles | `sonniss.com` | Royalty-free per bundle |
+| Zapsplat | `zapsplat.com` | Free with attribution/account |
+| Pixabay Music | `pixabay.com/music` | Pixabay licence, not open |
+| Uppbeat / Bensound | `uppbeat.io` / `bensound.com` | Freemium; credit on free tier |
+
+## Free but not open (browser, no key)
+
+These are usable for commercial work under their own licences, but they are not
+open-source/CC. They are excluded from the “open licence” column above:
+
+Pexels, Unsplash, Pixabay, Coverr, Mixkit, Videvo, Mazwai, Storyset, unDraw,
+Fontshare.
+
 ## Key-gated sources — no-key probe results
 
 Pexels, Unsplash and Freesound are now keyed via the vault and verified above.
