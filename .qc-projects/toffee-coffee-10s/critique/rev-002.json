@@ -1,9 +1,0 @@
-{
-  "project_id": "toffee-coffee-10s",
-  "plan_revision": 2,
-  "plan_hash": "7f655163242c99d9de162592b09586cbcb158872947de7ab937c1e370b614781",
-  "summary": "No material findings. The ready plan has no unapproved commercial layer, no safe-area violation, no over-cap estimate and no unknown rights on a required asset. Remaining warnings are Gate 1 conditions.",
-  "findings": [],
-  "top3": [],
-  "created_at": "2026-11-14T13:16:59+00:00"
-}
