@@ -24,7 +24,10 @@ demonstrates the detail standard in `docs/level1-detail-standard.md`: complete
 layer motion and type, asset source/rights briefs and a labelled evidence trail.
 
 The fixture registry is in `src/pinconv2/fixtures/__init__.py`. A run reaches
-`gate1_ready`; only a named human may record approval.
+`gate1_ready`; only a named human may record approval. Effect and visual-behaviour
+planning follows `docs/level1-effects-reference.md` (Word review copy:
+`docs/Level1-Effects-Reference.docx`); every shot effect must carry a family,
+behaviour, trigger, duration, target, fallback and acceptance record.
 
 ## 2. Sequence
 

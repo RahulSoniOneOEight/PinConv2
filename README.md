@@ -220,5 +220,7 @@ At the last run:
 
 See `docs/level1.md` for the contracts and rules, `docs/level1-detail-standard.md`
 for the required Concept Note, Production Plan and Shot x Layer x Asset detail,
-`docs/architecture.md` for the four-level model, and `docs/qc.md` for the
-independent QC record.
+`docs/level1-effects-reference.md` for the global effect and visual-behaviour
+catalogue (readable Word copy: `docs/Level1-Effects-Reference.docx`),
+`docs/architecture.md` for the four-level model, and `docs/qc.md` for
+the independent QC record.
