@@ -569,6 +569,52 @@ def test_openmontage_render_goes_through_the_ledger(
     assert ledger.receipts() == 1
 
 
+def test_openmontage_generation_requires_gate_and_ledger(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    from pinconv2.level2.engines.openmontage import OpenMontageEngine
+    from pinconv2.level2.errors import SpendNotAuthorisedError
+    from pinconv2.level2.models import GenerationSpec
+
+    monkeypatch.setenv("OPENMONTAGE_ENABLED", "1")
+    ledger = SpendLedger(tmp_path / "ledger.jsonl", authorised=True)
+    spec = GenerationSpec(
+        provider="fal",
+        model="flux-3",
+        prompt="coffee steam on a dark counter",
+        width=1920,
+        height=1080,
+        cost_usd=0.25,
+        budget_line_id="GEN-01",
+        disclosure_required=True,
+    )
+
+    without_gate = OpenMontageEngine(
+        ledger, lambda operation, payload: {"path": "x.png", "cost_usd": 0.0}
+    )
+    with pytest.raises(SpendNotAuthorisedError):
+        without_gate.generate(spec)
+
+    operations: list[str] = []
+
+    def client(operation: str, payload: dict[str, object]) -> dict[str, object]:
+        operations.append(operation)
+        return {
+            "provider": "fal",
+            "job_id": "om-job-1",
+            "path": str(tmp_path / "steam.png"),
+            "sha256": "a" * 64,
+            "cost_usd": 0.25,
+        }
+
+    engine = OpenMontageEngine(ledger, client, gate=_approved_gate())
+    result = engine.generate(spec)
+    assert operations == ["image.generate"]
+    assert result.cost_usd == 0.25
+    assert result.disclosed is True
+    assert ledger.receipts() == 1
+
+
 def test_missing_stock_licence_is_not_paid_ok() -> None:
     from pinconv2.level2.stockcheck import _licence_info
 

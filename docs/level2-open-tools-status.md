@@ -122,7 +122,7 @@ Higgsfield, QuiverAI, Azure Speech, Cartesia and World Labs are **not connected*
 
 - Stock search/acquire through the four no-key routes.
 - fal/Runware/Google generation when Gate 2A permits.
-- Remotion render and media processing.
+- HyperFrames render and media processing (Remotion is not installed here).
 - Studio’s ledger remains authoritative for Studio calls; Level 2 must not bypass
   it or the $2 provider cap. Paid work still requires an approved Gate 2A.
 
@@ -150,7 +150,8 @@ Jobs in queue: 0. Output directory exists.
 
 - **Edge TTS narration** without a key — useful for `AS-15` synthetic fallback,
   with disclosure.
-- **Transcription / caption timing** through `whisper_timestamped`.
+- **Transcription / caption timing** through a locally cached faster-whisper
+  `tiny.en` model (no key, no download).
 - **Pexels background search** using the existing Pexels key.
 - **Short-form render** with moviepy, but its facts-short template is not a brand
   ad compositor.
@@ -163,16 +164,24 @@ Jobs in queue: 0. Output directory exists.
 
 ## 5. Integration state (updated)
 
-- `SourcingAgent` now owns `source_assets` and the stock check.
-- `ShortGptEngine` and `VoiceAgent` implement Edge TTS and a guarded transcription
-  path. A real sample was generated: `generated/AS-15-edge-sample.mp3`, 14.95 s,
-  89,712 bytes, voice `en-IN-NeerjaNeural`, disclosed as synthetic.
-- `OpenMontageEngine` gained `render()` and `from_mcp()`; the MCP bridge is still
-  injected by the runtime, so a standalone CLI fails closed.
+- `SourcingAgent` now owns `source_assets`, the stock check and OpenMontage
+  discovery. `level2 source --openmontage` runs the ccMixter music search and an
+  OpenMontage `nasa.stock` search for one representative film asset in the same
+  sourcing pass, bounded to $2.
+- `ShortGptEngine` and `VoiceAgent` implement Edge TTS and working local
+  faster-whisper transcription using the cached `tiny.en` model. A real sample
+  was generated: `generated/AS-15-edge-sample.mp3`, 14.95 s, 89,712 bytes,
+  voice `en-IN-NeerjaNeural`, disclosed as synthetic, with timestamps in
+  `transcription.json`.
+- `OpenMontageEngine` gained `render()` and `from_mcp()`; `mcp_bridge.py` is a
+  real stdio client, so the standalone CLI can drive Studio directly.
+- `level2 source --openmontage` searched `AS-07` through Studio's `nasa.stock`
+  route and recorded 5 candidates in `openmontage-sourcing.json`; search only,
+  $0 spent. `level2 om-source` remains available for a standalone search.
 - `level2 stockcheck` fetched and probed 11 of 12 sources; see
   `stock-check/stock-check.md`.
 - `SOURCE-SHEET.md` now lists every shot/layer with its actual source and
-  preview, plus the chosen music candidates.
+  preview, plus the chosen music candidates and the OpenMontage alternates.
 - Level 2 still owns the decision records, build sheet, provider governor and
   Gate 2A. No paid call was made for any of these checks.
 
@@ -191,9 +200,16 @@ Jobs in queue: 0. Output directory exists.
   packet when a gate is supplied. `level2 omcheck` is locked to `nasa.stock`,
   draft quality and a $2 ceiling; without that explicit capability flag the
   runner refuses before spawning Studio.
-- ShortGPT transcription is explicitly unavailable: `whisper_timestamped` is
-  installed but its model (about 574 MB) is not downloaded and needs owner
-  approval. Edge TTS works and produced the sample.
+- ShortGPT transcription works through the cached faster-whisper `tiny.en`
+  model (local, no download, no key). It is accurate enough for timing, not for
+  verbatim script QC: the sample heard “Tear, anchor, pour” as “Dear anchor
+  pour”. Edge TTS produced the 14.95 s sample.
+- `OpenMontageEngine.generate` now submits `image.generate` / `video.generate`
+  through the same ledger and refuses unless Gate 2A is APPROVED. No paid
+  generation was run because no human has approved Gate 2A; the code path is
+  covered by a fake-ledger test.
+- Remotion CLI is not installed on this machine. Studio's installed renderer is
+  HyperFrames `0.8.123`, which produced the verified test clip.
 
 ## 6. Recommendation
 

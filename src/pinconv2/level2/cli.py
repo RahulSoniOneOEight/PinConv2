@@ -115,6 +115,33 @@ def run_level2_command(store: ProjectStore, args: argparse.Namespace) -> int:
     level2 = run.read_level2(run_id)
     sheet = run.read_build_sheet(run_id)
 
+    if command == "om-source":
+        from .openmontage_source import search_for_asset
+
+        om_source = search_for_asset(
+            str(args.asset),
+            str(args.query),
+            run.run_dir(run_id),
+            run_id,
+            route=str(args.route),
+            kind=str(args.kind),
+            limit=int(args.limit),
+            attempt=str(args.attempt),
+        )
+        _print(
+            {
+                "asset_id": om_source.asset_id,
+                "project_id": om_source.project_id,
+                "job_id": om_source.job_id,
+                "route": om_source.route,
+                "candidates": len(om_source.candidates),
+                "budget_usd": om_source.budget_usd,
+                "spent_usd": om_source.spent_usd,
+                "note": om_source.note,
+            }
+        )
+        return 0
+
     if command == "omcheck":
         from .openmontage_check import run_openmontage_check
 
@@ -177,15 +204,20 @@ def run_level2_command(store: ProjectStore, args: argparse.Namespace) -> int:
         result = VoiceAgent().sample(text, destination, str(args.voice))
         recorded = result.model_copy(update={"path": f"generated/{destination.name}"})
         run.write_json(run_id, "voice-sample.json", recorded)
+        transcript = None
+        if args.transcribe:
+            from pathlib import Path as _Path
+
+            transcript = VoiceAgent().transcribe(_Path(result.path))
+            run.write_data(run_id, "transcription.json", transcript)
         run.write_data(
             run_id,
             "shortgpt-status.json",
             {
                 "edge_tts": "working",
-                "transcription": "unavailable",
-                "transcription_reason": (
-                    "whisper model is not downloaded; about 574 MB and needs "
-                    "explicit owner approval"
+                "transcription": "working" if transcript else "available",
+                "transcription_backend": (
+                    "cached faster-whisper tiny.en (local, no download)"
                 ),
                 "sample_path": recorded.path,
                 "duration_seconds": recorded.duration_seconds,
@@ -219,6 +251,9 @@ def run_level2_command(store: ProjectStore, args: argparse.Namespace) -> int:
             run_id,
             queries=selected,
             limit=int(args.limit),
+            openmontage=bool(args.openmontage),
+            openmontage_asset=str(args.om_asset),
+            openmontage_attempt=str(args.om_attempt),
         )
         _print(
             {

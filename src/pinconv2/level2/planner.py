@@ -8,6 +8,7 @@ approves Gate 2A.
 
 from __future__ import annotations
 
+import json
 from pathlib import Path
 
 from pydantic import Field
@@ -552,7 +553,13 @@ def plan_level2(
 
     sheet = run.write_build_sheet(run_id, sheet, plan)
     run.write_documents(run_id, plan, level2, sheet)
-    write_source_sheet(run, run_id, plan, level2, sheet)
+    openmontage_path = run.run_dir(run_id) / "openmontage-sourcing.json"
+    openmontage = (
+        json.loads(openmontage_path.read_text(encoding="utf-8"))
+        if openmontage_path.is_file()
+        else None
+    )
+    write_source_sheet(run, run_id, plan, level2, sheet, openmontage)
 
     reports = run_qc(plan, sheet, intents, decisions)
     gate_2a = evaluate_2a(

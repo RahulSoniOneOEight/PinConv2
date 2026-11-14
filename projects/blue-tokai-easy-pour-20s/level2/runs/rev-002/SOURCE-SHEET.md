@@ -79,6 +79,18 @@ Every layer, the asset it uses, and where that asset comes from.
 - Preview: [listen](sourcing/CND-AS14-02-this-is-our-music-instrumental.mp3)
 
 
+## OpenMontage alternates
+
+Asset AS-07 · route nasa.stock · query “coffee” · search only
+
+| Candidate | Title | Creator | Page | Preview |
+|---|---|---|---|---|
+| KSC-20221207-PH-CSH01_0002 | 2022 Holiday Coffee | NASA/Cory Huston | https://images.nasa.gov/details/KSC-20221207-PH-CSH01_0002 | [preview](openmontage/candidates/AS-07-01.jpg) |
+| KSC-20221207-PH-CSH01_0049 | 2022 Holiday Coffee | NASA/Cory Huston | https://images.nasa.gov/details/KSC-20221207-PH-CSH01_0049 | [preview](openmontage/candidates/AS-07-02.jpg) |
+| KSC-20221207-PH-CSH01_0056 | 2022 Holiday Coffee | NASA/Cory Huston | https://images.nasa.gov/details/KSC-20221207-PH-CSH01_0056 | [preview](openmontage/candidates/AS-07-03.jpg) |
+| KSC-20221207-PH-CSH01_0033 | 2022 Holiday Coffee | NASA/Cory Huston | https://images.nasa.gov/details/KSC-20221207-PH-CSH01_0033 | [preview](openmontage/candidates/AS-07-04.jpg) |
+| KSC-20221207-PH-CSH01_0025 | 2022 Holiday Coffee | NASA/Cory Huston | https://images.nasa.gov/details/KSC-20221207-PH-CSH01_0025 | [preview](openmontage/candidates/AS-07-05.jpg) |
+
 ## Reading this sheet
 
 - `source` is the actual route: supplied, owned, capture, stock or procedural.

@@ -622,6 +622,75 @@
       "truth_class": "exact_text"
     }
   ],
+  "openmontage": {
+    "asset_id": "AS-07",
+    "budget_usd": 2.0,
+    "candidates": [
+      {
+        "creator": "NASA/Cory Huston",
+        "duration_seconds": null,
+        "item_id": "KSC-20221207-PH-CSH01_0002",
+        "licence": "Check item credits and third-party rights. NASA identification does not establish permission for endorsement, recognizable people or third-party material.",
+        "page_url": "https://images.nasa.gov/details/KSC-20221207-PH-CSH01_0002",
+        "preview_path": "openmontage/candidates/AS-07-01.jpg",
+        "preview_url": "https://images-assets.nasa.gov/image/KSC-20221207-PH-CSH01_0002/KSC-20221207-PH-CSH01_0002~thumb.jpg",
+        "source": "nasa.stock",
+        "title": "2022 Holiday Coffee"
+      },
+      {
+        "creator": "NASA/Cory Huston",
+        "duration_seconds": null,
+        "item_id": "KSC-20221207-PH-CSH01_0049",
+        "licence": "Check item credits and third-party rights. NASA identification does not establish permission for endorsement, recognizable people or third-party material.",
+        "page_url": "https://images.nasa.gov/details/KSC-20221207-PH-CSH01_0049",
+        "preview_path": "openmontage/candidates/AS-07-02.jpg",
+        "preview_url": "https://images-assets.nasa.gov/image/KSC-20221207-PH-CSH01_0049/KSC-20221207-PH-CSH01_0049~thumb.jpg",
+        "source": "nasa.stock",
+        "title": "2022 Holiday Coffee"
+      },
+      {
+        "creator": "NASA/Cory Huston",
+        "duration_seconds": null,
+        "item_id": "KSC-20221207-PH-CSH01_0056",
+        "licence": "Check item credits and third-party rights. NASA identification does not establish permission for endorsement, recognizable people or third-party material.",
+        "page_url": "https://images.nasa.gov/details/KSC-20221207-PH-CSH01_0056",
+        "preview_path": "openmontage/candidates/AS-07-03.jpg",
+        "preview_url": "https://images-assets.nasa.gov/image/KSC-20221207-PH-CSH01_0056/KSC-20221207-PH-CSH01_0056~thumb.jpg",
+        "source": "nasa.stock",
+        "title": "2022 Holiday Coffee"
+      },
+      {
+        "creator": "NASA/Cory Huston",
+        "duration_seconds": null,
+        "item_id": "KSC-20221207-PH-CSH01_0033",
+        "licence": "Check item credits and third-party rights. NASA identification does not establish permission for endorsement, recognizable people or third-party material.",
+        "page_url": "https://images.nasa.gov/details/KSC-20221207-PH-CSH01_0033",
+        "preview_path": "openmontage/candidates/AS-07-04.jpg",
+        "preview_url": "https://images-assets.nasa.gov/image/KSC-20221207-PH-CSH01_0033/KSC-20221207-PH-CSH01_0033~thumb.jpg",
+        "source": "nasa.stock",
+        "title": "2022 Holiday Coffee"
+      },
+      {
+        "creator": "NASA/Cory Huston",
+        "duration_seconds": null,
+        "item_id": "KSC-20221207-PH-CSH01_0025",
+        "licence": "Check item credits and third-party rights. NASA identification does not establish permission for endorsement, recognizable people or third-party material.",
+        "page_url": "https://images.nasa.gov/details/KSC-20221207-PH-CSH01_0025",
+        "preview_path": "openmontage/candidates/AS-07-05.jpg",
+        "preview_url": "https://images-assets.nasa.gov/image/KSC-20221207-PH-CSH01_0025/KSC-20221207-PH-CSH01_0025~thumb.jpg",
+        "source": "nasa.stock",
+        "title": "2022 Holiday Coffee"
+      }
+    ],
+    "created_at": "2026-11-14T21:47:00+00:00",
+    "job_id": "36f5fe06-0df6-4205-a8b1-6b5cee132801",
+    "kind": "image",
+    "note": "Search only; no acquisition and no film attachment.",
+    "project_id": "3931e720-0b3d-483b-a932-2498be040930",
+    "query": "coffee",
+    "route": "nasa.stock",
+    "spent_usd": 0.0
+  },
   "plan_hash": "1370f029b0b35730625c459cf85579bfd767d2e4a7b62016055e100d15f2aba5",
   "run_id": "rev-002",
   "sourced": [

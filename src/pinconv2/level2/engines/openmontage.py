@@ -92,9 +92,7 @@ class OpenMontageEngine(EngineAdapter):
     ) -> dict[str, object]:
         gate_status = getattr(self.gate, "status", None)
         if self.gate is not None and gate_status is not PacketStatus.APPROVED:
-            raise SpendNotAuthorisedError(
-                "OpenMontage work needs an approved Gate 2A"
-            )
+            raise SpendNotAuthorisedError("OpenMontage work needs an approved Gate 2A")
         if self.client is None or not self.available:
             raise EngineUnavailableError(
                 "OpenMontage is not connected; enable it and retry after Gate 2A"
@@ -130,7 +128,37 @@ class OpenMontageEngine(EngineAdapter):
         return Path(str(result["path"]))
 
     def generate(self, spec: GenerationSpec) -> GenerationResult:
-        raise EngineUnavailableError("OpenMontage generation is disabled; use fal or Runware")
+        gate_status = getattr(self.gate, "status", None)
+        if self.gate is None or gate_status is not PacketStatus.APPROVED:
+            raise SpendNotAuthorisedError("OpenMontage generation needs an approved Gate 2A")
+        operation = "video.generate" if spec.duration_seconds else "image.generate"
+        payload: dict[str, object] = {
+            "provider": spec.provider,
+            "model": spec.model,
+            "prompt": spec.prompt,
+            "estimate_usd": spec.cost_usd,
+        }
+        if spec.negative_prompt:
+            payload["negative_prompt"] = spec.negative_prompt
+        if spec.seed is not None:
+            payload["seed"] = spec.seed
+        if spec.width:
+            payload["width"] = spec.width
+        if spec.height:
+            payload["height"] = spec.height
+        if spec.duration_seconds:
+            payload["duration_seconds"] = spec.duration_seconds
+        if spec.reference_images:
+            payload["reference_images"] = spec.reference_images
+        result = self._submit(operation, payload, spec.budget_line_id or "generate")
+        return GenerationResult(
+            provider=str(result.get("provider", spec.provider)),
+            job_id=str(result.get("job_id", "")),
+            path=str(result["path"]) if result.get("path") else None,
+            sha256=str(result["sha256"]) if result.get("sha256") else None,
+            cost_usd=_num(result.get("cost_usd", 0.0)),
+            disclosed=spec.disclosure_required,
+        )
 
     def process(
         self, recipe: list[ProcessingOp], source: Path, destination: Path

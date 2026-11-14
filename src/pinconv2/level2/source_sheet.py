@@ -31,6 +31,7 @@ def source_sheet_data(
     level2: Level2Plan,
     sheet: BuildSheet,
     run_dir: Path | None = None,
+    openmontage: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     assets = sheet.asset_map()
     decisions = level2.decision_map()
@@ -156,6 +157,7 @@ def source_sheet_data(
         "layers": layers,
         "audio": audio,
         "sourced": sourced,
+        "openmontage": openmontage or {},
     }
 
 
@@ -216,6 +218,32 @@ def render_source_sheet(data: dict[str, Any]) -> str:
                 ]
             )
 
+    openmontage = data.get("openmontage") or {}
+    if openmontage.get("candidates"):
+        lines.extend(
+            [
+                "",
+                "## OpenMontage alternates",
+                "",
+                f"Asset {openmontage.get('asset_id')} · route {openmontage.get('route')} "
+                f"· query “{openmontage.get('query')}” · search only",
+                "",
+                "| Candidate | Title | Creator | Page | Preview |",
+                "|---|---|---|---|---|",
+            ]
+        )
+        for candidate in openmontage["candidates"]:
+            preview = (
+                f"[preview]({str(candidate['preview_path']).replace(chr(92), '/')})"
+                if candidate.get("preview_path")
+                else "—"
+            )
+            lines.append(
+                f"| {candidate.get('item_id')} | {candidate.get('title')} | "
+                f"{candidate.get('creator') or '—'} | {candidate.get('page_url') or '—'} "
+                f"| {preview} |"
+            )
+
     lines.extend(
         [
             "",
@@ -231,9 +259,16 @@ def render_source_sheet(data: dict[str, Any]) -> str:
 
 
 def write_source_sheet(
-    run: Any, run_id: str, plan: ProductionPlan, level2: Level2Plan, sheet: BuildSheet
+    run: Any,
+    run_id: str,
+    plan: ProductionPlan,
+    level2: Level2Plan,
+    sheet: BuildSheet,
+    openmontage: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
-    data = source_sheet_data(plan, level2, sheet, run.run_dir(run_id))
+    data = source_sheet_data(
+        plan, level2, sheet, run.run_dir(run_id), openmontage
+    )
     markdown = render_source_sheet(data)
     run.write_text(run_id, "SOURCE-SHEET.md", markdown)
     run.write_text(

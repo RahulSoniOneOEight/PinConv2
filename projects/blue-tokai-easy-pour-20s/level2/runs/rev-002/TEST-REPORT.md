@@ -3,7 +3,7 @@
 **Run:** `rev-002` · plan revision 2
 **Project:** `blue-tokai-easy-pour-20s`
 **Plan hash:** `1370f029b0b35730625c459cf85579bfd767d2e4a7b62016055e100d15f2aba5`
-**Generated:** 2026-11-14T21:28:28+00:00
+**Generated:** 2026-11-14T21:50:02+00:00
 **Verdict:** PASS — the spend-free Level 2 slice produced the full package; Gate 2A is ready for a human decision.
 
 ## Environment
@@ -20,7 +20,7 @@
 
 ```
 $ python -m pytest -q
-129 passed in 10.92s
+132 passed in 12.27s
 ```
 
 ```
@@ -30,7 +30,7 @@ All checks passed!
 
 ```
 $ python -m mypy
-Success: no issues found in 83 source files
+Success: no issues found in 84 source files
 ```
 
 ## Acceptance run — Blue Tokai rev-002
@@ -45,6 +45,8 @@ Success: no issues found in 83 source files
 | Stock-sourced assets | 9 library-music candidates, 9 previews, 2 chosen, 0 final acquisitions |
 | Stock fetch check | 11 of 12 sources fetched and probed |
 | Voice fallback sample | 14.952 s via shortgpt:edge-tts |
+| Voice transcription | 7 timed segments via faster-whisper tiny.en |
+| OpenMontage film discovery | 5 nasa.stock candidates for AS-07; search only, $0.0 spent |
 | OpenMontage check | 2022 Holiday Coffee; render passed; budget $2.0, spent $0.0 |
 | Truth classes | 10 exact, 12 exact_text, 3 proof, 7 atmospheric, 6 representative |
 | Impact | 18 high, 10 medium, 10 low |
@@ -91,8 +93,12 @@ and a positive quote within the per-job maximum.
 
 ## What is not done
 
-- No sourcing, generation, capture or render has run; the plan is spend-free.
-- Gate 2A is `ready_for_approval`; only a named human can approve it.
+- No paid sourcing, generation or final render has run. OpenMontage discovery and
+  the 2-second render check were local/no-key and spent $0.
+- Gate 2A is `ready_for_approval`; only a named human can approve it. Paid
+  generation and final stock acquisition stay blocked until then.
+- Remotion CLI is not installed; Studio renders authored compositions with
+  HyperFrames `0.8.123`. The recorded render is HyperFrames.
 - `AC-16` (9:16 safe area) is pending.
 - External holds `HI-01`–`HI-05` remain open.
 

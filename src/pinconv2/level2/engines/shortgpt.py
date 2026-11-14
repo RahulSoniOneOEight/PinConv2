@@ -8,6 +8,7 @@ it for the disclosed synthetic-voice fallback and for transcription.
 from __future__ import annotations
 
 import hashlib
+import json
 import subprocess
 from pathlib import Path
 
@@ -18,6 +19,7 @@ from ..errors import Level2Error
 from .local import LocalEngine
 
 DEFAULT_ROOT = Path(r"D:\shortgpt")
+DEFAULT_FASTER_PYTHON = Path(r"D:\pinaka-agentic-creative\.venv\Scripts\python.exe")
 DEFAULT_VOICE = "en-IN-NeerjaNeural"
 
 
@@ -44,9 +46,11 @@ class ShortGptEngine:
         root: Path = DEFAULT_ROOT,
         *,
         python: Path | None = None,
+        faster_python: Path | None = None,
     ) -> None:
         self.root = Path(root)
         self.python = python or self.root / ".venv" / "Scripts" / "python.exe"
+        self.faster_python = faster_python or DEFAULT_FASTER_PYTHON
 
     @property
     def available(self) -> bool:
@@ -103,24 +107,52 @@ class ShortGptEngine:
         )
 
     def transcribe(self, audio: Path) -> dict[str, object]:
+        """Transcribe with a locally cached faster-whisper model.
+
+        ShortGPT's own venv has whisper_timestamped but no model weights. The
+        Pinaka venv has faster-whisper and cached tiny.en/base.en models, so this
+        path is local, keyless and does not download anything.
+        """
+
         if not self.available:
             raise EngineUnavailableError("ShortGPT venv not found")
         if not audio.is_file():
             raise EngineUnavailableError(f"audio not found: {audio}")
-        probe = subprocess.run(
-            [
-                str(self.python),
-                "-c",
-                "import importlib.util as u; print(bool(u.find_spec('whisper_timestamped')))",
-            ],
+        if not self.faster_python.is_file():
+            raise EngineUnavailableError(
+                f"faster-whisper interpreter not found: {self.faster_python}"
+            )
+        code = """
+import json, sys
+from faster_whisper import WhisperModel
+model = WhisperModel("tiny.en", device="cpu", compute_type="int8")
+segments, info = model.transcribe(sys.argv[1], language="en", vad_filter=True)
+items = [
+    {"start": round(segment.start, 3), "end": round(segment.end, 3), "text": segment.text.strip()}
+    for segment in segments
+]
+payload = {
+    "text": " ".join(item["text"] for item in items).strip(),
+    "language": info.language,
+    "segments": items,
+}
+print(json.dumps(payload))
+"""
+        result = subprocess.run(
+            [str(self.faster_python), "-c", code, str(audio)],
             capture_output=True,
             text=True,
             check=False,
-            timeout=60,
+            timeout=300,
         )
-        if "True" not in probe.stdout:
-            raise EngineUnavailableError("whisper_timestamped is not installed")
-        raise EngineUnavailableError(
-            "transcription model is not downloaded; downloading it needs explicit "
-            "owner approval (about 574 MB)"
-        )
+        if result.returncode != 0:
+            raise EngineUnavailableError(
+                f"faster-whisper failed: {(result.stderr or result.stdout).strip()[-600:]}"
+            )
+        try:
+            parsed = json.loads(result.stdout.strip().splitlines()[-1])
+        except (json.JSONDecodeError, IndexError) as error:
+            raise EngineUnavailableError(
+                f"could not parse transcription: {result.stdout[-300:]}"
+            ) from error
+        return parsed if isinstance(parsed, dict) else {"text": str(parsed)}

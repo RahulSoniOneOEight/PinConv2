@@ -45,9 +45,7 @@ def require_openmontage_gate(gate: GatePacket | None) -> None:
     """OpenMontage stock/render work is film sourcing, so it needs Gate 2A."""
 
     if gate is None or gate.status is not PacketStatus.APPROVED:
-        raise SpendNotAuthorisedError(
-            "OpenMontage stock or render work needs an approved Gate 2A"
-        )
+        raise SpendNotAuthorisedError("OpenMontage stock or render work needs an approved Gate 2A")
 
 
 DEFAULT_QUERIES = {
@@ -207,9 +205,7 @@ def collect_candidates(
     for source_candidate in list(candidates):
         if not source_candidate.file_url:
             continue
-        suffix = (
-            Path(urllib.parse.urlparse(source_candidate.file_url).path).suffix or ".mp3"
-        )
+        suffix = Path(urllib.parse.urlparse(source_candidate.file_url).path).suffix or ".mp3"
         target = preview_dir / (
             f"{source_candidate.candidate_id}-{_slug(source_candidate.title)}{suffix}"
         )
@@ -217,8 +213,7 @@ def collect_candidates(
             if not target.is_file():
                 if suffix.lower() == ".mp3":
                     full = preview_dir / (
-                        f"{source_candidate.candidate_id}-"
-                        f"{_slug(source_candidate.title)}-full.mp3"
+                        f"{source_candidate.candidate_id}-{_slug(source_candidate.title)}-full.mp3"
                     )
                     download(source_candidate.file_url, full)
                     subprocess.run(
@@ -284,6 +279,10 @@ def source_assets(
     limit: int = 5,
     fetch: Fetcher = _fetch_ccmixter,
     download: Downloader = _download,
+    openmontage: bool = False,
+    openmontage_asset: str = "AS-07",
+    openmontage_attempt: str = "1",
+    openmontage_budget_usd: float = 2.0,
 ) -> SourcingReport:
     run = Level2RunStore(store.project_dir(project_id))
     level2 = run.read_level2(run_id)
@@ -308,9 +307,7 @@ def source_assets(
             None,
         )
         if chosen is not None:
-            chosen_item = next(
-                item for item in candidates if item.candidate_id == chosen
-            )
+            chosen_item = next(item for item in candidates if item.candidate_id == chosen)
             used_pages.add(chosen_item.page_url)
         assets.append(
             AssetSourcing(
@@ -333,6 +330,22 @@ def source_assets(
         "asset-sourcing.json",
         report.model_dump(mode="json"),
     )
+    if openmontage:
+        if openmontage_budget_usd > 2.0:
+            raise SpendNotAuthorisedError("OpenMontage sourcing is bounded to the $2 operator cap")
+        from .openmontage_source import search_for_asset
+
+        search_for_asset(
+            openmontage_asset,
+            "coffee",
+            run.run_dir(run_id),
+            run_id,
+            route="nasa.stock",
+            kind="image",
+            limit=5,
+            attempt=openmontage_attempt,
+            budget_usd=openmontage_budget_usd,
+        )
     updated = level2.model_copy(update={"sourcing": report})
     run.write_json(run_id, "run.json", updated)
 

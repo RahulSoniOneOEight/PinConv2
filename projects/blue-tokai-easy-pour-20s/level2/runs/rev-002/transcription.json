@@ -1,0 +1,41 @@
+{
+  "language": "en",
+  "segments": [
+    {
+      "end": 2.05,
+      "start": 0.05,
+      "text": "Specialty coffee"
+    },
+    {
+      "end": 4.05,
+      "start": 2.05,
+      "text": "Dear anchor pour"
+    },
+    {
+      "end": 7.05,
+      "start": 4.05,
+      "text": "Just a mug and hot water"
+    },
+    {
+      "end": 9.05,
+      "start": 7.05,
+      "text": "Light to dark"
+    },
+    {
+      "end": 11.05,
+      "start": 9.05,
+      "text": "One mug"
+    },
+    {
+      "end": 12.05,
+      "start": 11.05,
+      "text": "One cup"
+    },
+    {
+      "end": 14.05,
+      "start": 12.05,
+      "text": "Short peasy pour"
+    }
+  ],
+  "text": "Specialty coffee Dear anchor pour Just a mug and hot water Light to dark One mug One cup Short peasy pour"
+}

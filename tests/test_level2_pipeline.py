@@ -415,6 +415,57 @@ def test_gate_checks_are_not_vacuous(approved: SimpleNamespace) -> None:
     assert catalogue_checks["G2A-06"].state is CheckState.FAIL
 
 
+def test_source_assets_calls_openmontage_when_enabled(
+    approved: SimpleNamespace, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    from pinconv2.level2.sourcing import source_assets
+
+    plan_level2(approved.store, approved.project, 2, "rev-om")
+    calls: dict[str, object] = {}
+
+    def fake_search(
+        asset_id: str, query: str, run_dir: Path, run_id: str, **kwargs: object
+    ) -> None:
+        calls["asset"] = asset_id
+        calls["query"] = query
+        calls["budget"] = kwargs.get("budget_usd")
+
+    monkeypatch.setattr("pinconv2.level2.openmontage_source.search_for_asset", fake_search)
+    source_assets(
+        approved.store,
+        approved.project,
+        2,
+        "rev-om",
+        queries={"AS-10": "coffee acoustic"},
+        fetch=lambda query: [],
+        download=lambda url, path: path,
+        openmontage=True,
+        openmontage_asset="AS-07",
+    )
+    assert calls == {"asset": "AS-07", "query": "coffee", "budget": 2.0}
+
+
+def test_source_assets_refuses_openmontage_above_two_dollars(
+    approved: SimpleNamespace, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    from pinconv2.level2.errors import SpendNotAuthorisedError
+    from pinconv2.level2.sourcing import source_assets
+
+    plan_level2(approved.store, approved.project, 2, "rev-om-cap")
+    with pytest.raises(SpendNotAuthorisedError):
+        source_assets(
+            approved.store,
+            approved.project,
+            2,
+            "rev-om-cap",
+            queries={"AS-10": "coffee acoustic"},
+            fetch=lambda query: [],
+            download=lambda url, path: path,
+            openmontage=True,
+            openmontage_budget_usd=2.5,
+        )
+
+
 def test_openmontage_requires_approved_gate_2a(approved: SimpleNamespace) -> None:
     from pinconv2.level2.errors import SpendNotAuthorisedError
     from pinconv2.level2.sourcing import require_openmontage_gate

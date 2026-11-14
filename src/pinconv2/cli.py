@@ -125,6 +125,7 @@ def build_parser() -> argparse.ArgumentParser:
         ("stockcheck", "fetch and probe one item from each stock source"),
         ("voice", "render a disclosed Edge TTS sample for the fallback voice"),
         ("omcheck", "run a separate OpenMontage stock and render capability check"),
+        ("om-source", "search OpenMontage stock candidates for one film asset"),
         ("build", "process imported sources after Gate 2A approval"),
         ("correct", "validate typed corrections and open a new run"),
     ]:
@@ -172,6 +173,7 @@ def build_parser() -> argparse.ArgumentParser:
     voice.add_argument("--run", default=None)
     voice.add_argument("--text", default=None)
     voice.add_argument("--voice", default="en-IN-NeerjaNeural")
+    voice.add_argument("--transcribe", action="store_true")
 
     omcheck = level2_sub.add_parser(
         "omcheck", help="run a separate OpenMontage stock and render capability check"
@@ -181,6 +183,19 @@ def build_parser() -> argparse.ArgumentParser:
     omcheck.add_argument("--run", default=None)
     omcheck.add_argument("--query", default="coffee")
     omcheck.add_argument("--budget", type=float, default=2.0)
+
+    omsource = level2_sub.add_parser(
+        "om-source", help="search OpenMontage stock candidates for one film asset"
+    )
+    _common(omsource)
+    omsource.add_argument("--revision", type=int, default=None)
+    omsource.add_argument("--run", default=None)
+    omsource.add_argument("--asset", default="AS-14")
+    omsource.add_argument("--query", default="warm acoustic coffee instrumental")
+    omsource.add_argument("--kind", default="audio")
+    omsource.add_argument("--route", default="openverse.stock")
+    omsource.add_argument("--limit", type=int, default=5)
+    omsource.add_argument("--attempt", default="1")
     level2_sub.add_parser("spend", help="show fal.ai/Runware budget and spend")
     spend = level2_sub.choices["spend"]
     _common(spend)
@@ -193,6 +208,13 @@ def build_parser() -> argparse.ArgumentParser:
     source.add_argument("--run", default=None)
     source.add_argument("--asset", action="append", default=[])
     source.add_argument("--limit", type=int, default=5)
+    source.add_argument(
+        "--openmontage",
+        action="store_true",
+        help="also run an OpenMontage stock search for one representative asset",
+    )
+    source.add_argument("--om-asset", default="AS-07")
+    source.add_argument("--om-attempt", default="1")
     correct = level2_sub.choices["correct"]
     correct.add_argument("--input", required=True, help="corrections.jsonl")
     correct.add_argument("--new-run", default=None)

@@ -1,8 +1,8 @@
-{
-  "provider": "shortgpt:edge-tts",
-  "voice": "en-IN-NeerjaNeural",
-  "duration_seconds": 14.952,
-  "bytes": 89712,
-  "path": "D:\\pinconv2\\projects\\blue-tokai-easy-pour-20s\\level2\\runs\\rev-002\\generated\\AS-15-edge-sample.mp3",
-  "disclosure": "Synthetic voice generated with Edge TTS"
-}
+{
+  "provider": "shortgpt:edge-tts",
+  "voice": "en-IN-NeerjaNeural",
+  "duration_seconds": 14.952,
+  "bytes": 89712,
+  "path": "generated/AS-15-edge-sample.mp3",
+  "disclosure": "Synthetic voice generated with Edge TTS"
+}
