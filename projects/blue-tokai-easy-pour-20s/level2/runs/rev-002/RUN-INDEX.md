@@ -164,7 +164,7 @@
 | [spend-ledger.jsonl](spend-ledger.jsonl) | 0 |
 | [stock-check/stock-check.json](stock-check/stock-check.json) | 10,412 |
 | [stock-check/stock-check.md](stock-check/stock-check.md) | 7,967 |
-| [TEST-REPORT.md](TEST-REPORT.md) | 4,549 |
+| [TEST-REPORT.md](TEST-REPORT.md) | 4,770 |
 | [transcription.json](transcription.json) | 756 |
 | [variants.json](variants.json) | 25,176 |
 | [voice-sample.json](voice-sample.json) | 339 |

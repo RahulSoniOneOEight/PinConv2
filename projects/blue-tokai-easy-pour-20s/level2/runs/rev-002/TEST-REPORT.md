@@ -100,9 +100,12 @@ and a positive quote within the per-job maximum.
 - Remotion CLI is not installed; Studio renders authored compositions with
   HyperFrames `0.8.123`. The recorded render is HyperFrames. `RENDERER-DECISION.md`
   asks a named human to accept HyperFrames or approve installing Remotion.
-- The generation stage is wired (`run_generation` → `GenerationAgent` →
-  `OpenMontageEngine.generate` → `ProviderGovernor`) but no paid generation has
-  run; `AS-15` is conditional and Gate 2A is unapproved.
+- The generation stage is wired by dependency injection (`run_generation` →
+  `GenerationAgent` → injected engine → `ProviderGovernor`); no production MCP
+  caller is constructed before Gate 2A, and no paid generation has run.
+  `AS-15` is conditional and Gate 2A is unapproved.
+- Visual QC is `fail` (`qc/visual.json`) because no processed media exists yet;
+  the Gate 2A packet does not count visual QC as one of its checks.
 - `AC-16` (9:16 safe area) is pending.
 - External holds `HI-01`–`HI-05` remain open.
 
