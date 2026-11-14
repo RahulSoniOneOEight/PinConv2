@@ -129,7 +129,8 @@ events.jsonl
 ```
 
 The Markdown and SVG mockups are rendered from the JSON. The JSON is the source
-of truth.
+of truth. A formatted Word review copy is available at
+`docs/PinConv2-Level1-Outcome.docx` and in the approved export folder.
 
 ## Gate 1 rules
 
