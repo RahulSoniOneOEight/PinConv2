@@ -21,6 +21,7 @@ from .models import (
     Level2Plan,
     Method,
     PacketStatus,
+    ProviderSpendSummary,
     QcReport,
     RunState,
     TaskStatus,
@@ -65,6 +66,7 @@ def evaluate_2a(
     *,
     expected_bundle_hash: str | None = None,
     expected_packet_hash: str | None = None,
+    provider_summary: ProviderSpendSummary | None = None,
 ) -> GatePacket:
     checks: list[GateCheck] = []
     intent_map = {intent.asset_id: intent for intent in level2.intents}
@@ -247,10 +249,7 @@ def evaluate_2a(
     capture = level2.capture
     capture_assets = {intent.asset_id for intent in level2.intents if intent.route == "to_capture"}
     covered = {member.asset_id for member in capture.members}
-    capture_ok = (
-        capture_assets <= covered
-        and (capture.cost_usd > 0 or capture.in_kind_usd > 0)
-    )
+    capture_ok = capture_assets <= covered and (capture.cost_usd > 0 or capture.in_kind_usd > 0)
     checks.append(
         _check(
             "G2A-08",
@@ -258,11 +257,7 @@ def evaluate_2a(
             CheckState.WARN if capture_ok else CheckState.FAIL,
             f"{capture.session_id} covers {len(capture.members)} assets at "
             f"${capture.cost_usd:,.2f} cash"
-            + (
-                f" (${capture.in_kind_usd:,.2f} in-kind)"
-                if capture.in_kind_usd
-                else ""
-            )
+            + (f" (${capture.in_kind_usd:,.2f} in-kind)" if capture.in_kind_usd else "")
             + f"; release {capture.release_hold} is still pending"
             if capture_ok
             else f"capture plan misses {sorted(capture_assets - covered)}",
@@ -297,6 +292,29 @@ def evaluate_2a(
                 f"{len(level2.budget.substitutions)} paid lines moved to in-kind "
                 f"(${level2.budget.in_kind_usd:,.2f}); cash is $0.00 and Gate 2A "
                 "approves these substitutions",
+            )
+        )
+
+    if provider_summary is None:
+        checks.append(
+            _check(
+                f"G2A-{len(checks) + 1:02d}",
+                "Provider budget",
+                CheckState.WARN,
+                "no fal.ai/Runware budget is configured; every paid call is refused",
+            )
+        )
+    else:
+        checks.append(
+            _check(
+                f"G2A-{len(checks) + 1:02d}",
+                "Provider budget",
+                CheckState.PASS if provider_summary.within_cap else CheckState.FAIL,
+                f"fal+Runware cap ${provider_summary.cap_usd:,.2f}, "
+                f"spent ${provider_summary.spent_usd:,.2f}, "
+                f"committed ${provider_summary.committed_usd:,.2f}, "
+                f"remaining ${provider_summary.remaining_usd:,.2f}, "
+                f"per-job max ${provider_summary.per_job_max_usd:,.2f}",
             )
         )
 

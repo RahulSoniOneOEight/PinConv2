@@ -37,4 +37,10 @@
   - ES-09 Captured pack fallback: Self-captured pack fallback (risk: Same as the capture session)
   - ES-11 9:16 vertical re-edit and end-card rebuild: In-house 9:16 rebuild (risk: AC-16 safe area still pending)
 
+## Provider spend (fal.ai + Runware)
+
+- Cap: $2.00 · per-job max: $0.50
+- Spent: $0.00 · committed: $0.00 · remaining: $2.00 · calls: 0
+- Every paid call must be quoted, authorised against this cap and receipted.
+
 Raw per-asset estimates in the handoff: $89.00. Lean mode carries $81.00 as in-kind across 10 lines; cash total is $0.00.

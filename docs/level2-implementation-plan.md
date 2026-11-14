@@ -29,7 +29,8 @@ real IDs from the approved plan, and every number is reproducible from
 | Lean mode | `--lean` moves paid lines to zero-cash in-kind work and records each substitution for Gate 2A approval; cash total becomes $0.00 with the in-kind value shown separately. |
 | Critical path | The computed path is capture-led (`CAP-01 → AS-05/06/08 → shot → VO-01`), not the illustrative order in §15.1. |
 | Sourcing | No sourcing round runs in the spend-free slice; candidate licences are reported as unverified, not as cleared. |
-| Verification | 116 tests pass; Ruff and mypy are clean; the Blue Tokai run produces the full artifact set under `projects/blue-tokai-easy-pour-20s/level2/runs/rev-002/`. |
+| Provider spend | fal.ai + Runware share a $2.00 cap with a $0.50 per-job maximum; every call is quoted, reserved and receipted by `ProviderGovernor`, and Gate 2A adds `G2A-14`. |
+| Verification | 119 tests pass; Ruff and mypy are clean; the Blue Tokai run produces the full artifact set under `projects/blue-tokai-easy-pour-20s/level2/runs/rev-002/`. |
 
 
 ---
@@ -162,6 +163,10 @@ projects/blue-tokai-easy-pour-20s/level2/runs/rev-002/
   budget-estimate.json          machine source
   budget-estimate.md            user-facing, readable
   budget-estimate.docx          shareable
+  budget-policy.json            approved vs operator cap
+  provider-budget.json          fal.ai + Runware cap and per-job maximum
+  provider-spend.jsonl          provider reservations and receipts
+  provider-spend.json           provider spend summary
   spend-ledger.json             reservations and receipts (empty until Gate 2A)
   catalogue-resolutions.json    candidate → licence → origin verification
   licence-gate-report.json      blocks, warnings, attributions
@@ -596,6 +601,32 @@ constraint: total <= effective_cap and worst <= effective_cap
 exceeds it, planning still completes, the variance is shown, the run state is
 `blocked`, and Gate 2A fails `G2A-04`. This is deliberate: a blocked plan must
 still be reviewable so the user can see the overage and choose.
+
+### 11.1b Provider spend (fal.ai + Runware)
+
+The only money the agent can spend directly is provider credit. It is governed
+separately from the production estimate:
+
+```
+provider_cap   = $2.00 shared across fal.ai and Runware
+per_job_max    = $0.50
+remaining      = cap - receipts - open reservations
+```
+
+Every paid call follows one path:
+
+1. the adapter quotes the job (`estimate_usd`);
+2. `ProviderGovernor.reserve` refuses if Gate 2A is not approved, the provider
+   is not allowed, the quote exceeds the per-job maximum, or the quote exceeds
+   the remaining shared cap;
+3. the reservation is written to `provider-spend.jsonl`;
+4. a success writes a receipt with the actual cost and job id; a failure writes
+   a release;
+5. Gate 2A check `G2A-14` shows cap, spent, committed, remaining and per-job
+   maximum, and fails if the ledger is over cap.
+
+A receipt more than 10% above its quote is refused and must be reconciled with
+the provider. A provider cap cannot exceed the project cap.
 
 `level2 plan --cap 2 --lean` produces a zero-cash in-kind budget. Each paid line
 becomes $0.00 cash with an in-kind value and a named route and risk, and every
@@ -1218,6 +1249,7 @@ src/pinconv2/level2/
   recipes.py           processing op models + validation
   generation.py        generation spec models + allowlist
   budget.py            lines, dedupe, reserve, quads, quote lifecycle
+  governance.py        fal.ai/Runware provider cap, reservations, receipts
   flow_scheduler.py    graph, batches, critical path
   build_sheet.py       builder + manifest + renderers
   review_pack.py       markdown/docx review pack

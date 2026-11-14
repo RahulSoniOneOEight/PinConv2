@@ -13,6 +13,7 @@ from .models import (
     BudgetEstimate,
     BuildSheet,
     LayerMethodDecision,
+    ProviderSpendSummary,
     TaskStatus,
     VariantPackage,
 )
@@ -67,10 +68,7 @@ def budget_summary_markdown(budget: BudgetEstimate) -> list[str]:
             "Gate 2A approval covers these substitutions."
         )
         for item in budget.substitutions:
-            lines.append(
-                f"  - {item.estimate_id} {item.label}: {item.route} "
-                f"(risk: {item.risk})"
-            )
+            lines.append(f"  - {item.estimate_id} {item.label}: {item.route} (risk: {item.risk})")
     if not summary.within_cap or not summary.worst_within_cap:
         overage = round(max(summary.total_usd, summary.worst_usd) - summary.cap_usd, 2)
         lines.append(
@@ -80,7 +78,11 @@ def budget_summary_markdown(budget: BudgetEstimate) -> list[str]:
     return lines
 
 
-def render_budget(budget: BudgetEstimate, plan: ProductionPlan) -> str:
+def render_budget(
+    budget: BudgetEstimate,
+    plan: ProductionPlan,
+    provider: ProviderSpendSummary | None = None,
+) -> str:
     lines = [
         f"# Level 2 budget — {plan.project_id} rev-{plan.revision:03d}",
         "",
@@ -90,17 +92,34 @@ def render_budget(budget: BudgetEstimate, plan: ProductionPlan) -> str:
         "",
         *budget_summary_markdown(budget),
         "",
-        (
+    ]
+    if provider is not None:
+        lines.extend(
+            [
+                "## Provider spend (fal.ai + Runware)",
+                "",
+                f"- Cap: {_money(provider.cap_usd)} · per-job max: "
+                f"{_money(provider.per_job_max_usd)}",
+                f"- Spent: {_money(provider.spent_usd)} · committed: "
+                f"{_money(provider.committed_usd)} · remaining: "
+                f"{_money(provider.remaining_usd)} · calls: {provider.calls}",
+                "- Every paid call must be quoted, authorised against this cap and receipted.",
+                "",
+            ]
+        )
+    if budget.mode == "lean":
+        lines.append(
             f"Raw per-asset estimates in the handoff: {_money(budget.raw_attributed_usd)}. "
             f"Lean mode carries {_money(budget.in_kind_usd)} as in-kind across "
             f"{len(budget.substitutions)} lines; cash total is $0.00."
-            if budget.mode == "lean"
-            else f"Raw per-asset estimates in the handoff: {_money(budget.raw_attributed_usd)}. "
+        )
+    else:
+        lines.append(
+            f"Raw per-asset estimates in the handoff: {_money(budget.raw_attributed_usd)}. "
             f"Dedupe saves {_money(budget.dedupe_savings_usd)} by charging the capture "
             "session and pack preparation once."
-        ),
-        "",
-    ]
+        )
+    lines.append("")
     return "\n".join(lines)
 
 
@@ -153,6 +172,7 @@ def render_review(
     budget: BudgetEstimate,
     sheet: BuildSheet,
     variants: list[VariantPackage],
+    provider: ProviderSpendSummary | None = None,
 ) -> str:
     summary = budget.summary
     ready = sum(1 for asset in sheet.assets if asset.status is TaskStatus.ACCEPTED)
@@ -192,6 +212,8 @@ def render_review(
         f"| Worst case | {_money(summary.worst_usd)} |",
         f"| Cap | {_money(summary.cap_usd)} |",
         f"| Headroom | {_money(summary.headroom_usd)} |",
+        f"| fal+Runware cap | {_money(provider.cap_usd) if provider else 'not configured'} |",
+        f"| fal+Runware remaining | {_money(provider.remaining_usd) if provider else 'n/a'} |",
         f"| Mode | {budget.mode} |",
         f"| In-kind value | {_money(budget.in_kind_usd)} |",
         "",
@@ -278,6 +300,22 @@ def render_review(
             f"| {shot.shot_id} | {shot.start_frame}–{shot.end_frame} | {len(shot.layers)} | "
             f"{'yes' if shot.ready else 'no'} | {', '.join(shot.blockers) or 'none'} |"
         )
+    if provider is not None:
+        lines.extend(
+            [
+                "",
+                "## Provider spend",
+                "",
+                f"- Cap: {_money(provider.cap_usd)}; per-job max: "
+                f"{_money(provider.per_job_max_usd)}",
+                f"- Spent: {_money(provider.spent_usd)}; committed: "
+                f"{_money(provider.committed_usd)}; remaining: "
+                f"{_money(provider.remaining_usd)}",
+            ]
+        )
+        for name, totals in sorted(provider.per_provider.items()):
+            lines.append(f"- {name}: {_money(totals.spent_usd)} spent across {totals.calls} calls")
+
     lines.extend(["", "## Variant", ""])
     for variant in variants:
         overrides = sum(1 for item in variant.resolutions if item.resolution == "override")
@@ -372,11 +410,7 @@ def render_review_docx(
         if budget.mode == "lean":
             builder.bullet(
                 "Cost: $0.00 cash"
-                + (
-                    f" · {_money(intent.estimate_usd)} in-kind"
-                    if intent.estimate_usd
-                    else ""
-                )
+                + (f" · {_money(intent.estimate_usd)} in-kind" if intent.estimate_usd else "")
             )
         else:
             builder.bullet(f"Cost: {_money(intent.estimate_usd)}")

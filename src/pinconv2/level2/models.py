@@ -717,6 +717,60 @@ class GatePacket(StrictModel):
         return self
 
 
+class ProviderBudget(StrictModel):
+    currency: str = Field(default="USD", min_length=3, max_length=3)
+    cap_usd: float = Field(gt=0)
+    per_job_max_usd: float = Field(gt=0)
+    providers: list[str] = Field(min_length=1)
+    note: str = Field(min_length=1, max_length=500)
+    created_at: str = Field(default_factory=utc_now)
+
+    @model_validator(mode="after")
+    def per_job_fits_the_cap(self) -> ProviderBudget:
+        if self.per_job_max_usd > self.cap_usd:
+            raise ValueError("the per-job cap cannot exceed the provider cap")
+        return self
+
+
+class ProviderSpendEntry(StrictModel):
+    id: str = Field(pattern=r"^PS-\d{4}$")
+    kind: str = Field(pattern=r"^(reservation|receipt|release)$")
+    provider: str = Field(min_length=1, max_length=40)
+    work_item: str = Field(min_length=1, max_length=200)
+    quoted_usd: float = Field(ge=0)
+    actual_usd: float = Field(default=0, ge=0)
+    job_id: str | None = Field(default=None, max_length=200)
+    reservation_id: str | None = Field(default=None, pattern=r"^PS-\d{4}$")
+    created_at: str = Field(default_factory=utc_now)
+
+
+class ProviderTotals(StrictModel):
+    provider: str
+    quoted_usd: float = Field(ge=0)
+    spent_usd: float = Field(ge=0)
+    calls: int = Field(ge=0)
+
+
+class ProviderSpendSummary(StrictModel):
+    currency: str = Field(default="USD", min_length=3, max_length=3)
+    cap_usd: float = Field(gt=0)
+    per_job_max_usd: float = Field(gt=0)
+    committed_usd: float = Field(ge=0)
+    spent_usd: float = Field(ge=0)
+    remaining_usd: float
+    calls: int = Field(ge=0)
+    within_cap: bool
+    per_provider: dict[str, ProviderTotals] = Field(default_factory=dict)
+    entries: list[ProviderSpendEntry] = Field(default_factory=list)
+
+    @model_validator(mode="after")
+    def arithmetic_holds(self) -> ProviderSpendSummary:
+        expected = round(self.cap_usd - self.spent_usd - self.committed_usd, 2)
+        if round(self.remaining_usd, 2) != expected:
+            raise ValueError("provider remaining must equal cap minus spent minus committed")
+        return self
+
+
 class Level2Plan(StrictModel):
     run_id: str = Field(min_length=1, max_length=40)
     project_id: str = Field(min_length=1, max_length=80)
@@ -730,6 +784,7 @@ class Level2Plan(StrictModel):
     sound: SoundPlan
     budget: BudgetEstimate
     budget_policy: BudgetPolicy | None = None
+    provider_budget: ProviderBudget | None = None
     flow: FlowGraph
     variants: list[VariantPackage] = Field(default_factory=list)
     blockers: list[str] = Field(default_factory=list)

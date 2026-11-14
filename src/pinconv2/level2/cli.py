@@ -78,6 +78,8 @@ def run_level2_command(store: ProjectStore, args: argparse.Namespace) -> int:
             run_id,
             cap_usd=getattr(args, "cap", None),
             lean=bool(getattr(args, "lean", False)),
+            provider_cap_usd=getattr(args, "provider_cap", None),
+            per_job_max_usd=float(getattr(args, "per_job_cap", 0.5)),
         )
         summary = outcome.level2.budget.summary
         _print(
@@ -98,6 +100,11 @@ def run_level2_command(store: ProjectStore, args: argparse.Namespace) -> int:
                     "headroom": summary.headroom_usd,
                     "in_kind": outcome.level2.budget.in_kind_usd,
                 },
+                "provider_budget": (
+                    outcome.level2.provider_budget.model_dump(mode="json")
+                    if outcome.level2.provider_budget is not None
+                    else None
+                ),
                 "gate_2a": outcome.gate_2a.status.value,
                 "qc": {stage: report.verdict.value for stage, report in outcome.qc.items()},
                 "run_dir": str(run.run_dir(run_id)),
@@ -165,6 +172,22 @@ def run_level2_command(store: ProjectStore, args: argparse.Namespace) -> int:
         )
         return 0
 
+    if command == "spend":
+        from .governance import open_governor
+
+        if level2.provider_budget is None:
+            _print({"error": "no provider budget configured for this run"})
+            return 2
+        governor = open_governor(run.run_dir(run_id), level2.provider_budget)
+        _print(
+            {
+                "run": run_id,
+                "providers": level2.provider_budget.providers,
+                **governor.summary().model_dump(mode="json"),
+            }
+        )
+        return 0
+
     if command == "status":
         _print(
             {
@@ -178,6 +201,9 @@ def run_level2_command(store: ProjectStore, args: argparse.Namespace) -> int:
                 "budget_cap": level2.budget.summary.cap_usd,
                 "budget_mode": level2.budget.mode,
                 "in_kind": level2.budget.in_kind_usd,
+                "provider_cap": (
+                    level2.provider_budget.cap_usd if level2.provider_budget is not None else None
+                ),
                 "blockers": len(level2.blockers),
                 "gate_2a": _packet_status(run, run_id, "2a"),
             }

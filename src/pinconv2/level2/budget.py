@@ -79,9 +79,7 @@ def build_budget(
     cap_usd: float | None = None,
     lean: bool = False,
 ) -> BudgetEstimate:
-    effective_cap = (
-        plan.budget.cap_usd if cap_usd is None else min(plan.budget.cap_usd, cap_usd)
-    )
+    effective_cap = plan.budget.cap_usd if cap_usd is None else min(plan.budget.cap_usd, cap_usd)
     if effective_cap <= 0:
         raise BudgetError("the effective budget cap must be positive")
     if [item.id for item in plan.estimates] != [item.id for item in plan.budget.estimates]:

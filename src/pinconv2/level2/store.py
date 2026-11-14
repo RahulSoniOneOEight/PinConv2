@@ -33,7 +33,12 @@ from ..errors import NotFoundError, StoreError
 from ..models import ProductionPlan, utc_now
 from .build_sheet import render_build_sheet, render_captions
 from .docx import DocxBuilder
-from .models import BuildSheet, FileDigest, Level2Plan
+from .models import (
+    BuildSheet,
+    FileDigest,
+    Level2Plan,
+    ProviderSpendSummary,
+)
 from .review_pack import (
     render_budget,
     render_budget_docx,
@@ -183,6 +188,12 @@ class Level2RunStore:
         path.parent.mkdir(parents=True, exist_ok=True)
         return builder.save(path)
 
+    def _provider_summary(self, run_id: str) -> ProviderSpendSummary | None:
+        path = self._path(run_id, "provider-spend.json")
+        if not path.is_file():
+            return None
+        return ProviderSpendSummary.model_validate_json(path.read_text(encoding="utf-8"))
+
     def write_documents(
         self,
         run_id: str,
@@ -190,7 +201,8 @@ class Level2RunStore:
         level2: Level2Plan,
         sheet: BuildSheet,
     ) -> None:
-        self.write_text(run_id, "budget-estimate.md", render_budget(level2.budget, plan))
+        provider = self._provider_summary(run_id)
+        self.write_text(run_id, "budget-estimate.md", render_budget(level2.budget, plan, provider))
         render_budget_docx(level2.budget, plan).save(self._path(run_id, "budget-estimate.docx"))
         self.write_text(
             run_id,
@@ -202,6 +214,7 @@ class Level2RunStore:
                 level2.budget,
                 sheet,
                 level2.variants,
+                provider,
             ),
         )
         render_review_docx(plan, level2.intents, level2.decisions, level2.budget, sheet).save(

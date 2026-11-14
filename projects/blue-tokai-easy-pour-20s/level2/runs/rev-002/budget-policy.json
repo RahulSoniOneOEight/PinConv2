@@ -4,5 +4,5 @@
   "effective_cap_usd": 2.0,
   "source": "operator_instruction",
   "note": "Operator spend cap applied to Level 2; lean in-kind production mode, zero cash.",
-  "created_at": "2026-11-14T19:58:33+00:00"
+  "created_at": "2026-11-14T20:26:13+00:00"
 }

@@ -139,6 +139,23 @@ def build_parser() -> argparse.ArgumentParser:
         action="store_true",
         help="zero-cash in-kind production mode; substitutions need Gate 2A approval",
     )
+    level2_sub.choices["plan"].add_argument(
+        "--provider-cap",
+        type=float,
+        default=None,
+        help="shared fal.ai + Runware production cap in USD",
+    )
+    level2_sub.choices["plan"].add_argument(
+        "--per-job-cap",
+        type=float,
+        default=0.5,
+        help="maximum quote for any single provider job",
+    )
+    level2_sub.add_parser("spend", help="show fal.ai/Runware budget and spend")
+    spend = level2_sub.choices["spend"]
+    _common(spend)
+    spend.add_argument("--revision", type=int, default=None)
+    spend.add_argument("--run", default=None)
     correct = level2_sub.choices["correct"]
     correct.add_argument("--input", required=True, help="corrections.jsonl")
     correct.add_argument("--new-run", default=None)

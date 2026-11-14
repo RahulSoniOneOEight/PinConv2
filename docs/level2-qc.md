@@ -111,6 +111,34 @@ asset and for `VO-01`, in both Markdown and DOCX; non-lean runs still show plain
 cash. A final label nit (supplied assets showing "fallback, unpriced") was also
 removed. No medium or high findings remain.
 
+## Round 6 — provider spend governance — PASS
+
+The user clarified that the $2 covers **fal.ai + Runware production calls**.
+`ProviderGovernor` was reviewed:
+
+- authorisation comes from an approved Gate 2A packet object, not a boolean;
+- only fal and runware are allowed; the cap is shared;
+- every call is quoted, checked against the per-job maximum ($0.50) and the
+  remaining shared cap ($2.00), reserved, receipted or released;
+- the remaining arithmetic is `cap - spent - open reservations`, enforced by
+  the summary validator;
+- Gate 2A `G2A-14` shows cap/spent/committed/remaining/per-job and fails if the
+  ledger is over cap;
+- the provider cap cannot exceed the project cap, and the project cap cannot
+  exceed the approved $100.
+
+Two low findings: no idempotency guard on receipt/release, and a hand-built
+Gate 2A object could be passed to the constructor (the canonical
+`open_governor` reads the packet from disk).
+
+## Round 7 — PASS
+
+The idempotency guard now rejects a second receipt or release for the same
+reservation, and the gate-object trust is documented as a defence-in-depth
+boundary: production paths use `open_governor`, which reads
+`gate2/packet-2a.json`, and a live provider key is still required. The $2 cap
+cannot be exceeded through the governor API.
+
 ## Verified numbers (re-derived, not trusted)
 
 | Claim | Result |
@@ -124,6 +152,7 @@ removed. No medium or high findings remain.
 | Dedupe | raw 89.00 → 42.00 saved → 47.00 direct + 29.00 project/variant |
 | Capture | one session, `ES-06` charged once; lean run $0 cash / $18 in-kind |
 | Gates | 2A `ready_for_approval`, no blockers; 2B and build refuse before approval |
+| Provider budget | fal+Runware cap 2.00, per-job 0.50, spent 0.00, remaining 2.00 |
 | Spend | no reservation, no receipt, `spent_usd = 0.00` |
 
 ## Final verdict
@@ -135,10 +164,12 @@ path is still behind a named human Gate 2A approval.
 ## Evidence
 
 ```
-python -m pytest -q          → 116 passed
+python -m pytest -q          → 119 passed
 python -m ruff check src tests → All checks passed!
 python -m mypy               → Success: no issues found in 72 source files
-pinconv2 level2 plan ... --cap 2 --lean → lean $0.00 cash, gate 2a ready_for_approval
+pinconv2 level2 plan ... --cap 2 --lean --provider-cap 2 --per-job-cap 0.5
+                             → lean $0.00 cash, provider remaining $2.00, gate 2a ready
+pinconv2 level2 spend ...    → cap $2.00, spent $0.00, remaining $2.00
 pinconv2 level2 gate --gate 2b → error: Gate 2A is not approved (exit 2)
 pinconv2 level2 build        → error: Gate 2A is not approved (exit 2)
 ```
@@ -150,6 +181,9 @@ pinconv2 level2 build        → error: Gate 2A is not approved (exit 2)
   `level2 plan --cap 100`.
 - Lean substitutions (self-operated capture, in-house edit, library music) need
   Gate 2A approval; they are listed individually in the review pack.
+- No fal.ai or Runware call has been made. The full $2.00 provider cap remains
+  available; a call needs an approved Gate 2A, a live provider key and a
+  positive quote within the $0.50 per-job maximum.
 - No sourcing round, generation, capture or render has run; the plan is
   spend-free by design.
 - `AC-16` (9:16 safe area) remains pending, so `VO-01` is ready for review, not

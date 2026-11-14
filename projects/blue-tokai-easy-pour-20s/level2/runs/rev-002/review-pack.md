@@ -31,6 +31,8 @@ Date:
 | Worst case | $0.00 |
 | Cap | $2.00 |
 | Headroom | $2.00 |
+| fal+Runware cap | $2.00 |
+| fal+Runware remaining | $2.00 |
 | Mode | lean |
 | In-kind value | $81.00 |
 
@@ -320,6 +322,13 @@ Raw per-asset estimates: $89.00; lean mode carries $81.00 as in-kind.
 | SH-04 | 275–380 | 8 | no | HI-02 |
 | SH-05 | 380–445 | 6 | no | HI-02, HI-04 |
 | SH-06 | 445–500 | 6 | no | HI-02 |
+
+## Provider spend
+
+- Cap: $2.00; per-job max: $0.50
+- Spent: $0.00; committed: $0.00; remaining: $2.00
+- fal: $0.00 spent across 0 calls
+- runware: $0.00 spent across 0 calls
 
 ## Variant
 

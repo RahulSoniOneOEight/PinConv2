@@ -12,9 +12,16 @@ from pinconv2.level2.catalogue import SOURCE_MAP
 from pinconv2.level2.corrections import next_run_id, parse_jsonl
 from pinconv2.level2.docx import DocxBuilder
 from pinconv2.level2.engines.base import SpendLedger
+from pinconv2.level2.engines.fal_runware import FalRunwareEngine
 from pinconv2.level2.engines.local import LocalEngine
 from pinconv2.level2.engines.openmontage import OpenMontageEngine
-from pinconv2.level2.errors import Level2Error, MethodMatrixError, RecipeError
+from pinconv2.level2.errors import (
+    Level2Error,
+    MethodMatrixError,
+    RecipeError,
+    SpendNotAuthorisedError,
+)
+from pinconv2.level2.governance import ProviderBudgetError, ProviderGovernor, empty_budget
 from pinconv2.level2.licence_gate import (
     classify_licence,
     gate_candidate,
@@ -22,10 +29,15 @@ from pinconv2.level2.licence_gate import (
 )
 from pinconv2.level2.method_selector import assert_method_allowed
 from pinconv2.level2.models import (
+    CheckState,
+    GateCheck,
+    GateName,
+    GatePacket,
     GateVerdict,
     LicenceClass,
     Method,
     MethodCandidate,
+    PacketStatus,
     ProcessingOp,
     SourceStrategy,
     TruthClass,
@@ -338,3 +350,91 @@ def test_ledger_summary_matches_entries(tmp_path: Path) -> None:
     assert summary["open_reservations"] == 0
     assert summary["spent_usd"] == 9.5
     assert len(summary["entries"]) == 2
+
+
+def _approved_gate() -> GatePacket:
+    return GatePacket(
+        gate=GateName.GATE_2A,
+        run_id="test-run",
+        project_id="test-project",
+        plan_revision=1,
+        plan_hash="a" * 64,
+        status=PacketStatus.APPROVED,
+        checks=[
+            GateCheck(
+                id="G2A-01",
+                name="Hash chain",
+                state=CheckState.PASS,
+                detail="test",
+            )
+        ],
+        blockers=[],
+        summary="test approval",
+        approved_by="TestReviewer",
+        approval_evidence="pytest",
+    )
+
+
+def test_provider_governor_enforces_the_shared_cap(tmp_path: Path) -> None:
+    budget = empty_budget(2.0, 1.0)
+    governor = ProviderGovernor(tmp_path / "provider-spend.jsonl", budget)
+    with pytest.raises(SpendNotAuthorisedError):
+        governor.reserve("fal", 0.5, "hero")
+
+    governor = ProviderGovernor(tmp_path / "provider-spend.jsonl", budget, gate=_approved_gate())
+    first = governor.reserve("fal", 1.0, "hero-shot")
+    second = governor.reserve("runware", 1.0, "voice")
+    assert governor.remaining() == 0.0
+    with pytest.raises(ProviderBudgetError):
+        governor.reserve("fal", 0.01, "gap-fill")
+    with pytest.raises(ProviderBudgetError):
+        governor.reserve("fal", 1.5, "over-per-job")
+
+    governor.receipt(first, 0.9, "job-1")
+    with pytest.raises(ProviderBudgetError):
+        governor.receipt(first, 0.9, "job-1-duplicate")
+    assert governor.spent() == 0.9
+    assert governor.committed() == 1.0
+    assert governor.remaining() == 0.1
+
+    governor.release(second, "provider failed")
+    assert governor.committed() == 0.0
+    assert governor.remaining() == 1.1
+    summary = governor.summary()
+    assert summary.cap_usd == 2.0
+    assert summary.within_cap
+    assert summary.per_provider["fal"].spent_usd == 0.9
+
+
+def test_fal_engine_never_exceeds_the_provider_cap(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    from pinconv2.level2.models import GenerationSpec
+
+    monkeypatch.setenv("FAL_KEY", "test")
+    governor = ProviderGovernor(
+        tmp_path / "provider-spend.jsonl", empty_budget(2.0, 1.0), gate=_approved_gate()
+    )
+
+    def client(operation: str, payload: dict[str, object]) -> dict[str, object]:
+        return {"job_id": "job-42", "path": str(tmp_path / "out.png"), "cost_usd": 0.25}
+
+    engine = FalRunwareEngine("fal", governor, client)
+    spec = GenerationSpec(
+        provider="fal",
+        model="image",
+        prompt="steam plate",
+        cost_usd=0.5,
+        disclosure_required=True,
+    )
+    result = engine.generate(spec)
+    assert result.cost_usd == 0.25
+    assert governor.summary().spent_usd == 0.25
+
+    oversized = spec.model_copy(update={"cost_usd": 1.5})
+    with pytest.raises(ProviderBudgetError):
+        engine.generate(oversized)
+
+    undisclosed = spec.model_copy(update={"disclosure_required": False})
+    with pytest.raises(MethodMatrixError):
+        engine.generate(undisclosed)

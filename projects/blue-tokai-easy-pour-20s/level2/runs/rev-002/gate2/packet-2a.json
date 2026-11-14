@@ -96,6 +96,13 @@
       "state": "warn",
       "detail": "10 paid lines moved to in-kind ($81.00); cash is $0.00 and Gate 2A approves these substitutions",
       "evidence": null
+    },
+    {
+      "id": "G2A-14",
+      "name": "Provider budget",
+      "state": "pass",
+      "detail": "fal+Runware cap $2.00, spent $0.00, committed $0.00, remaining $2.00, per-job max $0.50",
+      "evidence": null
     }
   ],
   "blockers": [],
@@ -103,5 +110,5 @@
   "approved_by": null,
   "approved_at": null,
   "approval_evidence": null,
-  "created_at": "2026-11-14T19:58:33+00:00"
+  "created_at": "2026-11-14T20:26:13+00:00"
 }

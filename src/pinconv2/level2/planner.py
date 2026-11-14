@@ -25,7 +25,9 @@ from .agents import (
 from .budget import build_budget
 from .capture_planner import build_capture_plan, validate_capture_plan
 from .catalogue import SOURCES
+from .errors import BudgetError
 from .gate2 import evaluate_2a
+from .governance import ProviderGovernor, empty_budget
 from .handoff import asset_truth_class, build_intents
 from .method_selector import (
     PROBE_METHODS,
@@ -263,6 +265,8 @@ def plan_level2(
     corrections: list[Correction] | None = None,
     cap_usd: float | None = None,
     lean: bool = False,
+    provider_cap_usd: float | None = None,
+    per_job_max_usd: float = 0.5,
 ) -> Level2Outcome:
     project = store.load_project(project_id)
     if project.state.value != "approved":
@@ -300,6 +304,22 @@ def plan_level2(
 
     intents = build_intents(inputs, decisions)
     budget = build_budget(plan, intents, cap_usd, lean=lean)
+    if provider_cap_usd is not None and provider_cap_usd > budget.summary.cap_usd:
+        raise BudgetError(
+            f"the fal/Runware cap ${provider_cap_usd:.2f} cannot exceed the "
+            f"project cap ${budget.summary.cap_usd:.2f}"
+        )
+    provider_budget = (
+        empty_budget(provider_cap_usd, per_job_max_usd) if provider_cap_usd is not None else None
+    )
+    governor = (
+        ProviderGovernor(
+            run.run_dir(run_id) / "provider-spend.jsonl",
+            provider_budget,
+        )
+        if provider_budget is not None
+        else None
+    )
     policy = BudgetPolicy(
         approved_cap_usd=plan.budget.cap_usd,
         operator_cap_usd=cap_usd,
@@ -310,8 +330,7 @@ def plan_level2(
                 "Operator spend cap applied to Level 2"
                 + ("; lean in-kind production mode, zero cash." if lean else ".")
                 + (
-                    " The requested cap was above the approved cap; the approved cap "
-                    "was retained."
+                    " The requested cap was above the approved cap; the approved cap was retained."
                     if cap_usd > plan.budget.cap_usd
                     else ""
                 )
@@ -381,6 +400,7 @@ def plan_level2(
         sound=sound,
         budget=budget,
         budget_policy=policy,
+        provider_budget=provider_budget,
         flow=flow,
         variants=variants,
         blockers=sorted(set(blockers)),
@@ -406,6 +426,12 @@ def plan_level2(
     run.write_json(run_id, "sound-plan.json", sound)
     run.write_json(run_id, "budget-estimate.json", budget)
     run.write_json(run_id, "budget-policy.json", policy)
+    if provider_budget is not None:
+        run.write_json(run_id, "provider-budget.json", provider_budget)
+        if not (run.run_dir(run_id) / "provider-spend.jsonl").is_file():
+            run.write_text(run_id, "provider-spend.jsonl", "")
+        assert governor is not None
+        governor.write_view(run.run_dir(run_id) / "provider-spend.json")
     run.write_json(run_id, "flow.json", flow)
     run.write_data(
         run_id,
@@ -425,6 +451,7 @@ def plan_level2(
         reports,
         expected_bundle_hash=inputs.approval.bundle_hash,
         expected_packet_hash=inputs.approval.packet_hash,
+        provider_summary=governor.summary() if governor is not None else None,
     )
     _write_supporting(run, run_id, plan, level2, sheet, reports, gate_2a)
 
@@ -492,11 +519,7 @@ def apply_corrections(
         for item in items
     ]
     new_run = next_run_id(base_run_id)
-    operator_cap = (
-        base.budget_policy.operator_cap_usd
-        if base.budget_policy is not None
-        else None
-    )
+    operator_cap = base.budget_policy.operator_cap_usd if base.budget_policy is not None else None
     outcome = plan_level2(
         store,
         project_id,

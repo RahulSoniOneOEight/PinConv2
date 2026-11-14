@@ -456,9 +456,7 @@ def test_operator_cap_blocks_gate_2a(approved: SimpleNamespace) -> None:
     from pinconv2.level2.models import CheckState
     from pinconv2.level2.planner import plan_level2
 
-    outcome = plan_level2(
-        approved.store, PROJECT, 2, "rev-920", cap_usd=2.0
-    )
+    outcome = plan_level2(approved.store, PROJECT, 2, "rev-920", cap_usd=2.0)
     summary = outcome.level2.budget.summary
     assert summary.cap_usd == 2.0
     assert summary.total_usd == 87.4
@@ -473,9 +471,7 @@ def test_operator_cap_blocks_gate_2a(approved: SimpleNamespace) -> None:
     assert checks["G2A-04"].state is CheckState.FAIL
     assert any("2.00" in blocker for blocker in outcome.gate_2a.blockers)
     policy = json.loads(
-        (approved.run.run_dir("rev-920") / "budget-policy.json").read_text(
-            encoding="utf-8"
-        )
+        (approved.run.run_dir("rev-920") / "budget-policy.json").read_text(encoding="utf-8")
     )
     assert policy["effective_cap_usd"] == 2.0
     assert policy["source"] == "operator_instruction"
@@ -499,7 +495,16 @@ def test_lean_mode_fits_two_dollar_cap(approved: SimpleNamespace) -> None:
     from pinconv2.level2.models import CheckState
     from pinconv2.level2.planner import plan_level2
 
-    outcome = plan_level2(approved.store, PROJECT, 2, "rev-921", cap_usd=2.0, lean=True)
+    outcome = plan_level2(
+        approved.store,
+        PROJECT,
+        2,
+        "rev-921",
+        cap_usd=2.0,
+        lean=True,
+        provider_cap_usd=2.0,
+        per_job_max_usd=0.5,
+    )
     summary = outcome.level2.budget.summary
     assert summary.cap_usd == 2.0
     assert summary.total_usd == 0.0
@@ -524,14 +529,18 @@ def test_lean_mode_fits_two_dollar_cap(approved: SimpleNamespace) -> None:
     assert checks["G2A-04"].state is CheckState.PASS
     assert checks["G2A-13"].state is CheckState.WARN
     assert "Lean substitutions" in checks["G2A-13"].name
+    assert checks["G2A-14"].state is CheckState.PASS
+    assert "fal+Runware cap $2.00" in checks["G2A-14"].detail
+    assert "remaining $2.00" in checks["G2A-14"].detail
+    assert outcome.level2.provider_budget is not None
+    assert outcome.level2.provider_budget.cap_usd == 2.0
+    assert outcome.level2.provider_budget.per_job_max_usd == 0.5
 
     baseline_methods = [decision.method for decision in approved.outcome.level2.decisions]
     lean_methods = [decision.method for decision in outcome.level2.decisions]
     assert baseline_methods == lean_methods
 
-    review = (
-        approved.run.run_dir("rev-921") / "review-pack.md"
-    ).read_text(encoding="utf-8")
+    review = (approved.run.run_dir("rev-921") / "review-pack.md").read_text(encoding="utf-8")
     assert "Cost: $0.00 cash · $4.00 in-kind (ES-05)" in review
     assert "Cost: $0.00 cash · $18.00 in-kind (ES-06)" in review
     assert "$0.00 cash · $6.00 in-kind" in review
@@ -554,6 +563,23 @@ def test_operator_cap_cannot_exceed_the_approved_cap(
     assert outcome.level2.budget_policy is not None
     assert outcome.level2.budget_policy.operator_cap_usd == 500.0
     assert "approved cap was retained" in outcome.level2.budget_policy.note
+
+
+def test_provider_cap_cannot_exceed_the_project_cap(
+    approved: SimpleNamespace,
+) -> None:
+    from pinconv2.level2.errors import BudgetError
+    from pinconv2.level2.planner import plan_level2
+
+    with pytest.raises(BudgetError):
+        plan_level2(
+            approved.store,
+            PROJECT,
+            2,
+            "rev-924",
+            cap_usd=2.0,
+            provider_cap_usd=5.0,
+        )
 
 
 def test_build_refuses_before_gate_2a(approved: SimpleNamespace) -> None:
