@@ -100,9 +100,7 @@ def run_openmontage_check(
             "OpenMontage work needs Gate 2A, or an explicit no-key capability check"
         )
     if capability_check and budget_usd > 2.0:
-        raise SpendNotAuthorisedError(
-            "the capability check is bounded to the $2 operator cap"
-        )
+        raise SpendNotAuthorisedError("the capability check is bounded to the $2 operator cap")
     run_dir = Path(run_dir)
     copy_dir = run_dir / "openmontage"
     copy_dir.mkdir(parents=True, exist_ok=True)
@@ -307,18 +305,17 @@ def run_openmontage_check(
 
         production = client.call_tool("production", {"action": "read", "projectId": project_id})
         budget = production.get("budget", {})
-        client.call_tool(
+        finished = client.call_tool(
             "production",
             {
                 "action": "finish",
-                "projectId": project_id,
-                "producerId": PRODUCER_ID,
-                "continuationId": input_id,
                 "requestId": f"pinconv2-l2-om-finish-{run_id}",
                 "state": "completed",
                 "access": access,
             },
         )
+        if finished.get("finished") != "completed":
+            raise RuntimeError(f"OpenMontage finish did not complete: {finished}")
         check = OpenMontageCheck(
             project_id=project_id,
             production_root=str(root),

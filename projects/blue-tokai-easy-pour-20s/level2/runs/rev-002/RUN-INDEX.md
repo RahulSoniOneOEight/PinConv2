@@ -102,13 +102,13 @@
 | [build-sheet/variants/VO-01.json](build-sheet/variants/VO-01.json) | 23,160 |
 | [capture-plan.json](capture-plan.json) | 1,480 |
 | [catalogue-resolutions.json](catalogue-resolutions.json) | 4,587 |
-| [cli-gate2a-output.json](cli-gate2a-output.json) | 2,027 |
-| [cli-plan-output.json](cli-plan-output.json) | 953 |
-| [cli-qc-output.json](cli-qc-output.json) | 689 |
-| [cli-spend-output.json](cli-spend-output.json) | 780 |
-| [cli-stockcheck-output.json](cli-stockcheck-output.json) | 259 |
+| [cli-gate2a-output.json](cli-gate2a-output.json) | 2,104 |
+| [cli-plan-output.json](cli-plan-output.json) | 993 |
+| [cli-qc-output.json](cli-qc-output.json) | 718 |
+| [cli-spend-output.json](cli-spend-output.json) | 810 |
+| [cli-stockcheck-output.json](cli-stockcheck-output.json) | 266 |
 | [cli-voice-output.json](cli-voice-output.json) | 239 |
-| [events.jsonl](events.jsonl) | 10,479 |
+| [events.jsonl](events.jsonl) | 10,882 |
 | [feedback-form.md](feedback-form.md) | 4,580 |
 | [flow.json](flow.json) | 5,774 |
 | [gate2/packet-2a.json](gate2/packet-2a.json) | 3,229 |
@@ -116,7 +116,7 @@
 | [layer-method-decisions.json](layer-method-decisions.json) | 25,090 |
 | [licence-gate-report.json](licence-gate-report.json) | 4,768 |
 | [mypy-output.txt](mypy-output.txt) | 46 |
-| [OPEN-TOOLS-STATUS.md](OPEN-TOOLS-STATUS.md) | 9,318 |
+| [OPEN-TOOLS-STATUS.md](OPEN-TOOLS-STATUS.md) | 9,348 |
 | [openmontage/candidates/AS-07-01.jpg](openmontage/candidates/AS-07-01.jpg) | 35,656 |
 | [openmontage/candidates/AS-07-02.jpg](openmontage/candidates/AS-07-02.jpg) | 47,936 |
 | [openmontage/candidates/AS-07-03.jpg](openmontage/candidates/AS-07-03.jpg) | 44,247 |
@@ -125,7 +125,7 @@
 | [openmontage/nasa-stock.jpg](openmontage/nasa-stock.jpg) | 103,961 |
 | [openmontage/render.mp4](openmontage/render.mp4) | 26,984 |
 | [openmontage-check.json](openmontage-check.json) | 1,020 |
-| [openmontage-sourcing.json](openmontage-sourcing.json) | 3,626 |
+| [openmontage-sourcing.json](openmontage-sourcing.json) | 4,276 |
 | [openmontage-status.json](openmontage-status.json) | 904 |
 | [provider-budget.json](provider-budget.json) | 283 |
 | [provider-spend.json](provider-spend.json) | 468 |
@@ -146,7 +146,7 @@
 | [shortgpt-status.json](shortgpt-status.json) | 221 |
 | [sound-plan.json](sound-plan.json) | 2,757 |
 | [SOURCE-SHEET.html](SOURCE-SHEET.html) | 14,651 |
-| [SOURCE-SHEET.json](SOURCE-SHEET.json) | 21,935 |
+| [SOURCE-SHEET.json](SOURCE-SHEET.json) | 22,598 |
 | [SOURCE-SHEET.md](SOURCE-SHEET.md) | 9,644 |
 | [sourcing/CND-AS10-02-lost-roamin.mp3](sourcing/CND-AS10-02-lost-roamin.mp3) | 241,063 |
 | [sourcing/CND-AS10-03-this-is-our-music-instrumental.mp3](sourcing/CND-AS10-03-this-is-our-music-instrumental.mp3) | 241,134 |

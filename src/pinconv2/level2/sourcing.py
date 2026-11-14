@@ -23,10 +23,8 @@ from .gate2 import evaluate_2a
 from .licence_gate import classify_licence, gate_candidate
 from .models import (
     AssetSourcing,
-    GatePacket,
     LicenceClass,
     MethodCandidate,
-    PacketStatus,
     ProviderSpendSummary,
     QcReport,
     SourcingCandidate,
@@ -39,13 +37,6 @@ _MAX_BYTES = 30 * 1024 * 1024
 
 Fetcher = Callable[[str], list[dict[str, object]]]
 Downloader = Callable[[str, Path], Path]
-
-
-def require_openmontage_gate(gate: GatePacket | None) -> None:
-    """OpenMontage stock/render work is film sourcing, so it needs Gate 2A."""
-
-    if gate is None or gate.status is not PacketStatus.APPROVED:
-        raise SpendNotAuthorisedError("OpenMontage stock or render work needs an approved Gate 2A")
 
 
 DEFAULT_QUERIES = {
@@ -325,11 +316,6 @@ def source_assets(
         )
 
     report = SourcingReport(run_id=run_id, assets=assets)
-    run.write_data(
-        run_id,
-        "asset-sourcing.json",
-        report.model_dump(mode="json"),
-    )
     if openmontage:
         if openmontage_budget_usd > 2.0:
             raise SpendNotAuthorisedError("OpenMontage sourcing is bounded to the $2 operator cap")
@@ -346,6 +332,11 @@ def source_assets(
             attempt=openmontage_attempt,
             budget_usd=openmontage_budget_usd,
         )
+    run.write_data(
+        run_id,
+        "asset-sourcing.json",
+        report.model_dump(mode="json"),
+    )
     updated = level2.model_copy(update={"sourcing": report})
     run.write_json(run_id, "run.json", updated)
 

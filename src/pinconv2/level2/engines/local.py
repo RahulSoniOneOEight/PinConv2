@@ -55,9 +55,7 @@ class LocalEngine:
         video = (
             None
             if is_audio_file
-            else next(
-                (item for item in streams if item.get("codec_type") == "video"), None
-            )
+            else next((item for item in streams if item.get("codec_type") == "video"), None)
         )
         audio = next((item for item in streams if item.get("codec_type") == "audio"), None)
         duration = payload.get("format", {}).get("duration")

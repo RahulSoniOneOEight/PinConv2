@@ -90,9 +90,10 @@ class OpenMontageEngine(EngineAdapter):
     def _submit(
         self, operation: str, payload: dict[str, object], line_id: str
     ) -> dict[str, object]:
-        gate_status = getattr(self.gate, "status", None)
-        if self.gate is not None and gate_status is not PacketStatus.APPROVED:
-            raise SpendNotAuthorisedError("OpenMontage work needs an approved Gate 2A")
+        if operation != "stock.search":
+            gate_status = getattr(self.gate, "status", None)
+            if self.gate is None or gate_status is not PacketStatus.APPROVED:
+                raise SpendNotAuthorisedError("OpenMontage work needs an approved Gate 2A")
         if self.client is None or not self.available:
             raise EngineUnavailableError(
                 "OpenMontage is not connected; enable it and retry after Gate 2A"

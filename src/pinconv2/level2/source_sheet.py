@@ -266,9 +266,7 @@ def write_source_sheet(
     sheet: BuildSheet,
     openmontage: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
-    data = source_sheet_data(
-        plan, level2, sheet, run.run_dir(run_id), openmontage
-    )
+    data = source_sheet_data(plan, level2, sheet, run.run_dir(run_id), openmontage)
     markdown = render_source_sheet(data)
     run.write_text(run_id, "SOURCE-SHEET.md", markdown)
     run.write_text(

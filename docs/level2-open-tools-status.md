@@ -177,7 +177,9 @@ Jobs in queue: 0. Output directory exists.
   real stdio client, so the standalone CLI can drive Studio directly.
 - `level2 source --openmontage` searched `AS-07` through Studio's `nasa.stock`
   route and recorded 5 candidates in `openmontage-sourcing.json`; search only,
-  $0 spent. `level2 om-source` remains available for a standalone search.
+  $0 spent. The Studio run is closed as `completed` (verified with
+  `production read`). `level2 om-source` remains available for a standalone
+  search.
 - `level2 stockcheck` fetched and probed 11 of 12 sources; see
   `stock-check/stock-check.md`.
 - `SOURCE-SHEET.md` now lists every shot/layer with its actual source and
@@ -195,11 +197,10 @@ Jobs in queue: 0. Output directory exists.
 - Evidence: stock SHA-256 `60ef6c23?`, render SHA-256 `a2718443?`, 1920?1080,
   2.0 s, 60 frames, verification passed, budget $2.00, spent $0.00.
 - It is a separate capability production; nothing was attached to Blue Tokai.
-- `sourcing.require_openmontage_gate` refuses OpenMontage stock/render work
-  unless Gate 2A is approved. `OpenMontageEngine._submit` enforces the same
-  packet when a gate is supplied. `level2 omcheck` is locked to `nasa.stock`,
-  draft quality and a $2 ceiling; without that explicit capability flag the
-  runner refuses before spawning Studio.
+- `OpenMontageEngine._submit` refuses every non-search operation unless the
+  gate packet is APPROVED; `generate` refuses the same way. `level2 omcheck` is
+  locked to `nasa.stock`, draft quality and a $2 ceiling; without that explicit
+  capability flag the runner refuses before spawning Studio.
 - ShortGPT transcription works through the cached faster-whisper `tiny.en`
   model (local, no download, no key). It is accurate enough for timing, not for
   verbatim script QC: the sample heard “Tear, anchor, pour” as “Dear anchor

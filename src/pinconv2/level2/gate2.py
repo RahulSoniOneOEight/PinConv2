@@ -234,12 +234,8 @@ def evaluate_2a(
         catalogue_detail = f"manual-only sources scripted: {manual_scripted}"
     else:
         catalogue_state = CheckState.PASS
-        passed = sum(
-            1 for candidate in candidates if candidate.gate_verdict is GateVerdict.PASS
-        )
-        previewed = sum(
-            1 for candidate in candidates if getattr(candidate, "preview_path", None)
-        )
+        passed = sum(1 for candidate in candidates if candidate.gate_verdict is GateVerdict.PASS)
+        previewed = sum(1 for candidate in candidates if getattr(candidate, "preview_path", None))
         catalogue_detail = (
             f"{len(candidates)} candidates checked; {passed} passed the licence gate; "
             f"{previewed} with previews ({len(sourcing_candidates)} from sourcing)"

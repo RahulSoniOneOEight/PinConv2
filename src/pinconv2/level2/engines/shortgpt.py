@@ -64,9 +64,7 @@ class ShortGptEngine:
         voice: str = DEFAULT_VOICE,
     ) -> VoiceResult:
         if not self.available:
-            raise EngineUnavailableError(
-                f"ShortGPT venv not found at {self.python}"
-            )
+            raise EngineUnavailableError(f"ShortGPT venv not found at {self.python}")
         if not text.strip():
             raise EngineUnavailableError("voice text is empty")
         destination.parent.mkdir(parents=True, exist_ok=True)
@@ -114,8 +112,6 @@ class ShortGptEngine:
         path is local, keyless and does not download anything.
         """
 
-        if not self.available:
-            raise EngineUnavailableError("ShortGPT venv not found")
         if not audio.is_file():
             raise EngineUnavailableError(f"audio not found: {audio}")
         if not self.faster_python.is_file():
@@ -125,7 +121,9 @@ class ShortGptEngine:
         code = """
 import json, sys
 from faster_whisper import WhisperModel
-model = WhisperModel("tiny.en", device="cpu", compute_type="int8")
+model = WhisperModel(
+    "tiny.en", device="cpu", compute_type="int8", local_files_only=True
+)
 segments, info = model.transcribe(sys.argv[1], language="en", vad_filter=True)
 items = [
     {"start": round(segment.start, 3), "end": round(segment.end, 3), "text": segment.text.strip()}

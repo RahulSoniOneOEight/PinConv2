@@ -363,9 +363,7 @@ def render_review(
         )
     decision_candidates = sum(len(decision.candidates) for decision in decisions)
     sourcing_candidates = (
-        sum(len(asset.candidates) for asset in sourcing.assets)
-        if sourcing is not None
-        else 0
+        sum(len(asset.candidates) for asset in sourcing.assets) if sourcing is not None else 0
     )
     candidates = decision_candidates + sourcing_candidates
     sourcing_label = "discovery complete" if sourcing_candidates else "not run"

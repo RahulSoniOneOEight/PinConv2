@@ -1,7 +1,10 @@
 {
   "asset_id": "AS-07",
-  "project_id": "3931e720-0b3d-483b-a932-2498be040930",
-  "job_id": "36f5fe06-0df6-4205-a8b1-6b5cee132801",
+  "project_id": "d141a6db-36c7-4728-b553-0c917be7e1ef",
+  "job_id": "1a5ef9b4-f9f2-4078-84b0-d467f863472d",
+  "request_id": "pinconv2-l2-discovery-search-rev-002-AS-07-6",
+  "attempt": "6",
+  "status": "completed",
   "route": "nasa.stock",
   "kind": "image",
   "query": "coffee",
@@ -15,7 +18,9 @@
       "preview_url": "https://images-assets.nasa.gov/image/KSC-20221207-PH-CSH01_0002/KSC-20221207-PH-CSH01_0002~thumb.jpg",
       "preview_path": "openmontage/candidates/AS-07-01.jpg",
       "licence": "Check item credits and third-party rights. NASA identification does not establish permission for endorsement, recognizable people or third-party material.",
-      "duration_seconds": null
+      "duration_seconds": null,
+      "bytes": 35656,
+      "sha256": "f53040d9d5aef0c3fd6f6aa4d9a04b1b287557069e17991e51598b0abb712e6e"
     },
     {
       "source": "nasa.stock",
@@ -26,7 +31,9 @@
       "preview_url": "https://images-assets.nasa.gov/image/KSC-20221207-PH-CSH01_0049/KSC-20221207-PH-CSH01_0049~thumb.jpg",
       "preview_path": "openmontage/candidates/AS-07-02.jpg",
       "licence": "Check item credits and third-party rights. NASA identification does not establish permission for endorsement, recognizable people or third-party material.",
-      "duration_seconds": null
+      "duration_seconds": null,
+      "bytes": 47936,
+      "sha256": "d97aa339a2c021c669db4714a344cb5cca799e2702f7bbd2620a436328d0de0c"
     },
     {
       "source": "nasa.stock",
@@ -37,7 +44,9 @@
       "preview_url": "https://images-assets.nasa.gov/image/KSC-20221207-PH-CSH01_0056/KSC-20221207-PH-CSH01_0056~thumb.jpg",
       "preview_path": "openmontage/candidates/AS-07-03.jpg",
       "licence": "Check item credits and third-party rights. NASA identification does not establish permission for endorsement, recognizable people or third-party material.",
-      "duration_seconds": null
+      "duration_seconds": null,
+      "bytes": 44247,
+      "sha256": "37baa143d3892f6de95b3be095de702a4ce571113d0f5711338d4a8e80aad3c2"
     },
     {
       "source": "nasa.stock",
@@ -48,7 +57,9 @@
       "preview_url": "https://images-assets.nasa.gov/image/KSC-20221207-PH-CSH01_0033/KSC-20221207-PH-CSH01_0033~thumb.jpg",
       "preview_path": "openmontage/candidates/AS-07-04.jpg",
       "licence": "Check item credits and third-party rights. NASA identification does not establish permission for endorsement, recognizable people or third-party material.",
-      "duration_seconds": null
+      "duration_seconds": null,
+      "bytes": 58912,
+      "sha256": "234b76fc9eefe10a55bb63d1c5b28667bb04076b207ccc6e63750eaaa2ecd80c"
     },
     {
       "source": "nasa.stock",
@@ -59,11 +70,13 @@
       "preview_url": "https://images-assets.nasa.gov/image/KSC-20221207-PH-CSH01_0025/KSC-20221207-PH-CSH01_0025~thumb.jpg",
       "preview_path": "openmontage/candidates/AS-07-05.jpg",
       "licence": "Check item credits and third-party rights. NASA identification does not establish permission for endorsement, recognizable people or third-party material.",
-      "duration_seconds": null
+      "duration_seconds": null,
+      "bytes": 41981,
+      "sha256": "b0b9714391f91321551c9a33c8330dce32bf043cf6d3e55a77ace73a9cfeb262"
     }
   ],
   "budget_usd": 2.0,
   "spent_usd": 0.0,
   "note": "Search only; no acquisition and no film attachment.",
-  "created_at": "2026-11-14T21:47:00+00:00"
+  "created_at": "2026-11-14T21:56:15+00:00"
 }

@@ -534,7 +534,12 @@ def test_openmontage_refuses_without_an_approved_gate(
     gate = _approved_gate().model_copy(update={"status": PacketStatus.READY, "approved_by": None})
     engine = OpenMontageEngine(ledger, lambda operation, payload: {}, gate=gate)
     with pytest.raises(SpendNotAuthorisedError):
-        engine.search("AS-10", "coffee")
+        engine.render(
+            tmp_path / "timeline.json",
+            tmp_path / "cut.mp4",
+            estimate_usd=0.0,
+            line_id="render",
+        )
 
 
 def test_openmontage_check_refuses_without_gate_or_test_mode(
@@ -558,7 +563,7 @@ def test_openmontage_render_goes_through_the_ledger(
     def client(operation: str, payload: dict[str, object]) -> dict[str, object]:
         return {"path": str(tmp_path / "cut.mp4"), "cost_usd": 0.0}
 
-    engine = OpenMontageEngine(ledger, client)
+    engine = OpenMontageEngine(ledger, client, gate=_approved_gate())
     output = engine.render(
         tmp_path / "timeline.json",
         tmp_path / "cut.mp4",

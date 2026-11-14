@@ -71,9 +71,7 @@ class MCPStdioClient:
     def _request(self, method: str, params: dict[str, Any]) -> dict[str, Any]:
         request_id = self._next_id
         self._next_id += 1
-        self._send(
-            {"jsonrpc": "2.0", "id": request_id, "method": method, "params": params}
-        )
+        self._send({"jsonrpc": "2.0", "id": request_id, "method": method, "params": params})
         while True:
             try:
                 message = self._responses.get(timeout=self.timeout)
@@ -105,9 +103,7 @@ class MCPStdioClient:
         return list(result.get("tools", []))
 
     def call_tool(self, name: str, arguments: dict[str, Any]) -> dict[str, Any]:
-        result = self._request(
-            "tools/call", {"name": name, "arguments": arguments}
-        )
+        result = self._request("tools/call", {"name": name, "arguments": arguments})
         content = result.get("content") or []
         text = ""
         for item in content:

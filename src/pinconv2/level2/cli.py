@@ -216,9 +216,7 @@ def run_level2_command(store: ProjectStore, args: argparse.Namespace) -> int:
             {
                 "edge_tts": "working",
                 "transcription": "working" if transcript else "available",
-                "transcription_backend": (
-                    "cached faster-whisper tiny.en (local, no download)"
-                ),
+                "transcription_backend": ("cached faster-whisper tiny.en (local, no download)"),
                 "sample_path": recorded.path,
                 "duration_seconds": recorded.duration_seconds,
             },
@@ -255,6 +253,8 @@ def run_level2_command(store: ProjectStore, args: argparse.Namespace) -> int:
             openmontage_asset=str(args.om_asset),
             openmontage_attempt=str(args.om_attempt),
         )
+        om_path = run.run_dir(run_id) / "openmontage-sourcing.json"
+        om_summary = json.loads(om_path.read_text(encoding="utf-8")) if om_path.is_file() else None
         _print(
             {
                 "run": run_id,
@@ -267,6 +267,19 @@ def run_level2_command(store: ProjectStore, args: argparse.Namespace) -> int:
                     }
                     for asset in sourcing_report.assets
                 ],
+                "openmontage": (
+                    {
+                        "asset_id": om_summary.get("asset_id"),
+                        "project_id": om_summary.get("project_id"),
+                        "job_id": om_summary.get("job_id"),
+                        "route": om_summary.get("route"),
+                        "candidates": len(om_summary.get("candidates", [])),
+                        "budget_usd": om_summary.get("budget_usd"),
+                        "spent_usd": om_summary.get("spent_usd"),
+                    }
+                    if om_summary
+                    else None
+                ),
                 "report": str(run.run_dir(run_id) / "sourcing-report.md"),
             }
         )

@@ -1,12 +1,13 @@
 """OpenMontage-backed discovery for a representative film asset.
 
 Search is read-only and pre-Gate 2A: it records Studio's candidates, job id and
-ledger state without acquiring or attaching anything. Acquisition remains behind
-``sourcing.require_openmontage_gate`` and the provider governor.
+ledger state without acquiring or attaching anything. Acquisition and generation
+remain behind ``OpenMontageEngine``'s Gate 2A / spend-ledger checks.
 """
 
 from __future__ import annotations
 
+import hashlib
 import time
 import urllib.request
 from pathlib import Path
@@ -19,6 +20,22 @@ from .mcp_bridge import MCPStdioClient
 
 PRODUCER_ID = "pinconv2-level2"
 UA = "PinConv2/0.2 (OpenMontage discovery)"
+MAX_PREVIEW_BYTES = 20 * 1024 * 1024
+
+_MAGIC = (
+    b"\xff\xd8\xff",  # JPEG
+    b"\x89PNG\r\n\x1a\n",  # PNG
+    b"GIF87a",
+    b"GIF89a",
+    b"RIFF",  # WebP/WAV
+    b"ID3",  # MP3
+    b"OggS",
+    b"\x1aE\xdf\xa3",  # WebM/Matroska
+)
+
+
+def _looks_like_media(payload: bytes) -> bool:
+    return len(payload) >= 1024 and any(payload.startswith(magic) for magic in _MAGIC)
 
 
 class OpenMontageCandidate(StrictModel):
@@ -31,12 +48,17 @@ class OpenMontageCandidate(StrictModel):
     preview_path: str | None = None
     licence: str | None = None
     duration_seconds: float | None = None
+    bytes: int = Field(default=0, ge=0)
+    sha256: str | None = Field(default=None, pattern=r"^[a-f0-9]{64}$")
 
 
 class OpenMontageSearch(StrictModel):
     asset_id: str = Field(pattern=r"^AS-\d{2}$")
     project_id: str
     job_id: str
+    request_id: str | None = None
+    attempt: str = "1"
+    status: str = "completed"
     route: str
     kind: str
     query: str
@@ -144,14 +166,20 @@ def search_for_asset(
         for index, item in enumerate(items[:limit], start=1):
             preview_url = item.get("previewUrl")
             preview_path = None
+            preview_bytes = 0
+            preview_sha = None
             if preview_url:
-                suffix = Path(str(preview_url).split("?")[0]).suffix or ".mp3"
+                suffix = Path(str(preview_url).split("?")[0]).suffix or ".jpg"
                 target = preview_dir / f"{asset_id}-{index:02d}{suffix}"
                 try:
                     request = urllib.request.Request(str(preview_url), headers={"User-Agent": UA})
                     with urllib.request.urlopen(request, timeout=60) as response:
-                        target.write_bytes(response.read(20 * 1024 * 1024))
-                    preview_path = target.relative_to(run_dir).as_posix()
+                        payload = response.read(MAX_PREVIEW_BYTES + 1)
+                    if len(payload) <= MAX_PREVIEW_BYTES and _looks_like_media(payload):
+                        target.write_bytes(payload)
+                        preview_path = target.relative_to(run_dir).as_posix()
+                        preview_bytes = len(payload)
+                        preview_sha = hashlib.sha256(payload).hexdigest()
                 except Exception:
                     preview_path = None
             rights = item.get("rights") or {}
@@ -166,26 +194,31 @@ def search_for_asset(
                     preview_path=preview_path,
                     licence=rights.get("summary"),
                     duration_seconds=item.get("durationS"),
+                    bytes=preview_bytes,
+                    sha256=preview_sha,
                 )
             )
         production = client.call_tool("production", {"action": "read", "projectId": project_id})
         budget = production.get("budget", {})
-        client.call_tool(
+        finished = client.call_tool(
             "production",
             {
                 "action": "finish",
-                "projectId": project_id,
-                "producerId": PRODUCER_ID,
-                "continuationId": input_id,
                 "requestId": f"pinconv2-l2-discovery-finish-{run_id}-{asset_id}-{attempt}",
                 "state": "completed",
                 "access": access,
             },
         )
+        if finished.get("finished") != "completed":
+            raise RuntimeError(f"OpenMontage finish did not complete: {finished}")
+        status = str(waited.get("state", "unknown"))
         report = OpenMontageSearch(
             asset_id=asset_id,
             project_id=project_id,
             job_id=job_id,
+            request_id=f"pinconv2-l2-discovery-search-{run_id}-{asset_id}-{attempt}",
+            attempt=attempt,
+            status=status,
             route=route,
             kind=kind,
             query=query,
