@@ -60,6 +60,23 @@ def budget_summary_markdown(budget: BudgetEstimate) -> list[str]:
             + ", ".join(summary.unpriced_lines)
             + ". These must become quotes or explicit zero-cost swaps at Gate 2A."
         )
+    if budget.mode == "lean":
+        lines.append(
+            f"- **Lean in-kind mode:** cash total $0.00, in-kind value "
+            f"${budget.in_kind_usd:,.2f} across {len(budget.substitutions)} lines. "
+            "Gate 2A approval covers these substitutions."
+        )
+        for item in budget.substitutions:
+            lines.append(
+                f"  - {item.estimate_id} {item.label}: {item.route} "
+                f"(risk: {item.risk})"
+            )
+    if not summary.within_cap or not summary.worst_within_cap:
+        overage = round(max(summary.total_usd, summary.worst_usd) - summary.cap_usd, 2)
+        lines.append(
+            f"- **BLOCKED: the plan is ${overage:,.2f} over the effective cap.** "
+            "Gate 2A cannot be approved until the scope or the cap changes."
+        )
     return lines
 
 
@@ -73,9 +90,15 @@ def render_budget(budget: BudgetEstimate, plan: ProductionPlan) -> str:
         "",
         *budget_summary_markdown(budget),
         "",
-        f"Raw per-asset estimates in the handoff: {_money(budget.raw_attributed_usd)}. "
-        f"Dedupe saves {_money(budget.dedupe_savings_usd)} by charging the capture "
-        "session and pack preparation once.",
+        (
+            f"Raw per-asset estimates in the handoff: {_money(budget.raw_attributed_usd)}. "
+            f"Lean mode carries {_money(budget.in_kind_usd)} as in-kind across "
+            f"{len(budget.substitutions)} lines; cash total is $0.00."
+            if budget.mode == "lean"
+            else f"Raw per-asset estimates in the handoff: {_money(budget.raw_attributed_usd)}. "
+            f"Dedupe saves {_money(budget.dedupe_savings_usd)} by charging the capture "
+            "session and pack preparation once."
+        ),
         "",
     ]
     return "\n".join(lines)
@@ -107,8 +130,15 @@ def render_budget_docx(budget: BudgetEstimate, plan: ProductionPlan) -> DocxBuil
         ("Worst case", summary.worst_usd),
         ("Cap", summary.cap_usd),
         ("Headroom", summary.headroom_usd),
+        ("In-kind value", budget.in_kind_usd),
     ):
         builder.paragraph(f"{label}: {_money(value)}")
+    if budget.mode == "lean":
+        builder.paragraph(
+            f"Lean in-kind mode: cash $0.00, in-kind value {_money(budget.in_kind_usd)}. "
+            "Gate 2A approval covers the substitutions listed in the review pack.",
+            bold=True,
+        )
     builder.paragraph(
         f"Dedupe saves {_money(budget.dedupe_savings_usd)} against the raw "
         f"handoff total of {_money(budget.raw_attributed_usd)}."
@@ -162,6 +192,8 @@ def render_review(
         f"| Worst case | {_money(summary.worst_usd)} |",
         f"| Cap | {_money(summary.cap_usd)} |",
         f"| Headroom | {_money(summary.headroom_usd)} |",
+        f"| Mode | {budget.mode} |",
+        f"| In-kind value | {_money(budget.in_kind_usd)} |",
         "",
         "## Budget",
         "",
@@ -169,8 +201,13 @@ def render_review(
         "",
         *budget_summary_markdown(budget),
         "",
-        f"Raw per-asset estimates: {_money(budget.raw_attributed_usd)}; dedupe saves "
-        f"{_money(budget.dedupe_savings_usd)}.",
+        (
+            f"Raw per-asset estimates: {_money(budget.raw_attributed_usd)}; lean mode "
+            f"carries {_money(budget.in_kind_usd)} as in-kind."
+            if budget.mode == "lean"
+            else f"Raw per-asset estimates: {_money(budget.raw_attributed_usd)}; dedupe saves "
+            f"{_money(budget.dedupe_savings_usd)}."
+        ),
         "",
         "## Assets",
         "",
@@ -179,6 +216,21 @@ def render_review(
     for asset in sheet.assets:
         intent = intent_map[asset.asset_id]
         badge = _BADGE.get(asset.status, asset.status.value)
+        if budget.mode == "lean":
+            cost = (
+                f"$0.00 cash · {_money(intent.estimate_usd)} in-kind"
+                if intent.estimate_usd
+                else "$0.00 cash"
+            )
+        else:
+            cost = _money(intent.estimate_usd)
+        cost_ref = (
+            f" ({intent.estimate_id})"
+            if intent.estimate_id
+            else " (fallback, unpriced)"
+            if intent.scope != "approved"
+            else ""
+        )
         lines.extend(
             [
                 f"### {asset.asset_id} · {asset.name} · "
@@ -189,8 +241,7 @@ def render_review(
                 f"- Source: {asset.source}",
                 f"- Rights: {asset.rights_status}"
                 + (f" · hold `{asset.hold}`" if asset.hold else ""),
-                f"- Cost: {_money(intent.estimate_usd)} "
-                f"({intent.estimate_id or 'fallback, unpriced'})",
+                f"- Cost: {cost}{cost_ref}",
                 f"- Acceptance: {asset.acceptance}",
                 f"- Preview: {asset.bindings[0] if asset.bindings else 'n/a'}",
                 f"- Blockers: {', '.join(asset.blockers) or 'none'}",
@@ -240,7 +291,14 @@ def render_review(
                 f"- Safe area: {variant.safe_area.top}/{variant.safe_area.bottom}/"
                 f"{variant.safe_area.left}/{variant.safe_area.right}",
                 f"- Basis: {variant.safe_area_basis}",
-                f"- Cost: {_money(variant.cost_usd)}",
+                "- Cost: "
+                + (
+                    f"$0.00 cash · {_money(variant.cost_usd)} in-kind"
+                    if budget.mode == "lean" and variant.cost_usd
+                    else "$0.00 cash"
+                    if budget.mode == "lean"
+                    else _money(variant.cost_usd)
+                ),
                 f"- Status: {variant.check_status}",
                 f"- Blockers: {', '.join(variant.blockers) or 'none'}",
                 "",
@@ -294,6 +352,8 @@ def render_review_docx(
             ["Worst case", _money(summary.worst_usd)],
             ["Cap", _money(summary.cap_usd)],
             ["Headroom", _money(summary.headroom_usd)],
+            ["Mode", budget.mode],
+            ["In-kind value", _money(budget.in_kind_usd)],
         ],
     )
     builder.heading("Budget", 2)
@@ -309,7 +369,17 @@ def render_review_docx(
         builder.bullet(f"Status: {_BADGE.get(asset.status, asset.status.value)}")
         builder.bullet(f"Method: {'/'.join(method.value for method in asset.methods)}")
         builder.bullet(f"Rights: {asset.rights_status}")
-        builder.bullet(f"Cost: {_money(intent.estimate_usd)}")
+        if budget.mode == "lean":
+            builder.bullet(
+                "Cost: $0.00 cash"
+                + (
+                    f" · {_money(intent.estimate_usd)} in-kind"
+                    if intent.estimate_usd
+                    else ""
+                )
+            )
+        else:
+            builder.bullet(f"Cost: {_money(intent.estimate_usd)}")
         builder.bullet(f"Acceptance: {asset.acceptance}")
         builder.paragraph("Decision: ☐ APPROVE   ☐ CHANGE   ☐ REJECT")
     builder.heading("Layers", 2)

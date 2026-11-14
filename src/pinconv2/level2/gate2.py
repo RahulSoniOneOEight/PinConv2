@@ -247,14 +247,23 @@ def evaluate_2a(
     capture = level2.capture
     capture_assets = {intent.asset_id for intent in level2.intents if intent.route == "to_capture"}
     covered = {member.asset_id for member in capture.members}
-    capture_ok = capture_assets <= covered and capture.cost_usd > 0
+    capture_ok = (
+        capture_assets <= covered
+        and (capture.cost_usd > 0 or capture.in_kind_usd > 0)
+    )
     checks.append(
         _check(
             "G2A-08",
             "Capture plan",
             CheckState.WARN if capture_ok else CheckState.FAIL,
             f"{capture.session_id} covers {len(capture.members)} assets at "
-            f"${capture.cost_usd:,.2f}; release {capture.release_hold} is still pending"
+            f"${capture.cost_usd:,.2f} cash"
+            + (
+                f" (${capture.in_kind_usd:,.2f} in-kind)"
+                if capture.in_kind_usd
+                else ""
+            )
+            + f"; release {capture.release_hold} is still pending"
             if capture_ok
             else f"capture plan misses {sorted(capture_assets - covered)}",
             capture.release_hold,
@@ -276,6 +285,18 @@ def evaluate_2a(
                 f"{stage.title()} QC",
                 state,
                 f"{len(report.findings)} findings, verdict {report.verdict.value}",
+            )
+        )
+
+    if level2.budget.mode == "lean":
+        checks.append(
+            _check(
+                f"G2A-{len(checks) + 1:02d}",
+                "Lean substitutions",
+                CheckState.WARN,
+                f"{len(level2.budget.substitutions)} paid lines moved to in-kind "
+                f"(${level2.budget.in_kind_usd:,.2f}); cash is $0.00 and Gate 2A "
+                "approves these substitutions",
             )
         )
 

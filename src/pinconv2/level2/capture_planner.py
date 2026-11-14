@@ -14,7 +14,9 @@ SESSION_ID = "CAP-01"
 CAPTURE_ESTIMATE = "ES-06"
 
 
-def build_capture_plan(plan: ProductionPlan, handoff: Level2Handoff) -> CaptureSessionPlan:
+def build_capture_plan(
+    plan: ProductionPlan, handoff: Level2Handoff, *, lean: bool = False
+) -> CaptureSessionPlan:
     capture_assets = [asset for asset in plan.assets if asset.route is AssetRoute.TO_CAPTURE]
     if not capture_assets:
         raise Level2Error("no capture assets in the approved plan")
@@ -50,10 +52,15 @@ def build_capture_plan(plan: ProductionPlan, handoff: Level2Handoff) -> CaptureS
             "steam plate reference for FX-01 and FX-05",
             "room tone for the mix",
         ],
-        studio="Studio TBC by the producer",
+        studio=(
+            "Self-operated location with phone/DSLR and practical light (lean mode)"
+            if lean
+            else "Studio TBC by the producer"
+        ),
         hand_model_release="Pending signed release",
         release_hold="HI-04",
-        cost_usd=estimate.amount_usd,
+        cost_usd=0.0 if lean else estimate.amount_usd,
+        in_kind_usd=estimate.amount_usd if lean else 0.0,
         estimate_id=estimate.id,
         shot_list=["SH-02", "SH-03", "SH-05"],
         colour_target="Warm 3200K practical light, neutral grade, no baked look",
@@ -73,5 +80,5 @@ def validate_capture_plan(plan: ProductionPlan, session: CaptureSessionPlan) -> 
         raise Level2Error(f"capture session misses {sorted(missing)}")
     if len(session.members) < 3:
         raise Level2Error("the capture session needs the demonstration, pour and cup")
-    if session.cost_usd <= 0:
-        raise Level2Error("the capture session must carry its approved cost")
+    if session.cost_usd <= 0 and session.in_kind_usd <= 0:
+        raise Level2Error("the capture session must carry a cost or an in-kind value")

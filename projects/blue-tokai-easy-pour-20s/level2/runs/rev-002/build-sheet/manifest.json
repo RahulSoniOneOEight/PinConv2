@@ -6,7 +6,7 @@
   "source_plan_hash": "1370f029b0b35730625c459cf85579bfd767d2e4a7b62016055e100d15f2aba5",
   "bundle_hash": "5a67ac5e48201fc48984a7f913d0f040e57327e807d072e488aad00810574cc2",
   "packet_hash": "756d91de1005ff0c5002a12670168498f164c80bed1a4d89feacab33e949e427",
-  "generated_at": "2026-11-14T19:45:56+00:00",
+  "generated_at": "2026-11-14T19:58:33+00:00",
   "parts": {
     "build-sheet/assets/AS-01.json": {
       "sha256": "a10438b14c71897863570b921d11d332ba7ba733caa694a6a9b5b77477b98342",
@@ -123,18 +123,18 @@
   },
   "budget": {
     "currency": "USD",
-    "cap_usd": 100.0,
+    "cap_usd": 2.0,
     "reserve_pct": 15.0,
-    "subtotal_usd": 76.0,
-    "reserve_usd": 11.4,
-    "total_usd": 87.4,
-    "fallback_usd": 5.0,
-    "worst_usd": 92.4,
-    "headroom_usd": 7.6,
+    "subtotal_usd": 0.0,
+    "reserve_usd": 0.0,
+    "total_usd": 0.0,
+    "fallback_usd": 0.0,
+    "worst_usd": 0.0,
+    "headroom_usd": 2.0,
     "within_cap": true,
     "worst_within_cap": true,
     "verified_quote_usd": 0.0,
-    "operator_estimate_usd": 81.0,
+    "operator_estimate_usd": 0.0,
     "unpriced_lines": [
       "BL-011",
       "BL-012"

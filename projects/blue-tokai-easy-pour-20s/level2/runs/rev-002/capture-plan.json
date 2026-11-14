@@ -37,10 +37,11 @@
     "steam plate reference for FX-01 and FX-05",
     "room tone for the mix"
   ],
-  "studio": "Studio TBC by the producer",
+  "studio": "Self-operated location with phone/DSLR and practical light (lean mode)",
   "hand_model_release": "Pending signed release",
   "release_hold": "HI-04",
-  "cost_usd": 18.0,
+  "cost_usd": 0.0,
+  "in_kind_usd": 18.0,
   "estimate_id": "ES-06",
   "shot_list": [
     "SH-02",

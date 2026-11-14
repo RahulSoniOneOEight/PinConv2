@@ -128,6 +128,17 @@ def build_parser() -> argparse.ArgumentParser:
         _common(command)
         command.add_argument("--revision", type=int, default=None)
         command.add_argument("--run", default=None)
+    level2_sub.choices["plan"].add_argument(
+        "--cap",
+        type=float,
+        default=None,
+        help="operator spend cap in USD; cannot exceed the approved cap silently",
+    )
+    level2_sub.choices["plan"].add_argument(
+        "--lean",
+        action="store_true",
+        help="zero-cash in-kind production mode; substitutions need Gate 2A approval",
+    )
     correct = level2_sub.choices["correct"]
     correct.add_argument("--input", required=True, help="corrections.jsonl")
     correct.add_argument("--new-run", default=None)

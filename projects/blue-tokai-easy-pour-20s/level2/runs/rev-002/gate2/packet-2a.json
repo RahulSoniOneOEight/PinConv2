@@ -31,7 +31,7 @@
       "id": "G2A-04",
       "name": "Budget within cap",
       "state": "pass",
-      "detail": "total $87.40, worst $92.40, cap $100.00, headroom $7.60",
+      "detail": "total $0.00, worst $0.00, cap $2.00, headroom $2.00",
       "evidence": null
     },
     {
@@ -59,7 +59,7 @@
       "id": "G2A-08",
       "name": "Capture plan",
       "state": "warn",
-      "detail": "CAP-01 covers 4 assets at $18.00; release HI-04 is still pending",
+      "detail": "CAP-01 covers 4 assets at $0.00 cash ($18.00 in-kind); release HI-04 is still pending",
       "evidence": "HI-04"
     },
     {
@@ -89,6 +89,13 @@
       "state": "warn",
       "detail": "4 findings, verdict warn",
       "evidence": null
+    },
+    {
+      "id": "G2A-13",
+      "name": "Lean substitutions",
+      "state": "warn",
+      "detail": "10 paid lines moved to in-kind ($81.00); cash is $0.00 and Gate 2A approves these substitutions",
+      "evidence": null
     }
   ],
   "blockers": [],
@@ -96,5 +103,5 @@
   "approved_by": null,
   "approved_at": null,
   "approval_evidence": null,
-  "created_at": "2026-11-14T19:45:56+00:00"
+  "created_at": "2026-11-14T19:58:33+00:00"
 }

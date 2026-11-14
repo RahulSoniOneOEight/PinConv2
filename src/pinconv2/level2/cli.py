@@ -71,7 +71,14 @@ def run_level2_command(store: ProjectStore, args: argparse.Namespace) -> int:
         return 0
 
     if command == "plan":
-        outcome = plan_level2(store, project_id, revision, run_id)
+        outcome = plan_level2(
+            store,
+            project_id,
+            revision,
+            run_id,
+            cap_usd=getattr(args, "cap", None),
+            lean=bool(getattr(args, "lean", False)),
+        )
         summary = outcome.level2.budget.summary
         _print(
             {
@@ -82,12 +89,14 @@ def run_level2_command(store: ProjectStore, args: argparse.Namespace) -> int:
                 "shots": len(outcome.sheet.shots),
                 "variants": [variant.variant_id for variant in outcome.level2.variants],
                 "budget": {
+                    "mode": outcome.level2.budget.mode,
                     "subtotal": summary.subtotal_usd,
                     "reserve": summary.reserve_usd,
                     "total": summary.total_usd,
                     "worst": summary.worst_usd,
                     "cap": summary.cap_usd,
                     "headroom": summary.headroom_usd,
+                    "in_kind": outcome.level2.budget.in_kind_usd,
                 },
                 "gate_2a": outcome.gate_2a.status.value,
                 "qc": {stage: report.verdict.value for stage, report in outcome.qc.items()},
@@ -166,6 +175,9 @@ def run_level2_command(store: ProjectStore, args: argparse.Namespace) -> int:
                 "layers": len(level2.decisions),
                 "budget_total": level2.budget.summary.total_usd,
                 "budget_worst": level2.budget.summary.worst_usd,
+                "budget_cap": level2.budget.summary.cap_usd,
+                "budget_mode": level2.budget.mode,
+                "in_kind": level2.budget.in_kind_usd,
                 "blockers": len(level2.blockers),
                 "gate_2a": _packet_status(run, run_id, "2a"),
             }

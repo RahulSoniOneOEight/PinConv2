@@ -25,9 +25,11 @@ real IDs from the approved plan, and every number is reproducible from
 | Synthetic voice | `AS-15` is `representative` and `M7`; the matrix allows it only with `disclosure_required=true`. |
 | Gate order | Gate 2A is assembled as `ready_for_approval`; only a named human can approve it. Gate 2B and `level2 build` refuse until that approval exists. |
 | Budget | Handoff per-asset lines sum to $89.00; dedupe removes $42.00 of repeated `ES-06`/`ES-07`, leaving the approved $76.00 subtotal and $87.40 total. |
+| Operator cap | `level2 plan --cap` sets a user cap; the effective cap is the lower of the approved cap and the operator cap. Exceeding it blocks Gate 2A instead of aborting the plan. |
+| Lean mode | `--lean` moves paid lines to zero-cash in-kind work and records each substitution for Gate 2A approval; cash total becomes $0.00 with the in-kind value shown separately. |
 | Critical path | The computed path is capture-led (`CAP-01 → AS-05/06/08 → shot → VO-01`), not the illustrative order in §15.1. |
 | Sourcing | No sourcing round runs in the spend-free slice; candidate licences are reported as unverified, not as cleared. |
-| Verification | 113 tests pass; Ruff and mypy are clean; the Blue Tokai run produces the full artifact set under `projects/blue-tokai-easy-pour-20s/level2/runs/rev-002/`. |
+| Verification | 116 tests pass; Ruff and mypy are clean; the Blue Tokai run produces the full artifact set under `projects/blue-tokai-easy-pour-20s/level2/runs/rev-002/`. |
 
 
 ---
@@ -579,6 +581,28 @@ constraint: total ≤ cap  AND  worst ≤ cap
 
 Reserve is applied **once at project level**. An earlier draft put 15% on every
 task, which double-counted it.
+
+### 11.1a Operator cap and lean mode
+
+The approved Level 1 cap is not the only guard. A user can impose a lower
+project cap:
+
+```
+effective_cap = min(approved_cap_usd, operator_cap_usd)
+constraint: total <= effective_cap and worst <= effective_cap
+```
+
+`level2 plan --cap 2` records the cap in `budget-policy.json`. If the estimate
+exceeds it, planning still completes, the variance is shown, the run state is
+`blocked`, and Gate 2A fails `G2A-04`. This is deliberate: a blocked plan must
+still be reviewable so the user can see the overage and choose.
+
+`level2 plan --cap 2 --lean` produces a zero-cash in-kind budget. Each paid line
+becomes $0.00 cash with an in-kind value and a named route and risk, and every
+substitution is listed for Gate 2A approval. Lean mode never changes the
+creative plan, the shot list or the layer methods; it changes who performs the
+work and whether cash is spent. Gate 2A adds a `Lean substitutions` warning so
+the approver sees exactly what they are accepting.
 
 Per-task cost = acquisition + attributable processing. Project-level lines
 (`ES-03` edit/motion, `ES-04` grade, `ES-08` end-card build) are **not**

@@ -14,6 +14,7 @@ from .models import (
     AssetIntent,
     BudgetEstimate,
     BudgetLine,
+    BudgetSubstitution,
     BudgetSummary,
 )
 
@@ -49,7 +50,40 @@ def _kind_for(estimate: Estimate) -> str:
     raise BudgetError(f"{estimate.id}: no Level 2 budget kind")
 
 
-def build_budget(plan: ProductionPlan, intents: list[AssetIntent]) -> BudgetEstimate:
+_LEAN_ROUTES: dict[str, tuple[str, str]] = {
+    "ES-01": (
+        "CC0/CC BY library track with attribution",
+        "Licence availability and Content ID review",
+    ),
+    "ES-02": (
+        "Operator/team records the approved read in-house",
+        "Voice quality; performer release HI-03 still required",
+    ),
+    "ES-03": ("In-house edit and compositing", "Schedule and operator hours"),
+    "ES-04": ("In-house grade from a deterministic LUT", "Colour quality vs a paid colorist"),
+    "ES-05": ("Supplied pack files cut out in-house", "Label edge quality"),
+    "ES-06": (
+        "Self-operated capture with phone/DSLR and practical light",
+        "Premium capture quality and hand model release HI-04",
+    ),
+    "ES-07": ("Range packs prepared in-house", "Label edge quality"),
+    "ES-08": ("End card built in Remotion", "Type layout approval HI-05"),
+    "ES-09": ("Self-captured pack fallback", "Same as the capture session"),
+    "ES-11": ("In-house 9:16 rebuild", "AC-16 safe area still pending"),
+}
+
+
+def build_budget(
+    plan: ProductionPlan,
+    intents: list[AssetIntent],
+    cap_usd: float | None = None,
+    lean: bool = False,
+) -> BudgetEstimate:
+    effective_cap = (
+        plan.budget.cap_usd if cap_usd is None else min(plan.budget.cap_usd, cap_usd)
+    )
+    if effective_cap <= 0:
+        raise BudgetError("the effective budget cap must be positive")
     if [item.id for item in plan.estimates] != [item.id for item in plan.budget.estimates]:
         raise BudgetError("plan estimates and the budget estimate list disagree")
 
@@ -72,6 +106,18 @@ def build_budget(plan: ProductionPlan, intents: list[AssetIntent]) -> BudgetEsti
                 notes=record.notes,
             )
         )
+
+    original_amounts = {line.line_id: line.amount_usd for line in lines}
+    if lean:
+        lines = [
+            line.model_copy(
+                update={
+                    "amount_usd": 0.0,
+                    "notes": f"in-kind: {_LEAN_ROUTES.get(line.estimate_id or '', ('', ''))[0]}",
+                }
+            )
+            for line in lines
+        ]
 
     priced = {line.asset_id for line in lines if line.asset_id}
     next_index = len(lines) + 1
@@ -104,7 +150,7 @@ def build_budget(plan: ProductionPlan, intents: list[AssetIntent]) -> BudgetEsti
     reserve = round(subtotal * plan.budget.retry_reserve_pct / 100, 2)
     total = round(subtotal + reserve, 2)
     worst = round(total + fallback, 2)
-    cap = plan.budget.cap_usd
+    cap = effective_cap
 
     summary = BudgetSummary(
         currency=plan.budget.currency,
@@ -135,6 +181,26 @@ def build_budget(plan: ProductionPlan, intents: list[AssetIntent]) -> BudgetEsti
         ),
         2,
     )
+    substitutions: list[BudgetSubstitution] = []
+    if lean:
+        for line in lines:
+            amount = original_amounts.get(line.line_id, 0.0)
+            if amount <= 0 or not line.estimate_id:
+                continue
+            route, risk = _LEAN_ROUTES.get(
+                line.estimate_id, ("In-house zero-cash route", "Requires operator approval")
+            )
+            substitutions.append(
+                BudgetSubstitution(
+                    id=f"BS-{len(substitutions) + 1:02d}",
+                    estimate_id=line.estimate_id,
+                    label=line.label,
+                    cash_usd=0.0,
+                    in_kind_usd=amount,
+                    route=route,
+                    risk=risk,
+                )
+            )
     raw = round(
         sum(intent.estimate_usd for intent in intents if intent.scope == "approved"),
         2,
@@ -144,30 +210,44 @@ def build_budget(plan: ProductionPlan, intents: list[AssetIntent]) -> BudgetEsti
         lines=lines,
         summary=summary,
         raw_attributed_usd=raw,
-        dedupe_savings_usd=round(max(raw - attributed, 0.0), 2),
+        dedupe_savings_usd=0.0 if lean else round(max(raw - attributed, 0.0), 2),
+        mode="lean" if lean else "approved",
+        in_kind_usd=round(sum(item.in_kind_usd for item in substitutions), 2),
+        substitutions=substitutions,
     )
-    validate_budget(plan, result)
+    validate_budget(plan, result, effective_cap, lean=lean)
     return result
 
 
-def validate_budget(plan: ProductionPlan, budget: BudgetEstimate) -> None:
+def validate_budget(
+    plan: ProductionPlan,
+    budget: BudgetEstimate,
+    effective_cap: float | None = None,
+    *,
+    lean: bool = False,
+) -> None:
     summary = budget.summary
+    if lean:
+        if summary.subtotal_usd != 0 or summary.total_usd != 0:
+            raise BudgetError("a lean budget must carry zero cash")
+        if effective_cap is not None and summary.cap_usd != effective_cap:
+            raise BudgetError("the lean budget cap does not match the effective cap")
+        return
     checks = [
         ("subtotal", summary.subtotal_usd, plan.budget.subtotal_usd),
         ("reserve", summary.reserve_usd, plan.budget.reserve_usd),
         ("total", summary.total_usd, plan.budget.total_usd),
         ("worst", summary.worst_usd, plan.budget.worst_case_usd),
-        ("cap", summary.cap_usd, plan.budget.cap_usd),
     ]
+    if effective_cap is not None:
+        checks.append(("cap", summary.cap_usd, effective_cap))
     for label, actual, expected in checks:
         if round(actual, 2) != round(expected, 2):
             raise BudgetError(
                 f"budget {label} is {actual:.2f} but the approved plan says {expected:.2f}"
             )
-    if not summary.within_cap:
-        raise BudgetError(f"estimated total {summary.total_usd:.2f} exceeds the cap")
-    if not summary.worst_within_cap:
-        raise BudgetError(f"worst case {summary.worst_usd:.2f} exceeds the cap")
+    # Exceeding the cap blocks Gate 2A; it must not abort planning, otherwise the
+    # user never sees the variance or the way back under the cap.
     keys = [line.dedupe_key for line in budget.lines if line.dedupe_key]
     if len(keys) != len(set(keys)):
         raise BudgetError("a shared line was charged more than once")

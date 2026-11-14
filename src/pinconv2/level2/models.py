@@ -350,6 +350,7 @@ class CaptureSessionPlan(StrictModel):
     hand_model_release: str = Field(min_length=1, max_length=200)
     release_hold: str = Field(pattern=r"^HI-\d{2}$")
     cost_usd: float = Field(ge=0)
+    in_kind_usd: float = Field(default=0, ge=0)
     estimate_id: str = Field(pattern=r"^ES-\d{2}$")
     shot_list: list[str] = Field(min_length=1)
     colour_target: str = Field(min_length=1, max_length=200)
@@ -438,11 +439,34 @@ class BudgetSummary(StrictModel):
         return self
 
 
+class BudgetPolicy(StrictModel):
+    approved_cap_usd: float = Field(gt=0)
+    operator_cap_usd: float | None = Field(default=None, gt=0)
+    effective_cap_usd: float = Field(gt=0)
+    source: str = Field(pattern=r"^(approved_plan|operator_instruction)$")
+    note: str = Field(min_length=1, max_length=500)
+    created_at: str = Field(default_factory=utc_now)
+
+
+class BudgetSubstitution(StrictModel):
+    id: str = Field(pattern=r"^BS-\d{2}$")
+    estimate_id: str = Field(pattern=r"^ES-\d{2}$")
+    label: str = Field(min_length=1, max_length=200)
+    cash_usd: float = Field(default=0, ge=0)
+    in_kind_usd: float = Field(ge=0)
+    route: str = Field(min_length=1, max_length=300)
+    risk: str = Field(min_length=1, max_length=300)
+    requires_approval: bool = True
+
+
 class BudgetEstimate(StrictModel):
     lines: list[BudgetLine] = Field(min_length=1)
     summary: BudgetSummary
     raw_attributed_usd: float = Field(default=0, ge=0)
     dedupe_savings_usd: float = Field(default=0, ge=0)
+    mode: str = Field(default="approved", pattern=r"^(approved|lean)$")
+    in_kind_usd: float = Field(default=0, ge=0)
+    substitutions: list[BudgetSubstitution] = Field(default_factory=list)
     created_at: str = Field(default_factory=utc_now)
 
     def line_map(self) -> dict[str, BudgetLine]:
@@ -705,6 +729,7 @@ class Level2Plan(StrictModel):
     capture: CaptureSessionPlan
     sound: SoundPlan
     budget: BudgetEstimate
+    budget_policy: BudgetPolicy | None = None
     flow: FlowGraph
     variants: list[VariantPackage] = Field(default_factory=list)
     blockers: list[str] = Field(default_factory=list)

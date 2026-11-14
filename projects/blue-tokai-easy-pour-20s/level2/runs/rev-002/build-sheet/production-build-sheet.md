@@ -13,10 +13,10 @@ Source plan hash: `1370f029b0b35730625c459cf85579bfd767d2e4a7b62016055e100d15f2a
 | Shots | 6 |
 | Effects | 6 |
 | Variants | 1 |
-| Estimate | $87.40 |
-| Worst case | $92.40 |
-| Cap | $100.00 |
-| Headroom | $7.60 |
+| Estimate | $0.00 |
+| Worst case | $0.00 |
+| Cap | $2.00 |
+| Headroom | $2.00 |
 
 ## Assets
 

@@ -8,7 +8,7 @@
       "check": "cap",
       "target": "budget",
       "verdict": "pass",
-      "detail": "total 87.40 against cap 100.00",
+      "detail": "total 0.00 against cap 2.00",
       "remediation": null
     },
     {
@@ -17,7 +17,7 @@
       "check": "worst_case",
       "target": "budget",
       "verdict": "pass",
-      "detail": "worst 92.40 against cap 100.00",
+      "detail": "worst 0.00 against cap 2.00",
       "remediation": null
     },
     {
@@ -40,5 +40,5 @@
     }
   ],
   "reviewer": "code:deterministic",
-  "created_at": "2026-11-14T19:45:56+00:00"
+  "created_at": "2026-11-14T19:58:33+00:00"
 }

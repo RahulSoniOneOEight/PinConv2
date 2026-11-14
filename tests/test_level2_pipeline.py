@@ -451,6 +451,111 @@ def test_apply_corrections_builds_a_new_run(approved: SimpleNamespace, tmp_path:
     assert (approved.run.run_dir("rev-003") / "gate2" / "packet-2a.json").is_file()
 
 
+def test_operator_cap_blocks_gate_2a(approved: SimpleNamespace) -> None:
+    from pinconv2.level2.gate2 import evaluate_2a
+    from pinconv2.level2.models import CheckState
+    from pinconv2.level2.planner import plan_level2
+
+    outcome = plan_level2(
+        approved.store, PROJECT, 2, "rev-920", cap_usd=2.0
+    )
+    summary = outcome.level2.budget.summary
+    assert summary.cap_usd == 2.0
+    assert summary.total_usd == 87.4
+    assert summary.worst_usd == 92.4
+    assert summary.headroom_usd == -90.4
+    assert summary.within_cap is False
+    assert outcome.level2.state.value == "blocked"
+    assert outcome.level2.budget_policy is not None
+    assert outcome.level2.budget_policy.operator_cap_usd == 2.0
+    assert outcome.gate_2a.status.value == "blocked"
+    checks = {check.id: check for check in outcome.gate_2a.checks}
+    assert checks["G2A-04"].state is CheckState.FAIL
+    assert any("2.00" in blocker for blocker in outcome.gate_2a.blockers)
+    policy = json.loads(
+        (approved.run.run_dir("rev-920") / "budget-policy.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    assert policy["effective_cap_usd"] == 2.0
+    assert policy["source"] == "operator_instruction"
+
+    # The same plan still passes under the approved cap; the guard is the cap,
+    # not a weakened budget model.
+    baseline = evaluate_2a(
+        approved.store.load_plan(PROJECT, 2),
+        approved.outcome.level2,
+        approved.outcome.sheet,
+        approved.outcome.level2.decisions,
+        approved.outcome.qc,
+        expected_bundle_hash=approved.outcome.sheet.manifest.bundle_hash,
+        expected_packet_hash=approved.outcome.sheet.manifest.packet_hash,
+    )
+    baseline_checks = {check.id: check for check in baseline.checks}
+    assert baseline_checks["G2A-04"].state is CheckState.PASS
+
+
+def test_lean_mode_fits_two_dollar_cap(approved: SimpleNamespace) -> None:
+    from pinconv2.level2.models import CheckState
+    from pinconv2.level2.planner import plan_level2
+
+    outcome = plan_level2(approved.store, PROJECT, 2, "rev-921", cap_usd=2.0, lean=True)
+    summary = outcome.level2.budget.summary
+    assert summary.cap_usd == 2.0
+    assert summary.total_usd == 0.0
+    assert summary.worst_usd == 0.0
+    assert summary.headroom_usd == 2.0
+    assert summary.within_cap and summary.worst_within_cap
+    assert outcome.level2.budget.mode == "lean"
+    assert outcome.level2.budget.in_kind_usd == 81.0
+    assert len(outcome.level2.budget.substitutions) == 10
+    assert {item.estimate_id for item in outcome.level2.budget.substitutions} >= {
+        "ES-01",
+        "ES-02",
+        "ES-06",
+    }
+    assert any("capture" in item.route.lower() for item in outcome.level2.budget.substitutions)
+    assert outcome.level2.state.value == "quoted"
+    assert outcome.gate_2a.status.value == "ready_for_approval"
+    assert outcome.level2.capture.cost_usd == 0.0
+    assert outcome.level2.capture.in_kind_usd == 18.0
+    assert "Self-operated" in outcome.level2.capture.studio
+    checks = {check.id: check for check in outcome.gate_2a.checks}
+    assert checks["G2A-04"].state is CheckState.PASS
+    assert checks["G2A-13"].state is CheckState.WARN
+    assert "Lean substitutions" in checks["G2A-13"].name
+
+    baseline_methods = [decision.method for decision in approved.outcome.level2.decisions]
+    lean_methods = [decision.method for decision in outcome.level2.decisions]
+    assert baseline_methods == lean_methods
+
+    review = (
+        approved.run.run_dir("rev-921") / "review-pack.md"
+    ).read_text(encoding="utf-8")
+    assert "Cost: $0.00 cash · $4.00 in-kind (ES-05)" in review
+    assert "Cost: $0.00 cash · $18.00 in-kind (ES-06)" in review
+    assert "$0.00 cash · $6.00 in-kind" in review
+    assert "Cost: $4.00 (ES-05)" not in review
+
+    # The $2 guardrail still bites without lean mode.
+    blocked = plan_level2(approved.store, PROJECT, 2, "rev-922", cap_usd=2.0)
+    assert blocked.level2.state.value == "blocked"
+    assert blocked.gate_2a.status.value == "blocked"
+
+
+def test_operator_cap_cannot_exceed_the_approved_cap(
+    approved: SimpleNamespace,
+) -> None:
+    from pinconv2.level2.planner import plan_level2
+
+    outcome = plan_level2(approved.store, PROJECT, 2, "rev-923", cap_usd=500.0)
+    assert outcome.level2.budget.summary.cap_usd == 100.0
+    assert outcome.level2.budget.summary.within_cap is True
+    assert outcome.level2.budget_policy is not None
+    assert outcome.level2.budget_policy.operator_cap_usd == 500.0
+    assert "approved cap was retained" in outcome.level2.budget_policy.note
+
+
 def test_build_refuses_before_gate_2a(approved: SimpleNamespace) -> None:
     from pinconv2.level2.build import run_build
 

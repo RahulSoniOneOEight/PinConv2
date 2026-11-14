@@ -88,6 +88,29 @@ The five residual fixes were confirmed:
 | Dead `neutralise` removed | closed | no matches in `src/` |
 | Corrections hash-bound in `build-sheet/corrections.json` | closed | `store.py:131-137` |
 
+## Round 4 — budget guardrail ($2) — PASS with one finding
+
+After the user set a **$2.00** project cap, the guardrail was re-reviewed:
+
+- effective cap = `min(approved_cap, operator_cap)`, so a request above the
+  approved $100 cannot raise the ceiling;
+- `--cap 2` without lean mode blocks: total $87.40, worst $92.40, cap $2.00,
+  Gate 2A fails `G2A-04`;
+- `--cap 2 --lean` gives $0.00 cash, $81.00 in-kind, cap $2.00, headroom
+  $2.00, 10 substitutions, capture $0 cash / $18 in-kind, unchanged layer
+  methods, run `quoted`, Gate 2A `ready_for_approval` with `G2A-13` warn.
+
+One medium finding: the review pack's per-asset and variant cost lines still
+showed the original cash estimates in lean mode, contradicting the $0.00 cash
+summary.
+
+## Round 5 — PASS
+
+The review pack now renders lean cost as `$0.00 cash · $X in-kind` for every
+asset and for `VO-01`, in both Markdown and DOCX; non-lean runs still show plain
+cash. A final label nit (supplied assets showing "fallback, unpriced") was also
+removed. No medium or high findings remain.
+
 ## Verified numbers (re-derived, not trusted)
 
 | Claim | Result |
@@ -96,9 +119,10 @@ The five residual fixes were confirmed:
 | `VO-01` | 1080×1920, 25 fps, 500 frames, 38 overrides, 4 effect masks |
 | Truth classes | 10 exact, 12 exact_text, 3 proof, 7 atmospheric, 6 representative |
 | Impact | 18 high, 10 medium, 10 low |
-| Budget | 76.00 subtotal, 11.40 reserve, 87.40 total, 5.00 fallback, 92.40 worst, 100.00 cap, 7.60 headroom |
+| Budget at approved cap | 76.00 subtotal, 11.40 reserve, 87.40 total, 5.00 fallback, 92.40 worst, 100.00 cap, 7.60 headroom |
+| Budget at $2 operator cap | 0.00 cash, 0.00 worst, 2.00 cap, 2.00 headroom, 81.00 in-kind, 10 substitutions |
 | Dedupe | raw 89.00 → 42.00 saved → 47.00 direct + 29.00 project/variant |
-| Capture | one session, `ES-06` charged once, covers `AS-05/06/08/13` |
+| Capture | one session, `ES-06` charged once; lean run $0 cash / $18 in-kind |
 | Gates | 2A `ready_for_approval`, no blockers; 2B and build refuse before approval |
 | Spend | no reservation, no receipt, `spent_usd = 0.00` |
 
@@ -111,19 +135,21 @@ path is still behind a named human Gate 2A approval.
 ## Evidence
 
 ```
-python -m pytest -q          → 112 passed at review time
+python -m pytest -q          → 116 passed
 python -m ruff check src tests → All checks passed!
 python -m mypy               → Success: no issues found in 72 source files
-pinconv2 level2 plan ...     → state quoted, gate 2a ready_for_approval
+pinconv2 level2 plan ... --cap 2 --lean → lean $0.00 cash, gate 2a ready_for_approval
 pinconv2 level2 gate --gate 2b → error: Gate 2A is not approved (exit 2)
 pinconv2 level2 build        → error: Gate 2A is not approved (exit 2)
 ```
 
-Post-review, one additional test was added for the local rough-cut assembler;
-the final suite is 113 passing tests with the same Ruff and mypy results.
-
 ## Limits
 
+- The canonical run is the **$2 lean run**: $0.00 cash, $81.00 in-kind. The
+  approved-cap estimate ($87.40) remains reproducible with
+  `level2 plan --cap 100`.
+- Lean substitutions (self-operated capture, in-house edit, library music) need
+  Gate 2A approval; they are listed individually in the review pack.
 - No sourcing round, generation, capture or render has run; the plan is
   spend-free by design.
 - `AC-16` (9:16 safe area) remains pending, so `VO-01` is ready for review, not

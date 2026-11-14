@@ -37,6 +37,7 @@ from .models import (
     AssetProductionTask,
     Batch,
     BudgetEstimate,
+    BudgetPolicy,
     BuildSheet,
     Correction,
     FlowSpec,
@@ -260,6 +261,8 @@ def plan_level2(
     revision: int,
     run_id: str = "rev-002",
     corrections: list[Correction] | None = None,
+    cap_usd: float | None = None,
+    lean: bool = False,
 ) -> Level2Outcome:
     project = store.load_project(project_id)
     if project.state.value != "approved":
@@ -296,8 +299,28 @@ def plan_level2(
         )
 
     intents = build_intents(inputs, decisions)
-    budget = build_budget(plan, intents)
-    capture = build_capture_plan(plan, inputs.handoff)
+    budget = build_budget(plan, intents, cap_usd, lean=lean)
+    policy = BudgetPolicy(
+        approved_cap_usd=plan.budget.cap_usd,
+        operator_cap_usd=cap_usd,
+        effective_cap_usd=budget.summary.cap_usd,
+        source="operator_instruction" if cap_usd is not None else "approved_plan",
+        note=(
+            (
+                "Operator spend cap applied to Level 2"
+                + ("; lean in-kind production mode, zero cash." if lean else ".")
+                + (
+                    " The requested cap was above the approved cap; the approved cap "
+                    "was retained."
+                    if cap_usd > plan.budget.cap_usd
+                    else ""
+                )
+            )
+            if cap_usd is not None
+            else "Cap inherited from the approved Level 1 budget."
+        ),
+    )
+    capture = build_capture_plan(plan, inputs.handoff, lean=lean)
     validate_capture_plan(plan, capture)
     sound = build_sound_plan(plan)
     validate_sound_plan(plan, sound)
@@ -348,13 +371,16 @@ def plan_level2(
         project_id=project_id,
         plan_revision=revision,
         plan_hash=plan.plan_hash(),
-        state=RunState.QUOTED,
+        state=RunState.QUOTED
+        if budget.summary.within_cap and budget.summary.worst_within_cap
+        else RunState.BLOCKED,
         intents=intents,
         decisions=decisions,
         tasks=tasks,
         capture=capture,
         sound=sound,
         budget=budget,
+        budget_policy=policy,
         flow=flow,
         variants=variants,
         blockers=sorted(set(blockers)),
@@ -379,6 +405,7 @@ def plan_level2(
     run.write_json(run_id, "capture-plan.json", capture)
     run.write_json(run_id, "sound-plan.json", sound)
     run.write_json(run_id, "budget-estimate.json", budget)
+    run.write_json(run_id, "budget-policy.json", policy)
     run.write_json(run_id, "flow.json", flow)
     run.write_data(
         run_id,
@@ -465,7 +492,20 @@ def apply_corrections(
         for item in items
     ]
     new_run = next_run_id(base_run_id)
-    outcome = plan_level2(store, project_id, revision, new_run, corrections=accepted)
+    operator_cap = (
+        base.budget_policy.operator_cap_usd
+        if base.budget_policy is not None
+        else None
+    )
+    outcome = plan_level2(
+        store,
+        project_id,
+        revision,
+        new_run,
+        corrections=accepted,
+        cap_usd=operator_cap,
+        lean=base.budget.mode == "lean",
+    )
     write_jsonl(run.run_dir(new_run) / "corrections.jsonl", accepted)
     run.append_event(
         new_run,

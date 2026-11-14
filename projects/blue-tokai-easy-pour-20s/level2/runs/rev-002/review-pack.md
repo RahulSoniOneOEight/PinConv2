@@ -27,38 +27,51 @@ Date:
 | Ready assets | 0 |
 | Blocked assets | 10 |
 | Conditional assets | 3 |
-| Estimated total | $87.40 |
-| Worst case | $92.40 |
-| Cap | $100.00 |
-| Headroom | $7.60 |
+| Estimated total | $0.00 |
+| Worst case | $0.00 |
+| Cap | $2.00 |
+| Headroom | $2.00 |
+| Mode | lean |
+| In-kind value | $81.00 |
 
 ## Budget
 
 | Line | Estimate | Kind | Basis | USD |
 |---|---|---|---|---|
-| BL-001 Music library licence | ES-01 | acquisition | operator_estimate | 10.00 |
-| BL-002 Voice artist session and edit | ES-02 | acquisition | operator_estimate | 12.00 |
-| BL-003 Edit, motion and compositing | ES-03 | project | operator_estimate | 15.00 |
-| BL-004 Colour grade and finishing | ES-04 | project | operator_estimate | 5.00 |
-| BL-005 Mixed Bag pack preparation | ES-05 | processing | operator_estimate | 4.00 |
-| BL-006 Demo and finished-cup capture | ES-06 | capture | operator_estimate | 18.00 |
-| BL-007 Range pack preparation | ES-07 | processing | operator_estimate | 3.00 |
-| BL-008 End-card build | ES-08 | project | operator_estimate | 3.00 |
-| BL-009 Captured pack fallback | ES-09 | fallback | operator_estimate | 5.00 |
-| BL-010 9:16 vertical re-edit and end-card rebuild | ES-11 | variant | operator_estimate | 6.00 |
+| BL-001 Music library licence | ES-01 | acquisition | operator_estimate | 0.00 |
+| BL-002 Voice artist session and edit | ES-02 | acquisition | operator_estimate | 0.00 |
+| BL-003 Edit, motion and compositing | ES-03 | project | operator_estimate | 0.00 |
+| BL-004 Colour grade and finishing | ES-04 | project | operator_estimate | 0.00 |
+| BL-005 Mixed Bag pack preparation | ES-05 | processing | operator_estimate | 0.00 |
+| BL-006 Demo and finished-cup capture | ES-06 | capture | operator_estimate | 0.00 |
+| BL-007 Range pack preparation | ES-07 | processing | operator_estimate | 0.00 |
+| BL-008 End-card build | ES-08 | project | operator_estimate | 0.00 |
+| BL-009 Captured pack fallback | ES-09 | fallback | operator_estimate | 0.00 |
+| BL-010 9:16 vertical re-edit and end-card rebuild | ES-11 | variant | operator_estimate | 0.00 |
 | BL-011 AS-14 fallback (unpriced) | fallback | fallback | operator_estimate | 0.00 |
 | BL-012 AS-15 fallback (unpriced) | fallback | fallback | operator_estimate | 0.00 |
 
-- Subtotal: **$76.00**
-- Retry reserve (15%): $11.40
-- **Estimated total: $87.40**
-- Fallbacks: $5.00
-- **Worst case: $92.40**
-- Cap: $100.00
-- **Headroom: $7.60**
+- Subtotal: **$0.00**
+- Retry reserve (15%): $0.00
+- **Estimated total: $0.00**
+- Fallbacks: $0.00
+- **Worst case: $0.00**
+- Cap: $2.00
+- **Headroom: $2.00**
 - Unpriced fallbacks: BL-011, BL-012. These must become quotes or explicit zero-cost swaps at Gate 2A.
+- **Lean in-kind mode:** cash total $0.00, in-kind value $81.00 across 10 lines. Gate 2A approval covers these substitutions.
+  - ES-01 Music library licence: CC0/CC BY library track with attribution (risk: Licence availability and Content ID review)
+  - ES-02 Voice artist session and edit: Operator/team records the approved read in-house (risk: Voice quality; performer release HI-03 still required)
+  - ES-03 Edit, motion and compositing: In-house edit and compositing (risk: Schedule and operator hours)
+  - ES-04 Colour grade and finishing: In-house grade from a deterministic LUT (risk: Colour quality vs a paid colorist)
+  - ES-05 Mixed Bag pack preparation: Supplied pack files cut out in-house (risk: Label edge quality)
+  - ES-06 Demo and finished-cup capture: Self-operated capture with phone/DSLR and practical light (risk: Premium capture quality and hand model release HI-04)
+  - ES-07 Range pack preparation: Range packs prepared in-house (risk: Label edge quality)
+  - ES-08 End-card build: End card built in Remotion (risk: Type layout approval HI-05)
+  - ES-09 Captured pack fallback: Self-captured pack fallback (risk: Same as the capture session)
+  - ES-11 9:16 vertical re-edit and end-card rebuild: In-house 9:16 rebuild (risk: AC-16 safe area still pending)
 
-Raw per-asset estimates: $89.00; dedupe saves $42.00.
+Raw per-asset estimates: $89.00; lean mode carries $81.00 as in-kind.
 
 ## Assets
 
@@ -68,7 +81,7 @@ Raw per-asset estimates: $89.00; dedupe saves $42.00.
 - Method: M0
 - Source: supplied:User-supplied logo attachment, 2026-11-14; public footer fallback: https://bluetokaicoffee.com/cdn/shop/files/logo-footer.png?v=1688108473
 - Rights: needs_approval · hold `HI-02`
-- Cost: $0.00 (fallback, unpriced)
+- Cost: $0.00 cash
 - Acceptance: Logo edges clean at end-card size; proportions and colour match the supplied master.
 - Preview: LY-062
 - Blockers: HI-02
@@ -80,7 +93,7 @@ Raw per-asset estimates: $89.00; dedupe saves $42.00.
 - Method: M0
 - Source: supplied:https://bluetokaicoffee.com/cdn/shop/files/MixedBag__Front_c9b610f1-ce4a-4b53-8b30-f6ca758eb6bb.jpg?v=1717566490
 - Rights: needs_approval · hold `HI-02`
-- Cost: $4.00 (ES-05)
+- Cost: $0.00 cash · $4.00 in-kind (ES-05)
 - Acceptance: Front title, ‘Light to Dark Roasts’ and Blue Tokai mark readable at phone scale; no label crop.
 - Preview: LY-011
 - Blockers: HI-02
@@ -92,7 +105,7 @@ Raw per-asset estimates: $89.00; dedupe saves $42.00.
 - Method: M0
 - Source: supplied:https://bluetokaicoffee.com/cdn/shop/files/ViennaRoast__Front_1_a175faba-8e5f-40b8-aaa1-0efc3a525321.jpg?v=1717565466
 - Rights: needs_approval · hold `HI-02`
-- Cost: $3.00 (ES-07)
+- Cost: $0.00 cash · $3.00 in-kind (ES-07)
 - Acceptance: Vienna name and dark-roast descriptor readable; no label crop.
 - Preview: LY-042
 - Blockers: HI-02
@@ -104,7 +117,7 @@ Raw per-asset estimates: $89.00; dedupe saves $42.00.
 - Method: M0
 - Source: supplied:https://bluetokaicoffee.com/cdn/shop/files/AttikanEstate__Front.jpg?v=1764321548
 - Rights: needs_approval · hold `HI-02`
-- Cost: $3.00 (ES-07)
+- Cost: $0.00 cash · $3.00 in-kind (ES-07)
 - Acceptance: Attikan name and medium-dark descriptor readable; no label crop.
 - Preview: LY-043
 - Blockers: HI-02
@@ -116,7 +129,7 @@ Raw per-asset estimates: $89.00; dedupe saves $42.00.
 - Method: M0
 - Source: supplied:https://bluetokaicoffee.com/cdn/shop/files/Seethargundu-Estate__Front_1.jpg?v=1764321548
 - Rights: needs_approval · hold `HI-02`
-- Cost: $3.00 (ES-07)
+- Cost: $0.00 cash · $3.00 in-kind (ES-07)
 - Acceptance: Seethargundu name and light-roast descriptor readable; no label crop.
 - Preview: LY-047
 - Blockers: HI-02
@@ -128,7 +141,7 @@ Raw per-asset estimates: $89.00; dedupe saves $42.00.
 - Method: M6
 - Source: capture:In-house food shoot
 - Rights: needs_approval · hold `HI-04`
-- Cost: $18.00 (ES-06)
+- Cost: $0.00 cash · $18.00 in-kind (ES-06)
 - Acceptance: Tear, open and anchor actions are physically correct and match the brand instructions.
 - Preview: LY-021
 - Blockers: HI-04
@@ -140,7 +153,7 @@ Raw per-asset estimates: $89.00; dedupe saves $42.00.
 - Method: M6
 - Source: capture:In-house food shoot
 - Rights: needs_approval · hold `HI-04`
-- Cost: $18.00 (ES-06)
+- Cost: $0.00 cash · $18.00 in-kind (ES-06)
 - Acceptance: Water visibly contacts the coffee bed; bloom and drip read in macro; no spill or continuity break.
 - Preview: LY-031
 - Blockers: HI-04
@@ -152,7 +165,7 @@ Raw per-asset estimates: $89.00; dedupe saves $42.00.
 - Method: M0
 - Source: owned:In-house set build
 - Rights: cleared
-- Cost: $0.00 (fallback, unpriced)
+- Cost: $0.00 cash
 - Acceptance: Full-canvas background holds a consistent grade across all six shots.
 - Preview: LY-010
 - Blockers: none
@@ -164,7 +177,7 @@ Raw per-asset estimates: $89.00; dedupe saves $42.00.
 - Method: M6
 - Source: capture:In-house food shoot
 - Rights: needs_approval · hold `HI-04`
-- Cost: $18.00 (ES-06)
+- Cost: $0.00 cash · $18.00 in-kind (ES-06)
 - Acceptance: Finished cup matches the brewed colour; rim clean; steam visible without obscuring the pack.
 - Preview: LY-051
 - Blockers: HI-04
@@ -176,7 +189,7 @@ Raw per-asset estimates: $89.00; dedupe saves $42.00.
 - Method: M0
 - Source: supplied:Voice artist session
 - Rights: needs_approval · hold `HI-03`
-- Cost: $12.00 (ES-02)
+- Cost: $0.00 cash · $12.00 in-kind (ES-02)
 - Acceptance: Performer release present; intelligible read; no claim beyond the canonical script.
 - Preview: AU-01
 - Blockers: HI-03
@@ -188,7 +201,7 @@ Raw per-asset estimates: $89.00; dedupe saves $42.00.
 - Method: M1
 - Source: stock:Production music library
 - Rights: needs_approval · hold `HI-03`
-- Cost: $10.00 (ES-01)
+- Cost: $0.00 cash · $10.00 in-kind (ES-01)
 - Acceptance: Licence covers paid YouTube; 20-second edit supports the 275 range lift and 445 resolve.
 - Preview: AU-02
 - Blockers: HI-03
@@ -200,7 +213,7 @@ Raw per-asset estimates: $89.00; dedupe saves $42.00.
 - Method: M0
 - Source: owned:In-house sound design
 - Rights: cleared
-- Cost: $0.00 (fallback, unpriced)
+- Cost: $0.00 cash
 - Acceptance: Pour sound syncs to the water action without a phasing artefact.
 - Preview: AU-03
 - Blockers: none
@@ -212,7 +225,7 @@ Raw per-asset estimates: $89.00; dedupe saves $42.00.
 - Method: M0
 - Source: owned:In-house sound design
 - Rights: cleared
-- Cost: $0.00 (fallback, unpriced)
+- Cost: $0.00 cash
 - Acceptance: Sting lands under the end card and does not mask the VO.
 - Preview: AU-04
 - Blockers: none
@@ -224,7 +237,7 @@ Raw per-asset estimates: $89.00; dedupe saves $42.00.
 - Method: M6
 - Source: capture:In-house studio capture
 - Rights: needs_approval · hold `HI-02`
-- Cost: $5.00 (ES-09)
+- Cost: $0.00 cash · $5.00 in-kind (ES-09)
 - Acceptance: Physical pack label is square to camera and at least as legible as the supplied image.
 - Preview: n/a
 - Blockers: HI-02, conditional fallback
@@ -236,7 +249,7 @@ Raw per-asset estimates: $89.00; dedupe saves $42.00.
 - Method: M1
 - Source: stock:Production music library
 - Rights: needs_approval · hold `HI-03`
-- Cost: $0.00 (fallback, unpriced)
+- Cost: $0.00 cash (fallback, unpriced)
 - Acceptance: Fallback bed matches the primary tempo and emotional resolve.
 - Preview: n/a
 - Blockers: HI-03, conditional fallback
@@ -248,7 +261,7 @@ Raw per-asset estimates: $89.00; dedupe saves $42.00.
 - Method: M7
 - Source: generate:Approved speech provider
 - Rights: needs_approval · hold `HI-03`
-- Cost: $0.00 (fallback, unpriced)
+- Cost: $0.00 cash (fallback, unpriced)
 - Acceptance: Synthetic read matches the canonical script and carries the disclosure decision.
 - Preview: n/a
 - Blockers: HI-03, conditional fallback
@@ -317,7 +330,7 @@ Raw per-asset estimates: $89.00; dedupe saves $42.00.
 - Effect overrides: FX-01, FX-02, FX-03, FX-05
 - Safe area: 220/320/60/140
 - Basis: Operator assumption; confirm against the current Shorts/Reels placement template before paid media.
-- Cost: $6.00
+- Cost: $0.00 cash · $6.00 in-kind
 - Status: pending
 - Blockers: AC-16 pending: 9:16 safe-area template not confirmed
 
