@@ -84,6 +84,11 @@ def build_parser() -> argparse.ArgumentParser:
         help="type APPROVE to confirm this is a human decision",
     )
     approve.add_argument(
+        "--channel",
+        required=True,
+        help="where the human decision happened (cli, email, signed-file, meeting)",
+    )
+    approve.add_argument(
         "--scope",
         default=None,
         help="comma-separated shot ids; defaults to the ready shots",
@@ -212,6 +217,9 @@ def main(argv: list[str] | None = None) -> int:
                 approver=args.reviewer,
                 role=args.role,
                 evidence=args.evidence,
+                actor_kind="human",
+                human_confirmation=args.confirm,
+                channel=args.channel,
                 scope=[item.strip() for item in args.scope.split(",")]
                 if args.scope
                 else None,
@@ -225,6 +233,7 @@ def main(argv: list[str] | None = None) -> int:
                     "plan_revision": approval.plan_revision,
                     "plan_hash": approval.plan_hash,
                     "bundle_hash": approval.bundle_hash,
+                    "packet_hash": approval.packet_hash,
                     "approver": approval.approver,
                     "scope": approval.scope,
                     "approved_exact_data": approval.approved_exact_data,

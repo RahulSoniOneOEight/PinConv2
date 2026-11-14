@@ -26,6 +26,22 @@ def validate_budget(context: ValidationContext) -> None:
             )
 
     with context.group(
+        "budget.variants", "budget", "variant cost deltas match the variant budget"
+    ):
+        variant_total = round(
+            sum(variant.cost_delta_usd for variant in plan.variant_overrides), 2
+        )
+        if abs(variant_total - budget.variant_usd) > TOLERANCE:
+            context.fail(
+                "budget.variants",
+                "budget",
+                Severity.HIGH,
+                f"variant overrides total {variant_total:.2f}, budget line is "
+                f"{budget.variant_usd:.2f}",
+                "Record every variant cost in the budget line.",
+            )
+
+    with context.group(
         "budget.cap_match", "budget", "the plan budget matches the approved brief cap"
     ):
         if abs(budget.cap_usd - brief.budget_cap_usd) > TOLERANCE:

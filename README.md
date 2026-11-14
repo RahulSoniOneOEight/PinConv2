@@ -66,6 +66,7 @@ pinconv2 --data-dir projects approve \
   --reviewer "Your Name" \
   --role "Brand producer" \
   --evidence "email 2026-11-14 14:32, subject: Gate 1" \
+  --channel email \
   --confirm APPROVE \
   --approve-exact-data all \
   --condition "Price and promotion remain out of the cut."
@@ -143,7 +144,10 @@ of truth.
 - No blocker or high-severity critique finding may remain open.
 - Every top-three input must name a target record that actually changed or was
   removed in the new revision.
-- The approver must be a named human with a role and an evidence reference.
+- The approver must be a named human with a role, an approval channel and an
+  evidence reference; the service has no default actor kind.
+- The approved packet is immutable; export verifies the packet hash stored in
+  the approval.
 - The packet lists every held item (price/promotion, brand assets, music) and
   every exact value still pending approval.
 - A held commercial value remains blocked until its evidence exists.
@@ -169,7 +173,7 @@ src/pinconv2/
   render.py              Markdown renderers and Level 2 handoff
   validators/            timing, exact data, layers, budget, rights, traceability
   fixtures/              Toffee brief, research, concept and plan
-tests/                   53 deterministic tests
+tests/                   59 deterministic tests
 examples/                the test brief
 docs/                    Level 1 design and architecture
 ```
@@ -178,7 +182,7 @@ docs/                    Level 1 design and architecture
 
 At the last run:
 
-- 53 tests pass;
+- 59 tests pass;
 - `ruff check .` passes;
 - `mypy src/pinconv2` passes;
 - the Toffee run reaches `gate1_ready` with no blockers;

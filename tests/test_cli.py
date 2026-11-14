@@ -28,6 +28,8 @@ def test_cli_run_all_approve_and_export(tmp_path: Path, capsys) -> None:
                 "pytest://cli-test",
                 "--confirm",
                 "APPROVE",
+                "--channel",
+                "pytest",
                 "--approve-exact-data",
                 "all",
             ]

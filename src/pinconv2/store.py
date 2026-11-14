@@ -323,10 +323,25 @@ class ProjectStore:
         return self._read_model(paths[-1], ResolutionReport)
 
     def save_packet(self, packet: Gate1Packet) -> None:
-        self._write_model(
-            self._path(packet.project_id, "gate", f"packet-rev-{packet.plan_revision:03d}.json"),
-            packet,
+        path = self._path(
+            packet.project_id, "gate", f"packet-rev-{packet.plan_revision:03d}.json"
         )
+        if path.exists():
+            existing = self.load_packet(packet.project_id, packet.plan_revision)
+            if existing.approval is not None:
+                if existing.model_dump() != packet.model_dump():
+                    raise StoreError(
+                        "the Gate 1 packet is immutable after approval; "
+                        "create a new revision instead"
+                    )
+                return
+            if (
+                existing.approval is None
+                and packet.approval is None
+                and existing.model_dump() == packet.model_dump()
+            ):
+                return
+        self._write_model(path, packet)
         self.append_event(
             packet.project_id,
             "gate1.packet",

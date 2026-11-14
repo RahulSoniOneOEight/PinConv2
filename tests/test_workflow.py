@@ -95,6 +95,9 @@ def test_approval_requires_gate1_ready(store: ProjectStore) -> None:
             approver="Test Reviewer",
             role="Test Role",
             evidence="pytest://not-reached",
+            actor_kind="human",
+            human_confirmation="APPROVE",
+            channel="pytest",
         )
 
 
@@ -112,6 +115,9 @@ def test_full_pipeline_with_synthetic_test_approval(store: ProjectStore) -> None
         approver="Pipeline Test Reviewer",
         role="Automated pipeline test",
         evidence="pytest://gate-1-pipeline-test",
+        actor_kind="human",
+        human_confirmation="APPROVE",
+        channel="pytest",
         approved_exact_data=["ED-05", "ED-06", "ED-07"],
         note="Synthetic test fixture, not a production creative approval.",
     )
@@ -165,6 +171,9 @@ def test_approval_refuses_a_packet_bound_to_another_hash(store: ProjectStore) ->
             approver="Test Reviewer",
             role="Test Role",
             evidence="pytest://hash-mismatch",
+            actor_kind="human",
+            human_confirmation="APPROVE",
+            channel="pytest",
         )
 
 
@@ -244,7 +253,75 @@ def test_automation_cannot_record_approval(store: ProjectStore) -> None:
             role="Automation",
             evidence="agent://self",
             actor_kind="agent",
+            human_confirmation="APPROVE",
+            channel="automation",
         )
+
+
+def test_approval_requires_typed_human_confirmation(store: ProjectStore) -> None:
+    _run_to_gate(store)
+    with pytest.raises(GateFailedError):
+        run_approval(
+            store,
+            PROJECT_ID,
+            approver="Test Reviewer",
+            role="Test Role",
+            evidence="pytest://confirmation-test",
+            actor_kind="human",
+            human_confirmation="yes",
+            channel="pytest",
+        )
+
+
+def test_approval_requires_explicit_actor_kind(store: ProjectStore) -> None:
+    _run_to_gate(store)
+    with pytest.raises(TypeError):
+        run_approval(  # type: ignore[call-arg]
+            store,
+            PROJECT_ID,
+            approver="Test Reviewer",
+            role="Test Role",
+            evidence="pytest://omitted-actor",
+            human_confirmation="APPROVE",
+            channel="pytest",
+        )
+
+
+def test_approved_packet_is_immutable(store: ProjectStore) -> None:
+    _run_to_gate(store)
+    run_approval(
+        store,
+        PROJECT_ID,
+        approver="Test Reviewer",
+        role="Test Role",
+        evidence="pytest://immutable-packet",
+        actor_kind="human",
+        human_confirmation="APPROVE",
+        channel="pytest",
+    )
+    packet = store.load_packet(PROJECT_ID, 2)
+    with pytest.raises(StoreError):
+        store.save_packet(packet.model_copy(update={"conditions": ["tampered"]}))
+
+
+def test_export_rejects_tampered_packet(store: ProjectStore) -> None:
+    _run_to_gate(store)
+    run_approval(
+        store,
+        PROJECT_ID,
+        approver="Test Reviewer",
+        role="Test Role",
+        evidence="pytest://tampered-packet",
+        actor_kind="human",
+        human_confirmation="APPROVE",
+        channel="pytest",
+    )
+    packet_path = store.project_dir(PROJECT_ID) / "gate" / "packet-rev-002.json"
+    payload = json.loads(packet_path.read_text(encoding="utf-8"))
+    payload["conditions"] = ["tampered after approval"]
+    packet_path.write_text(json.dumps(payload), encoding="utf-8")
+    with pytest.raises(GateFailedError):
+        run_export(store)
 
 
 def test_approval_scope_must_be_ready(store: ProjectStore) -> None:
@@ -258,6 +335,9 @@ def test_approval_scope_must_be_ready(store: ProjectStore) -> None:
             approver="Test Reviewer",
             role="Test Role",
             evidence="pytest://scope-test",
+            actor_kind="human",
+            human_confirmation="APPROVE",
+            channel="pytest",
             scope=["SH-04"],
         )
 
@@ -275,6 +355,9 @@ def test_changed_concept_blocks_approval(store: ProjectStore) -> None:
             approver="Test Reviewer",
             role="Test Role",
             evidence="pytest://changed-concept",
+            actor_kind="human",
+            human_confirmation="APPROVE",
+            channel="pytest",
         )
 
 
@@ -286,6 +369,9 @@ def test_changed_concept_blocks_export(store: ProjectStore) -> None:
         approver="Test Reviewer",
         role="Test Role",
         evidence="pytest://export-bundle-test",
+        actor_kind="human",
+        human_confirmation="APPROVE",
+        channel="pytest",
     )
     concept = store.load_concept(PROJECT_ID)
     store.save_concept(
@@ -303,6 +389,9 @@ def test_unapproved_exact_data_stays_pending(store: ProjectStore) -> None:
         approver="Test Reviewer",
         role="Test Role",
         evidence="pytest://exact-pending-test",
+        actor_kind="human",
+        human_confirmation="APPROVE",
+        channel="pytest",
     )
     run_export(store)
     handoff = json.loads(
@@ -322,6 +411,9 @@ def test_partial_approval_filters_audio_assets(store: ProjectStore) -> None:
         approver="Test Reviewer",
         role="Test Role",
         evidence="pytest://partial-scope-test",
+        actor_kind="human",
+        human_confirmation="APPROVE",
+        channel="pytest",
         scope=["SH-04"],
         approved_exact_data=["ED-05", "ED-06", "ED-07"],
     )
@@ -362,6 +454,9 @@ def test_export_paths_are_inside_the_project(tmp_path: Path) -> None:
         approver="Test Reviewer",
         role="Test Role",
         evidence="pytest://export-path-test",
+        actor_kind="human",
+        human_confirmation="APPROVE",
+        channel="pytest",
     )
     for path in run_export(store):
         assert path.is_relative_to(store.project_dir(PROJECT_ID))

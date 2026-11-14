@@ -315,6 +315,7 @@ def _record_payload(plan: ProductionPlan, record_id: str) -> dict[str, Any] | No
         plan.checks,
         plan.held_items,
         plan.decisions,
+        plan.variant_overrides,
     ]
     for collection in collections:
         for record in collection:
@@ -469,7 +470,9 @@ def run_approval(
     approver: str,
     role: str,
     evidence: str,
-    actor_kind: str = "human",
+    actor_kind: str,
+    human_confirmation: str,
+    channel: str,
     scope: list[str] | None = None,
     approved_exact_data: list[str] | None = None,
     conditions: list[str] | None = None,
@@ -482,6 +485,10 @@ def run_approval(
             "Gate 1 approval must come from a human actor; agents and automation "
             "cannot record it"
         )
+    if human_confirmation != "APPROVE":
+        raise GateFailedError("Gate 1 approval requires the typed confirmation APPROVE")
+    if not channel.strip():
+        raise GateFailedError("Gate 1 approval needs an approval channel")
     if not evidence.strip():
         raise GateFailedError("Gate 1 approval needs an evidence reference")
     plan = store.load_latest_plan(project_id)
@@ -522,6 +529,7 @@ def run_approval(
             f"approval names exact data that is not pending: {unknown_exact}"
         )
 
+    packet_hash = content_hash(packet.model_copy(update={"approval": None}))
     approval = Gate1Approval(
         project_id=project_id,
         plan_revision=plan.revision,
@@ -531,7 +539,9 @@ def run_approval(
         approver=approver,
         approver_role=role,
         actor_kind=actor_kind,
+        channel=channel,
         evidence=evidence,
+        packet_hash=packet_hash,
         scope=approved_scope,
         approved_exact_data=approved_exact,
         conditions=sorted(set(packet.conditions + (conditions or []))),
@@ -565,6 +575,12 @@ def run_export(store: ProjectStore, project_id: str = DEFAULT_PROJECT) -> list[P
         raise GateFailedError(
             "the brief, research, concept or plan changed after approval; "
             "the Gate 1 approval no longer covers the current records"
+        )
+    approved_packet_hash = content_hash(packet.model_copy(update={"approval": None}))
+    if approved_packet_hash != approval.packet_hash:
+        raise GateFailedError(
+            "the Gate 1 packet changed after approval; the approval no longer "
+            "covers the exported packet"
         )
 
     handoff = build_handoff(plan, approval, validation)

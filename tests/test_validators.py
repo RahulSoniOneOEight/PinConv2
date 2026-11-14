@@ -170,6 +170,30 @@ def test_split_estimate_lists_are_detected(plan_v2, brief) -> None:
     assert "budget.sync" in _rules(broken, brief)
 
 
+def test_invalid_variant_override_is_detected(plan_v2, brief) -> None:
+    from pinconv2.models import VariantOverride
+
+    variant = VariantOverride(
+        id="VO-01",
+        deliverable_id="DP-99",
+        reference_ids=["SH-99"],
+        changes=["crop to 1:1"],
+        check_ids=["AC-99"],
+        approval_scope=["SH-99"],
+    )
+    broken = plan_v2.model_copy(update={"variant_overrides": [variant]})
+    assert "trace.variants" in _rules(broken, brief)
+
+
+def test_shot_asset_declaration_must_match_layers(plan_v2, brief) -> None:
+    shots = [
+        shot.model_copy(update={"asset_ids": ["AS-05"]}) if shot.id == "SH-02" else shot
+        for shot in plan_v2.shots
+    ]
+    broken = plan_v2.model_copy(update={"shots": shots})
+    assert "trace.shots" in _rules(broken, brief)
+
+
 def test_checks_evaluate_their_own_rules(plan_v2, brief) -> None:
     report = validate_plan(plan_v2, brief)
     assert report.check_status["AC-01"].value == "pass"

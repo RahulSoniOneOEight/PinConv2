@@ -36,6 +36,7 @@ def _all_ids(context: ValidationContext) -> set[str]:
         plan.checks,
         plan.held_items,
         plan.decisions,
+        plan.variant_overrides,
     ]
     for collection in collections:
         for record in collection:
@@ -69,6 +70,7 @@ def validate_traceability(context: ValidationContext) -> None:
             plan.checks,
             plan.held_items,
             plan.decisions,
+            plan.variant_overrides,
         ]
         for collection in collections:
             for record in collection:
@@ -111,6 +113,24 @@ def validate_traceability(context: ValidationContext) -> None:
                         f"unknown asset {asset_id}",
                         "Create the asset requirement.",
                     )
+            bound_assets: set[str] = set()
+            for layer_id in shot.layer_ids:
+                bound_layer = layer_map.get(layer_id)
+                if (
+                    bound_layer is not None
+                    and bound_layer.binding_kind is BindingKind.ASSET
+                    and bound_layer.binding_ref
+                ):
+                    bound_assets.add(bound_layer.binding_ref)
+            if set(shot.asset_ids) != bound_assets:
+                context.fail(
+                    "trace.shots",
+                    shot.id,
+                    Severity.HIGH,
+                    f"declared assets {sorted(shot.asset_ids)} do not match "
+                    f"layer bindings {sorted(bound_assets)}",
+                    "Derive shot asset IDs from the layers that bind them.",
+                )
             for check_id in shot.check_ids:
                 if check_id not in check_map:
                     context.fail(
@@ -276,6 +296,46 @@ def validate_traceability(context: ValidationContext) -> None:
                         Severity.HIGH,
                         f"alternate depends on unknown record {dependency}",
                         "Point the alternate at existing work.",
+                    )
+
+    with context.group(
+        "trace.variants", "variants", "variant overrides resolve and are scoped"
+    ):
+        for variant in plan.variant_overrides:
+            if variant.deliverable_id != plan.deliverable.id:
+                context.fail(
+                    "trace.variants",
+                    variant.id,
+                    Severity.HIGH,
+                    f"unknown deliverable {variant.deliverable_id}",
+                    "Point the variant at the plan deliverable.",
+                )
+            for reference in variant.reference_ids:
+                if reference not in known:
+                    context.fail(
+                        "trace.variants",
+                        variant.id,
+                        Severity.HIGH,
+                        f"unknown reference {reference}",
+                        "Point the variant at existing work.",
+                    )
+            for check_id in variant.check_ids:
+                if check_id not in check_map:
+                    context.fail(
+                        "trace.variants",
+                        variant.id,
+                        Severity.HIGH,
+                        f"unknown check {check_id}",
+                        "Create the acceptance check.",
+                    )
+            for scope in variant.approval_scope:
+                if scope not in known:
+                    context.fail(
+                        "trace.variants",
+                        variant.id,
+                        Severity.HIGH,
+                        f"unknown approval scope {scope}",
+                        "Scope the variant to existing work.",
                     )
 
     with context.group("trace.checks", "checks", "acceptance checks target real work"):

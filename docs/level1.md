@@ -198,12 +198,16 @@ Gate 1 requires:
 - every Level 1 check PASS against its own rule references;
 - no open blocker or high finding;
 - a resolution record for every top-three input, with a verified target diff;
-- a named human approver, role and evidence reference;
-- an actor kind of `human`; agents and automation are rejected;
+- a named human approver, role, approval channel and evidence reference;
+- an explicit actor kind of `human`; the parameter has no default, and agents or
+  automation are rejected;
+- the typed confirmation `APPROVE`;
 - an approval scope drawn only from the ready shots;
 - a packet plan hash equal to the plan hash;
 - a bundle hash matching the current brief, research, concept, plan,
-  validation, critique and resolution.
+  validation, critique and resolution;
+- an approved packet that is immutable after signature; export verifies the
+  packet hash stored in the approval.
 
 The packet lists ready shots, held layers, held items, exact data still pending,
 conditions and blockers. Approval does not clear a held commercial value; it
