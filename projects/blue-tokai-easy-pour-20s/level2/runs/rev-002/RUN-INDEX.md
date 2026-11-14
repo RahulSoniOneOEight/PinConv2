@@ -102,11 +102,11 @@
 | [build-sheet/variants/VO-01.json](build-sheet/variants/VO-01.json) | 23,160 |
 | [capture-plan.json](capture-plan.json) | 1,480 |
 | [catalogue-resolutions.json](catalogue-resolutions.json) | 4,587 |
-| [cli-gate2a-output.json](cli-gate2a-output.json) | 2,104 |
-| [cli-plan-output.json](cli-plan-output.json) | 993 |
-| [cli-qc-output.json](cli-qc-output.json) | 718 |
-| [cli-spend-output.json](cli-spend-output.json) | 810 |
-| [cli-stockcheck-output.json](cli-stockcheck-output.json) | 266 |
+| [cli-gate2a-output.json](cli-gate2a-output.json) | 2,181 |
+| [cli-plan-output.json](cli-plan-output.json) | 1,033 |
+| [cli-qc-output.json](cli-qc-output.json) | 747 |
+| [cli-spend-output.json](cli-spend-output.json) | 840 |
+| [cli-stockcheck-output.json](cli-stockcheck-output.json) | 273 |
 | [cli-voice-output.json](cli-voice-output.json) | 239 |
 | [events.jsonl](events.jsonl) | 10,882 |
 | [feedback-form.md](feedback-form.md) | 4,580 |

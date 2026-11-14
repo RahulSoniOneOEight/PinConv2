@@ -542,6 +542,27 @@ def test_openmontage_refuses_without_an_approved_gate(
         )
 
 
+def test_openmontage_render_without_gate_fails(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    from pinconv2.level2.engines.openmontage import OpenMontageEngine
+    from pinconv2.level2.errors import SpendNotAuthorisedError
+
+    monkeypatch.setenv("OPENMONTAGE_ENABLED", "1")
+    ledger = SpendLedger(tmp_path / "ledger.jsonl", authorised=True)
+    engine = OpenMontageEngine(
+        ledger, lambda operation, payload: {"path": "cut.mp4", "cost_usd": 0.0}
+    )
+    with pytest.raises(SpendNotAuthorisedError):
+        engine.render(
+            tmp_path / "timeline.json",
+            tmp_path / "cut.mp4",
+            estimate_usd=0.0,
+            line_id="render",
+        )
+    assert ledger.receipts() == 0
+
+
 def test_openmontage_check_refuses_without_gate_or_test_mode(
     tmp_path: Path,
 ) -> None:

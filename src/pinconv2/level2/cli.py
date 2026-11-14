@@ -254,7 +254,11 @@ def run_level2_command(store: ProjectStore, args: argparse.Namespace) -> int:
             openmontage_attempt=str(args.om_attempt),
         )
         om_path = run.run_dir(run_id) / "openmontage-sourcing.json"
-        om_summary = json.loads(om_path.read_text(encoding="utf-8")) if om_path.is_file() else None
+        om_summary = (
+            json.loads(om_path.read_text(encoding="utf-8"))
+            if args.openmontage and om_path.is_file()
+            else None
+        )
         _print(
             {
                 "run": run_id,

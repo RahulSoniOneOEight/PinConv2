@@ -20,7 +20,7 @@
 
 ```
 $ python -m pytest -q
-131 passed in 12.13s
+132 passed in 12.30s
 ```
 
 ```
