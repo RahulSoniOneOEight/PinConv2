@@ -33,6 +33,7 @@ from ..errors import NotFoundError, StoreError
 from ..models import ProductionPlan, utc_now
 from .build_sheet import render_build_sheet, render_captions
 from .docx import DocxBuilder
+from .html_export import markdown_to_html
 from .models import (
     BuildSheet,
     FileDigest,
@@ -148,8 +149,12 @@ class Level2RunStore:
 
         self.write_json(run_id, f"{base}/manifest.json", manifest)
         self.write_json(run_id, f"{base}/build-sheet.json", updated)
+        build_markdown = render_build_sheet(updated, plan)
+        self.write_text(run_id, f"{base}/production-build-sheet.md", build_markdown)
         self.write_text(
-            run_id, f"{base}/production-build-sheet.md", render_build_sheet(updated, plan)
+            run_id,
+            f"{base}/production-build-sheet.html",
+            markdown_to_html(build_markdown, f"Production build sheet — {plan.project_id}"),
         )
         self._write_build_sheet_docx(run_id, updated, plan)
         return updated
@@ -202,20 +207,28 @@ class Level2RunStore:
         sheet: BuildSheet,
     ) -> None:
         provider = self._provider_summary(run_id)
-        self.write_text(run_id, "budget-estimate.md", render_budget(level2.budget, plan, provider))
-        render_budget_docx(level2.budget, plan).save(self._path(run_id, "budget-estimate.docx"))
+        budget_markdown = render_budget(level2.budget, plan, provider)
+        self.write_text(run_id, "budget-estimate.md", budget_markdown)
         self.write_text(
             run_id,
-            "review-pack.md",
-            render_review(
-                plan,
-                level2.intents,
-                level2.decisions,
-                level2.budget,
-                sheet,
-                level2.variants,
-                provider,
-            ),
+            "budget-estimate.html",
+            markdown_to_html(budget_markdown, f"Level 2 budget — {plan.project_id}"),
+        )
+        render_budget_docx(level2.budget, plan).save(self._path(run_id, "budget-estimate.docx"))
+        review_markdown = render_review(
+            plan,
+            level2.intents,
+            level2.decisions,
+            level2.budget,
+            sheet,
+            level2.variants,
+            provider,
+        )
+        self.write_text(run_id, "review-pack.md", review_markdown)
+        self.write_text(
+            run_id,
+            "review-pack.html",
+            markdown_to_html(review_markdown, f"Gate 2 review — {plan.project_id}"),
         )
         render_review_docx(plan, level2.intents, level2.decisions, level2.budget, sheet).save(
             self._path(run_id, "review-pack.docx")

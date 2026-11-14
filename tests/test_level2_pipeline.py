@@ -262,6 +262,13 @@ def test_review_pack_and_budget_docs(approved: SimpleNamespace) -> None:
         path = run.run_dir("rev-002") / name
         with zipfile.ZipFile(path) as archive:
             assert "word/document.xml" in archive.namelist()
+            assert "word/styles.xml" in archive.namelist()
+            assert "docProps/core.xml" in archive.namelist()
+
+    review_html = (run.run_dir("rev-002") / "review-pack.html").read_text(encoding="utf-8")
+    budget_html = (run.run_dir("rev-002") / "budget-estimate.html").read_text(encoding="utf-8")
+    assert "<table>" in review_html and "AS-02" in review_html
+    assert "Level 2 budget" in budget_html
 
 
 def test_corrections_open_a_new_run(approved: SimpleNamespace) -> None:

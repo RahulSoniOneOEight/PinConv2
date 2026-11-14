@@ -16,9 +16,10 @@ is it ready to assemble?*
 | Format | File |
 |---|---|
 | Read and comment | `review-pack.md` |
-| Share with a colleague | `review-pack.docx` |
-| Budget only | `budget-estimate.md` / `.docx` |
-| Technical handoff | `build-sheet/production-build-sheet.md` |
+| Opens in any browser | `review-pack.html` |
+| Share with a colleague | `review-pack.docx` (standard Word document) |
+| Budget only | `budget-estimate.md` / `.html` / `.docx` |
+| Technical handoff | `build-sheet/production-build-sheet.md` / `.html` |
 | Gate checks | `gate2/packet-2a.json` |
 | Fill-in form | `feedback-form.md` |
 
@@ -104,6 +105,14 @@ blocker, not a note.
 - aggregator licences resolve at the origin;
 - fal/Runware cap, spend and remaining are visible;
 - every warning is either acceptable or a correction.
+
+### Stock check
+
+No stock-sourced asset is in this package. `AS-10` (music bed) and `AS-14`
+(conditional music fallback) are the only `to_source` intents; both are planned
+`M1` library audio, neither has been acquired, and the run has **0 candidates**.
+All 38 layer methods are `M0` supplied/owned, `M4` procedural or `M6` capture —
+zero `M1`/`M2`/`M3`/`M5` layers. Exact and proof material is never stock.
 
 ---
 

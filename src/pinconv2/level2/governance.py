@@ -145,8 +145,7 @@ class ProviderGovernor:
 
     def _is_closed(self, reservation_id: str) -> bool:
         return any(
-            entry.kind in {"receipt", "release"}
-            and entry.reservation_id == reservation_id
+            entry.kind in {"receipt", "release"} and entry.reservation_id == reservation_id
             for entry in self.entries
         )
 

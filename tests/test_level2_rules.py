@@ -266,9 +266,16 @@ def test_docx_writer_is_a_valid_package(tmp_path: Path) -> None:
     with zipfile.ZipFile(path) as archive:
         names = archive.namelist()
         assert "word/document.xml" in names
-        document = archive.read("word/document.xml").decode("utf-8")
-    assert "Gate 2 review" in document
-    assert "AS-02" in document
+        assert "word/styles.xml" in names
+        assert "docProps/core.xml" in names
+
+    from docx import Document
+
+    document = Document(str(path))
+    text = "\n".join(paragraph.text for paragraph in document.paragraphs)
+    assert "Gate 2 review" in text
+    assert document.tables
+    assert "AS-02" in document.tables[0].cell(1, 0).text
 
 
 def test_correction_run_numbering_and_parsing() -> None:
