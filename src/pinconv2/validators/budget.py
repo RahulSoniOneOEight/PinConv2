@@ -13,9 +13,7 @@ def validate_budget(context: ValidationContext) -> None:
     budget = plan.budget
     brief = context.brief
 
-    with context.group(
-        "budget.sync", "budget", "the plan and budget share one estimate list"
-    ):
+    with context.group("budget.sync", "budget", "the plan and budget share one estimate list"):
         if plan.budget.estimates != plan.estimates:
             context.fail(
                 "budget.sync",
@@ -25,12 +23,8 @@ def validate_budget(context: ValidationContext) -> None:
                 "Use one estimate list for arithmetic and references.",
             )
 
-    with context.group(
-        "budget.variants", "budget", "variant cost deltas match the variant budget"
-    ):
-        variant_total = round(
-            sum(variant.cost_delta_usd for variant in plan.variant_overrides), 2
-        )
+    with context.group("budget.variants", "budget", "variant cost deltas match the variant budget"):
+        variant_total = round(sum(variant.cost_delta_usd for variant in plan.variant_overrides), 2)
         if abs(variant_total - budget.variant_usd) > TOLERANCE:
             context.fail(
                 "budget.variants",
@@ -42,15 +36,14 @@ def validate_budget(context: ValidationContext) -> None:
             )
 
     with context.group(
-        "budget.cap_match", "budget", "the plan budget matches the approved brief cap"
+        "budget.cap_match", "budget", "the plan budget matches the brief planning cap"
     ):
         if abs(budget.cap_usd - brief.budget_cap_usd) > TOLERANCE:
             context.fail(
                 "budget.cap_match",
                 "budget",
                 Severity.HIGH,
-                f"plan cap {budget.cap_usd:.2f} differs from brief cap "
-                f"{brief.budget_cap_usd:.2f}",
+                f"plan cap {budget.cap_usd:.2f} differs from brief cap {brief.budget_cap_usd:.2f}",
                 "Use the brief cap or record a new approved brief revision.",
             )
         if budget.currency != brief.currency:
@@ -65,8 +58,7 @@ def validate_budget(context: ValidationContext) -> None:
     with context.group(
         "budget.cap",
         "budget",
-        f"total {budget.total_usd:.2f} {budget.currency} is within "
-        f"{budget.cap_usd:.2f}",
+        f"total {budget.total_usd:.2f} {budget.currency} is within {budget.cap_usd:.2f}",
     ):
         if budget.total_usd > budget.cap_usd + TOLERANCE:
             context.fail(
@@ -87,14 +79,11 @@ def validate_budget(context: ValidationContext) -> None:
                 "budget.worst_case",
                 "budget",
                 Severity.HIGH,
-                f"total plus fallback {budget.worst_case_usd:.2f} exceeds cap "
-                f"{budget.cap_usd:.2f}",
+                f"total plus fallback {budget.worst_case_usd:.2f} exceeds cap {budget.cap_usd:.2f}",
                 "Reduce the fallback cost or remove the redundant primary route.",
             )
 
-    with context.group(
-        "budget.references", "budget", "estimate references resolve and are typed"
-    ):
+    with context.group("budget.references", "budget", "estimate references resolve and are typed"):
         estimate_map = plan.estimate_map
         used_estimates: set[str] = set()
         for asset in plan.assets:
@@ -138,9 +127,7 @@ def validate_budget(context: ValidationContext) -> None:
                     "Remove it or attach it to the work it prices.",
                 )
 
-    with context.group(
-        "budget.reserve", "budget", "a retry reserve is present"
-    ):
+    with context.group("budget.reserve", "budget", "a retry reserve is present"):
         if budget.reserve_usd <= 0:
             context.fail(
                 "budget.reserve",

@@ -1,0 +1,454 @@
+{
+  "project_id": "blue-tokai-easy-pour-20s",
+  "revision": 1,
+  "questions": [
+    {
+      "id": "RQ-01",
+      "question": "What exactly is in the Easy Pour Mixed Bag and what roast range does it cover?",
+      "why_it_matters": "The range claim and hero pack depend on the actual assortment.",
+      "priority": 5,
+      "status": "answered",
+      "finding_ids": [
+        "F-01"
+      ]
+    },
+    {
+      "id": "RQ-02",
+      "question": "How does the built-in filter brew, step by step?",
+      "why_it_matters": "The core demo must show the real product action, not an invented one.",
+      "priority": 5,
+      "status": "answered",
+      "finding_ids": [
+        "F-02"
+      ]
+    },
+    {
+      "id": "RQ-03",
+      "question": "Can the ad call Easy Pour instant coffee?",
+      "why_it_matters": "A category error would mislead the viewer and damage trust.",
+      "priority": 5,
+      "status": "answered",
+      "finding_ids": [
+        "F-03"
+      ]
+    },
+    {
+      "id": "RQ-04",
+      "question": "Which price and pack-size values are approved for advertising?",
+      "why_it_matters": "Observed storefront values are not approved commercial claims.",
+      "priority": 5,
+      "status": "blocked",
+      "finding_ids": [
+        "F-04"
+      ]
+    },
+    {
+      "id": "RQ-05",
+      "question": "May the public logo and product images be used in paid advertising?",
+      "why_it_matters": "Public availability is not an advertising licence.",
+      "priority": 5,
+      "status": "blocked",
+      "finding_ids": [
+        "F-05"
+      ]
+    },
+    {
+      "id": "RQ-06",
+      "question": "What YouTube format, length and safe-area rules apply?",
+      "why_it_matters": "The edit, type placement and end card depend on the placement.",
+      "priority": 4,
+      "status": "answered",
+      "finding_ids": [
+        "F-06"
+      ]
+    },
+    {
+      "id": "RQ-07",
+      "question": "What hook, brand and CTA structure fits a 20-second YouTube ad?",
+      "why_it_matters": "A 20-second ad needs early attention, early brand and a clear direction.",
+      "priority": 4,
+      "status": "answered",
+      "finding_ids": [
+        "F-07"
+      ]
+    },
+    {
+      "id": "RQ-08",
+      "question": "Can a real brew be shown honestly in 20 seconds?",
+      "why_it_matters": "The brand instructions include a steep time longer than the ad.",
+      "priority": 4,
+      "status": "answered",
+      "finding_ids": [
+        "F-02",
+        "F-08"
+      ]
+    },
+    {
+      "id": "RQ-09",
+      "question": "Who is the viewer and what do they already believe?",
+      "why_it_matters": "The hook and proof depend on the viewer's starting point.",
+      "priority": 4,
+      "status": "blocked",
+      "finding_ids": [
+        "F-09"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "SRC-01",
+      "title": "Blue Tokai Coffee Roasters storefront",
+      "locator": "https://bluetokaicoffee.com/",
+      "accessed_at": "2026-11-14",
+      "channels": [
+        "page_text",
+        "product_cards",
+        "brand_header",
+        "product_images"
+      ],
+      "reliability": "primary",
+      "notes": "Public storefront; no advertising licence is granted by access."
+    },
+    {
+      "id": "SRC-02",
+      "title": "Mixed | Light to Dark Roasts - Easy Pour product page",
+      "locator": "https://bluetokaicoffee.com/products/mixed-light-to-dark-roasts",
+      "accessed_at": "2026-11-14",
+      "channels": [
+        "page_text",
+        "variant_list",
+        "product_gallery",
+        "price_listing"
+      ],
+      "reliability": "primary",
+      "notes": "Lists pack of 5 at Rs 300 and pack of 10 at Rs 500. Names Seethargundu light, Vienna dark, Thogarihunkal medium and Attikan medium-dark."
+    },
+    {
+      "id": "SRC-03",
+      "title": "Vienna | Dark Roast - Easy Pour product page",
+      "locator": "https://bluetokaicoffee.com/products/vienna-dark-roast-easy-pour-coffee-sachets",
+      "accessed_at": "2026-11-14",
+      "channels": [
+        "page_text",
+        "product_gallery",
+        "price_listing"
+      ],
+      "reliability": "primary",
+      "notes": "Describes Vienna as a dark roast with cocoa and bitterness."
+    },
+    {
+      "id": "SRC-04",
+      "title": "Attikan Estate | Medium-Dark Roast - Easy Pour product page",
+      "locator": "https://bluetokaicoffee.com/collections/all-products-except-drop/products/attikan-estate-easy-pour-coffee-sachets",
+      "accessed_at": "2026-11-14",
+      "channels": [
+        "page_text",
+        "product_gallery",
+        "price_listing"
+      ],
+      "reliability": "primary",
+      "notes": "Describes Attikan as medium-dark with nutty and chocolatey notes."
+    },
+    {
+      "id": "SRC-05",
+      "title": "Easy Pour brewing instructions",
+      "locator": "https://bluetokaicoffee.com/pages/easypour",
+      "accessed_at": "2026-11-14",
+      "channels": [
+        "page_text",
+        "instruction_images",
+        "faq"
+      ],
+      "reliability": "primary",
+      "notes": "Tear the outer sachet, tear the filter top, anchor over a 180-200 ml cup, pour hot water and wait 20 seconds; repeat 2-3 times; steep 2 minutes; discard the filter."
+    },
+    {
+      "id": "SRC-06",
+      "title": "Google Ads: About the ABCDs of effective video ads",
+      "locator": "https://support.google.com/google-ads/answer/14783551?hl=en",
+      "accessed_at": "2026-11-14",
+      "channels": [
+        "guidance_text"
+      ],
+      "reliability": "secondary",
+      "notes": "Attention, Branding, Connection, Direction. Brand early and often; clear CTA; focused message."
+    },
+    {
+      "id": "SRC-07",
+      "title": "Google Ads: About video ad specs",
+      "locator": "https://support.google.com/google-ads/answer/13547298?hl=en",
+      "accessed_at": "2026-11-14",
+      "channels": [
+        "spec_table",
+        "safe_zone_template"
+      ],
+      "reliability": "secondary",
+      "notes": "1920x1080 horizontal and 1080x1920 vertical are recommended; safe zones vary by placement and should be checked against the template."
+    },
+    {
+      "id": "SRC-08",
+      "title": "Operator assumption: 16:9 YouTube in-stream profile",
+      "locator": "internal://assumption/youtube-16x9-safe-area",
+      "accessed_at": "2026-11-14",
+      "channels": [
+        "operator_assumption"
+      ],
+      "reliability": "assumption",
+      "notes": "Safe insets top 70, bottom 90, left 80 and right 80 are a conservative planning assumption, not a platform guarantee."
+    },
+    {
+      "id": "SRC-09",
+      "title": "Brief-supplied audience and core message",
+      "locator": "internal://brief/blue-tokai-easy-pour-20s",
+      "accessed_at": "2026-11-14",
+      "channels": [
+        "brief_text"
+      ],
+      "reliability": "assumption",
+      "notes": "Audience, objective and core message come from the user, not field research."
+    }
+  ],
+  "findings": [
+    {
+      "id": "F-01",
+      "stage": "research",
+      "observation": "The Mixed Bag page describes a range of single-estate coffees from light to dark: Seethargundu light, Thogarihunkal medium, Attikan medium-dark and Vienna dark. It is sold as a pack of 5 or 10.",
+      "interpretation": "The Mixed Bag is a variety product, so the film can show a range of roast levels without inventing a new assortment.",
+      "proposed_action": "Use the Mixed Bag as the hero and show four packs: Mixed Bag, Seethargundu light, Attikan medium-dark and Vienna dark. Say only 'light to dark'.",
+      "source_id": "SRC-02",
+      "evidence_locator": "Product description and variant list",
+      "observed_at": "2026-11-14",
+      "confidence": 5,
+      "status": "verified",
+      "rights_status": "not_applicable",
+      "impact": 5,
+      "effort": 1,
+      "linked_ids": [
+        "ED-01",
+        "CL-03",
+        "CP-04"
+      ]
+    },
+    {
+      "id": "F-02",
+      "stage": "research",
+      "observation": "The brewing instructions say to tear the outer sachet, tear the filter top, anchor the filter over a 180-200 ml cup, pour hot water, wait 20 seconds, repeat 2-3 times, then steep for 2 minutes.",
+      "interpretation": "The real action is a multi-step brew with a steep that cannot fit in 20 seconds at real speed. A truthful demo needs time compression and a visible disclosure.",
+      "proposed_action": "Show tear, anchor and pour, then compress the repeated pours and steep with a time-lapse cue and the caption 'Brew sequence compressed'.",
+      "source_id": "SRC-05",
+      "evidence_locator": "Step 1-4 instructions",
+      "observed_at": "2026-11-14",
+      "confidence": 5,
+      "status": "verified",
+      "rights_status": "not_applicable",
+      "impact": 5,
+      "effort": 2,
+      "linked_ids": [
+        "SH-02",
+        "SH-03",
+        "SH-05",
+        "CP-12"
+      ]
+    },
+    {
+      "id": "F-03",
+      "stage": "research",
+      "observation": "The Easy Pour FAQ says it is not powdered instant coffee or a premix, but is as quick and hassle-free to brew.",
+      "interpretation": "Calling it instant coffee would be a category error. The ad should contrast specialty coffee with the convenience, not the product.",
+      "proposed_action": "Use 'specialty coffee' and 'no equipment', never 'instant coffee'.",
+      "source_id": "SRC-05",
+      "evidence_locator": "FAQ: Is this the same as instant coffee?",
+      "observed_at": "2026-11-14",
+      "confidence": 5,
+      "status": "verified",
+      "rights_status": "not_applicable",
+      "impact": 5,
+      "effort": 1,
+      "linked_ids": [
+        "CL-01",
+        "CL-02",
+        "CP-01"
+      ]
+    },
+    {
+      "id": "F-04",
+      "stage": "research",
+      "observation": "The Mixed Bag page lists pack of 5 at Rs 300 and pack of 10 at Rs 500. The brief does not approve a price or hero pack size.",
+      "interpretation": "Price and pack size are observed commercial values. They cannot enter the ready cut without brand approval.",
+      "proposed_action": "Keep price out of the ready cut and hold the hero pack size for brand confirmation.",
+      "source_id": "SRC-02",
+      "evidence_locator": "Variant selector and price block",
+      "observed_at": "2026-11-14",
+      "confidence": 5,
+      "status": "verified",
+      "rights_status": "not_applicable",
+      "impact": 5,
+      "effort": 1,
+      "linked_ids": [
+        "ED-02",
+        "ED-03"
+      ]
+    },
+    {
+      "id": "F-05",
+      "stage": "research",
+      "observation": "The storefront exposes the Blue Tokai logo and product images on its CDN, but the brief supplies links only and no advertising licence or brand kit.",
+      "interpretation": "The images are technically usable references, not cleared paid-media assets. Pack labels are exact commercial elements.",
+      "proposed_action": "Use the observed URLs as the asset source of record, request written advertising approval, and hold the pack and logo until cleared.",
+      "source_id": "SRC-01",
+      "evidence_locator": "Header logo and product galleries",
+      "observed_at": "2026-11-14",
+      "confidence": 5,
+      "status": "held",
+      "rights_status": "needs_approval",
+      "impact": 5,
+      "effort": 2,
+      "linked_ids": [
+        "AS-01",
+        "AS-02",
+        "AS-03",
+        "AS-04",
+        "AS-13"
+      ]
+    },
+    {
+      "id": "F-06",
+      "stage": "research",
+      "observation": "Google recommends 1920x1080 horizontal and 1080x1920 vertical video, and publishes placement-specific safe-zone templates.",
+      "interpretation": "16:9 is a valid YouTube master. Exact safe insets must be checked against the chosen placement rather than assumed universal.",
+      "proposed_action": "Plan a 1920x1080 master with conservative insets and a placement preview before paid media.",
+      "source_id": "SRC-07",
+      "evidence_locator": "Video ad specs table and safe-zone templates",
+      "observed_at": "2026-11-14",
+      "confidence": 4,
+      "status": "verified",
+      "rights_status": "not_applicable",
+      "impact": 4,
+      "effort": 1,
+      "linked_ids": [
+        "DP-01",
+        "AC-02"
+      ]
+    },
+    {
+      "id": "F-07",
+      "stage": "research",
+      "observation": "Google's ABCD guidance asks for early attention, early and repeated branding, focused connection and a clear direction or CTA.",
+      "interpretation": "A 20-second ad can use a 3-second hook, a 7-second demo, a 5-second range proof and a 5-second close.",
+      "proposed_action": "Put the pack and brand in the hook, keep the demo single-minded, and land the CTA on the end card.",
+      "source_id": "SRC-06",
+      "evidence_locator": "Core ABCDs and Shorts guidance",
+      "observed_at": "2026-11-14",
+      "confidence": 4,
+      "status": "verified",
+      "rights_status": "not_applicable",
+      "impact": 4,
+      "effort": 2,
+      "linked_ids": [
+        "SH-01",
+        "SH-06",
+        "CP-05"
+      ]
+    },
+    {
+      "id": "F-08",
+      "stage": "research",
+      "observation": "The brand's brew instructions include a 2-minute steep after pouring. A 20-second film cannot show that at real speed.",
+      "interpretation": "Time compression is a production treatment, not a product claim. It needs an on-screen disclosure so the demo remains honest.",
+      "proposed_action": "Use a time-lapse transition and a small 'Brew sequence compressed' disclaimer in the payoff shot.",
+      "source_id": "SRC-05",
+      "evidence_locator": "Step 3-4 and FAQ",
+      "observed_at": "2026-11-14",
+      "confidence": 5,
+      "status": "verified",
+      "rights_status": "not_applicable",
+      "impact": 4,
+      "effort": 1,
+      "linked_ids": [
+        "CP-12",
+        "SH-05"
+      ]
+    },
+    {
+      "id": "F-09",
+      "stage": "research",
+      "observation": "The brief defines the viewer as busy Indian professionals who already buy cafe or instant coffee and want specialty coffee without equipment.",
+      "interpretation": "The viewer needs the benefit demonstrated, not a origin lecture. The hook should name the category and show the pack immediately.",
+      "proposed_action": "Open on 'Specialty coffee' with the pack; use the demo as proof.",
+      "source_id": "SRC-09",
+      "evidence_locator": "Brief target audience and core message",
+      "observed_at": "2026-11-14",
+      "confidence": 3,
+      "status": "assumption",
+      "rights_status": "not_applicable",
+      "impact": 4,
+      "effort": 1,
+      "linked_ids": [
+        "CO-01",
+        "HK-01"
+      ]
+    },
+    {
+      "id": "F-10",
+      "stage": "research",
+      "observation": "No finished voice-over, music bed or demonstration footage was supplied.",
+      "interpretation": "The demo and audio are production requirements with rights and consent gates, not assets already available.",
+      "proposed_action": "Record the demo, voice and music in Level 2; hold the performer and licence approvals.",
+      "source_id": "SRC-09",
+      "evidence_locator": "Brief inputs",
+      "observed_at": "2026-11-14",
+      "confidence": 5,
+      "status": "held",
+      "rights_status": "needs_approval",
+      "impact": 4,
+      "effort": 3,
+      "linked_ids": [
+        "AS-05",
+        "AS-06",
+        "AS-09",
+        "AS-10"
+      ]
+    },
+    {
+      "id": "F-11",
+      "stage": "research",
+      "observation": "The brief names the Mixed Bag, Vienna and Attikan Estate packs and supplies the logo and product-image links. Seethargundu is added from the Mixed Bag page to provide the light endpoint.",
+      "interpretation": "The exact product set is fixed by the brief, while the creative use of each pack still needs a composition decision.",
+      "proposed_action": "Use Mixed Bag as hero, Seethargundu, Attikan and Vienna as range support, and keep each label unobstructed.",
+      "source_id": "SRC-09",
+      "evidence_locator": "Brief asset list",
+      "observed_at": "2026-11-14",
+      "confidence": 5,
+      "status": "verified",
+      "rights_status": "needs_approval",
+      "impact": 4,
+      "effort": 2,
+      "linked_ids": [
+        "AS-02",
+        "AS-03",
+        "AS-04"
+      ]
+    },
+    {
+      "id": "F-12",
+      "stage": "research",
+      "observation": "The brand describes Easy Pour as specialty coffee brewed with hot water in a 180-200 ml cup, with no equipment.",
+      "interpretation": "The core message is supported by the brand's own instructions, but it is still brand-authored rather than independent product testing.",
+      "proposed_action": "Use 'no equipment' and 'just a mug and hot water' as brand-supported wording, not a superiority claim.",
+      "source_id": "SRC-05",
+      "evidence_locator": "Brewing instructions and FAQ",
+      "observed_at": "2026-11-14",
+      "confidence": 4,
+      "status": "verified",
+      "rights_status": "not_applicable",
+      "impact": 4,
+      "effort": 1,
+      "linked_ids": [
+        "CL-02",
+        "CP-02"
+      ]
+    }
+  ],
+  "synthesis": "The product and its core benefit are supported by Blue Tokai's own product and brewing pages: a single-serve sachet with a built-in paper filter, brewed over a 180-200 ml cup with hot water, and a Mixed Bag spanning light to dark roasts. The honest creative route is a visible demo, not an instant-coffee comparison. Price, pack sizes and public product images are observed commercial material and remain rights or approval holds. A real brew includes a two-minute steep, so the film must disclose time compression disclosure rather than imply real-time brewing. The range shot needs a real light endpoint, so Seethargundu is added to the supplied Vienna and Attikan packs.",
+  "created_at": "2026-11-14T15:28:11+00:00"
+}

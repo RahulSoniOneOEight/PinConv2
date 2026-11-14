@@ -139,6 +139,7 @@ class RightsStatus(str, Enum):
 class Exactness(str, Enum):
     EXACT = "exact"
     APPROVED_COPY = "approved_copy"
+    PROPOSED_COPY = "proposed_copy"
     ILLUSTRATIVE = "illustrative"
 
 
@@ -468,6 +469,11 @@ class DeliverableProfile(StrictModel):
     cta_copy_id: str | None = None
     variant_id: str = Field(min_length=1)
     sound_off_legible: bool
+    placement_safe_areas: dict[str, SafeArea] = Field(default_factory=dict)
+    delivery_codec: str | None = Field(default=None, max_length=200)
+    colour_space: str | None = Field(default=None, max_length=100)
+    caption_mode: str | None = Field(default=None, max_length=200)
+    audio_target: str | None = Field(default=None, max_length=200)
 
     @model_validator(mode="after")
     def frames_match_duration(self) -> DeliverableProfile:
@@ -608,6 +614,12 @@ class ConceptNote(StrictModel):
     decisions: list[Decision] = Field(min_length=1)
     open_questions: list[str] = Field(default_factory=list)
     planned_look: str = Field(min_length=1, max_length=2000)
+    success_definition: str | None = Field(default=None, max_length=1000)
+    viewing_context: str | None = Field(default=None, max_length=1000)
+    reference_notes: str | None = Field(default=None, max_length=2000)
+    reverse_evidence: str | None = Field(default=None, max_length=1000)
+    prohibited_content: str | None = Field(default=None, max_length=1000)
+    canonical_script: str | None = Field(default=None, max_length=2000)
     created_at: str = Field(default_factory=utc_now)
 
     @model_validator(mode="after")
@@ -648,9 +660,7 @@ class ExactData(StrictModel):
 
     @model_validator(mode="after")
     def approval_is_attributable(self) -> ExactData:
-        if self.status is DataStatus.APPROVED and (
-            not self.approved_by or not self.approved_at
-        ):
+        if self.status is DataStatus.APPROVED and (not self.approved_by or not self.approved_at):
             raise ValueError("approved exact data needs approved_by and approved_at")
         if self.status is DataStatus.OBSERVED and not self.source_id:
             raise ValueError("observed exact data needs a source")
@@ -709,6 +719,10 @@ class Layer(StrictModel):
     text_style: TextStyle | None = None
     motion: list[Keyframe] = Field(default_factory=list)
     effect: str | None = Field(default=None, max_length=200)
+    effect_spec: str | None = Field(default=None, max_length=1000)
+    anchor: str = Field(default="top-left", max_length=30)
+    rotation_deg: float = Field(default=0, ge=-360, le=360)
+    acceptance: str | None = Field(default=None, max_length=1000)
     non_occluding: bool = False
     protected: bool = False
     protected_regions: list[Rect] = Field(default_factory=list)
@@ -799,6 +813,7 @@ class Asset(StrictModel):
     estimate_id: str | None = None
     fallback_asset_id: str | None = None
     fallback_required: bool = True
+    acceptance: str | None = Field(default=None, max_length=1000)
     used_by: list[str] = Field(default_factory=list)
     status: AssetStatus = AssetStatus.PENDING
     notes: str | None = Field(default=None, max_length=1000)
@@ -928,6 +943,12 @@ class Shot(StrictModel):
     continuity: str = Field(min_length=1, max_length=1000)
     method: str = Field(min_length=1, max_length=1000)
     fallback_method: str = Field(min_length=1, max_length=1000)
+    lens_intent: str | None = Field(default=None, max_length=300)
+    handles_frames: int = Field(default=0, ge=0, le=48)
+    acceptance: str | None = Field(default=None, max_length=1000)
+    audio_ids: list[str] = Field(default_factory=list)
+    rights_readiness: str = Field(default="pending", pattern=r"^(pending|cleared)$")
+    production_ready: bool = False
     status: ShotStatus
     layer_ids: list[str] = Field(min_length=1)
     asset_ids: list[str] = Field(default_factory=list)
@@ -967,6 +988,7 @@ class AlternateRoute(StrictModel):
     cost_delta_usd: float = 0
     cost_estimate_id: str | None = None
     approval_scope: list[str] = Field(min_length=1)
+    switch_authority: str = Field(default="named human", max_length=200)
     status: str = Field(default="proposed", pattern=r"^(proposed|approved|rejected)$")
 
 
@@ -994,6 +1016,7 @@ class ProductionPlan(StrictModel):
     project_id: str
     revision: int = Field(ge=1)
     brief_revision: int = Field(ge=1)
+    detail_level: str = Field(default="standard", pattern=r"^(standard|full)$")
     deliverable: DeliverableProfile
     beats: list[Beat] = Field(min_length=1)
     shots: list[Shot] = Field(min_length=1)

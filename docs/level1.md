@@ -15,6 +15,17 @@ The output is two documents approved together at Gate 1:
 
 A third machine-readable **Level 2 handoff** carries the approved scope.
 
+## Implemented fixtures
+
+`toffee-coffee-10s` is the original 10-second vertical acceptance case.
+`blue-tokai-easy-pour-20s` is the 20-second 16:9 review case. Both use the same
+state machine, validators, critique, Gate 1 and export path. The Blue Tokai run
+demonstrates the detail standard in `docs/level1-detail-standard.md`: complete
+layer motion and type, asset source/rights briefs and a labelled evidence trail.
+
+The fixture registry is in `src/pinconv2/fixtures/__init__.py`. A run reaches
+`gate1_ready`; only a named human may record approval.
+
 ## 2. Sequence
 
 ```

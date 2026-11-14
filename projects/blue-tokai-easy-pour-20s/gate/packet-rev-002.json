@@ -1,0 +1,137 @@
+{
+  "project_id": "blue-tokai-easy-pour-20s",
+  "plan_revision": 2,
+  "plan_hash": "587580d849aadc27f74cdebd55b17414c209855b2de6a1350243fd6a710909b1",
+  "bundle": {
+    "project_id": "blue-tokai-easy-pour-20s",
+    "plan_revision": 2,
+    "record_hashes": {
+      "brief": "8761fd6d39280d7368f451a26517b666babfaa71f0994ac67b5508d4a74e6c0f",
+      "research": "e37cf7c98000008b8501ff5c5bd48255309e8ff4cdedda761a9ee4447bc2fe01",
+      "concept": "5013539b35ae1c1aac3627dc2d5b55ea84c89807a3cf5dd7f3d7868ad8b47a70",
+      "plan": "587580d849aadc27f74cdebd55b17414c209855b2de6a1350243fd6a710909b1",
+      "validation": "0a51de34976e0f6bcea16ab250fa640b144c137e7733745665155306d7663c9a",
+      "critique": "e74602e6648303c74e842694028ea04e69fd8ca415f1de781619578d277a326b",
+      "resolution": "20934e6d978fcbeaaa5894ac2d218ef54698f94b1e3cd9c12d14f902b05a2da7"
+    },
+    "bundle_hash": "ad3224c0c2cf1648ec75c784946075c43d58652328543812ae42c9b1eef3f624"
+  },
+  "validation_passed": true,
+  "ready_shots": [
+    "SH-01",
+    "SH-02",
+    "SH-03",
+    "SH-04",
+    "SH-05",
+    "SH-06"
+  ],
+  "held_layers": [],
+  "held_items": [
+    {
+      "id": "HI-01",
+      "title": "Price and hero pack size",
+      "reason": "The storefront price varies by pack size and the brief gives no approved commercial value.",
+      "affects": [
+        "ED-02",
+        "ED-03"
+      ],
+      "required_evidence": "Brand-approved hero pack size and advertising price with a named approver.",
+      "owner": "human"
+    },
+    {
+      "id": "HI-02",
+      "title": "Brand pack and logo advertising rights",
+      "reason": "Public product images and logo are not an advertising licence.",
+      "affects": [
+        "AS-01",
+        "AS-02",
+        "AS-03",
+        "AS-04",
+        "AS-13",
+        "AS-17"
+      ],
+      "required_evidence": "Written paid-media approval and high-resolution pack and logo masters.",
+      "owner": "human"
+    },
+    {
+      "id": "HI-03",
+      "title": "Voice and music licences",
+      "reason": "No voice performer release or music licence has been supplied.",
+      "affects": [
+        "AS-09",
+        "AS-10",
+        "AS-14",
+        "AS-15"
+      ],
+      "required_evidence": "Signed performer release and a production-library licence covering paid YouTube.",
+      "owner": "human"
+    },
+    {
+      "id": "HI-04",
+      "title": "Demonstration and talent release",
+      "reason": "Hands and a demonstration set appear on camera; no release is supplied.",
+      "affects": [
+        "AS-05",
+        "AS-06",
+        "AS-08"
+      ],
+      "required_evidence": "Signed hand-model/performer release and approval to film the product demonstration.",
+      "owner": "human"
+    },
+    {
+      "id": "HI-05",
+      "title": "Brand typeface",
+      "reason": "No Blue Tokai brand font was supplied; Inter is a placeholder.",
+      "affects": [
+        "CP-01",
+        "CP-02",
+        "CP-03",
+        "CP-04",
+        "CP-05",
+        "CP-07",
+        "CP-08",
+        "CP-09",
+        "CP-10",
+        "CP-11",
+        "CP-12",
+        "CP-13"
+      ],
+      "required_evidence": "Brand font files and typography guidance, or written approval to use Inter for this production.",
+      "owner": "human"
+    }
+  ],
+  "exact_data_approved": [],
+  "exact_data_pending": [
+    "ED-01",
+    "ED-04",
+    "ED-05"
+  ],
+  "conditions": [
+    "HI-01 Price and hero pack size: Brand-approved hero pack size and advertising price with a named approver.",
+    "HI-02 Brand pack and logo advertising rights: Written paid-media approval and high-resolution pack and logo masters.",
+    "HI-03 Voice and music licences: Signed performer release and a production-library licence covering paid YouTube.",
+    "HI-04 Demonstration and talent release: Signed hand-model/performer release and approval to film the product demonstration.",
+    "HI-05 Brand typeface: Brand font files and typography guidance, or written approval to use Inter for this production.",
+    "exact.identifiers: brand_name ED-05 is observed; Gate 1 must approve this identifier or wording",
+    "exact.identifiers: cta ED-04 is proposed; Gate 1 must approve this identifier or wording",
+    "exact.identifiers: product_name ED-01 is observed; Gate 1 must approve this identifier or wording",
+    "rights.assets: rights need approval for Blue Tokai Coffee Roasters logo",
+    "rights.assets: rights need approval for Easy Pour Attikan Estate pack",
+    "rights.assets: rights need approval for Easy Pour Mixed Bag pack",
+    "rights.assets: rights need approval for Easy Pour Seethargundu Estate pack",
+    "rights.assets: rights need approval for Easy Pour Vienna pack",
+    "rights.assets: rights need approval for Easy Pour brewing demonstration, hands",
+    "rights.assets: rights need approval for Finished cup of coffee",
+    "rights.assets: rights need approval for Hot water pour and bloom footage",
+    "rights.assets: rights need approval for Music bed, 20 seconds",
+    "rights.assets: rights need approval for Voice over, warm Indian English"
+  ],
+  "blockers": [],
+  "input_statuses": {
+    "CF-01": "resolved",
+    "CF-02": "escalated",
+    "CF-03": "resolved"
+  },
+  "approval": null,
+  "created_at": "2026-11-14T15:28:11+00:00"
+}

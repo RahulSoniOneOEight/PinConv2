@@ -1,0 +1,155 @@
+{
+  "project_id": "blue-tokai-easy-pour-20s",
+  "revision": 1,
+  "source_text": "Blue Tokai Easy Pour - 20-second YouTube ad.\n\nObjective: drive first-time online purchases of Blue Tokai Easy Pour. Feature the\nMixed Bag so people new to specialty coffee can try roasts ranging from light to\ndark. bluetokaicoffee.com\n\nTarget audience: coffee drinkers in India who want specialty coffee at home or at\nwork without buying brewing equipment. Busy professionals who already buy cafe\ncoffee or drink instant coffee at home and are curious about easy pour-over.\n\nCore message: Specialty coffee. Just a mug and hot water. Show the Easy Pour\nfilter clipped to a mug, the water hitting the grounds, and the finished cup. The\nfilter is built into the sachet, so the demo makes the benefit visible.\n\nCall to action: Shop Easy Pour. Pair the CTA with the Mixed Bag pack and the Blue\nTokai logo on the end card.",
+  "title": "Blue Tokai Easy Pour - specialty coffee, just a mug and hot water",
+  "objective": "Drive first-time online purchases of Blue Tokai Easy Pour by making the built-in-filter brewing benefit visible in 20 seconds.",
+  "audience": "Indian coffee drinkers who want specialty coffee at home or work without buying brewing equipment; busy professionals who already buy cafe coffee or instant coffee and are curious about easy pour-over. Supplied by the brief; not independently audience-tested.",
+  "language": "en",
+  "content_family": "ad",
+  "subject": "Easy Pour single-serve specialty coffee",
+  "tones": [
+    "premium",
+    "informative",
+    "warm"
+  ],
+  "outcome": "sell",
+  "product_role": "hero",
+  "quality_tier": "premium",
+  "asset_readiness": "partial",
+  "series_pattern": "one 20-second YouTube hero; optional 9:16 Shorts cut later",
+  "duration_seconds": 20.0,
+  "fps": 25,
+  "aspect_ratio": "16:9",
+  "platform": "YouTube",
+  "placements": [
+    "youtube_in_stream",
+    "youtube_demand_gen"
+  ],
+  "captions": true,
+  "cta": "Shop Easy Pour",
+  "budget_cap_usd": 100.0,
+  "currency": "USD",
+  "constraints": [
+    "20.0 seconds, 1920x1080, 25 fps, 500 frames",
+    "Show the filter clipped to a mug, water hitting the grounds and a finished cup",
+    "Feature the Mixed Bag and the light-to-dark roast range",
+    "End card pairs the CTA with the Mixed Bag pack and Blue Tokai logo",
+    "Captions must work with sound off",
+    "No price or promotion unless approved exact data exists",
+    "Paid asset generation belongs to Level 2, not Level 1"
+  ],
+  "avoid": [
+    "calling Easy Pour instant coffee",
+    "showing equipment the product does not need",
+    "using public product images as if they were licensed advertising assets",
+    "implying a real-time brew when the film compresses time"
+  ],
+  "assumptions": [
+    "16:9 YouTube in-stream is the primary placement; a 9:16 Shorts cut is optional.",
+    "The supplied audience and core message are treated as brief inputs, not research findings.",
+    "The budget cap is an operator planning assumption because the brief gives none.",
+    "The 20-second film compresses a brew that the brand says needs a short steep.",
+    "Public logo and product images are observed references; advertising rights are pending.",
+    "Inter is used as a documented placeholder until Blue Tokai supplies its brand typeface."
+  ],
+  "rights_notes": "Blue Tokai owns the logo, packs and product photography. Public availability is not an advertising licence. Demonstration footage needs a performer/hand release. Music and voice need licences.",
+  "must_have": [
+    {
+      "id": "MH-01",
+      "text": "20.0-second 16:9 YouTube ad at 1920x1080 and 25 fps",
+      "satisfied_by": [
+        "DP-01",
+        "AC-01"
+      ],
+      "status": "satisfied"
+    },
+    {
+      "id": "MH-02",
+      "text": "Open on specialty coffee and the product within the first three seconds",
+      "satisfied_by": [
+        "SH-01",
+        "CP-01",
+        "AC-02"
+      ],
+      "status": "satisfied"
+    },
+    {
+      "id": "MH-03",
+      "text": "Show the built-in filter clipped to a mug and water hitting the grounds",
+      "satisfied_by": [
+        "SH-02",
+        "SH-03",
+        "AS-05",
+        "AS-06"
+      ],
+      "status": "satisfied"
+    },
+    {
+      "id": "MH-04",
+      "text": "Show the finished cup",
+      "satisfied_by": [
+        "SH-05",
+        "AS-08"
+      ],
+      "status": "satisfied"
+    },
+    {
+      "id": "MH-05",
+      "text": "Feature the Mixed Bag and the light-to-dark roast range",
+      "satisfied_by": [
+        "SH-04",
+        "AS-02",
+        "AS-03",
+        "AS-04",
+        "AS-17"
+      ],
+      "status": "satisfied"
+    },
+    {
+      "id": "MH-06",
+      "text": "End on the Blue Tokai logo, Mixed Bag pack and Shop Easy Pour CTA",
+      "satisfied_by": [
+        "SH-06",
+        "CP-05",
+        "AS-01",
+        "AS-02"
+      ],
+      "status": "satisfied"
+    },
+    {
+      "id": "MH-07",
+      "text": "Captions carry the message with sound off",
+      "satisfied_by": [
+        "CP-01",
+        "CP-03",
+        "CP-04",
+        "CP-05"
+      ],
+      "status": "satisfied"
+    },
+    {
+      "id": "MH-08",
+      "text": "Use only approved product facts, price and promotion",
+      "satisfied_by": [
+        "ED-01",
+        "ED-02",
+        "ED-03",
+        "AC-04"
+      ],
+      "status": "satisfied"
+    },
+    {
+      "id": "MH-09",
+      "text": "Do not call Easy Pour instant coffee or imply it needs equipment",
+      "satisfied_by": [
+        "CL-02",
+        "CL-05",
+        "SH-03"
+      ],
+      "status": "satisfied"
+    }
+  ],
+  "classification_confidence": 0.9,
+  "created_at": "2026-11-14T15:28:11+00:00"
+}

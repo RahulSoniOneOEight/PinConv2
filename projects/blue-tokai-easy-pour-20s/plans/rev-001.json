@@ -1,0 +1,4223 @@
+{
+  "project_id": "blue-tokai-easy-pour-20s",
+  "revision": 1,
+  "brief_revision": 1,
+  "detail_level": "full",
+  "deliverable": {
+    "id": "DP-01",
+    "platform": "YouTube",
+    "placement": "16:9 in-stream and Demand Gen master",
+    "width": 1920,
+    "height": 1080,
+    "fps": 25,
+    "frame_count": 500,
+    "duration_seconds": 20.0,
+    "aspect_ratio": "16:9",
+    "safe_area": {
+      "top": 70,
+      "bottom": 90,
+      "left": 80,
+      "right": 80
+    },
+    "caption_rules": {
+      "max_lines": 2,
+      "max_chars_per_line": 42,
+      "max_cps": 16.0,
+      "min_hold_frames": 36
+    },
+    "cta_copy_id": "CP-05",
+    "variant_id": "hero-16x9",
+    "sound_off_legible": true,
+    "placement_safe_areas": {
+      "youtube_in_stream": {
+        "top": 70,
+        "bottom": 90,
+        "left": 80,
+        "right": 80
+      },
+      "youtube_demand_gen": {
+        "top": 70,
+        "bottom": 90,
+        "left": 80,
+        "right": 80
+      }
+    },
+    "delivery_codec": "H.264 High Profile, AAC 320 kbps, MP4",
+    "colour_space": "Rec.709 / sRGB web delivery",
+    "caption_mode": "Burned-in campaign copy plus a separate SRT for accessibility captions; do not rely on platform auto-captions for the message.",
+    "audio_target": "-16 LUFS integrated, -1 dBTP true peak"
+  },
+  "beats": [
+    {
+      "id": "BT-01",
+      "start_frame": 0,
+      "end_frame": 75,
+      "purpose": "Name the category and show the product before the scroll decision.",
+      "spoken_line": "Specialty coffee.",
+      "on_screen_copy": "SPECIALTY COFFEE.",
+      "action": "Pack lands in a warm kitchen; the filter benefit is named.",
+      "emotion": "curiosity",
+      "audio_cue_ids": [
+        "AU-01",
+        "AU-02"
+      ],
+      "copy_ids": [
+        "CP-01",
+        "CP-07"
+      ]
+    },
+    {
+      "id": "BT-02",
+      "start_frame": 75,
+      "end_frame": 160,
+      "purpose": "Prove the sachet contains a real filter.",
+      "spoken_line": "Tear, anchor, pour.",
+      "on_screen_copy": "TEAR. ANCHOR. POUR.",
+      "action": "Hands tear the sachet, open the filter and anchor it on the mug.",
+      "emotion": "recognition",
+      "audio_cue_ids": [
+        "AU-01",
+        "AU-02"
+      ],
+      "copy_ids": [
+        "CP-03",
+        "CP-08"
+      ]
+    },
+    {
+      "id": "BT-03",
+      "start_frame": 160,
+      "end_frame": 275,
+      "purpose": "Show water hitting the grounds and coffee blooming.",
+      "spoken_line": "Just a mug and hot water.",
+      "on_screen_copy": "JUST A MUG AND HOT WATER.",
+      "action": "Water pours through the filter; the bed blooms and drips.",
+      "emotion": "proof",
+      "audio_cue_ids": [
+        "AU-01",
+        "AU-02",
+        "AU-03"
+      ],
+      "copy_ids": [
+        "CP-02",
+        "CP-09"
+      ]
+    },
+    {
+      "id": "BT-04",
+      "start_frame": 275,
+      "end_frame": 380,
+      "purpose": "Make the light-to-dark range concrete.",
+      "spoken_line": "Light to dark.",
+      "on_screen_copy": "LIGHT TO DARK.",
+      "action": "Mixed Bag, Seethargundu, Attikan and Vienna packs fan across the counter.",
+      "emotion": "choice",
+      "audio_cue_ids": [
+        "AU-01",
+        "AU-02"
+      ],
+      "copy_ids": [
+        "CP-04",
+        "CP-10"
+      ]
+    },
+    {
+      "id": "BT-05",
+      "start_frame": 380,
+      "end_frame": 445,
+      "purpose": "Land the finished cup and the honest time compression.",
+      "spoken_line": "One mug. One cup.",
+      "on_screen_copy": "ONE MUG. ONE SACHET. ONE CUP.",
+      "action": "Finished cup steams; a time-lapse cue resolves the brew.",
+      "emotion": "satisfaction",
+      "audio_cue_ids": [
+        "AU-01",
+        "AU-02"
+      ],
+      "copy_ids": [
+        "CP-13",
+        "CP-12"
+      ]
+    },
+    {
+      "id": "BT-06",
+      "start_frame": 445,
+      "end_frame": 500,
+      "purpose": "Close on brand, Mixed Bag and a direct CTA.",
+      "spoken_line": "Shop Easy Pour.",
+      "on_screen_copy": "SHOP EASY POUR",
+      "action": "Logo, Mixed Bag and CTA hold on the end card.",
+      "emotion": "confidence",
+      "audio_cue_ids": [
+        "AU-01",
+        "AU-02",
+        "AU-04"
+      ],
+      "copy_ids": [
+        "CP-05",
+        "CP-11"
+      ]
+    }
+  ],
+  "shots": [
+    {
+      "id": "SH-01",
+      "beat_ids": [
+        "BT-01"
+      ],
+      "start_frame": 0,
+      "end_frame": 75,
+      "purpose": "Name the category and put the product in frame immediately.",
+      "framing": "Medium-wide kitchen counter; pack at camera right, type left.",
+      "movement": "A 12-frame pack settle; steam drifts across the negative space.",
+      "subject": "Mixed Bag pack, mug and warm kitchen counter.",
+      "action": "The pack lands; the category line holds.",
+      "expression": "Confident, warm.",
+      "lighting": "Soft window key from camera left; gentle fill on the label.",
+      "palette": "Blue Tokai blue, cream, warm oak, black coffee.",
+      "transition_in": "Cold open.",
+      "continuity": "Same counter, mug and daylight for the whole film.",
+      "method": "Live-action counter plate with product cut-out and kinetic type.",
+      "fallback_method": "Static pack-on-counter still with a slow push-in and type fade.",
+      "lens_intent": "35mm full-frame normal perspective; no wide distortion.",
+      "handles_frames": 6,
+      "acceptance": "Pack and SPECIALTY COFFEE are readable by frame 12; the label is clear of type and no text crosses the safe area.",
+      "audio_ids": [
+        "AU-01",
+        "AU-02"
+      ],
+      "rights_readiness": "pending",
+      "production_ready": false,
+      "status": "ready",
+      "layer_ids": [
+        "LY-010",
+        "LY-011",
+        "LY-012",
+        "LY-013",
+        "LY-014",
+        "LY-015"
+      ],
+      "asset_ids": [
+        "AS-07",
+        "AS-02"
+      ],
+      "check_ids": [
+        "AC-01",
+        "AC-02",
+        "AC-03",
+        "AC-14"
+      ],
+      "estimate_ids": [
+        "ES-05"
+      ],
+      "notes": null
+    },
+    {
+      "id": "SH-02",
+      "beat_ids": [
+        "BT-02"
+      ],
+      "start_frame": 75,
+      "end_frame": 160,
+      "purpose": "Prove the sachet has a built-in filter.",
+      "framing": "Overhead close-up of hands, sachet and mug.",
+      "movement": "Locked-off overhead; hands enter left and work in real time.",
+      "subject": "Sachet, built-in paper filter and mug.",
+      "action": "Tear, open, anchor; the filter seats on the mug rim.",
+      "expression": "Tactile, unhurried.",
+      "lighting": "Soft overhead key; no hand shadow across the filter.",
+      "palette": "Kraft paper, cream filter, blue mug, warm counter.",
+      "transition_in": "Match cut from the pack in SH-01.",
+      "continuity": "Same mug and counter; hands enter from the left.",
+      "method": "Real-time overhead food demonstration, one continuous take.",
+      "fallback_method": "Stop-motion of the same steps at two frames per action.",
+      "lens_intent": "50mm overhead, locked-off; hands fill the centre third.",
+      "handles_frames": 4,
+      "acceptance": "Tear, open and anchor are each visible and physically correct; the filter is seated on the mug rim by the last frame.",
+      "audio_ids": [
+        "AU-01",
+        "AU-02"
+      ],
+      "rights_readiness": "pending",
+      "production_ready": false,
+      "status": "ready",
+      "layer_ids": [
+        "LY-020",
+        "LY-021",
+        "LY-022",
+        "LY-023",
+        "LY-024",
+        "LY-025"
+      ],
+      "asset_ids": [
+        "AS-07",
+        "AS-05",
+        "AS-02"
+      ],
+      "check_ids": [
+        "AC-01",
+        "AC-02",
+        "AC-03",
+        "AC-09",
+        "AC-14"
+      ],
+      "estimate_ids": [
+        "ES-06"
+      ],
+      "notes": null
+    },
+    {
+      "id": "SH-03",
+      "beat_ids": [
+        "BT-03"
+      ],
+      "start_frame": 160,
+      "end_frame": 275,
+      "purpose": "Show water hitting the grounds; the edit compresses the repeated pours and steep.",
+      "framing": "Macro side profile of the filter over the mug.",
+      "movement": "Slow push-in as the bloom rises; a 50 fps pour insert.",
+      "subject": "Hot water, coffee bed and first drip.",
+      "action": "First pour blooms the grounds; a short time-lapse carries the repeated pours and steep before the first drip resolves.",
+      "expression": "Appetite and craft.",
+      "lighting": "Backlit steam with a warm edge on the water.",
+      "palette": "Deep brown, copper, cream, blue rim.",
+      "transition_in": "Cut on the kettle tilt from SH-02.",
+      "continuity": "Mug rim and filter position match SH-02.",
+      "method": "Macro live-action pour at 50 fps, finished at 25 fps.",
+      "fallback_method": "Still macro pour plate with animated steam and a slow scale.",
+      "lens_intent": "100mm macro; shallow depth, focus on the coffee bed and first drip.",
+      "handles_frames": 5,
+      "acceptance": "Water visibly contacts the grounds; bloom and first drip read; the filter stays anchored and the mug rim does not jump.",
+      "audio_ids": [
+        "AU-01",
+        "AU-02",
+        "AU-03"
+      ],
+      "rights_readiness": "pending",
+      "production_ready": false,
+      "status": "ready",
+      "layer_ids": [
+        "LY-030",
+        "LY-031",
+        "LY-032",
+        "LY-033",
+        "LY-034",
+        "LY-035",
+        "LY-036"
+      ],
+      "asset_ids": [
+        "AS-07",
+        "AS-06",
+        "AS-02",
+        "AS-16"
+      ],
+      "check_ids": [
+        "AC-01",
+        "AC-02",
+        "AC-03",
+        "AC-12",
+        "AC-14"
+      ],
+      "estimate_ids": [
+        "ES-03",
+        "ES-06",
+        "ES-10"
+      ],
+      "notes": null
+    },
+    {
+      "id": "SH-04",
+      "beat_ids": [
+        "BT-04"
+      ],
+      "start_frame": 275,
+      "end_frame": 380,
+      "purpose": "Make the light-to-dark range concrete with the named packs.",
+      "framing": "Four-pack fan across the counter; type above.",
+      "movement": "Packs settle in a shallow arc; no rotation.",
+      "subject": "Mixed Bag, Seethargundu, Attikan and Vienna packs.",
+      "action": "The four-pack fan lands and holds for label recognition.",
+      "expression": "Abundance, choice.",
+      "lighting": "Even warm key; each front label catches the same light.",
+      "palette": "Blue, cream, roast-brown and copper.",
+      "transition_in": "Whip pan from the brewing mug.",
+      "continuity": "Same counter and daylight; packs face camera.",
+      "method": "Product stills with a four-pack fan and a single camera move.",
+      "fallback_method": "Captured four-pack still on the same counter with a slow scale; keep the light and dark endpoints.",
+      "lens_intent": "50mm at counter height; four packs share the same focal plane.",
+      "handles_frames": 5,
+      "acceptance": "All four pack names and roast descriptors are readable; the fan reads as light, medium-dark and dark with no label occluded.",
+      "audio_ids": [
+        "AU-01",
+        "AU-02"
+      ],
+      "rights_readiness": "pending",
+      "production_ready": false,
+      "status": "ready",
+      "layer_ids": [
+        "LY-040",
+        "LY-041",
+        "LY-042",
+        "LY-043",
+        "LY-047",
+        "LY-044",
+        "LY-045",
+        "LY-046"
+      ],
+      "asset_ids": [
+        "AS-07",
+        "AS-02",
+        "AS-03",
+        "AS-04",
+        "AS-17"
+      ],
+      "check_ids": [
+        "AC-01",
+        "AC-02",
+        "AC-03",
+        "AC-12",
+        "AC-14"
+      ],
+      "estimate_ids": [
+        "ES-07"
+      ],
+      "notes": null
+    },
+    {
+      "id": "SH-05",
+      "beat_ids": [
+        "BT-05"
+      ],
+      "start_frame": 380,
+      "end_frame": 445,
+      "purpose": "Land the finished cup and disclose the time compression.",
+      "framing": "Finished cup at camera left; pack at right; type above.",
+      "movement": "Slow push-in on the cup; steam rises.",
+      "subject": "Finished cup of coffee and Mixed Bag pack.",
+      "action": "The cup settles; the disclaimer holds under the frame.",
+      "expression": "Satisfaction, calm.",
+      "lighting": "Warm key on the crema; soft falloff behind.",
+      "palette": "Coffee brown, cream, blue.",
+      "transition_in": "Time-lapse resolve from the drip.",
+      "continuity": "Same mug, counter and pack orientation.",
+      "method": "Finished-cup live action with a time-lapse transition.",
+      "fallback_method": "Still cup with animated steam and a type-only time card.",
+      "lens_intent": "50mm at counter height; cup rim and crema in focus, pack soft behind.",
+      "handles_frames": 5,
+      "acceptance": "Finished cup reads as coffee, not a prop; the brew-sequence disclaimer is legible; pack label remains clear.",
+      "audio_ids": [
+        "AU-01",
+        "AU-02"
+      ],
+      "rights_readiness": "pending",
+      "production_ready": false,
+      "status": "ready",
+      "layer_ids": [
+        "LY-050",
+        "LY-051",
+        "LY-052",
+        "LY-053",
+        "LY-054",
+        "LY-055",
+        "LY-056"
+      ],
+      "asset_ids": [
+        "AS-07",
+        "AS-08",
+        "AS-02"
+      ],
+      "check_ids": [
+        "AC-01",
+        "AC-02",
+        "AC-03",
+        "AC-09",
+        "AC-15",
+        "AC-14"
+      ],
+      "estimate_ids": [
+        "ES-06"
+      ],
+      "notes": null
+    },
+    {
+      "id": "SH-06",
+      "beat_ids": [
+        "BT-06"
+      ],
+      "start_frame": 445,
+      "end_frame": 500,
+      "purpose": "Close on brand, hero pack and a direct purchase prompt.",
+      "framing": "Cream end card; logo left, pack right, CTA and brand below.",
+      "movement": "CTA and caption fade up over six frames; pack holds.",
+      "subject": "Blue Tokai logo, Mixed Bag pack, Shop Easy Pour.",
+      "action": "The end card holds for the final read.",
+      "expression": "Clear, confident.",
+      "lighting": "Even cream card with a soft pack shadow.",
+      "palette": "Cream, Blue Tokai blue, pack colours.",
+      "transition_in": "Cut from the finished cup.",
+      "continuity": "Pack orientation matches SH-04 and SH-05.",
+      "method": "End-card composite with supplied logo and pack.",
+      "fallback_method": "Typographic end card with logo, scaled Mixed Bag pack and CTA; the pack remains mandatory even if the hero image is unavailable.",
+      "lens_intent": "35mm graphic end card; no camera movement after the settle.",
+      "handles_frames": 4,
+      "acceptance": "Logo, Mixed Bag pack, CTA and brand name are all readable in the final hold; no element is clipped by the end-card plate.",
+      "audio_ids": [
+        "AU-01",
+        "AU-02",
+        "AU-04"
+      ],
+      "rights_readiness": "pending",
+      "production_ready": false,
+      "status": "ready",
+      "layer_ids": [
+        "LY-060",
+        "LY-061",
+        "LY-062",
+        "LY-063",
+        "LY-064",
+        "LY-065"
+      ],
+      "asset_ids": [
+        "AS-07",
+        "AS-02",
+        "AS-01"
+      ],
+      "check_ids": [
+        "AC-01",
+        "AC-02",
+        "AC-03",
+        "AC-05",
+        "AC-09",
+        "AC-14"
+      ],
+      "estimate_ids": [
+        "ES-04",
+        "ES-08"
+      ],
+      "notes": null
+    }
+  ],
+  "layers": [
+    {
+      "id": "LY-010",
+      "shot_id": "SH-01",
+      "start_frame": 0,
+      "end_frame": 75,
+      "role": "background",
+      "z_order": 0,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "w": 1920,
+        "h": 1080
+      },
+      "opacity": 1.0,
+      "fill": null,
+      "text_style": null,
+      "motion": [],
+      "effect": null,
+      "effect_spec": null,
+      "anchor": "top-left",
+      "rotation_deg": 0.0,
+      "acceptance": "AS-07 reads clearly in the background layer; the protected region remains unobstructed at final phone scale.",
+      "non_occluding": false,
+      "protected": false,
+      "protected_regions": [],
+      "binding_kind": "asset",
+      "binding_ref": "AS-07",
+      "exactness": "illustrative",
+      "required": true,
+      "allowed_edits": [
+        "colour grade",
+        "timing within 4 frames",
+        "crop within 5 percent"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-011",
+      "shot_id": "SH-01",
+      "start_frame": 0,
+      "end_frame": 75,
+      "role": "product",
+      "z_order": 10,
+      "rect": {
+        "x": 1080,
+        "y": 180,
+        "w": 700,
+        "h": 700
+      },
+      "opacity": 1.0,
+      "fill": null,
+      "text_style": null,
+      "motion": [
+        {
+          "frame": 0,
+          "x": null,
+          "y": 220.0,
+          "scale": 0.94,
+          "opacity": null,
+          "easing": "linear"
+        },
+        {
+          "frame": 12,
+          "x": null,
+          "y": 180.0,
+          "scale": 1.0,
+          "opacity": null,
+          "easing": "ease_out"
+        }
+      ],
+      "effect": null,
+      "effect_spec": null,
+      "anchor": "top-left",
+      "rotation_deg": 0.0,
+      "acceptance": "AS-02 reads clearly in the product layer; the protected region remains unobstructed at final phone scale.",
+      "non_occluding": false,
+      "protected": false,
+      "protected_regions": [
+        {
+          "x": 1150,
+          "y": 340,
+          "w": 560,
+          "h": 360
+        }
+      ],
+      "binding_kind": "asset",
+      "binding_ref": "AS-02",
+      "exactness": "exact",
+      "required": true,
+      "allowed_edits": [
+        "colour grade",
+        "timing within 4 frames",
+        "crop within 5 percent"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-012",
+      "shot_id": "SH-01",
+      "start_frame": 0,
+      "end_frame": 75,
+      "role": "effect",
+      "z_order": 8,
+      "rect": {
+        "x": 900,
+        "y": 170,
+        "w": 760,
+        "h": 720
+      },
+      "opacity": 0.18,
+      "fill": "#DCE8F0",
+      "text_style": null,
+      "motion": [],
+      "effect": "steam_drift",
+      "effect_spec": "steam_drift: trigger f0; 75-frame loop; intensity 0.18; mask 900,170,760,720; non-occluding.",
+      "anchor": "top-left",
+      "rotation_deg": 0.0,
+      "acceptance": "Steam moves slowly inside its mask and never crosses the pack label.",
+      "non_occluding": true,
+      "protected": false,
+      "protected_regions": [],
+      "binding_kind": "none",
+      "binding_ref": null,
+      "exactness": "illustrative",
+      "required": true,
+      "allowed_edits": [
+        "opacity",
+        "timing"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-013",
+      "shot_id": "SH-01",
+      "start_frame": 0,
+      "end_frame": 75,
+      "role": "typography",
+      "z_order": 20,
+      "rect": {
+        "x": 120,
+        "y": 150,
+        "w": 1000,
+        "h": 180
+      },
+      "opacity": 1.0,
+      "fill": null,
+      "text_style": {
+        "font_family": "Inter",
+        "size_px": 86,
+        "weight": 700,
+        "color": "#132A3A",
+        "align": "left",
+        "line_height": 1.08,
+        "tracking": -1.0,
+        "max_lines": 2
+      },
+      "motion": [],
+      "effect": null,
+      "effect_spec": null,
+      "anchor": "top-left",
+      "rotation_deg": 0.0,
+      "acceptance": "CP-01 renders exactly, inside the safe area, with no clipping or unintended line break at final phone scale.",
+      "non_occluding": false,
+      "protected": true,
+      "protected_regions": [],
+      "binding_kind": "copy",
+      "binding_ref": "CP-01",
+      "exactness": "proposed_copy",
+      "required": true,
+      "allowed_edits": [
+        "none without renewed approval"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-014",
+      "shot_id": "SH-01",
+      "start_frame": 0,
+      "end_frame": 75,
+      "role": "caption_plate",
+      "z_order": 25,
+      "rect": {
+        "x": 110,
+        "y": 880,
+        "w": 1320,
+        "h": 110
+      },
+      "opacity": 0.88,
+      "fill": "#F7F3EC",
+      "text_style": null,
+      "motion": [],
+      "effect": null,
+      "effect_spec": null,
+      "anchor": "top-left",
+      "rotation_deg": 0.0,
+      "acceptance": "Plate provides contrast behind the copy and does not cover any protected product region.",
+      "non_occluding": false,
+      "protected": false,
+      "protected_regions": [],
+      "binding_kind": "none",
+      "binding_ref": null,
+      "exactness": "illustrative",
+      "required": true,
+      "allowed_edits": [
+        "height",
+        "opacity"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-015",
+      "shot_id": "SH-01",
+      "start_frame": 0,
+      "end_frame": 75,
+      "role": "caption",
+      "z_order": 30,
+      "rect": {
+        "x": 120,
+        "y": 900,
+        "w": 1300,
+        "h": 70
+      },
+      "opacity": 1.0,
+      "fill": null,
+      "text_style": {
+        "font_family": "Inter",
+        "size_px": 38,
+        "weight": 700,
+        "color": "#132A3A",
+        "align": "left",
+        "line_height": 1.08,
+        "tracking": -1.0,
+        "max_lines": 2
+      },
+      "motion": [],
+      "effect": null,
+      "effect_spec": null,
+      "anchor": "top-left",
+      "rotation_deg": 0.0,
+      "acceptance": "CP-07 renders exactly, inside the safe area, with no clipping or unintended line break at final phone scale.",
+      "non_occluding": false,
+      "protected": false,
+      "protected_regions": [],
+      "binding_kind": "copy",
+      "binding_ref": "CP-07",
+      "exactness": "proposed_copy",
+      "required": true,
+      "allowed_edits": [
+        "position within safe area",
+        "size within 10 percent",
+        "colour grade"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-020",
+      "shot_id": "SH-02",
+      "start_frame": 0,
+      "end_frame": 85,
+      "role": "background",
+      "z_order": 0,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "w": 1920,
+        "h": 1080
+      },
+      "opacity": 1.0,
+      "fill": null,
+      "text_style": null,
+      "motion": [],
+      "effect": null,
+      "effect_spec": null,
+      "anchor": "top-left",
+      "rotation_deg": 0.0,
+      "acceptance": "AS-07 reads clearly in the background layer; the protected region remains unobstructed at final phone scale.",
+      "non_occluding": false,
+      "protected": false,
+      "protected_regions": [],
+      "binding_kind": "asset",
+      "binding_ref": "AS-07",
+      "exactness": "illustrative",
+      "required": true,
+      "allowed_edits": [
+        "colour grade",
+        "timing within 4 frames",
+        "crop within 5 percent"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-021",
+      "shot_id": "SH-02",
+      "start_frame": 0,
+      "end_frame": 85,
+      "role": "subject",
+      "z_order": 10,
+      "rect": {
+        "x": 160,
+        "y": 70,
+        "w": 1040,
+        "h": 900
+      },
+      "opacity": 1.0,
+      "fill": null,
+      "text_style": null,
+      "motion": [],
+      "effect": null,
+      "effect_spec": null,
+      "anchor": "top-left",
+      "rotation_deg": 0.0,
+      "acceptance": "AS-05 reads clearly in the subject layer; the protected region remains unobstructed at final phone scale.",
+      "non_occluding": false,
+      "protected": false,
+      "protected_regions": [],
+      "binding_kind": "asset",
+      "binding_ref": "AS-05",
+      "exactness": "illustrative",
+      "required": true,
+      "allowed_edits": [
+        "colour grade",
+        "timing within 4 frames",
+        "crop within 5 percent"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-022",
+      "shot_id": "SH-02",
+      "start_frame": 0,
+      "end_frame": 85,
+      "role": "product",
+      "z_order": 12,
+      "rect": {
+        "x": 1360,
+        "y": 120,
+        "w": 440,
+        "h": 440
+      },
+      "opacity": 1.0,
+      "fill": null,
+      "text_style": null,
+      "motion": [],
+      "effect": null,
+      "effect_spec": null,
+      "anchor": "top-left",
+      "rotation_deg": 0.0,
+      "acceptance": "AS-02 reads clearly in the product layer; the protected region remains unobstructed at final phone scale.",
+      "non_occluding": false,
+      "protected": false,
+      "protected_regions": [
+        {
+          "x": 1390,
+          "y": 240,
+          "w": 380,
+          "h": 220
+        }
+      ],
+      "binding_kind": "asset",
+      "binding_ref": "AS-02",
+      "exactness": "exact",
+      "required": true,
+      "allowed_edits": [
+        "colour grade",
+        "timing within 4 frames",
+        "crop within 5 percent"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-023",
+      "shot_id": "SH-02",
+      "start_frame": 0,
+      "end_frame": 85,
+      "role": "typography",
+      "z_order": 20,
+      "rect": {
+        "x": 120,
+        "y": 120,
+        "w": 900,
+        "h": 160
+      },
+      "opacity": 1.0,
+      "fill": null,
+      "text_style": {
+        "font_family": "Inter",
+        "size_px": 82,
+        "weight": 700,
+        "color": "#132A3A",
+        "align": "left",
+        "line_height": 1.08,
+        "tracking": -1.0,
+        "max_lines": 2
+      },
+      "motion": [],
+      "effect": null,
+      "effect_spec": null,
+      "anchor": "top-left",
+      "rotation_deg": 0.0,
+      "acceptance": "CP-03 renders exactly, inside the safe area, with no clipping or unintended line break at final phone scale.",
+      "non_occluding": false,
+      "protected": true,
+      "protected_regions": [],
+      "binding_kind": "copy",
+      "binding_ref": "CP-03",
+      "exactness": "proposed_copy",
+      "required": true,
+      "allowed_edits": [
+        "none without renewed approval"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-024",
+      "shot_id": "SH-02",
+      "start_frame": 0,
+      "end_frame": 85,
+      "role": "caption_plate",
+      "z_order": 25,
+      "rect": {
+        "x": 110,
+        "y": 880,
+        "w": 1320,
+        "h": 110
+      },
+      "opacity": 0.88,
+      "fill": "#F7F3EC",
+      "text_style": null,
+      "motion": [],
+      "effect": null,
+      "effect_spec": null,
+      "anchor": "top-left",
+      "rotation_deg": 0.0,
+      "acceptance": "Plate provides contrast behind the copy and does not cover any protected product region.",
+      "non_occluding": false,
+      "protected": false,
+      "protected_regions": [],
+      "binding_kind": "none",
+      "binding_ref": null,
+      "exactness": "illustrative",
+      "required": true,
+      "allowed_edits": [
+        "height",
+        "opacity"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-025",
+      "shot_id": "SH-02",
+      "start_frame": 0,
+      "end_frame": 85,
+      "role": "caption",
+      "z_order": 30,
+      "rect": {
+        "x": 120,
+        "y": 1010,
+        "w": 1300,
+        "h": 70
+      },
+      "opacity": 1.0,
+      "fill": null,
+      "text_style": {
+        "font_family": "Inter",
+        "size_px": 38,
+        "weight": 700,
+        "color": "#132A3A",
+        "align": "left",
+        "line_height": 1.08,
+        "tracking": -1.0,
+        "max_lines": 2
+      },
+      "motion": [],
+      "effect": null,
+      "effect_spec": null,
+      "anchor": "top-left",
+      "rotation_deg": 0.0,
+      "acceptance": "CP-08 renders exactly, inside the safe area, with no clipping or unintended line break at final phone scale.",
+      "non_occluding": false,
+      "protected": false,
+      "protected_regions": [],
+      "binding_kind": "copy",
+      "binding_ref": "CP-08",
+      "exactness": "proposed_copy",
+      "required": true,
+      "allowed_edits": [
+        "position within safe area",
+        "size within 10 percent",
+        "colour grade"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-030",
+      "shot_id": "SH-03",
+      "start_frame": 0,
+      "end_frame": 115,
+      "role": "background",
+      "z_order": 0,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "w": 1920,
+        "h": 1080
+      },
+      "opacity": 1.0,
+      "fill": null,
+      "text_style": null,
+      "motion": [],
+      "effect": null,
+      "effect_spec": null,
+      "anchor": "top-left",
+      "rotation_deg": 0.0,
+      "acceptance": "AS-07 reads clearly in the background layer; the protected region remains unobstructed at final phone scale.",
+      "non_occluding": false,
+      "protected": false,
+      "protected_regions": [],
+      "binding_kind": "asset",
+      "binding_ref": "AS-07",
+      "exactness": "illustrative",
+      "required": true,
+      "allowed_edits": [
+        "colour grade",
+        "timing within 4 frames",
+        "crop within 5 percent"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-031",
+      "shot_id": "SH-03",
+      "start_frame": 0,
+      "end_frame": 115,
+      "role": "subject",
+      "z_order": 10,
+      "rect": {
+        "x": 0,
+        "y": 70,
+        "w": 1200,
+        "h": 900
+      },
+      "opacity": 1.0,
+      "fill": null,
+      "text_style": null,
+      "motion": [],
+      "effect": null,
+      "effect_spec": null,
+      "anchor": "top-left",
+      "rotation_deg": 0.0,
+      "acceptance": "AS-06 reads clearly in the subject layer; the protected region remains unobstructed at final phone scale.",
+      "non_occluding": false,
+      "protected": false,
+      "protected_regions": [],
+      "binding_kind": "asset",
+      "binding_ref": "AS-06",
+      "exactness": "illustrative",
+      "required": true,
+      "allowed_edits": [
+        "colour grade",
+        "timing within 4 frames",
+        "crop within 5 percent"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-032",
+      "shot_id": "SH-03",
+      "start_frame": 0,
+      "end_frame": 115,
+      "role": "product",
+      "z_order": 12,
+      "rect": {
+        "x": 1350,
+        "y": 180,
+        "w": 480,
+        "h": 480
+      },
+      "opacity": 1.0,
+      "fill": null,
+      "text_style": null,
+      "motion": [],
+      "effect": null,
+      "effect_spec": null,
+      "anchor": "top-left",
+      "rotation_deg": 0.0,
+      "acceptance": "AS-02 reads clearly in the product layer; the protected region remains unobstructed at final phone scale.",
+      "non_occluding": false,
+      "protected": false,
+      "protected_regions": [
+        {
+          "x": 1390,
+          "y": 300,
+          "w": 400,
+          "h": 260
+        }
+      ],
+      "binding_kind": "asset",
+      "binding_ref": "AS-02",
+      "exactness": "exact",
+      "required": true,
+      "allowed_edits": [
+        "colour grade",
+        "timing within 4 frames",
+        "crop within 5 percent"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-033",
+      "shot_id": "SH-03",
+      "start_frame": 0,
+      "end_frame": 115,
+      "role": "typography",
+      "z_order": 20,
+      "rect": {
+        "x": 120,
+        "y": 120,
+        "w": 1050,
+        "h": 160
+      },
+      "opacity": 1.0,
+      "fill": null,
+      "text_style": {
+        "font_family": "Inter",
+        "size_px": 78,
+        "weight": 700,
+        "color": "#132A3A",
+        "align": "left",
+        "line_height": 1.08,
+        "tracking": -1.0,
+        "max_lines": 2
+      },
+      "motion": [],
+      "effect": null,
+      "effect_spec": null,
+      "anchor": "top-left",
+      "rotation_deg": 0.0,
+      "acceptance": "CP-02 renders exactly, inside the safe area, with no clipping or unintended line break at final phone scale.",
+      "non_occluding": false,
+      "protected": true,
+      "protected_regions": [],
+      "binding_kind": "copy",
+      "binding_ref": "CP-02",
+      "exactness": "proposed_copy",
+      "required": true,
+      "allowed_edits": [
+        "none without renewed approval"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-034",
+      "shot_id": "SH-03",
+      "start_frame": 0,
+      "end_frame": 115,
+      "role": "caption_plate",
+      "z_order": 25,
+      "rect": {
+        "x": 110,
+        "y": 880,
+        "w": 1320,
+        "h": 110
+      },
+      "opacity": 0.88,
+      "fill": "#F7F3EC",
+      "text_style": null,
+      "motion": [],
+      "effect": null,
+      "effect_spec": null,
+      "anchor": "top-left",
+      "rotation_deg": 0.0,
+      "acceptance": "Plate provides contrast behind the copy and does not cover any protected product region.",
+      "non_occluding": false,
+      "protected": false,
+      "protected_regions": [],
+      "binding_kind": "none",
+      "binding_ref": null,
+      "exactness": "illustrative",
+      "required": true,
+      "allowed_edits": [
+        "height",
+        "opacity"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-035",
+      "shot_id": "SH-03",
+      "start_frame": 0,
+      "end_frame": 115,
+      "role": "caption",
+      "z_order": 30,
+      "rect": {
+        "x": 120,
+        "y": 900,
+        "w": 1300,
+        "h": 70
+      },
+      "opacity": 1.0,
+      "fill": null,
+      "text_style": {
+        "font_family": "Inter",
+        "size_px": 38,
+        "weight": 700,
+        "color": "#132A3A",
+        "align": "left",
+        "line_height": 1.08,
+        "tracking": -1.0,
+        "max_lines": 2
+      },
+      "motion": [],
+      "effect": null,
+      "effect_spec": null,
+      "anchor": "top-left",
+      "rotation_deg": 0.0,
+      "acceptance": "CP-09 renders exactly, inside the safe area, with no clipping or unintended line break at final phone scale.",
+      "non_occluding": false,
+      "protected": false,
+      "protected_regions": [],
+      "binding_kind": "copy",
+      "binding_ref": "CP-09",
+      "exactness": "proposed_copy",
+      "required": true,
+      "allowed_edits": [
+        "position within safe area",
+        "size within 10 percent",
+        "colour grade"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-040",
+      "shot_id": "SH-04",
+      "start_frame": 0,
+      "end_frame": 105,
+      "role": "background",
+      "z_order": 0,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "w": 1920,
+        "h": 1080
+      },
+      "opacity": 1.0,
+      "fill": null,
+      "text_style": null,
+      "motion": [],
+      "effect": null,
+      "effect_spec": null,
+      "anchor": "top-left",
+      "rotation_deg": 0.0,
+      "acceptance": "AS-07 reads clearly in the background layer; the protected region remains unobstructed at final phone scale.",
+      "non_occluding": false,
+      "protected": false,
+      "protected_regions": [],
+      "binding_kind": "asset",
+      "binding_ref": "AS-07",
+      "exactness": "illustrative",
+      "required": true,
+      "allowed_edits": [
+        "colour grade",
+        "timing within 4 frames",
+        "crop within 5 percent"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-041",
+      "shot_id": "SH-04",
+      "start_frame": 0,
+      "end_frame": 105,
+      "role": "product",
+      "z_order": 10,
+      "rect": {
+        "x": 90,
+        "y": 230,
+        "w": 400,
+        "h": 430
+      },
+      "opacity": 1.0,
+      "fill": null,
+      "text_style": null,
+      "motion": [
+        {
+          "frame": 0,
+          "x": null,
+          "y": 250.0,
+          "scale": null,
+          "opacity": 0.0,
+          "easing": "linear"
+        },
+        {
+          "frame": 10,
+          "x": null,
+          "y": 230.0,
+          "scale": null,
+          "opacity": 1.0,
+          "easing": "ease_out"
+        }
+      ],
+      "effect": null,
+      "effect_spec": null,
+      "anchor": "top-left",
+      "rotation_deg": 0.0,
+      "acceptance": "AS-02 reads clearly in the product layer; the protected region remains unobstructed at final phone scale.",
+      "non_occluding": false,
+      "protected": false,
+      "protected_regions": [
+        {
+          "x": 115,
+          "y": 340,
+          "w": 350,
+          "h": 220
+        }
+      ],
+      "binding_kind": "asset",
+      "binding_ref": "AS-02",
+      "exactness": "exact",
+      "required": true,
+      "allowed_edits": [
+        "colour grade",
+        "timing within 4 frames",
+        "crop within 5 percent"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-042",
+      "shot_id": "SH-04",
+      "start_frame": 0,
+      "end_frame": 105,
+      "role": "product",
+      "z_order": 11,
+      "rect": {
+        "x": 540,
+        "y": 230,
+        "w": 400,
+        "h": 430
+      },
+      "opacity": 1.0,
+      "fill": null,
+      "text_style": null,
+      "motion": [
+        {
+          "frame": 6,
+          "x": null,
+          "y": 250.0,
+          "scale": null,
+          "opacity": 0.0,
+          "easing": "linear"
+        },
+        {
+          "frame": 16,
+          "x": null,
+          "y": 230.0,
+          "scale": null,
+          "opacity": 1.0,
+          "easing": "ease_out"
+        }
+      ],
+      "effect": null,
+      "effect_spec": null,
+      "anchor": "top-left",
+      "rotation_deg": 0.0,
+      "acceptance": "AS-03 reads clearly in the product layer; the protected region remains unobstructed at final phone scale.",
+      "non_occluding": false,
+      "protected": false,
+      "protected_regions": [
+        {
+          "x": 565,
+          "y": 340,
+          "w": 350,
+          "h": 220
+        }
+      ],
+      "binding_kind": "asset",
+      "binding_ref": "AS-03",
+      "exactness": "exact",
+      "required": true,
+      "allowed_edits": [
+        "colour grade",
+        "timing within 4 frames",
+        "crop within 5 percent"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-043",
+      "shot_id": "SH-04",
+      "start_frame": 0,
+      "end_frame": 105,
+      "role": "product",
+      "z_order": 12,
+      "rect": {
+        "x": 990,
+        "y": 230,
+        "w": 400,
+        "h": 430
+      },
+      "opacity": 1.0,
+      "fill": null,
+      "text_style": null,
+      "motion": [
+        {
+          "frame": 12,
+          "x": null,
+          "y": 250.0,
+          "scale": null,
+          "opacity": 0.0,
+          "easing": "linear"
+        },
+        {
+          "frame": 22,
+          "x": null,
+          "y": 230.0,
+          "scale": null,
+          "opacity": 1.0,
+          "easing": "ease_out"
+        }
+      ],
+      "effect": null,
+      "effect_spec": null,
+      "anchor": "top-left",
+      "rotation_deg": 0.0,
+      "acceptance": "AS-04 reads clearly in the product layer; the protected region remains unobstructed at final phone scale.",
+      "non_occluding": false,
+      "protected": false,
+      "protected_regions": [
+        {
+          "x": 1015,
+          "y": 340,
+          "w": 350,
+          "h": 220
+        }
+      ],
+      "binding_kind": "asset",
+      "binding_ref": "AS-04",
+      "exactness": "exact",
+      "required": true,
+      "allowed_edits": [
+        "colour grade",
+        "timing within 4 frames",
+        "crop within 5 percent"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-047",
+      "shot_id": "SH-04",
+      "start_frame": 0,
+      "end_frame": 105,
+      "role": "product",
+      "z_order": 13,
+      "rect": {
+        "x": 1440,
+        "y": 230,
+        "w": 400,
+        "h": 430
+      },
+      "opacity": 1.0,
+      "fill": null,
+      "text_style": null,
+      "motion": [
+        {
+          "frame": 18,
+          "x": null,
+          "y": 250.0,
+          "scale": null,
+          "opacity": 0.0,
+          "easing": "linear"
+        },
+        {
+          "frame": 28,
+          "x": null,
+          "y": 230.0,
+          "scale": null,
+          "opacity": 1.0,
+          "easing": "ease_out"
+        }
+      ],
+      "effect": null,
+      "effect_spec": null,
+      "anchor": "top-left",
+      "rotation_deg": 0.0,
+      "acceptance": "AS-17 reads clearly in the product layer; the protected region remains unobstructed at final phone scale.",
+      "non_occluding": false,
+      "protected": false,
+      "protected_regions": [
+        {
+          "x": 1465,
+          "y": 340,
+          "w": 350,
+          "h": 220
+        }
+      ],
+      "binding_kind": "asset",
+      "binding_ref": "AS-17",
+      "exactness": "exact",
+      "required": true,
+      "allowed_edits": [
+        "colour grade",
+        "timing within 4 frames",
+        "crop within 5 percent"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-044",
+      "shot_id": "SH-04",
+      "start_frame": 0,
+      "end_frame": 105,
+      "role": "typography",
+      "z_order": 20,
+      "rect": {
+        "x": 120,
+        "y": 120,
+        "w": 1200,
+        "h": 150
+      },
+      "opacity": 1.0,
+      "fill": null,
+      "text_style": {
+        "font_family": "Inter",
+        "size_px": 86,
+        "weight": 700,
+        "color": "#132A3A",
+        "align": "left",
+        "line_height": 1.08,
+        "tracking": -1.0,
+        "max_lines": 2
+      },
+      "motion": [],
+      "effect": null,
+      "effect_spec": null,
+      "anchor": "top-left",
+      "rotation_deg": 0.0,
+      "acceptance": "CP-04 renders exactly, inside the safe area, with no clipping or unintended line break at final phone scale.",
+      "non_occluding": false,
+      "protected": true,
+      "protected_regions": [],
+      "binding_kind": "copy",
+      "binding_ref": "CP-04",
+      "exactness": "proposed_copy",
+      "required": true,
+      "allowed_edits": [
+        "none without renewed approval"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-045",
+      "shot_id": "SH-04",
+      "start_frame": 0,
+      "end_frame": 105,
+      "role": "caption_plate",
+      "z_order": 25,
+      "rect": {
+        "x": 110,
+        "y": 880,
+        "w": 1320,
+        "h": 110
+      },
+      "opacity": 0.88,
+      "fill": "#F7F3EC",
+      "text_style": null,
+      "motion": [],
+      "effect": null,
+      "effect_spec": null,
+      "anchor": "top-left",
+      "rotation_deg": 0.0,
+      "acceptance": "Plate provides contrast behind the copy and does not cover any protected product region.",
+      "non_occluding": false,
+      "protected": false,
+      "protected_regions": [],
+      "binding_kind": "none",
+      "binding_ref": null,
+      "exactness": "illustrative",
+      "required": true,
+      "allowed_edits": [
+        "height",
+        "opacity"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-046",
+      "shot_id": "SH-04",
+      "start_frame": 0,
+      "end_frame": 105,
+      "role": "caption",
+      "z_order": 30,
+      "rect": {
+        "x": 120,
+        "y": 900,
+        "w": 1300,
+        "h": 70
+      },
+      "opacity": 1.0,
+      "fill": null,
+      "text_style": {
+        "font_family": "Inter",
+        "size_px": 38,
+        "weight": 700,
+        "color": "#132A3A",
+        "align": "left",
+        "line_height": 1.08,
+        "tracking": -1.0,
+        "max_lines": 2
+      },
+      "motion": [],
+      "effect": null,
+      "effect_spec": null,
+      "anchor": "top-left",
+      "rotation_deg": 0.0,
+      "acceptance": "CP-10 renders exactly, inside the safe area, with no clipping or unintended line break at final phone scale.",
+      "non_occluding": false,
+      "protected": false,
+      "protected_regions": [],
+      "binding_kind": "copy",
+      "binding_ref": "CP-10",
+      "exactness": "proposed_copy",
+      "required": true,
+      "allowed_edits": [
+        "position within safe area",
+        "size within 10 percent",
+        "colour grade"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-050",
+      "shot_id": "SH-05",
+      "start_frame": 0,
+      "end_frame": 65,
+      "role": "background",
+      "z_order": 0,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "w": 1920,
+        "h": 1080
+      },
+      "opacity": 1.0,
+      "fill": null,
+      "text_style": null,
+      "motion": [],
+      "effect": null,
+      "effect_spec": null,
+      "anchor": "top-left",
+      "rotation_deg": 0.0,
+      "acceptance": "AS-07 reads clearly in the background layer; the protected region remains unobstructed at final phone scale.",
+      "non_occluding": false,
+      "protected": false,
+      "protected_regions": [],
+      "binding_kind": "asset",
+      "binding_ref": "AS-07",
+      "exactness": "illustrative",
+      "required": true,
+      "allowed_edits": [
+        "colour grade",
+        "timing within 4 frames",
+        "crop within 5 percent"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-051",
+      "shot_id": "SH-05",
+      "start_frame": 0,
+      "end_frame": 65,
+      "role": "subject",
+      "z_order": 10,
+      "rect": {
+        "x": 180,
+        "y": 140,
+        "w": 900,
+        "h": 850
+      },
+      "opacity": 1.0,
+      "fill": null,
+      "text_style": null,
+      "motion": [],
+      "effect": null,
+      "effect_spec": null,
+      "anchor": "top-left",
+      "rotation_deg": 0.0,
+      "acceptance": "AS-08 reads clearly in the subject layer; the protected region remains unobstructed at final phone scale.",
+      "non_occluding": false,
+      "protected": false,
+      "protected_regions": [],
+      "binding_kind": "asset",
+      "binding_ref": "AS-08",
+      "exactness": "illustrative",
+      "required": true,
+      "allowed_edits": [
+        "colour grade",
+        "timing within 4 frames",
+        "crop within 5 percent"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-052",
+      "shot_id": "SH-05",
+      "start_frame": 0,
+      "end_frame": 65,
+      "role": "product",
+      "z_order": 12,
+      "rect": {
+        "x": 1280,
+        "y": 180,
+        "w": 500,
+        "h": 500
+      },
+      "opacity": 1.0,
+      "fill": null,
+      "text_style": null,
+      "motion": [],
+      "effect": null,
+      "effect_spec": null,
+      "anchor": "top-left",
+      "rotation_deg": 0.0,
+      "acceptance": "AS-02 reads clearly in the product layer; the protected region remains unobstructed at final phone scale.",
+      "non_occluding": false,
+      "protected": false,
+      "protected_regions": [
+        {
+          "x": 1320,
+          "y": 300,
+          "w": 420,
+          "h": 260
+        }
+      ],
+      "binding_kind": "asset",
+      "binding_ref": "AS-02",
+      "exactness": "exact",
+      "required": true,
+      "allowed_edits": [
+        "colour grade",
+        "timing within 4 frames",
+        "crop within 5 percent"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-053",
+      "shot_id": "SH-05",
+      "start_frame": 0,
+      "end_frame": 65,
+      "role": "typography",
+      "z_order": 20,
+      "rect": {
+        "x": 120,
+        "y": 700,
+        "w": 1000,
+        "h": 100
+      },
+      "opacity": 1.0,
+      "fill": null,
+      "text_style": {
+        "font_family": "Inter",
+        "size_px": 54,
+        "weight": 700,
+        "color": "#132A3A",
+        "align": "left",
+        "line_height": 1.08,
+        "tracking": -1.0,
+        "max_lines": 2
+      },
+      "motion": [],
+      "effect": null,
+      "effect_spec": null,
+      "anchor": "top-left",
+      "rotation_deg": 0.0,
+      "acceptance": "CP-13 renders exactly, inside the safe area, with no clipping or unintended line break at final phone scale.",
+      "non_occluding": false,
+      "protected": true,
+      "protected_regions": [],
+      "binding_kind": "copy",
+      "binding_ref": "CP-13",
+      "exactness": "proposed_copy",
+      "required": true,
+      "allowed_edits": [
+        "none without renewed approval"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-054",
+      "shot_id": "SH-05",
+      "start_frame": 0,
+      "end_frame": 65,
+      "role": "caption_plate",
+      "z_order": 25,
+      "rect": {
+        "x": 110,
+        "y": 880,
+        "w": 1320,
+        "h": 110
+      },
+      "opacity": 0.88,
+      "fill": "#F7F3EC",
+      "text_style": null,
+      "motion": [],
+      "effect": null,
+      "effect_spec": null,
+      "anchor": "top-left",
+      "rotation_deg": 0.0,
+      "acceptance": "Plate provides contrast behind the copy and does not cover any protected product region.",
+      "non_occluding": false,
+      "protected": false,
+      "protected_regions": [],
+      "binding_kind": "none",
+      "binding_ref": null,
+      "exactness": "illustrative",
+      "required": true,
+      "allowed_edits": [
+        "height",
+        "opacity"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-055",
+      "shot_id": "SH-05",
+      "start_frame": 0,
+      "end_frame": 65,
+      "role": "caption",
+      "z_order": 30,
+      "rect": {
+        "x": 120,
+        "y": 900,
+        "w": 1000,
+        "h": 65
+      },
+      "opacity": 1.0,
+      "fill": null,
+      "text_style": {
+        "font_family": "Inter",
+        "size_px": 30,
+        "weight": 700,
+        "color": "#132A3A",
+        "align": "left",
+        "line_height": 1.08,
+        "tracking": -1.0,
+        "max_lines": 2
+      },
+      "motion": [],
+      "effect": null,
+      "effect_spec": null,
+      "anchor": "top-left",
+      "rotation_deg": 0.0,
+      "acceptance": "CP-12 renders exactly, inside the safe area, with no clipping or unintended line break at final phone scale.",
+      "non_occluding": false,
+      "protected": false,
+      "protected_regions": [],
+      "binding_kind": "copy",
+      "binding_ref": "CP-12",
+      "exactness": "proposed_copy",
+      "required": true,
+      "allowed_edits": [
+        "position within safe area",
+        "size within 10 percent",
+        "colour grade"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-060",
+      "shot_id": "SH-06",
+      "start_frame": 0,
+      "end_frame": 55,
+      "role": "background",
+      "z_order": 0,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "w": 1920,
+        "h": 1080
+      },
+      "opacity": 1.0,
+      "fill": null,
+      "text_style": null,
+      "motion": [],
+      "effect": null,
+      "effect_spec": null,
+      "anchor": "top-left",
+      "rotation_deg": 0.0,
+      "acceptance": "AS-07 reads clearly in the background layer; the protected region remains unobstructed at final phone scale.",
+      "non_occluding": false,
+      "protected": false,
+      "protected_regions": [],
+      "binding_kind": "asset",
+      "binding_ref": "AS-07",
+      "exactness": "illustrative",
+      "required": true,
+      "allowed_edits": [
+        "colour grade",
+        "timing within 4 frames",
+        "crop within 5 percent"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-061",
+      "shot_id": "SH-06",
+      "start_frame": 0,
+      "end_frame": 55,
+      "role": "product",
+      "z_order": 10,
+      "rect": {
+        "x": 1180,
+        "y": 100,
+        "w": 600,
+        "h": 520
+      },
+      "opacity": 1.0,
+      "fill": null,
+      "text_style": null,
+      "motion": [],
+      "effect": null,
+      "effect_spec": null,
+      "anchor": "top-left",
+      "rotation_deg": 0.0,
+      "acceptance": "AS-02 reads clearly in the product layer; the protected region remains unobstructed at final phone scale.",
+      "non_occluding": false,
+      "protected": false,
+      "protected_regions": [
+        {
+          "x": 1220,
+          "y": 230,
+          "w": 520,
+          "h": 300
+        }
+      ],
+      "binding_kind": "asset",
+      "binding_ref": "AS-02",
+      "exactness": "exact",
+      "required": true,
+      "allowed_edits": [
+        "colour grade",
+        "timing within 4 frames",
+        "crop within 5 percent"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-062",
+      "shot_id": "SH-06",
+      "start_frame": 0,
+      "end_frame": 55,
+      "role": "logo",
+      "z_order": 20,
+      "rect": {
+        "x": 150,
+        "y": 140,
+        "w": 520,
+        "h": 220
+      },
+      "opacity": 1.0,
+      "fill": null,
+      "text_style": null,
+      "motion": [],
+      "effect": null,
+      "effect_spec": null,
+      "anchor": "top-left",
+      "rotation_deg": 0.0,
+      "acceptance": "AS-01 reads clearly in the logo layer; the protected region remains unobstructed at final phone scale.",
+      "non_occluding": false,
+      "protected": true,
+      "protected_regions": [],
+      "binding_kind": "asset",
+      "binding_ref": "AS-01",
+      "exactness": "exact",
+      "required": true,
+      "allowed_edits": [
+        "colour grade",
+        "timing within 4 frames",
+        "crop within 5 percent"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-063",
+      "shot_id": "SH-06",
+      "start_frame": 0,
+      "end_frame": 55,
+      "role": "cta",
+      "z_order": 30,
+      "rect": {
+        "x": 150,
+        "y": 680,
+        "w": 900,
+        "h": 90
+      },
+      "opacity": 1.0,
+      "fill": null,
+      "text_style": {
+        "font_family": "Inter",
+        "size_px": 58,
+        "weight": 700,
+        "color": "#132A3A",
+        "align": "left",
+        "line_height": 1.08,
+        "tracking": -1.0,
+        "max_lines": 2
+      },
+      "motion": [
+        {
+          "frame": 0,
+          "x": null,
+          "y": null,
+          "scale": null,
+          "opacity": 0.0,
+          "easing": "linear"
+        },
+        {
+          "frame": 6,
+          "x": null,
+          "y": null,
+          "scale": null,
+          "opacity": 1.0,
+          "easing": "ease_out"
+        }
+      ],
+      "effect": null,
+      "effect_spec": null,
+      "anchor": "top-left",
+      "rotation_deg": 0.0,
+      "acceptance": "CP-05 renders exactly, inside the safe area, with no clipping or unintended line break at final phone scale.",
+      "non_occluding": false,
+      "protected": true,
+      "protected_regions": [],
+      "binding_kind": "copy",
+      "binding_ref": "CP-05",
+      "exactness": "proposed_copy",
+      "required": true,
+      "allowed_edits": [
+        "none without renewed approval"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-064",
+      "shot_id": "SH-06",
+      "start_frame": 0,
+      "end_frame": 55,
+      "role": "caption_plate",
+      "z_order": 25,
+      "rect": {
+        "x": 140,
+        "y": 650,
+        "w": 1320,
+        "h": 300
+      },
+      "opacity": 0.88,
+      "fill": "#F7F3EC",
+      "text_style": null,
+      "motion": [],
+      "effect": null,
+      "effect_spec": null,
+      "anchor": "top-left",
+      "rotation_deg": 0.0,
+      "acceptance": "Plate provides contrast behind the copy and does not cover any protected product region.",
+      "non_occluding": false,
+      "protected": false,
+      "protected_regions": [],
+      "binding_kind": "none",
+      "binding_ref": null,
+      "exactness": "illustrative",
+      "required": true,
+      "allowed_edits": [
+        "height",
+        "opacity"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-065",
+      "shot_id": "SH-06",
+      "start_frame": 0,
+      "end_frame": 55,
+      "role": "caption",
+      "z_order": 40,
+      "rect": {
+        "x": 150,
+        "y": 890,
+        "w": 1200,
+        "h": 60
+      },
+      "opacity": 1.0,
+      "fill": null,
+      "text_style": {
+        "font_family": "Inter",
+        "size_px": 34,
+        "weight": 700,
+        "color": "#132A3A",
+        "align": "left",
+        "line_height": 1.08,
+        "tracking": -1.0,
+        "max_lines": 2
+      },
+      "motion": [
+        {
+          "frame": 8,
+          "x": null,
+          "y": null,
+          "scale": null,
+          "opacity": 0.0,
+          "easing": "linear"
+        },
+        {
+          "frame": 14,
+          "x": null,
+          "y": null,
+          "scale": null,
+          "opacity": 1.0,
+          "easing": "ease_out"
+        }
+      ],
+      "effect": null,
+      "effect_spec": null,
+      "anchor": "top-left",
+      "rotation_deg": 0.0,
+      "acceptance": "CP-11 renders exactly, inside the safe area, with no clipping or unintended line break at final phone scale.",
+      "non_occluding": false,
+      "protected": false,
+      "protected_regions": [],
+      "binding_kind": "copy",
+      "binding_ref": "CP-11",
+      "exactness": "proposed_copy",
+      "required": true,
+      "allowed_edits": [
+        "position within safe area",
+        "size within 10 percent",
+        "colour grade"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-056",
+      "shot_id": "SH-05",
+      "start_frame": 0,
+      "end_frame": 65,
+      "role": "offer",
+      "z_order": 35,
+      "rect": {
+        "x": 120,
+        "y": 810,
+        "w": 700,
+        "h": 60
+      },
+      "opacity": 1.0,
+      "fill": null,
+      "text_style": {
+        "font_family": "Inter",
+        "size_px": 34,
+        "weight": 700,
+        "color": "#132A3A",
+        "align": "left",
+        "line_height": 1.08,
+        "tracking": -1.0,
+        "max_lines": 2
+      },
+      "motion": [],
+      "effect": null,
+      "effect_spec": null,
+      "anchor": "top-left",
+      "rotation_deg": 0.0,
+      "acceptance": "CP-06 renders exactly, inside the safe area, with no clipping or unintended line break at final phone scale.",
+      "non_occluding": false,
+      "protected": true,
+      "protected_regions": [],
+      "binding_kind": "copy",
+      "binding_ref": "CP-06",
+      "exactness": "proposed_copy",
+      "required": true,
+      "allowed_edits": [
+        "none without renewed approval"
+      ],
+      "notes": null
+    },
+    {
+      "id": "LY-036",
+      "shot_id": "SH-03",
+      "start_frame": 0,
+      "end_frame": 115,
+      "role": "subject",
+      "z_order": 9,
+      "rect": {
+        "x": 0,
+        "y": 70,
+        "w": 1200,
+        "h": 900
+      },
+      "opacity": 1.0,
+      "fill": null,
+      "text_style": null,
+      "motion": [],
+      "effect": null,
+      "effect_spec": null,
+      "anchor": "top-left",
+      "rotation_deg": 0.0,
+      "acceptance": "AS-16 reads clearly in the subject layer; the protected region remains unobstructed at final phone scale.",
+      "non_occluding": false,
+      "protected": false,
+      "protected_regions": [],
+      "binding_kind": "asset",
+      "binding_ref": "AS-16",
+      "exactness": "illustrative",
+      "required": true,
+      "allowed_edits": [
+        "colour grade",
+        "timing within 4 frames",
+        "crop within 5 percent"
+      ],
+      "notes": null
+    }
+  ],
+  "copy_blocks": [
+    {
+      "id": "CP-01",
+      "text": "SPECIALTY COFFEE.",
+      "role": "hook",
+      "exact_data_refs": [],
+      "claim_refs": [
+        "CL-01"
+      ],
+      "status": "proposed",
+      "reading_frames": 60,
+      "source": null,
+      "notes": null
+    },
+    {
+      "id": "CP-02",
+      "text": "JUST A MUG AND HOT WATER.",
+      "role": "headline",
+      "exact_data_refs": [],
+      "claim_refs": [
+        "CL-02"
+      ],
+      "status": "proposed",
+      "reading_frames": 100,
+      "source": null,
+      "notes": null
+    },
+    {
+      "id": "CP-03",
+      "text": "TEAR. ANCHOR. POUR.",
+      "role": "headline",
+      "exact_data_refs": [],
+      "claim_refs": [],
+      "status": "proposed",
+      "reading_frames": 70,
+      "source": null,
+      "notes": null
+    },
+    {
+      "id": "CP-04",
+      "text": "LIGHT TO DARK.",
+      "role": "headline",
+      "exact_data_refs": [],
+      "claim_refs": [
+        "CL-03"
+      ],
+      "status": "proposed",
+      "reading_frames": 80,
+      "source": null,
+      "notes": null
+    },
+    {
+      "id": "CP-05",
+      "text": "Shop Easy Pour",
+      "role": "cta",
+      "exact_data_refs": [
+        "ED-04"
+      ],
+      "claim_refs": [],
+      "status": "proposed",
+      "reading_frames": 50,
+      "source": null,
+      "notes": null
+    },
+    {
+      "id": "CP-07",
+      "text": "The filter is built into the sachet.",
+      "role": "caption",
+      "exact_data_refs": [],
+      "claim_refs": [
+        "CL-05"
+      ],
+      "status": "proposed",
+      "reading_frames": 65,
+      "source": null,
+      "notes": null
+    },
+    {
+      "id": "CP-08",
+      "text": "Tear, anchor, pour.",
+      "role": "caption",
+      "exact_data_refs": [],
+      "claim_refs": [],
+      "status": "proposed",
+      "reading_frames": 70,
+      "source": null,
+      "notes": null
+    },
+    {
+      "id": "CP-09",
+      "text": "Easy Pour Mixed Bag",
+      "role": "caption",
+      "exact_data_refs": [
+        "ED-01"
+      ],
+      "claim_refs": [],
+      "status": "proposed",
+      "reading_frames": 90,
+      "source": null,
+      "notes": null
+    },
+    {
+      "id": "CP-10",
+      "text": "Seethargundu · Attikan · Vienna",
+      "role": "caption",
+      "exact_data_refs": [],
+      "claim_refs": [
+        "CL-04",
+        "CL-06",
+        "CL-07"
+      ],
+      "status": "proposed",
+      "reading_frames": 90,
+      "source": null,
+      "notes": null
+    },
+    {
+      "id": "CP-11",
+      "text": "Blue Tokai Coffee Roasters",
+      "role": "caption",
+      "exact_data_refs": [
+        "ED-05"
+      ],
+      "claim_refs": [],
+      "status": "proposed",
+      "reading_frames": 50,
+      "source": null,
+      "notes": null
+    },
+    {
+      "id": "CP-12",
+      "text": "Brew sequence compressed.",
+      "role": "disclaimer",
+      "exact_data_refs": [],
+      "claim_refs": [],
+      "status": "proposed",
+      "reading_frames": 55,
+      "source": null,
+      "notes": "Required because the real method includes repeated pours and a two-minute steep; the whole action is compressed, not only the steep."
+    },
+    {
+      "id": "CP-13",
+      "text": "One mug. One sachet. One cup.",
+      "role": "headline",
+      "exact_data_refs": [],
+      "claim_refs": [],
+      "status": "proposed",
+      "reading_frames": 55,
+      "source": null,
+      "notes": null
+    },
+    {
+      "id": "CP-06",
+      "text": "MIXED BAG · ₹300",
+      "role": "offer",
+      "exact_data_refs": [
+        "ED-02"
+      ],
+      "claim_refs": [],
+      "status": "held",
+      "reading_frames": 55,
+      "source": null,
+      "notes": "Observed price; hero pack size and advertising use are unconfirmed."
+    }
+  ],
+  "exact_data": [
+    {
+      "id": "ED-01",
+      "field": "product_name",
+      "value": "Easy Pour | Light to Dark Roasts — Mixed Bag",
+      "status": "observed",
+      "source_id": "SRC-02",
+      "evidence_locator": "Product title",
+      "approved_by": null,
+      "approved_at": null,
+      "expires_at": null,
+      "notes": "Brand product name; Gate 1 must approve the identifier."
+    },
+    {
+      "id": "ED-02",
+      "field": "price",
+      "value": "Pack of 5: Rs 300; Pack of 10: Rs 500",
+      "status": "observed",
+      "source_id": "SRC-02",
+      "evidence_locator": "Variant selector and price block",
+      "approved_by": null,
+      "approved_at": null,
+      "expires_at": null,
+      "notes": "Variant-dependent. Not approved for advertising."
+    },
+    {
+      "id": "ED-03",
+      "field": "pack_size",
+      "value": "Pack of 5 sachets / Pack of 10 sachets",
+      "status": "observed",
+      "source_id": "SRC-02",
+      "evidence_locator": "Size selector",
+      "approved_by": null,
+      "approved_at": null,
+      "expires_at": null,
+      "notes": "Hero pack size has not been chosen."
+    },
+    {
+      "id": "ED-04",
+      "field": "cta",
+      "value": "Shop Easy Pour",
+      "status": "proposed",
+      "source_id": null,
+      "evidence_locator": null,
+      "approved_by": null,
+      "approved_at": null,
+      "expires_at": null,
+      "notes": "Brief-supplied CTA. Gate 1 must approve the exact wording."
+    },
+    {
+      "id": "ED-05",
+      "field": "brand_name",
+      "value": "Blue Tokai Coffee Roasters",
+      "status": "observed",
+      "source_id": "SRC-01",
+      "evidence_locator": "Header logo and footer",
+      "approved_by": null,
+      "approved_at": null,
+      "expires_at": null,
+      "notes": "Brand identifier observed on the storefront."
+    }
+  ],
+  "claims": [
+    {
+      "id": "CL-01",
+      "text": "Specialty coffee",
+      "status": "verified",
+      "source_ids": [
+        "SRC-02"
+      ],
+      "evidence_locator": "Product and collection copy",
+      "approved_wording": "specialty coffee",
+      "limitations": "Category descriptor; not a superiority claim.",
+      "used_in": [
+        "CP-01"
+      ]
+    },
+    {
+      "id": "CL-02",
+      "text": "No equipment; just a mug and hot water",
+      "status": "verified",
+      "source_ids": [
+        "SRC-05"
+      ],
+      "evidence_locator": "Brewing instructions and FAQ",
+      "approved_wording": "just a mug and hot water",
+      "limitations": "Refers to the Easy Pour sachet brewing method, not all coffee.",
+      "used_in": [
+        "CP-02"
+      ]
+    },
+    {
+      "id": "CL-03",
+      "text": "The Mixed Bag spans light to dark roasts",
+      "status": "verified",
+      "source_ids": [
+        "SRC-02"
+      ],
+      "evidence_locator": "Product description",
+      "approved_wording": "light to dark",
+      "limitations": "Describes the assortment, not every pack having equal quantities.",
+      "used_in": [
+        "CP-04"
+      ]
+    },
+    {
+      "id": "CL-04",
+      "text": "Vienna is a dark roast",
+      "status": "verified",
+      "source_ids": [
+        "SRC-03"
+      ],
+      "evidence_locator": "Product title and roast panel",
+      "approved_wording": "Vienna",
+      "limitations": "Product name only; bitterness language is not used.",
+      "used_in": [
+        "CP-10"
+      ]
+    },
+    {
+      "id": "CL-05",
+      "text": "The filter is built into the sachet",
+      "status": "verified",
+      "source_ids": [
+        "SRC-05"
+      ],
+      "evidence_locator": "Brewing instructions",
+      "approved_wording": "filter is built into the sachet",
+      "limitations": "Describes the sachet construction; not a durability claim.",
+      "used_in": [
+        "CP-07"
+      ]
+    },
+    {
+      "id": "CL-06",
+      "text": "Attikan Estate is a medium-dark roast",
+      "status": "verified",
+      "source_ids": [
+        "SRC-04"
+      ],
+      "evidence_locator": "Product title and roast panel",
+      "approved_wording": "Attikan",
+      "limitations": "Product name only; tasting notes are not used.",
+      "used_in": [
+        "CP-10"
+      ]
+    },
+    {
+      "id": "CL-07",
+      "text": "Seethargundu Estate is a light roast",
+      "status": "verified",
+      "source_ids": [
+        "SRC-02",
+        "SRC-05"
+      ],
+      "evidence_locator": "Mixed Bag product description / Easy Pour selection guide",
+      "approved_wording": "Seethargundu",
+      "limitations": "Product name only; the full roast guide is not quoted.",
+      "used_in": [
+        "CP-10"
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "id": "AS-01",
+      "version": "1.0",
+      "name": "Blue Tokai Coffee Roasters logo",
+      "description": "Blue Tokai footer logo from the public storefront. This is an observed reference, not a supplied master; the brand must provide the production master and written paid-media approval.",
+      "route": "supplied",
+      "source": "https://bluetokaicoffee.com/cdn/shop/files/logo-footer.png?v=1688108473",
+      "generation_spec": null,
+      "rights": {
+        "status": "needs_approval",
+        "licence_name": "Brand logo advertising licence (pending)",
+        "licence_url": null,
+        "attribution": null,
+        "commercial_use": true,
+        "modification": true,
+        "editorial_only": false,
+        "consent_ref": null,
+        "ai_generated": false,
+        "disclosure_required": false,
+        "notes": "Observed public logo URL; paid-media use needs written approval."
+      },
+      "tech": {
+        "format": "PNG",
+        "width": null,
+        "height": null,
+        "transparency": true,
+        "orientation": "landscape",
+        "fps": null,
+        "duration_frames": null,
+        "notes": "Use the largest available master; do not upscale a thumbnail."
+      },
+      "exactness": "exact",
+      "allowed_edits": [
+        "scale proportionally"
+      ],
+      "dependencies": [],
+      "estimate_id": null,
+      "fallback_asset_id": null,
+      "fallback_required": false,
+      "acceptance": "Logo edges clean at end-card size; proportions and colour match the supplied master.",
+      "used_by": [
+        "LY-062"
+      ],
+      "status": "pending",
+      "notes": null
+    },
+    {
+      "id": "AS-02",
+      "version": "1.0",
+      "name": "Easy Pour Mixed Bag pack",
+      "description": "Front pack of Mixed | Light to Dark Roasts - Easy Pour. The title, roast descriptor and Blue Tokai mark must remain legible.",
+      "route": "supplied",
+      "source": "https://bluetokaicoffee.com/cdn/shop/files/MixedBag__Front_c9b610f1-ce4a-4b53-8b30-f6ca758eb6bb.jpg?v=1717566490",
+      "generation_spec": null,
+      "rights": {
+        "status": "needs_approval",
+        "licence_name": "Brand pack advertising licence (pending)",
+        "licence_url": null,
+        "attribution": null,
+        "commercial_use": true,
+        "modification": true,
+        "editorial_only": false,
+        "consent_ref": null,
+        "ai_generated": false,
+        "disclosure_required": false,
+        "notes": "Observed public product image; written advertising use is pending."
+      },
+      "tech": {
+        "format": "JPEG",
+        "width": 1800,
+        "height": 1800,
+        "transparency": false,
+        "orientation": "square",
+        "fps": null,
+        "duration_frames": null,
+        "notes": "Crop only to the pack edge; do not crop the front label."
+      },
+      "exactness": "exact",
+      "allowed_edits": [
+        "background removal",
+        "drop shadow",
+        "colour match to grade"
+      ],
+      "dependencies": [],
+      "estimate_id": "ES-05",
+      "fallback_asset_id": "AS-13",
+      "fallback_required": true,
+      "acceptance": "Front title, ‘Light to Dark Roasts’ and Blue Tokai mark readable at phone scale; no label crop.",
+      "used_by": [
+        "LY-011",
+        "LY-022",
+        "LY-032",
+        "LY-041",
+        "LY-052",
+        "LY-061"
+      ],
+      "status": "pending",
+      "notes": null
+    },
+    {
+      "id": "AS-03",
+      "version": "1.0",
+      "name": "Easy Pour Vienna pack",
+      "description": "Front pack of Vienna | Dark Roast - Easy Pour.",
+      "route": "supplied",
+      "source": "https://bluetokaicoffee.com/cdn/shop/files/ViennaRoast__Front_1_a175faba-8e5f-40b8-aaa1-0efc3a525321.jpg?v=1717565466",
+      "generation_spec": null,
+      "rights": {
+        "status": "needs_approval",
+        "licence_name": "Brand pack advertising licence (pending)",
+        "licence_url": null,
+        "attribution": null,
+        "commercial_use": true,
+        "modification": true,
+        "editorial_only": false,
+        "consent_ref": null,
+        "ai_generated": false,
+        "disclosure_required": false,
+        "notes": "Observed public product image; advertising use pending."
+      },
+      "tech": {
+        "format": "JPEG",
+        "width": 1800,
+        "height": 1800,
+        "transparency": false,
+        "orientation": "square",
+        "fps": null,
+        "duration_frames": null,
+        "notes": "Front pack only; keep the roast descriptor visible."
+      },
+      "exactness": "exact",
+      "allowed_edits": [
+        "background removal",
+        "colour match to grade"
+      ],
+      "dependencies": [],
+      "estimate_id": "ES-07",
+      "fallback_asset_id": null,
+      "fallback_required": false,
+      "acceptance": "Vienna name and dark-roast descriptor readable; no label crop.",
+      "used_by": [
+        "LY-042"
+      ],
+      "status": "pending",
+      "notes": null
+    },
+    {
+      "id": "AS-04",
+      "version": "1.0",
+      "name": "Easy Pour Attikan Estate pack",
+      "description": "Front pack of Attikan Estate | Medium-Dark Roast - Easy Pour.",
+      "route": "supplied",
+      "source": "https://bluetokaicoffee.com/cdn/shop/files/AttikanEstate__Front.jpg?v=1764321548",
+      "generation_spec": null,
+      "rights": {
+        "status": "needs_approval",
+        "licence_name": "Brand pack advertising licence (pending)",
+        "licence_url": null,
+        "attribution": null,
+        "commercial_use": true,
+        "modification": true,
+        "editorial_only": false,
+        "consent_ref": null,
+        "ai_generated": false,
+        "disclosure_required": false,
+        "notes": "Observed public product image; advertising use pending."
+      },
+      "tech": {
+        "format": "JPEG",
+        "width": 1800,
+        "height": 1800,
+        "transparency": false,
+        "orientation": "square",
+        "fps": null,
+        "duration_frames": null,
+        "notes": "Front pack only; keep the roast descriptor visible."
+      },
+      "exactness": "exact",
+      "allowed_edits": [
+        "background removal",
+        "colour match to grade"
+      ],
+      "dependencies": [],
+      "estimate_id": "ES-07",
+      "fallback_asset_id": null,
+      "fallback_required": false,
+      "acceptance": "Attikan name and medium-dark descriptor readable; no label crop.",
+      "used_by": [
+        "LY-043"
+      ],
+      "status": "pending",
+      "notes": null
+    },
+    {
+      "id": "AS-17",
+      "version": "1.0",
+      "name": "Easy Pour Seethargundu Estate pack",
+      "description": "Front pack of Seethargundu Estate | Light Roast - Easy Pour.",
+      "route": "supplied",
+      "source": "https://bluetokaicoffee.com/cdn/shop/files/Seethargundu-Estate__Front_1.jpg?v=1764321548",
+      "generation_spec": null,
+      "rights": {
+        "status": "needs_approval",
+        "licence_name": "Brand pack advertising licence (pending)",
+        "licence_url": null,
+        "attribution": null,
+        "commercial_use": true,
+        "modification": true,
+        "editorial_only": false,
+        "consent_ref": null,
+        "ai_generated": false,
+        "disclosure_required": false,
+        "notes": "Observed public product image; advertising use pending."
+      },
+      "tech": {
+        "format": "JPEG",
+        "width": 1800,
+        "height": 1800,
+        "transparency": false,
+        "orientation": "square",
+        "fps": null,
+        "duration_frames": null,
+        "notes": "Front pack only; keep the light-roast descriptor visible."
+      },
+      "exactness": "exact",
+      "allowed_edits": [
+        "background removal",
+        "colour match to grade"
+      ],
+      "dependencies": [],
+      "estimate_id": "ES-07",
+      "fallback_asset_id": null,
+      "fallback_required": false,
+      "acceptance": "Seethargundu name and light-roast descriptor readable; no label crop.",
+      "used_by": [
+        "LY-047"
+      ],
+      "status": "pending",
+      "notes": null
+    },
+    {
+      "id": "AS-05",
+      "version": "1.0",
+      "name": "Easy Pour brewing demonstration, hands",
+      "description": "Controlled kitchen demonstration: lift the sachet, tear the outer pack, open the built-in filter, anchor it on a 180-200 ml mug. Hands only; no face required.",
+      "route": "to_capture",
+      "source": "In-house food shoot",
+      "generation_spec": null,
+      "rights": {
+        "status": "needs_approval",
+        "licence_name": "Talent and hand release (pending)",
+        "licence_url": null,
+        "attribution": null,
+        "commercial_use": true,
+        "modification": true,
+        "editorial_only": false,
+        "consent_ref": "Hand model release pending",
+        "ai_generated": false,
+        "disclosure_required": false,
+        "notes": "A performer's hands appear on camera."
+      },
+      "tech": {
+        "format": "ProRes 422 HQ",
+        "width": 3840,
+        "height": 2160,
+        "transparency": false,
+        "orientation": "any",
+        "fps": 25,
+        "duration_frames": 170,
+        "notes": "Shoot 4K for a 1080p master crop; 180-degree shutter."
+      },
+      "exactness": "illustrative",
+      "allowed_edits": [
+        "trim",
+        "speed within 10 percent",
+        "colour grade"
+      ],
+      "dependencies": [
+        "AS-02"
+      ],
+      "estimate_id": "ES-06",
+      "fallback_asset_id": null,
+      "fallback_required": false,
+      "acceptance": "Tear, open and anchor actions are physically correct and match the brand instructions.",
+      "used_by": [
+        "LY-021"
+      ],
+      "status": "pending",
+      "notes": null
+    },
+    {
+      "id": "AS-06",
+      "version": "1.0",
+      "name": "Hot water pour and bloom footage",
+      "description": "Macro hot water hitting the coffee bed inside the anchored filter; visible bloom and drip into the mug.",
+      "route": "to_capture",
+      "source": "In-house food shoot",
+      "generation_spec": null,
+      "rights": {
+        "status": "needs_approval",
+        "licence_name": "In-house capture approval (pending)",
+        "licence_url": null,
+        "attribution": null,
+        "commercial_use": true,
+        "modification": true,
+        "editorial_only": false,
+        "consent_ref": null,
+        "ai_generated": false,
+        "disclosure_required": false,
+        "notes": "Future capture; consent and set approval are not yet evidenced."
+      },
+      "tech": {
+        "format": "ProRes 422 HQ",
+        "width": 3840,
+        "height": 2160,
+        "transparency": false,
+        "orientation": "any",
+        "fps": 50,
+        "duration_frames": 140,
+        "notes": "Source timebase 50 fps; conform to the 25 fps master at 50 percent speed."
+      },
+      "exactness": "illustrative",
+      "allowed_edits": [
+        "trim",
+        "retime",
+        "colour grade"
+      ],
+      "dependencies": [
+        "AS-05"
+      ],
+      "estimate_id": "ES-06",
+      "fallback_asset_id": null,
+      "fallback_required": false,
+      "acceptance": "Water visibly contacts the coffee bed; bloom and drip read in macro; no spill or continuity break.",
+      "used_by": [
+        "LY-031"
+      ],
+      "status": "pending",
+      "notes": null
+    },
+    {
+      "id": "AS-07",
+      "version": "1.0",
+      "name": "Warm kitchen background",
+      "description": "Warm daylight kitchen counter with soft linen and a blue-grey wall. The background must not compete with the pack.",
+      "route": "owned",
+      "source": "In-house set build",
+      "generation_spec": null,
+      "rights": {
+        "status": "cleared",
+        "licence_name": "In-house production asset",
+        "licence_url": null,
+        "attribution": null,
+        "commercial_use": true,
+        "modification": true,
+        "editorial_only": false,
+        "consent_ref": null,
+        "ai_generated": false,
+        "disclosure_required": false,
+        "notes": "Owned set and lighting."
+      },
+      "tech": {
+        "format": "PNG",
+        "width": 1920,
+        "height": 1080,
+        "transparency": false,
+        "orientation": "landscape",
+        "fps": null,
+        "duration_frames": null,
+        "notes": null
+      },
+      "exactness": "illustrative",
+      "allowed_edits": [],
+      "dependencies": [],
+      "estimate_id": null,
+      "fallback_asset_id": null,
+      "fallback_required": false,
+      "acceptance": "Full-canvas background holds a consistent grade across all six shots.",
+      "used_by": [
+        "LY-010",
+        "LY-020",
+        "LY-030",
+        "LY-040",
+        "LY-050",
+        "LY-060"
+      ],
+      "status": "pending",
+      "notes": null
+    },
+    {
+      "id": "AS-08",
+      "version": "1.0",
+      "name": "Finished cup of coffee",
+      "description": "Finished cup of brewed Easy Pour coffee on the same counter, with a thin steam plume and a clean rim.",
+      "route": "to_capture",
+      "source": "In-house food shoot",
+      "generation_spec": null,
+      "rights": {
+        "status": "needs_approval",
+        "licence_name": "In-house capture approval (pending)",
+        "licence_url": null,
+        "attribution": null,
+        "commercial_use": true,
+        "modification": true,
+        "editorial_only": false,
+        "consent_ref": null,
+        "ai_generated": false,
+        "disclosure_required": false,
+        "notes": "Future capture; the brewed cup must match the demonstrated method."
+      },
+      "tech": {
+        "format": "ProRes 422 HQ",
+        "width": 3840,
+        "height": 2160,
+        "transparency": false,
+        "orientation": "any",
+        "fps": 25,
+        "duration_frames": 90,
+        "notes": "Shoot 4K; keep the cup rim and coffee surface in focus."
+      },
+      "exactness": "illustrative",
+      "allowed_edits": [
+        "trim",
+        "colour grade"
+      ],
+      "dependencies": [
+        "AS-06"
+      ],
+      "estimate_id": "ES-06",
+      "fallback_asset_id": null,
+      "fallback_required": false,
+      "acceptance": "Finished cup matches the brewed colour; rim clean; steam visible without obscuring the pack.",
+      "used_by": [
+        "LY-051"
+      ],
+      "status": "pending",
+      "notes": null
+    },
+    {
+      "id": "AS-09",
+      "version": "1.0",
+      "name": "Voice over, warm Indian English",
+      "description": "Canonical narration: Specialty coffee. Just a mug and hot water. Tear, anchor, pour. Light to dark. One mug. One cup. Shop Easy Pour. Recorded by a human voice artist.",
+      "route": "to_create",
+      "source": "Voice artist session",
+      "generation_spec": null,
+      "rights": {
+        "status": "needs_approval",
+        "licence_name": "Performer release (pending)",
+        "licence_url": null,
+        "attribution": null,
+        "commercial_use": true,
+        "modification": true,
+        "editorial_only": false,
+        "consent_ref": "Voice performer release pending",
+        "ai_generated": false,
+        "disclosure_required": false,
+        "notes": "Recorded VO; synthetic narration is the disclosed fallback."
+      },
+      "tech": {
+        "format": "WAV",
+        "width": null,
+        "height": null,
+        "transparency": false,
+        "orientation": "any",
+        "fps": 25,
+        "duration_frames": 500,
+        "notes": "48 kHz, 24-bit, dry studio recording; full 20-second read."
+      },
+      "exactness": "illustrative",
+      "allowed_edits": [
+        "trim",
+        "de-noise",
+        "level"
+      ],
+      "dependencies": [],
+      "estimate_id": "ES-02",
+      "fallback_asset_id": "AS-15",
+      "fallback_required": true,
+      "acceptance": "Performer release present; intelligible read; no claim beyond the canonical script.",
+      "used_by": [
+        "AU-01"
+      ],
+      "status": "pending",
+      "notes": null
+    },
+    {
+      "id": "AS-10",
+      "version": "1.0",
+      "name": "Music bed, 20 seconds",
+      "description": "Restrained, warm electronic bed with a soft lift at the range reveal and a clean resolve under the end card.",
+      "route": "to_source",
+      "source": "Production music library",
+      "generation_spec": null,
+      "rights": {
+        "status": "needs_approval",
+        "licence_name": "Library licence to be purchased",
+        "licence_url": null,
+        "attribution": null,
+        "commercial_use": true,
+        "modification": true,
+        "editorial_only": false,
+        "consent_ref": null,
+        "ai_generated": false,
+        "disclosure_required": false,
+        "notes": "One track licence for organic and paid YouTube."
+      },
+      "tech": {
+        "format": "WAV",
+        "width": null,
+        "height": null,
+        "transparency": false,
+        "orientation": "any",
+        "fps": 25,
+        "duration_frames": 500,
+        "notes": "48 kHz, 24-bit, instrumental, loopable tail."
+      },
+      "exactness": "illustrative",
+      "allowed_edits": [
+        "trim",
+        "fade",
+        "level"
+      ],
+      "dependencies": [],
+      "estimate_id": "ES-01",
+      "fallback_asset_id": "AS-14",
+      "fallback_required": true,
+      "acceptance": "Licence covers paid YouTube; 20-second edit supports the 275 range lift and 445 resolve.",
+      "used_by": [
+        "AU-02"
+      ],
+      "status": "pending",
+      "notes": null
+    },
+    {
+      "id": "AS-11",
+      "version": "1.0",
+      "name": "Water pour sound effect",
+      "description": "Close, natural water pour with a soft filter-drip tail.",
+      "route": "owned",
+      "source": "In-house sound design",
+      "generation_spec": null,
+      "rights": {
+        "status": "cleared",
+        "licence_name": "In-house production asset",
+        "licence_url": null,
+        "attribution": null,
+        "commercial_use": true,
+        "modification": true,
+        "editorial_only": false,
+        "consent_ref": null,
+        "ai_generated": false,
+        "disclosure_required": false,
+        "notes": "Recorded in-house."
+      },
+      "tech": {
+        "format": "WAV",
+        "width": null,
+        "height": null,
+        "transparency": false,
+        "orientation": "any",
+        "fps": 25,
+        "duration_frames": 85,
+        "notes": null
+      },
+      "exactness": "illustrative",
+      "allowed_edits": [
+        "trim",
+        "level",
+        "pitch"
+      ],
+      "dependencies": [],
+      "estimate_id": null,
+      "fallback_asset_id": null,
+      "fallback_required": false,
+      "acceptance": "Pour sound syncs to the water action without a phasing artefact.",
+      "used_by": [
+        "AU-03"
+      ],
+      "status": "pending",
+      "notes": null
+    },
+    {
+      "id": "AS-12",
+      "version": "1.0",
+      "name": "Brand sting",
+      "description": "Low, warm brand sting under the end card.",
+      "route": "owned",
+      "source": "In-house sound design",
+      "generation_spec": null,
+      "rights": {
+        "status": "cleared",
+        "licence_name": "In-house production asset",
+        "licence_url": null,
+        "attribution": null,
+        "commercial_use": true,
+        "modification": true,
+        "editorial_only": false,
+        "consent_ref": null,
+        "ai_generated": false,
+        "disclosure_required": false,
+        "notes": "Synthesised in-house."
+      },
+      "tech": {
+        "format": "WAV",
+        "width": null,
+        "height": null,
+        "transparency": false,
+        "orientation": "any",
+        "fps": 25,
+        "duration_frames": 45,
+        "notes": null
+      },
+      "exactness": "illustrative",
+      "allowed_edits": [
+        "trim",
+        "level"
+      ],
+      "dependencies": [],
+      "estimate_id": null,
+      "fallback_asset_id": null,
+      "fallback_required": false,
+      "acceptance": "Sting lands under the end card and does not mask the VO.",
+      "used_by": [
+        "AU-04"
+      ],
+      "status": "pending",
+      "notes": null
+    },
+    {
+      "id": "AS-13",
+      "version": "1.0",
+      "name": "Captured Mixed Bag fallback",
+      "description": "In-house still of the physical Mixed Bag on the same counter, used if the brand image cannot be cleared or is below 1800 px.",
+      "route": "to_capture",
+      "source": "In-house studio capture",
+      "generation_spec": null,
+      "rights": {
+        "status": "needs_approval",
+        "licence_name": "Brand pack capture approval (pending)",
+        "licence_url": null,
+        "attribution": null,
+        "commercial_use": true,
+        "modification": true,
+        "editorial_only": false,
+        "consent_ref": null,
+        "ai_generated": false,
+        "disclosure_required": false,
+        "notes": "Photographing the physical pack still needs brand approval."
+      },
+      "tech": {
+        "format": "PNG",
+        "width": 2400,
+        "height": 2400,
+        "transparency": false,
+        "orientation": "square",
+        "fps": null,
+        "duration_frames": null,
+        "notes": "Front label square to camera; four angles."
+      },
+      "exactness": "exact",
+      "allowed_edits": [
+        "retouch",
+        "shadow",
+        "colour match"
+      ],
+      "dependencies": [
+        "AS-02"
+      ],
+      "estimate_id": "ES-09",
+      "fallback_asset_id": null,
+      "fallback_required": false,
+      "acceptance": "Physical pack label is square to camera and at least as legible as the supplied image.",
+      "used_by": [],
+      "status": "pending",
+      "notes": null
+    },
+    {
+      "id": "AS-14",
+      "version": "1.0",
+      "name": "Music fallback track",
+      "description": "Second library bed with the same tempo, warmth and length.",
+      "route": "to_source",
+      "source": "Production music library",
+      "generation_spec": null,
+      "rights": {
+        "status": "needs_approval",
+        "licence_name": "Library licence to be purchased",
+        "licence_url": null,
+        "attribution": null,
+        "commercial_use": true,
+        "modification": true,
+        "editorial_only": false,
+        "consent_ref": null,
+        "ai_generated": false,
+        "disclosure_required": false,
+        "notes": "Fallback track licence."
+      },
+      "tech": {
+        "format": "WAV",
+        "width": null,
+        "height": null,
+        "transparency": false,
+        "orientation": "any",
+        "fps": 25,
+        "duration_frames": 500,
+        "notes": null
+      },
+      "exactness": "illustrative",
+      "allowed_edits": [
+        "trim",
+        "fade",
+        "level"
+      ],
+      "dependencies": [],
+      "estimate_id": null,
+      "fallback_asset_id": null,
+      "fallback_required": false,
+      "acceptance": "Fallback bed matches the primary tempo and emotional resolve.",
+      "used_by": [],
+      "status": "pending",
+      "notes": null
+    },
+    {
+      "id": "AS-15",
+      "version": "1.0",
+      "name": "Synthetic narration fallback",
+      "description": "Disclosed synthetic narration used only if the human session fails.",
+      "route": "to_generate",
+      "source": "Approved speech provider",
+      "generation_spec": "Warm Indian English, measured pace, 20 seconds, no claim beyond the canonical script. Disclose synthetic voice in the delivery notes.",
+      "rights": {
+        "status": "needs_approval",
+        "licence_name": "Provider terms and AI disclosure (pending)",
+        "licence_url": null,
+        "attribution": null,
+        "commercial_use": true,
+        "modification": true,
+        "editorial_only": false,
+        "consent_ref": null,
+        "ai_generated": true,
+        "disclosure_required": true,
+        "notes": null
+      },
+      "tech": {
+        "format": "WAV",
+        "width": null,
+        "height": null,
+        "transparency": false,
+        "orientation": "any",
+        "fps": 25,
+        "duration_frames": 500,
+        "notes": null
+      },
+      "exactness": "illustrative",
+      "allowed_edits": [
+        "trim",
+        "level"
+      ],
+      "dependencies": [
+        "AS-09"
+      ],
+      "estimate_id": null,
+      "fallback_asset_id": null,
+      "fallback_required": false,
+      "acceptance": "Synthetic read matches the canonical script and carries the disclosure decision.",
+      "used_by": [],
+      "status": "pending",
+      "notes": null
+    },
+    {
+      "id": "AS-16",
+      "version": "1.0",
+      "name": "Stock cafe pour insert",
+      "description": "Licensed generic cafe pour insert; redundant with AS-06.",
+      "route": "to_source",
+      "source": "Stock library",
+      "generation_spec": null,
+      "rights": {
+        "status": "needs_approval",
+        "licence_name": "Stock licence to be purchased",
+        "licence_url": null,
+        "attribution": null,
+        "commercial_use": true,
+        "modification": true,
+        "editorial_only": false,
+        "consent_ref": null,
+        "ai_generated": false,
+        "disclosure_required": false,
+        "notes": "Generic stock insert; no product visible."
+      },
+      "tech": {
+        "format": "ProRes 422 HQ",
+        "width": 3840,
+        "height": 2160,
+        "transparency": false,
+        "orientation": "any",
+        "fps": 25,
+        "duration_frames": 100,
+        "notes": null
+      },
+      "exactness": "illustrative",
+      "allowed_edits": [
+        "crop",
+        "trim",
+        "grade"
+      ],
+      "dependencies": [],
+      "estimate_id": "ES-10",
+      "fallback_asset_id": null,
+      "fallback_required": false,
+      "acceptance": "Stock insert matches the brew action and does not introduce a different cup or pack.",
+      "used_by": [
+        "LY-036"
+      ],
+      "status": "pending",
+      "notes": null
+    }
+  ],
+  "audio_cues": [
+    {
+      "id": "AU-01",
+      "start_frame": 0,
+      "end_frame": 500,
+      "kind": "vo",
+      "description": "Canonical read: Specialty coffee. Just a mug and hot water. Tear, anchor, pour. Light to dark. One mug. One cup. Shop Easy Pour.",
+      "asset_id": "AS-09",
+      "level_db": -4.0,
+      "essential": true,
+      "notes": "Line windows: 0-75, 75-160, 160-275, 275-380, 380-445, 445-500. Measured pace; no added claim. Mix target -16 LUFS integrated, -1 dBTP."
+    },
+    {
+      "id": "AU-02",
+      "start_frame": 0,
+      "end_frame": 500,
+      "kind": "music",
+      "description": "Warm restrained bed; lift at 275, resolve under the end card.",
+      "asset_id": "AS-10",
+      "level_db": -20.0,
+      "essential": true,
+      "notes": null
+    },
+    {
+      "id": "AU-03",
+      "start_frame": 160,
+      "end_frame": 245,
+      "kind": "sfx",
+      "description": "Close water pour and filter drip.",
+      "asset_id": "AS-11",
+      "level_db": -10.0,
+      "essential": true,
+      "notes": null
+    },
+    {
+      "id": "AU-04",
+      "start_frame": 440,
+      "end_frame": 485,
+      "kind": "sfx",
+      "description": "Low brand sting under the end card.",
+      "asset_id": "AS-12",
+      "level_db": -12.0,
+      "essential": true,
+      "notes": null
+    }
+  ],
+  "transitions": [
+    {
+      "id": "TR-01",
+      "from_shot_id": "SH-01",
+      "to_shot_id": "SH-02",
+      "at_frame": 75,
+      "kind": "match cut on pack",
+      "duration_frames": 5,
+      "notes": null
+    },
+    {
+      "id": "TR-02",
+      "from_shot_id": "SH-02",
+      "to_shot_id": "SH-03",
+      "at_frame": 160,
+      "kind": "kettle tilt cut",
+      "duration_frames": 4,
+      "notes": null
+    },
+    {
+      "id": "TR-03",
+      "from_shot_id": "SH-03",
+      "to_shot_id": "SH-04",
+      "at_frame": 275,
+      "kind": "whip pan",
+      "duration_frames": 6,
+      "notes": null
+    },
+    {
+      "id": "TR-04",
+      "from_shot_id": "SH-04",
+      "to_shot_id": "SH-05",
+      "at_frame": 380,
+      "kind": "time-lapse resolve",
+      "duration_frames": 8,
+      "notes": null
+    },
+    {
+      "id": "TR-05",
+      "from_shot_id": "SH-05",
+      "to_shot_id": "SH-06",
+      "at_frame": 445,
+      "kind": "cut to cream",
+      "duration_frames": 4,
+      "notes": null
+    }
+  ],
+  "alternates": [
+    {
+      "id": "ALT-01",
+      "target_ids": [
+        "AS-02"
+      ],
+      "trigger": "Brand pack image is not cleared or is below 1800 px.",
+      "preserved": "Exact Mixed Bag label, pack silhouette and end-card hero.",
+      "revised_dependencies": [
+        "AS-13"
+      ],
+      "cost_delta_usd": 5.0,
+      "cost_estimate_id": "ES-09",
+      "approval_scope": [
+        "SH-02",
+        "SH-03",
+        "SH-04",
+        "SH-05",
+        "SH-06"
+      ],
+      "switch_authority": "Named brand producer plus planner",
+      "status": "proposed"
+    },
+    {
+      "id": "ALT-02",
+      "target_ids": [
+        "AS-06"
+      ],
+      "trigger": "Macro pour footage fails; use a locked-off still of the anchored filter with animated water, steam and drip.",
+      "preserved": "Water-through-coffee proof and the finished cup.",
+      "revised_dependencies": [
+        "AS-02",
+        "AS-05"
+      ],
+      "cost_delta_usd": 0.0,
+      "cost_estimate_id": null,
+      "approval_scope": [
+        "SH-03",
+        "SH-05"
+      ],
+      "switch_authority": "Named brand producer plus planner",
+      "status": "proposed"
+    },
+    {
+      "id": "ALT-03",
+      "target_ids": [
+        "CP-05"
+      ],
+      "trigger": "Brand rejects ‘Shop Easy Pour’; use ‘Explore Easy Pour’ subject to a new exact-data approval.",
+      "preserved": "A direct purchase prompt on the end card.",
+      "revised_dependencies": [],
+      "cost_delta_usd": 0.0,
+      "cost_estimate_id": null,
+      "approval_scope": [
+        "SH-06"
+      ],
+      "switch_authority": "Named brand producer",
+      "status": "proposed"
+    },
+    {
+      "id": "ALT-04",
+      "target_ids": [
+        "AS-10"
+      ],
+      "trigger": "Music licence is not secured or the track does not fit.",
+      "preserved": "Pace, warmth and a clean end-card resolve.",
+      "revised_dependencies": [
+        "AS-14"
+      ],
+      "cost_delta_usd": 0.0,
+      "cost_estimate_id": null,
+      "approval_scope": [
+        "SH-01",
+        "SH-02",
+        "SH-03",
+        "SH-04",
+        "SH-05",
+        "SH-06"
+      ],
+      "switch_authority": "Named brand producer plus editor",
+      "status": "proposed"
+    }
+  ],
+  "variant_overrides": [],
+  "estimates": [
+    {
+      "id": "ES-01",
+      "label": "Music library licence",
+      "amount_usd": 10.0,
+      "kind": "shared",
+      "basis": "operator_estimate",
+      "confidence": "medium",
+      "notes": null
+    },
+    {
+      "id": "ES-02",
+      "label": "Voice artist session and edit",
+      "amount_usd": 12.0,
+      "kind": "shared",
+      "basis": "operator_estimate",
+      "confidence": "medium",
+      "notes": null
+    },
+    {
+      "id": "ES-03",
+      "label": "Edit, motion and compositing",
+      "amount_usd": 15.0,
+      "kind": "shared",
+      "basis": "operator_estimate",
+      "confidence": "medium",
+      "notes": null
+    },
+    {
+      "id": "ES-04",
+      "label": "Colour grade and finishing",
+      "amount_usd": 5.0,
+      "kind": "shared",
+      "basis": "operator_estimate",
+      "confidence": "high",
+      "notes": null
+    },
+    {
+      "id": "ES-05",
+      "label": "Mixed Bag pack preparation",
+      "amount_usd": 4.0,
+      "kind": "shot",
+      "basis": "operator_estimate",
+      "confidence": "medium",
+      "notes": null
+    },
+    {
+      "id": "ES-06",
+      "label": "Demo and finished-cup capture",
+      "amount_usd": 18.0,
+      "kind": "shot",
+      "basis": "operator_estimate",
+      "confidence": "medium",
+      "notes": null
+    },
+    {
+      "id": "ES-07",
+      "label": "Range pack preparation",
+      "amount_usd": 3.0,
+      "kind": "shot",
+      "basis": "operator_estimate",
+      "confidence": "high",
+      "notes": null
+    },
+    {
+      "id": "ES-08",
+      "label": "End-card build",
+      "amount_usd": 3.0,
+      "kind": "shot",
+      "basis": "operator_estimate",
+      "confidence": "high",
+      "notes": null
+    },
+    {
+      "id": "ES-09",
+      "label": "Captured pack fallback",
+      "amount_usd": 5.0,
+      "kind": "fallback",
+      "basis": "operator_estimate",
+      "confidence": "medium",
+      "notes": null
+    },
+    {
+      "id": "ES-10",
+      "label": "Redundant stock cafe insert",
+      "amount_usd": 30.0,
+      "kind": "shot",
+      "basis": "operator_estimate",
+      "confidence": "low",
+      "notes": null
+    }
+  ],
+  "budget": {
+    "cap_usd": 100.0,
+    "currency": "USD",
+    "estimates": [
+      {
+        "id": "ES-01",
+        "label": "Music library licence",
+        "amount_usd": 10.0,
+        "kind": "shared",
+        "basis": "operator_estimate",
+        "confidence": "medium",
+        "notes": null
+      },
+      {
+        "id": "ES-02",
+        "label": "Voice artist session and edit",
+        "amount_usd": 12.0,
+        "kind": "shared",
+        "basis": "operator_estimate",
+        "confidence": "medium",
+        "notes": null
+      },
+      {
+        "id": "ES-03",
+        "label": "Edit, motion and compositing",
+        "amount_usd": 15.0,
+        "kind": "shared",
+        "basis": "operator_estimate",
+        "confidence": "medium",
+        "notes": null
+      },
+      {
+        "id": "ES-04",
+        "label": "Colour grade and finishing",
+        "amount_usd": 5.0,
+        "kind": "shared",
+        "basis": "operator_estimate",
+        "confidence": "high",
+        "notes": null
+      },
+      {
+        "id": "ES-05",
+        "label": "Mixed Bag pack preparation",
+        "amount_usd": 4.0,
+        "kind": "shot",
+        "basis": "operator_estimate",
+        "confidence": "medium",
+        "notes": null
+      },
+      {
+        "id": "ES-06",
+        "label": "Demo and finished-cup capture",
+        "amount_usd": 18.0,
+        "kind": "shot",
+        "basis": "operator_estimate",
+        "confidence": "medium",
+        "notes": null
+      },
+      {
+        "id": "ES-07",
+        "label": "Range pack preparation",
+        "amount_usd": 3.0,
+        "kind": "shot",
+        "basis": "operator_estimate",
+        "confidence": "high",
+        "notes": null
+      },
+      {
+        "id": "ES-08",
+        "label": "End-card build",
+        "amount_usd": 3.0,
+        "kind": "shot",
+        "basis": "operator_estimate",
+        "confidence": "high",
+        "notes": null
+      },
+      {
+        "id": "ES-09",
+        "label": "Captured pack fallback",
+        "amount_usd": 5.0,
+        "kind": "fallback",
+        "basis": "operator_estimate",
+        "confidence": "medium",
+        "notes": null
+      },
+      {
+        "id": "ES-10",
+        "label": "Redundant stock cafe insert",
+        "amount_usd": 30.0,
+        "kind": "shot",
+        "basis": "operator_estimate",
+        "confidence": "low",
+        "notes": null
+      }
+    ],
+    "retry_reserve_pct": 15.0
+  },
+  "checks": [
+    {
+      "id": "AC-01",
+      "target_ids": [
+        "DP-01",
+        "SH-01",
+        "SH-02",
+        "SH-03",
+        "SH-04",
+        "SH-05",
+        "SH-06"
+      ],
+      "description": "Timeline covers exactly 500 frames across six contiguous shots.",
+      "method": "structural",
+      "level": "level_1",
+      "rule_refs": [
+        "timing.deliverable",
+        "timing.shots",
+        "timing.beats"
+      ],
+      "status": "pending",
+      "evidence": null,
+      "notes": null
+    },
+    {
+      "id": "AC-02",
+      "target_ids": [
+        "SH-01",
+        "SH-02",
+        "SH-03",
+        "SH-04",
+        "SH-05",
+        "SH-06"
+      ],
+      "description": "All text sits inside the 1920x1080 safe area.",
+      "method": "structural",
+      "level": "level_1",
+      "rule_refs": [
+        "layer.safe_area"
+      ],
+      "status": "pending",
+      "evidence": null,
+      "notes": null
+    },
+    {
+      "id": "AC-03",
+      "target_ids": [
+        "LY-011",
+        "LY-022",
+        "LY-032",
+        "LY-041",
+        "LY-042",
+        "LY-043",
+        "LY-047",
+        "LY-052",
+        "LY-061",
+        "LY-062"
+      ],
+      "description": "Pack labels and the logo are not occluded by planned layers.",
+      "method": "structural",
+      "level": "level_1",
+      "rule_refs": [
+        "layer.occlusion"
+      ],
+      "status": "pending",
+      "evidence": null,
+      "notes": null
+    },
+    {
+      "id": "AC-04",
+      "target_ids": [
+        "ED-02",
+        "ED-03"
+      ],
+      "description": "No required layer depends on unapproved price or pack-size data.",
+      "method": "structural",
+      "level": "level_1",
+      "rule_refs": [
+        "exact.critical"
+      ],
+      "status": "pending",
+      "evidence": null,
+      "notes": null
+    },
+    {
+      "id": "AC-05",
+      "target_ids": [
+        "LY-062",
+        "LY-063"
+      ],
+      "description": "Logo and CTA remain legible at 50 percent scale on a phone.",
+      "method": "render_pixel",
+      "level": "level_2",
+      "rule_refs": [
+        "pending.level2.brand_legibility"
+      ],
+      "status": "pending",
+      "evidence": null,
+      "notes": null
+    },
+    {
+      "id": "AC-06",
+      "target_ids": [
+        "AU-01",
+        "AU-02"
+      ],
+      "description": "VO is intelligible and music sits at least 6 dB under it.",
+      "method": "audio",
+      "level": "level_2",
+      "rule_refs": [
+        "pending.level2.audio"
+      ],
+      "status": "pending",
+      "evidence": null,
+      "notes": null
+    },
+    {
+      "id": "AC-07",
+      "target_ids": [
+        "ED-01",
+        "ED-04",
+        "ED-05"
+      ],
+      "description": "Exact data in final pixels matches the approved values.",
+      "method": "render_pixel",
+      "level": "level_2",
+      "rule_refs": [
+        "pending.level2.exact_pixels"
+      ],
+      "status": "pending",
+      "evidence": null,
+      "notes": null
+    },
+    {
+      "id": "AC-08",
+      "target_ids": [
+        "CL-01",
+        "CL-02",
+        "CL-03",
+        "CL-04",
+        "CL-05",
+        "CL-06",
+        "CL-07",
+        "ED-04"
+      ],
+      "description": "Every used claim is verified and every exact reference resolves.",
+      "method": "structural",
+      "level": "level_1",
+      "rule_refs": [
+        "exact.references",
+        "exact.claims"
+      ],
+      "status": "pending",
+      "evidence": null,
+      "notes": null
+    },
+    {
+      "id": "AC-09",
+      "target_ids": [
+        "SH-02",
+        "SH-05",
+        "SH-06"
+      ],
+      "description": "A sound-off viewer understands the product, benefit and brand.",
+      "method": "human",
+      "level": "level_2",
+      "rule_refs": [
+        "pending.level2.human_review"
+      ],
+      "status": "pending",
+      "evidence": null,
+      "notes": null
+    },
+    {
+      "id": "AC-10",
+      "target_ids": [
+        "AS-01",
+        "AS-02",
+        "AS-03",
+        "AS-04",
+        "AS-05",
+        "AS-06",
+        "AS-07",
+        "AS-08",
+        "AS-17"
+      ],
+      "description": "All picture assets are owned, supplied or commissioned; no reference footage is bound.",
+      "method": "structural",
+      "level": "level_1",
+      "rule_refs": [
+        "layer.binding_exactness",
+        "rights.reference"
+      ],
+      "status": "pending",
+      "evidence": null,
+      "notes": null
+    },
+    {
+      "id": "AC-11",
+      "target_ids": [
+        "DP-01"
+      ],
+      "description": "Final file is 1920x1080, 25 fps, 20.0 s, H.264/AAC.",
+      "method": "render_pixel",
+      "level": "level_2",
+      "rule_refs": [
+        "pending.level2.delivery"
+      ],
+      "status": "pending",
+      "evidence": null,
+      "notes": null
+    },
+    {
+      "id": "AC-12",
+      "target_ids": [
+        "SH-01",
+        "SH-03",
+        "SH-04",
+        "SH-06"
+      ],
+      "description": "Contact sheet shows packs, labels and captions clear of platform UI.",
+      "method": "static_preview",
+      "level": "level_2",
+      "rule_refs": [
+        "pending.level2.contact_sheet"
+      ],
+      "status": "pending",
+      "evidence": null,
+      "notes": null
+    },
+    {
+      "id": "AC-13",
+      "target_ids": [
+        "DP-01"
+      ],
+      "description": "Budget total plus fallback stays inside the approved cap.",
+      "method": "structural",
+      "level": "level_1",
+      "rule_refs": [
+        "budget.cap",
+        "budget.worst_case"
+      ],
+      "status": "pending",
+      "evidence": null,
+      "notes": null
+    },
+    {
+      "id": "AC-14",
+      "target_ids": [
+        "SH-01",
+        "SH-02",
+        "SH-03",
+        "SH-04",
+        "SH-05",
+        "SH-06"
+      ],
+      "description": "Every shot has a primary and a genuinely different fallback method.",
+      "method": "structural",
+      "level": "level_1",
+      "rule_refs": [
+        "trace.shots"
+      ],
+      "status": "pending",
+      "evidence": null,
+      "notes": null
+    },
+    {
+      "id": "AC-15",
+      "target_ids": [
+        "CP-12",
+        "SH-05"
+      ],
+      "description": "The compressed brew sequence is disclosed on screen.",
+      "method": "structural",
+      "level": "level_1",
+      "rule_refs": [
+        "exact.references"
+      ],
+      "status": "pending",
+      "evidence": null,
+      "notes": null
+    }
+  ],
+  "held_items": [
+    {
+      "id": "HI-01",
+      "title": "Price and hero pack size",
+      "reason": "The storefront price varies by pack size and the brief gives no approved commercial value.",
+      "affects": [
+        "ED-02",
+        "ED-03"
+      ],
+      "required_evidence": "Brand-approved hero pack size and advertising price with a named approver.",
+      "owner": "human"
+    },
+    {
+      "id": "HI-02",
+      "title": "Brand pack and logo advertising rights",
+      "reason": "Public product images and logo are not an advertising licence.",
+      "affects": [
+        "AS-01",
+        "AS-02",
+        "AS-03",
+        "AS-04",
+        "AS-13",
+        "AS-17"
+      ],
+      "required_evidence": "Written paid-media approval and high-resolution pack and logo masters.",
+      "owner": "human"
+    },
+    {
+      "id": "HI-03",
+      "title": "Voice and music licences",
+      "reason": "No voice performer release or music licence has been supplied.",
+      "affects": [
+        "AS-09",
+        "AS-10",
+        "AS-14",
+        "AS-15"
+      ],
+      "required_evidence": "Signed performer release and a production-library licence covering paid YouTube.",
+      "owner": "human"
+    },
+    {
+      "id": "HI-04",
+      "title": "Demonstration and talent release",
+      "reason": "Hands and a demonstration set appear on camera; no release is supplied.",
+      "affects": [
+        "AS-05",
+        "AS-06",
+        "AS-08"
+      ],
+      "required_evidence": "Signed hand-model/performer release and approval to film the product demonstration.",
+      "owner": "human"
+    },
+    {
+      "id": "HI-05",
+      "title": "Brand typeface",
+      "reason": "No Blue Tokai brand font was supplied; Inter is a placeholder.",
+      "affects": [
+        "CP-01",
+        "CP-02",
+        "CP-03",
+        "CP-04",
+        "CP-05",
+        "CP-07",
+        "CP-08",
+        "CP-09",
+        "CP-10",
+        "CP-11",
+        "CP-12",
+        "CP-13"
+      ],
+      "required_evidence": "Brand font files and typography guidance, or written approval to use Inter for this production.",
+      "owner": "human"
+    }
+  ],
+  "decisions": [
+    {
+      "id": "DC-01",
+      "finding_ids": [
+        "F-03",
+        "F-12"
+      ],
+      "selected": "Lead with 'Specialty coffee', not 'instant coffee'.",
+      "alternatives": [
+        "Call it instant coffee in a convenience comparison",
+        "Lead with the roast origin story",
+        "Lead with the price"
+      ],
+      "rationale": "Blue Tokai explicitly separates Easy Pour from instant coffee. The category word and a visible pack avoid a false comparison.",
+      "impacted_ids": [
+        "CP-01",
+        "CP-02",
+        "SH-01"
+      ]
+    },
+    {
+      "id": "DC-02",
+      "finding_ids": [
+        "F-02",
+        "F-08"
+      ],
+      "selected": "Demonstrate tear, anchor and first pour; compress the repeated pours and steep with a disclosure.",
+      "alternatives": [
+        "Show the whole brew as a 20-second real-time take",
+        "Skip the demo and use pack beauty shots",
+        "Use a stylised split-screen diagram"
+      ],
+      "rationale": "The built-in filter is the product benefit. A real action proves it, and a labelled time-lapse keeps the 20-second format honest.",
+      "impacted_ids": [
+        "SH-02",
+        "SH-03",
+        "SH-05",
+        "CP-12"
+      ]
+    },
+    {
+      "id": "DC-03",
+      "finding_ids": [
+        "F-01",
+        "F-11"
+      ],
+      "selected": "Hero the Mixed Bag and show Seethargundu, Attikan and Vienna as range support.",
+      "alternatives": [
+        "Hero only the Mixed Bag",
+        "Hero Vienna as the darkest roast",
+        "Show all five single-estate packs"
+      ],
+      "rationale": "The Mixed Bag is the first-time buyer's variety route. Four packs communicate light to dark with a real light endpoint and a dark endpoint, without turning the frame into a catalogue.",
+      "impacted_ids": [
+        "SH-04",
+        "AS-02",
+        "AS-03",
+        "AS-04"
+      ]
+    },
+    {
+      "id": "DC-04",
+      "finding_ids": [
+        "F-04"
+      ],
+      "selected": "Keep price and pack size out of the ready cut.",
+      "alternatives": [
+        "End on 'Pack of 5 at Rs 300'",
+        "Use the price as the hook",
+        "Hold the price for a later approved version"
+      ],
+      "rationale": "The values are observed but not approved, and the hero pack size is still unresolved. Price would turn observation into an ad claim.",
+      "impacted_ids": [
+        "ED-02",
+        "ED-03",
+        "CP-06"
+      ]
+    },
+    {
+      "id": "DC-05",
+      "finding_ids": [
+        "F-06",
+        "F-07"
+      ],
+      "selected": "Build a 16:9 500-frame YouTube master with early branding.",
+      "alternatives": [
+        "9:16 Shorts-first master",
+        "1:1 feed master",
+        "15-second cut"
+      ],
+      "rationale": "The brief asks for a 20-second YouTube ad. A 16:9 master fits in-stream, while the pack and brand appear from the first shot.",
+      "impacted_ids": [
+        "DP-01",
+        "SH-01",
+        "SH-06"
+      ]
+    },
+    {
+      "id": "DC-06",
+      "finding_ids": [
+        "F-05",
+        "F-10"
+      ],
+      "selected": "Use the public image URLs as observed sources and hold rights.",
+      "alternatives": [
+        "Treat public images as cleared",
+        "Recreate the packs in 3D",
+        "Use unlabelled stand-in packs"
+      ],
+      "rationale": "The supplied links identify the exact product, but public access does not grant paid-media use. Stand-ins would break exactness.",
+      "impacted_ids": [
+        "AS-01",
+        "AS-02",
+        "AS-03",
+        "AS-04"
+      ]
+    }
+  ],
+  "assumptions": [
+    "The master is 16:9 because the brief asks for a YouTube ad.",
+    "Safe insets are conservative operator assumptions pending placement preview.",
+    "The real brew includes a two-minute steep; the film compresses it and discloses that.",
+    "Public product image URLs are observed references, not cleared assets.",
+    "Inter is a placeholder until Blue Tokai supplies its brand typeface."
+  ],
+  "open_questions": [
+    "Which pack size is the hero?",
+    "Which landing page receives the CTA?",
+    "Will the brand supply cleared high-resolution pack and logo masters?",
+    "Is a 9:16 Shorts variant required?"
+  ],
+  "created_at": "2026-11-14T15:28:11+00:00"
+}

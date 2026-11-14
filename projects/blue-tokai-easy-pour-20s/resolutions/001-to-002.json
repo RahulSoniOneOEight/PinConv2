@@ -1,0 +1,81 @@
+{
+  "project_id": "blue-tokai-easy-pour-20s",
+  "from_revision": 1,
+  "to_revision": 2,
+  "inputs": [
+    {
+      "id": "IR-01",
+      "critique_finding_id": "CF-01",
+      "rank": 1,
+      "mode": "auto",
+      "decision": "Move every text layer inside the platform safe area.",
+      "changes": [
+        "Moved affected captions and headlines inside the safe insets.",
+        "Re-ran the structural safe-area validator."
+      ],
+      "impacted_ids": [
+        "LY-025"
+      ],
+      "status": "resolved"
+    },
+    {
+      "id": "IR-02",
+      "critique_finding_id": "CF-02",
+      "rank": 2,
+      "mode": "human",
+      "decision": "Remove the commercial layer from the ready cut and hold the exact value and terms for a named brand decision.",
+      "changes": [
+        "Removed the commercial layer and its held copy from the ready cut.",
+        "Recorded a held item with the evidence needed to clear the value."
+      ],
+      "impacted_ids": [
+        "CP-06",
+        "LY-056"
+      ],
+      "status": "escalated"
+    },
+    {
+      "id": "IR-03",
+      "critique_finding_id": "CF-03",
+      "rank": 3,
+      "mode": "auto",
+      "decision": "Remove redundant routes so total plus fallback fits the cap.",
+      "changes": [
+        "Removed the redundant route and its estimate.",
+        "Kept one costed fallback inside the cap."
+      ],
+      "impacted_ids": [
+        "ES-01",
+        "ES-02",
+        "ES-03",
+        "ES-04",
+        "ES-05",
+        "ES-06",
+        "ES-07",
+        "ES-08",
+        "ES-09",
+        "ES-10"
+      ],
+      "status": "resolved"
+    }
+  ],
+  "verified_impacts": {
+    "CF-01": [
+      "LY-025"
+    ],
+    "CF-02": [
+      "CP-06",
+      "LY-056"
+    ],
+    "CF-03": [
+      "ES-10"
+    ]
+  },
+  "applied_fixes": [
+    "budget",
+    "commercial",
+    "safe_area"
+  ],
+  "created_at": "2026-11-14T15:28:11+00:00",
+  "notes": "Revision 2 applies the planner fixes selected by the critic. Every top-three input names at least one target record that changed or was removed; the diff is recorded in verified_impacts."
+}

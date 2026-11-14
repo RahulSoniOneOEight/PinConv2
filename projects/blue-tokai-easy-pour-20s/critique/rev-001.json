@@ -1,0 +1,99 @@
+{
+  "project_id": "blue-tokai-easy-pour-20s",
+  "plan_revision": 1,
+  "plan_hash": "4d1d872f1405978a0cf89edd1e320922ebfacc93597adf9ad41f0099205f9aa9",
+  "summary": "4 findings. The three highest-impact inputs are CF-01 (safe_area), CF-02 (commercial_data), CF-03 (budget). The critic reviewed the plan artifact, not the planner's reasoning.",
+  "findings": [
+    {
+      "id": "CF-01",
+      "category": "safe_area",
+      "severity": "high",
+      "observation": "1 text layers cross the platform safe area, so captions or headlines can sit under the interface or be cropped.",
+      "evidence": "Safe rect is x80-1840, y70-990. LY-025 caption at 120,1010,1300,70",
+      "proposed_action": "Move the affected text above the bottom inset and inside the side insets, then rerun the structural validator.",
+      "impact": 4,
+      "confidence": 5,
+      "effort": 1,
+      "blocking_weight": 2,
+      "target_ids": [
+        "LY-025"
+      ],
+      "owner": "planner",
+      "disposition": "open",
+      "resolution": null
+    },
+    {
+      "id": "CF-02",
+      "category": "commercial_data",
+      "severity": "blocker",
+      "observation": "The ready cut requires price, promotion or another commercial value that has been observed but not approved.",
+      "evidence": "Layers ['LY-056'] use copy ['CP-06'] with ['price=Pack of 5: Rs 300; Pack of 10: Rs 500 (observed)'].",
+      "proposed_action": "Remove the commercial layers from the ready cut, record a held item, and ask the brand to approve the exact value and terms.",
+      "impact": 5,
+      "confidence": 5,
+      "effort": 2,
+      "blocking_weight": 3,
+      "target_ids": [
+        "CP-06",
+        "LY-056"
+      ],
+      "owner": "human",
+      "disposition": "open",
+      "resolution": null
+    },
+    {
+      "id": "CF-03",
+      "category": "budget",
+      "severity": "high",
+      "observation": "The estimated production total is 115.00 USD against a 100.00 cap, before any fallback is triggered.",
+      "evidence": "Shared 42.00 + shot 58.00 + variant 0.00 + 15% reserve 15.00. Largest: ES-10 30.00, ES-06 18.00, ES-03 15.00",
+      "proposed_action": "Remove a redundant route or lower the estimate so total plus the critical fallback fits the cap.",
+      "impact": 4,
+      "confidence": 5,
+      "effort": 2,
+      "blocking_weight": 2,
+      "target_ids": [
+        "ES-01",
+        "ES-02",
+        "ES-03",
+        "ES-04",
+        "ES-05",
+        "ES-06",
+        "ES-07",
+        "ES-08",
+        "ES-09",
+        "ES-10"
+      ],
+      "owner": "planner",
+      "disposition": "open",
+      "resolution": null
+    },
+    {
+      "id": "CF-04",
+      "category": "text_density",
+      "severity": "high",
+      "observation": "SH-05 carries 3 text layers in 2.6s.",
+      "evidence": "LY-053:typography, LY-055:caption, LY-056:offer",
+      "proposed_action": "Keep the headline and caption; move the third message to another shot or remove it.",
+      "impact": 4,
+      "confidence": 4,
+      "effort": 2,
+      "blocking_weight": 2,
+      "target_ids": [
+        "SH-05",
+        "LY-053",
+        "LY-055",
+        "LY-056"
+      ],
+      "owner": "planner",
+      "disposition": "open",
+      "resolution": null
+    }
+  ],
+  "top3": [
+    "CF-01",
+    "CF-02",
+    "CF-03"
+  ],
+  "created_at": "2026-11-14T15:28:11+00:00"
+}

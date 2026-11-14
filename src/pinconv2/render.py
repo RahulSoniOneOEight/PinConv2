@@ -15,6 +15,7 @@ from .models import (
     Gate1Packet,
     HandoffAsset,
     HandoffShot,
+    Layer,
     Level2Handoff,
     ProductionPlan,
     ResearchPack,
@@ -37,9 +38,50 @@ def _bool(value: bool) -> str:
     return "yes" if value else "no"
 
 
-def render_concept_note(
-    brief: BriefRevision, research: ResearchPack, concept: ConceptNote
-) -> str:
+def _motion(layer: Layer) -> str:
+    if not layer.motion:
+        return "-"
+    return "; ".join(
+        "f{frame}: {values} ({easing})".format(
+            frame=point.frame,
+            values=", ".join(
+                f"{name} {value:g}"
+                for name, value in [
+                    ("x", point.x),
+                    ("y", point.y),
+                    ("scale", point.scale),
+                    ("opacity", point.opacity),
+                ]
+                if value is not None
+            ),
+            easing=point.easing,
+        )
+        for point in layer.motion
+    )
+
+
+def _text_style(layer: Layer) -> str:
+    style = layer.text_style
+    if style is None:
+        return "-"
+    return (
+        f"{style.font_family} {style.size_px}px/{style.weight}, {style.color}, "
+        f"{style.align}, line {style.line_height}, tracking {style.tracking}, "
+        f"max {style.max_lines} lines"
+    )
+
+
+def _regions(layer: Layer) -> str:
+    if layer.protected:
+        return "whole layer"
+    if not layer.protected_regions:
+        return "-"
+    return "; ".join(
+        f"{region.x},{region.y} {region.w}x{region.h}" for region in layer.protected_regions
+    )
+
+
+def render_concept_note(brief: BriefRevision, research: ResearchPack, concept: ConceptNote) -> str:
     lines: list[str] = [
         f"# Concept Note - {brief.title}",
         "",
@@ -66,6 +108,23 @@ def render_concept_note(
         "",
         concept.evidence_summary,
         "",
+        "### Research questions",
+        "",
+        _table(
+            ["ID", "Question", "Why it matters", "Priority", "Status", "Findings"],
+            [
+                [
+                    question.id,
+                    question.question,
+                    question.why_it_matters,
+                    str(question.priority),
+                    question.status,
+                    ", ".join(question.finding_ids) or "-",
+                ]
+                for question in research.questions
+            ],
+        ),
+        "",
         "### Sources",
         "",
         _table(
@@ -87,14 +146,28 @@ def render_concept_note(
         "### Findings",
         "",
         _table(
-            ["ID", "Observation", "Decision", "Status", "Confidence"],
+            [
+                "ID",
+                "Observation",
+                "Interpretation",
+                "Decision",
+                "Source / locator",
+                "Status",
+                "Confidence",
+                "Rights",
+                "Impacts",
+            ],
             [
                 [
                     finding.id,
                     finding.observation,
+                    finding.interpretation,
                     finding.proposed_action,
+                    f"{finding.source_id} / {finding.evidence_locator}",
                     finding.status.value,
                     str(finding.confidence),
+                    finding.rights_status.value,
+                    ", ".join(finding.linked_ids) or "-",
                 ]
                 for finding in research.findings
             ],
@@ -189,6 +262,34 @@ def render_concept_note(
                 ],
             ),
             "",
+            "## Planned look",
+            "",
+            concept.planned_look,
+            "",
+            "## Success definition",
+            "",
+            concept.success_definition or "-",
+            "",
+            "## Viewing context",
+            "",
+            concept.viewing_context or "-",
+            "",
+            "## Reference notes",
+            "",
+            concept.reference_notes or "-",
+            "",
+            "## What would reverse this route",
+            "",
+            concept.reverse_evidence or "-",
+            "",
+            "## Prohibited content",
+            "",
+            concept.prohibited_content or "-",
+            "",
+            "## Canonical script",
+            "",
+            concept.canonical_script or "-",
+            "",
             "## Open questions",
             "",
         ]
@@ -246,6 +347,19 @@ def render_production_plan(
                     f"{deliverable.caption_rules.max_cps} cps, "
                     f"{deliverable.caption_rules.min_hold_frames} frame minimum",
                 ],
+                [
+                    "Placement safe areas",
+                    "; ".join(
+                        f"{placement}: top {area.top}, bottom {area.bottom}, "
+                        f"left {area.left}, right {area.right}"
+                        for placement, area in deliverable.placement_safe_areas.items()
+                    )
+                    or "one assumed safe area",
+                ],
+                ["Delivery codec", deliverable.delivery_codec or "-"],
+                ["Colour", deliverable.colour_space or "-"],
+                ["Caption mode", deliverable.caption_mode or "-"],
+                ["Audio target", deliverable.audio_target or "-"],
             ],
         ),
         "",
@@ -309,28 +423,56 @@ def render_production_plan(
                 f"**Lighting:** {shot.lighting}  ",
                 f"**Palette:** {shot.palette}  ",
                 f"**Continuity:** {shot.continuity}  ",
-                f"**Transition in:** {shot.transition_in}",
+                f"**Transition in:** {shot.transition_in}  ",
+                f"**Lens / handles:** {shot.lens_intent or '-'} · "
+                f"{shot.handles_frames} frame handles  ",
+                f"**Shot acceptance:** {shot.acceptance or '-'}  ",
                 "",
             ]
         )
         layers = [
-            plan.layer_map[layer_id]
-            for layer_id in shot.layer_ids
-            if layer_id in plan.layer_map
+            plan.layer_map[layer_id] for layer_id in shot.layer_ids if layer_id in plan.layer_map
         ]
         lines.append(
             _table(
-                ["Layer", "Role", "Frames", "Rect", "Binding", "Exact", "Req", "Protected"],
+                [
+                    "Layer",
+                    "Role",
+                    "Frames",
+                    "Z",
+                    "Rect",
+                    "Binding",
+                    "Text / opacity",
+                    "Motion",
+                    "Effect",
+                    "Effect spec",
+                    "Anchor / rotation",
+                    "Req",
+                    "Exact",
+                    "Protected",
+                    "Allowed edits",
+                    "Acceptance",
+                ],
                 [
                     [
                         layer.id,
                         layer.role.value,
                         f"{layer.start_frame}-{layer.end_frame}",
+                        str(layer.z_order),
                         f"{layer.rect.x},{layer.rect.y},{layer.rect.w},{layer.rect.h}",
                         f"{layer.binding_kind.value}:{layer.binding_ref or '-'}",
-                        layer.exactness.value,
+                        _text_style(layer)
+                        if layer.text_style
+                        else f"opacity {layer.opacity:g}, fill {layer.fill or '-'}",
+                        _motion(layer),
+                        layer.effect or "-",
+                        layer.effect_spec or "-",
+                        f"{layer.anchor} / {layer.rotation_deg:g}°",
                         _bool(layer.required),
-                        _bool(layer.protected) if layer.protected else "-",
+                        layer.exactness.value,
+                        _regions(layer),
+                        ", ".join(layer.allowed_edits) or "-",
+                        layer.acceptance or "-",
                     ]
                     for layer in layers
                 ],
@@ -379,6 +521,38 @@ def render_production_plan(
                 ],
             ),
             "",
+            "### Asset briefs",
+            "",
+        ]
+    )
+    for asset in plan.assets:
+        lines.extend(
+            [
+                f"**{asset.id} - {asset.name}**",
+                "",
+                f"- Route: `{asset.route.value}`; status: `{asset.status.value}`",
+                f"- Source: {asset.source or '-'}",
+                f"- Description: {asset.description}",
+                f"- Rights: `{asset.rights.status.value}`; "
+                f"licence: {asset.rights.licence_name or '-'}; "
+                f"consent: {asset.rights.consent_ref or '-'}; "
+                f"AI generated: {_bool(asset.rights.ai_generated)}; "
+                f"disclosure: {_bool(asset.rights.disclosure_required)}",
+                f"- Technical: {asset.tech.format}; "
+                f"{asset.tech.width or '-'}x{asset.tech.height or '-'}; "
+                f"fps {asset.tech.fps or '-'}; frames {asset.tech.duration_frames or '-'}; "
+                f"{asset.tech.notes or ''}",
+                f"- Allowed edits: {', '.join(asset.allowed_edits) or '-'}",
+                f"- Dependencies: {', '.join(asset.dependencies) or '-'}; "
+                f"fallback: {asset.fallback_asset_id or '-'}",
+                f"- Generation spec: {asset.generation_spec or '-'}",
+                f"- Acceptance: {asset.acceptance or '-'}",
+                f"- Notes: {asset.notes or '-'}",
+                "",
+            ]
+        )
+    lines.extend(
+        [
             "## 7. Copy blocks",
             "",
             _table(
@@ -467,7 +641,15 @@ def render_production_plan(
             "## 12. Alternate routes",
             "",
             _table(
-                ["ID", "Targets", "Trigger", "Preserved", "Cost delta", "Scope"],
+                [
+                    "ID",
+                    "Targets",
+                    "Trigger",
+                    "Preserved",
+                    "Cost delta",
+                    "Scope",
+                    "Switch authority",
+                ],
                 [
                     [
                         alternate.id,
@@ -476,6 +658,7 @@ def render_production_plan(
                         alternate.preserved,
                         f"{alternate.cost_delta_usd:.2f}",
                         ", ".join(alternate.approval_scope),
+                        alternate.switch_authority,
                     ]
                     for alternate in plan.alternates
                 ],
@@ -712,8 +895,7 @@ def render_gate_packet(
     lines.extend(f"- {blocker}" for blocker in packet.blockers or ["none"])
     lines.extend(["", "## Top-three input status", ""])
     lines.extend(
-        f"- {finding_id}: {status}"
-        for finding_id, status in packet.input_statuses.items()
+        f"- {finding_id}: {status}" for finding_id, status in packet.input_statuses.items()
     )
     if not packet.input_statuses:
         lines.append("- none")
@@ -753,11 +935,7 @@ def build_handoff(
 ) -> Level2Handoff:
     approved = set(approval.scope)
     shots = [shot for shot in plan.shots if shot.id in approved]
-    layers = [
-        layer
-        for layer in plan.layers
-        if layer.shot_id in approved
-    ]
+    layers = [layer for layer in plan.layers if layer.shot_id in approved]
     asset_ids = {
         layer.binding_ref
         for layer in layers
@@ -766,15 +944,12 @@ def build_handoff(
     approved_ranges = [(shot.start_frame, shot.end_frame) for shot in shots]
 
     def cue_overlaps(cue_start: int, cue_end: int) -> bool:
-        return any(
-            cue_start < end and cue_end > start for start, end in approved_ranges
-        )
+        return any(cue_start < end and cue_end > start for start, end in approved_ranges)
 
     asset_ids.update(
         cue.asset_id
         for cue in plan.audio_cues
-        if cue.asset_id is not None
-        and cue_overlaps(cue.start_frame, cue.end_frame)
+        if cue.asset_id is not None and cue_overlaps(cue.start_frame, cue.end_frame)
     )
     handoff_shots = [
         HandoffShot(
@@ -835,8 +1010,7 @@ def build_handoff(
     approved_exact = {
         exact_id
         for exact_id in referenced_exact
-        if exact_id in explicit
-        or plan.exact_map[exact_id].status.value == "approved"
+        if exact_id in explicit or plan.exact_map[exact_id].status.value == "approved"
     }
     pending_exact = referenced_exact - approved_exact
 
@@ -854,8 +1028,7 @@ def build_handoff(
         for check in plan.checks
         if validation.check_status.get(check.id) is CheckStatus.PENDING
         and any(
-            target in approved_ids or target == plan.deliverable.id
-            for target in check.target_ids
+            target in approved_ids or target == plan.deliverable.id for target in check.target_ids
         )
     ]
     return Level2Handoff(

@@ -14,13 +14,7 @@ from typing import Any
 
 from .critique import build_resolution_inputs, critique_plan
 from .errors import GateFailedError, NotFoundError, StoreError
-from .fixtures import (
-    FIXTURES,
-    build_brief,
-    build_concept_note,
-    build_plan,
-    build_research_pack,
-)
+from .fixtures import FIXTURES, Fixture, get_fixture
 from .models import (
     BundleManifest,
     CheckLevel,
@@ -41,6 +35,7 @@ from .models import (
     content_hash,
 )
 from .preview import write_previews
+from .quality import plan_detail_issues, research_quality_issues
 from .render import (
     build_handoff,
     render_concept_note,
@@ -59,17 +54,25 @@ def _project(store: ProjectStore, project_id: str) -> Project:
     return store.load_project(project_id)
 
 
+def _fixture_for(project_id: str) -> Fixture:
+    try:
+        return get_fixture(project_id)
+    except KeyError as error:
+        raise NotFoundError(f"no fixture is registered for project {project_id!r}") from error
+
+
 def init_project(store: ProjectStore, fixture: str = DEFAULT_PROJECT) -> Project:
     if fixture not in FIXTURES:
         raise NotFoundError(
             f"unknown fixture {fixture!r}; implemented fixtures: {', '.join(FIXTURES)}"
         )
-    if store.project_dir(DEFAULT_PROJECT).joinpath("project.json").exists():
-        raise StoreError(f"project already exists: {DEFAULT_PROJECT}")
-    brief = build_brief()
+    spec = FIXTURES[fixture]
+    if store.project_dir(spec.project_id).joinpath("project.json").exists():
+        raise StoreError(f"project already exists: {spec.project_id}")
+    brief = spec.brief()
     project = Project(
-        id=DEFAULT_PROJECT,
-        title=FIXTURES[fixture],
+        id=spec.project_id,
+        title=spec.title,
         state=ProjectState.INIT,
     )
     store.create_project(project)
@@ -77,7 +80,7 @@ def init_project(store: ProjectStore, fixture: str = DEFAULT_PROJECT) -> Project
     project = next_state(project, ProjectState.INTAKE)
     store.save_project(project)
     store.append_event(
-        DEFAULT_PROJECT,
+        spec.project_id,
         "brief.normalised",
         {
             "content_family": brief.content_family.value,
@@ -92,7 +95,10 @@ def init_project(store: ProjectStore, fixture: str = DEFAULT_PROJECT) -> Project
 def run_research(store: ProjectStore, project_id: str = DEFAULT_PROJECT) -> Project:
     project = _project(store, project_id)
     require_state(project, ProjectState.INTAKE)
-    pack = build_research_pack()
+    pack = _fixture_for(project_id).research(project_id)
+    issues = research_quality_issues(pack)
+    if issues:
+        raise GateFailedError("research is not decision-ready: " + "; ".join(issues))
     store.save_research(pack)
     project = next_state(project, ProjectState.RESEARCH)
     store.save_project(project)
@@ -103,7 +109,7 @@ def run_concept(store: ProjectStore, project_id: str = DEFAULT_PROJECT) -> Proje
     project = _project(store, project_id)
     require_state(project, ProjectState.RESEARCH)
     store.load_research(project_id)
-    concept = build_concept_note()
+    concept = _fixture_for(project_id).concept(project_id)
     store.save_concept(concept)
     project = next_state(project, ProjectState.TREATMENT)
     store.save_project(project)
@@ -116,7 +122,10 @@ def run_plan(store: ProjectStore, project_id: str = DEFAULT_PROJECT) -> Project:
     store.load_brief(project_id)
     store.load_research(project_id)
     store.load_concept(project_id)
-    plan = build_plan(project_id=project_id)
+    plan = _fixture_for(project_id).plan(project_id, 1, frozenset())
+    issues = plan_detail_issues(plan)
+    if issues:
+        raise GateFailedError("plan is not executable: " + "; ".join(issues))
     store.save_plan(plan)
     project = store.set_plan_revision(project_id, plan.revision)
     project = next_state(project, ProjectState.SHOT_PLAN)
@@ -136,9 +145,7 @@ def run_validation(
     )
     latest = store.latest_plan_revision(project_id)
     if revision is not None and revision != latest:
-        raise GateFailedError(
-            f"revision {revision} is not the latest plan revision ({latest})"
-        )
+        raise GateFailedError(f"revision {revision} is not the latest plan revision ({latest})")
     plan = store.load_plan(project_id, latest)
     brief = store.load_brief(project_id)
     report = validate_plan(plan, brief)
@@ -156,9 +163,7 @@ def run_critique(
     require_state(project, ProjectState.VALIDATED, ProjectState.CRITIQUED)
     latest = store.latest_plan_revision(project_id)
     if revision is not None and revision != latest:
-        raise GateFailedError(
-            f"revision {revision} is not the latest plan revision ({latest})"
-        )
+        raise GateFailedError(f"revision {revision} is not the latest plan revision ({latest})")
     plan = store.load_plan(project_id, latest)
     validation = store.load_validation(project_id, plan.revision)
     brief = store.load_brief(project_id)
@@ -204,11 +209,10 @@ def run_resolution(store: ProjectStore, project_id: str = DEFAULT_PROJECT) -> Pr
     }
     if not fixes:
         raise GateFailedError("critique findings do not map to a planner action")
-    new_plan = build_plan(
-        project_id=project_id,
-        revision=plan.revision + 1,
-        applied=frozenset(fixes),
-    )
+    new_plan = _fixture_for(project_id).plan(project_id, plan.revision + 1, frozenset(fixes))
+    detail_issues = plan_detail_issues(new_plan)
+    if detail_issues:
+        raise GateFailedError("revised plan is not executable: " + "; ".join(detail_issues))
 
     verified: dict[str, list[str]] = {}
     for resolution in inputs:
@@ -336,9 +340,7 @@ def _l1_check_failures(plan: ProductionPlan, validation: ValidationReport) -> li
     return failures
 
 
-def run_previews(
-    store: ProjectStore, project_id: str = DEFAULT_PROJECT
-) -> list[Path]:
+def run_previews(store: ProjectStore, project_id: str = DEFAULT_PROJECT) -> list[Path]:
     project = _project(store, project_id)
     require_state(
         project,
@@ -363,9 +365,7 @@ def run_previews(
     return paths
 
 
-def build_gate_packet(
-    store: ProjectStore, project_id: str = DEFAULT_PROJECT
-) -> Gate1Packet:
+def build_gate_packet(store: ProjectStore, project_id: str = DEFAULT_PROJECT) -> Gate1Packet:
     project = _project(store, project_id)
     require_state(project, ProjectState.CRITIQUED, ProjectState.GATE1_READY)
     plan = store.load_latest_plan(project_id)
@@ -379,9 +379,7 @@ def build_gate_packet(
     if critique.plan_hash != plan.plan_hash():
         blockers.append("critique is bound to a different plan hash")
     if not validation.passed:
-        blockers.extend(
-            f"{finding.rule}: {finding.detail}" for finding in validation.failures
-        )
+        blockers.extend(f"{finding.rule}: {finding.detail}" for finding in validation.failures)
     blockers.extend(
         f"{finding.id} ({finding.category}) is still open: {finding.observation}"
         for finding in critique.open_blockers
@@ -397,18 +395,14 @@ def build_gate_packet(
         if missing:
             blockers.append(f"top-three inputs have no resolution record: {missing}")
 
-    conditions = [
-        f"{finding.rule}: {finding.detail}" for finding in validation.warnings
-    ]
+    conditions = [f"{finding.rule}: {finding.detail}" for finding in validation.warnings]
     conditions.extend(
         f"{finding.id} ({finding.category}): {finding.observation}"
         for finding in critique.findings
-        if finding.severity.value in {"medium", "low"}
-        and finding.disposition is Disposition.OPEN
+        if finding.severity.value in {"medium", "low"} and finding.disposition is Disposition.OPEN
     )
     conditions.extend(
-        f"{held.id} {held.title}: {held.required_evidence}"
-        for held in plan.held_items
+        f"{held.id} {held.title}: {held.required_evidence}" for held in plan.held_items
     )
 
     ready_shots = [shot.id for shot in plan.shots if shot.status.value == "ready"]
@@ -455,9 +449,7 @@ def build_gate_packet(
     )
     store.save_packet(packet)
     if packet.blockers:
-        raise GateFailedError(
-            "Gate 1 is blocked:\n- " + "\n- ".join(packet.blockers)
-        )
+        raise GateFailedError("Gate 1 is blocked:\n- " + "\n- ".join(packet.blockers))
     project = next_state(project, ProjectState.GATE1_READY)
     store.save_project(project)
     return packet
@@ -482,8 +474,7 @@ def run_approval(
     require_state(project, ProjectState.GATE1_READY)
     if actor_kind != "human":
         raise GateFailedError(
-            "Gate 1 approval must come from a human actor; agents and automation "
-            "cannot record it"
+            "Gate 1 approval must come from a human actor; agents and automation cannot record it"
         )
     if human_confirmation != "APPROVE":
         raise GateFailedError("Gate 1 approval requires the typed confirmation APPROVE")
@@ -514,9 +505,7 @@ def run_approval(
     approved_scope = scope or packet.ready_shots
     unknown = [item for item in approved_scope if item not in packet.ready_shots]
     if unknown:
-        raise GateFailedError(
-            f"approval scope contains shots that are not ready: {unknown}"
-        )
+        raise GateFailedError(f"approval scope contains shots that are not ready: {unknown}")
     if not approved_scope:
         raise GateFailedError("approval scope is empty")
 
@@ -525,9 +514,7 @@ def run_approval(
         exact_id for exact_id in approved_exact if exact_id not in packet.exact_data_pending
     ]
     if unknown_exact:
-        raise GateFailedError(
-            f"approval names exact data that is not pending: {unknown_exact}"
-        )
+        raise GateFailedError(f"approval names exact data that is not pending: {unknown_exact}")
 
     packet_hash = content_hash(packet.model_copy(update={"approval": None}))
     approval = Gate1Approval(
@@ -595,9 +582,7 @@ def run_export(store: ProjectStore, project_id: str = DEFAULT_PROJECT) -> list[P
             project_id,
             plan.revision,
             "production-plan.md",
-            render_production_plan(
-                brief, research, plan, validation, critique, approval
-            ),
+            render_production_plan(brief, research, plan, validation, critique, approval),
         ),
         store.write_export(
             project_id,
@@ -690,18 +675,19 @@ def status(store: ProjectStore, project_id: str = DEFAULT_PROJECT) -> dict[str, 
 
 
 def run_all(store: ProjectStore, fixture: str = DEFAULT_PROJECT) -> dict[str, Any]:
-    init_project(store, fixture)
-    run_research(store)
-    run_concept(store)
-    run_plan(store)
-    run_validation(store)
-    run_critique(store)
-    run_resolution(store)
-    run_validation(store)
-    run_critique(store)
-    run_previews(store)
-    build_gate_packet(store)
-    return status(store)
+    project = init_project(store, fixture)
+    project_id = project.id
+    run_research(store, project_id)
+    run_concept(store, project_id)
+    run_plan(store, project_id)
+    run_validation(store, project_id)
+    run_critique(store, project_id)
+    run_resolution(store, project_id)
+    run_validation(store, project_id)
+    run_critique(store, project_id)
+    run_previews(store, project_id)
+    build_gate_packet(store, project_id)
+    return status(store, project_id)
 
 
 def resolve_approved_revision(

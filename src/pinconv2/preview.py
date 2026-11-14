@@ -53,16 +53,12 @@ def _text(layer: Layer, plan: ProductionPlan) -> str:
     spans = []
     for index, line in enumerate(lines[: style.max_lines]):
         dy = 0 if index == 0 else line_height
-        spans.append(
-            f'<tspan x="{layer.rect.x}" dy="{dy:.1f}">{escape(line)}</tspan>'
-        )
+        spans.append(f'<tspan x="{layer.rect.x}" dy="{dy:.1f}">{escape(line)}</tspan>')
     return (
         f'<text x="{layer.rect.x}" y="{first_baseline:.1f}" '
         f'font-family="{escape(style.font_family)}, Segoe UI, sans-serif" '
         f'font-size="{style.size_px}" font-weight="{style.weight}" '
-        f'fill="{style.color}" text-anchor="start">'
-        + "".join(spans)
-        + "</text>"
+        f'fill="{style.color}" text-anchor="start">' + "".join(spans) + "</text>"
     )
 
 
@@ -81,14 +77,8 @@ def _canvas_markup(plan: ProductionPlan, shot: Shot) -> str:
     deliverable = plan.deliverable
     width = deliverable.width
     height = deliverable.height
-    parts = [
-        f'<rect x="0" y="0" width="{width}" height="{height}" fill="#0B0604"/>'
-    ]
-    layers = [
-        plan.layer_map[layer_id]
-        for layer_id in shot.layer_ids
-        if layer_id in plan.layer_map
-    ]
+    parts = [f'<rect x="0" y="0" width="{width}" height="{height}" fill="#0B0604"/>']
+    layers = [plan.layer_map[layer_id] for layer_id in shot.layer_ids if layer_id in plan.layer_map]
     for layer in sorted(layers, key=lambda item: item.z_order):
         if layer.role is LayerRole.CAPTION_PLATE:
             parts.append(_rect(layer.rect, "#000000", layer.opacity))
@@ -97,8 +87,7 @@ def _canvas_markup(plan: ProductionPlan, shot: Shot) -> str:
             extra = 'rx="12"'
             if layer.role is LayerRole.EFFECT:
                 opacity = min(opacity, 0.12)
-                extra = 'rx="12" stroke="#E8D5B5" stroke-width="3" ' \
-                    'stroke-dasharray="18 12"'
+                extra = 'rx="12" stroke="#E8D5B5" stroke-width="3" stroke-dasharray="18 12"'
             parts.append(_rect(layer.rect, ROLE_FILL[layer.role], opacity, extra))
             parts.append(_visual_label(layer))
         if layer.role.value in {
@@ -149,17 +138,17 @@ def render_shot_svg(plan: ProductionPlan, shot: Shot) -> str:
         f'<rect width="100%" height="100%" fill="#050302"/>'
         f'<text x="24" y="38" font-family="Inter, Segoe UI, sans-serif" '
         f'font-size="30" fill="#F7EBDD">{escape(shot.id)} - '
-        f'{escape(shot.purpose)}</text>'
+        f"{escape(shot.purpose)}</text>"
         f'<text x="24" y="72" font-family="Inter, Segoe UI, sans-serif" '
         f'font-size="22" fill="#9C8B7C">LAYOUT MOCKUP - NOT FINAL ART - frames '
-        f'{shot.start_frame}-{shot.end_frame}</text>'
+        f"{shot.start_frame}-{shot.end_frame}</text>"
         f'<g transform="translate(0,{header})">{_canvas_markup(plan, shot)}</g>'
         "</svg>"
     )
 
 
 def render_contact_sheet(plan: ProductionPlan) -> str:
-    scale = 0.22
+    scale = 0.14 if len(plan.shots) > 4 else 0.22
     tile_width = int(plan.deliverable.width * scale)
     tile_height = int(plan.deliverable.height * scale)
     gap = 24
@@ -177,7 +166,7 @@ def render_contact_sheet(plan: ProductionPlan) -> str:
             f"{_canvas_markup(plan, shot)}</svg>"
             f'<text x="0" y="-18" font-family="Inter, Segoe UI, sans-serif" '
             f'font-size="22" fill="#F7EBDD">{escape(shot.id)} '
-            f'{shot.start_frame}-{shot.end_frame}</text>'
+            f"{shot.start_frame}-{shot.end_frame}</text>"
             "</g>"
         )
     return (
@@ -185,12 +174,11 @@ def render_contact_sheet(plan: ProductionPlan) -> str:
         f'height="{total_height}" viewBox="0 0 {total_width} {total_height}">'
         f'<rect width="100%" height="100%" fill="#050302"/>'
         f'<text x="{left}" y="42" font-family="Inter, Segoe UI, sans-serif" '
-        f'font-size="30" fill="#F7EBDD">Toffee Ethiopia - contact sheet</text>'
+        f'font-size="30" fill="#F7EBDD">'
+        f"{escape(plan.project_id.replace('-', ' ').title())} - contact sheet</text>"
         f'<text x="{left}" y="74" font-family="Inter, Segoe UI, sans-serif" '
         f'font-size="22" fill="#9C8B7C">LAYOUT MOCKUP - plan revision '
-        f'{plan.revision} - {plan.plan_hash()[:12]}</text>'
-        + "".join(tiles)
-        + "</svg>"
+        f"{plan.revision} - {plan.plan_hash()[:12]}</text>" + "".join(tiles) + "</svg>"
     )
 
 

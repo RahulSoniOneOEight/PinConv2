@@ -40,9 +40,29 @@ pytest
 
 The only runtime dependency is Pydantic.
 
+## The acceptance runs
+
+There are two deterministic Level 1 fixtures:
+
+| Fixture | Format | What it demonstrates |
+|---|---|---|
+| `toffee-coffee-10s` | 10s, 1080x1920, 25 fps | Product reveal, safe-area fix, commercial-data hold and a signed Gate 1 |
+| `blue-tokai-easy-pour-20s` | 20s, 1920x1080, 25 fps | Research-led demo, built-in-filter proof, range reveal and a six-shot plan |
+
+The Blue Tokai case is the newer, detail-complete review run. It reaches
+`gate1_ready`; it is **not** approved until a named human signs it.
+
+```bash
+pinconv2 --data-dir projects run-all --fixture blue-tokai-easy-pour-20s
+```
+
+Its records are under `projects/blue-tokai-easy-pour-20s/`. The review document
+is `docs/BlueTokai-Level1-Outcome.docx`; the independent QC record is
+`docs/blue-tokai-qc.md`.
+
 ## The Toffee test run
 
-The acceptance case is a 10-second vertical ad for
+The first acceptance case is a 10-second vertical ad for
 [Toffee Coffee Roasters](https://toffeecoffeeroasters.com/) Ethiopia Speciality
 Instant Coffee. The brief, research pack and plan are deterministic fixtures so
 the workflow can be tested without an LLM, a provider key or a media spend.
@@ -174,7 +194,7 @@ src/pinconv2/
   render.py              Markdown renderers and Level 2 handoff
   validators/            timing, exact data, layers, budget, rights, traceability
   fixtures/              Toffee brief, research, concept and plan
-tests/                   59 deterministic tests
+tests/                   62 deterministic tests
 examples/                the test brief
 docs/                    Level 1 design and architecture
 ```
@@ -183,7 +203,7 @@ docs/                    Level 1 design and architecture
 
 At the last run:
 
-- 59 tests pass;
+- 62 tests pass;
 - `ruff check .` passes;
 - `mypy src/pinconv2` passes;
 - the Toffee run reaches `gate1_ready` with no blockers;
@@ -198,5 +218,7 @@ At the last run:
 - the exported Level 2 handoff is bound to the approved plan, bundle and packet
   hashes.
 
-See `docs/level1.md` for the contracts and rules, `docs/architecture.md` for the
-four-level model, and `docs/qc.md` for the independent QC record.
+See `docs/level1.md` for the contracts and rules, `docs/level1-detail-standard.md`
+for the required Concept Note, Production Plan and Shot x Layer x Asset detail,
+`docs/architecture.md` for the four-level model, and `docs/qc.md` for the
+independent QC record.

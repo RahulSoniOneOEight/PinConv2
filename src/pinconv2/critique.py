@@ -199,8 +199,7 @@ def critique_plan(
         copy_layers = [
             plan.layer_map[layer_id]
             for layer_id in shot.layer_ids
-            if layer_id in plan.layer_map
-            and plan.layer_map[layer_id].role in TEXT_LAYER_ROLES
+            if layer_id in plan.layer_map and plan.layer_map[layer_id].role in TEXT_LAYER_ROLES
         ]
         if shot.duration_frames < 90 and len(copy_layers) > 2:
             add(
@@ -210,9 +209,7 @@ def critique_plan(
                     f"{shot.id} carries {len(copy_layers)} text layers in "
                     f"{shot.duration_frames / plan.deliverable.fps:.1f}s."
                 ),
-                evidence=", ".join(
-                    f"{layer.id}:{layer.role.value}" for layer in copy_layers
-                ),
+                evidence=", ".join(f"{layer.id}:{layer.role.value}" for layer in copy_layers),
                 proposed_action=(
                     "Keep the headline and caption; move the third message to another "
                     "shot or remove it."
@@ -271,9 +268,7 @@ def critique_plan(
             and layer.binding_kind is BindingKind.ASSET
             and layer.binding_ref == asset.id
             for layer in plan.layers
-        ) or any(
-            cue.essential and cue.asset_id == asset.id for cue in plan.audio_cues
-        )
+        ) or any(cue.essential and cue.asset_id == asset.id for cue in plan.audio_cues)
         if required:
             add(
                 category="rights_unknown",
@@ -281,8 +276,7 @@ def critique_plan(
                 observation=f"Required asset {asset.id} has no identified licence.",
                 evidence=f"{asset.name}; rights status unknown",
                 proposed_action=(
-                    "Select a licensable track or asset, record the licence, and name a "
-                    "fallback."
+                    "Select a licensable track or asset, record the licence, and name a fallback."
                 ),
                 impact=3,
                 confidence=4,
@@ -305,9 +299,7 @@ def critique_plan(
             add(
                 category="reading_speed",
                 severity=Severity.HIGH,
-                observation=(
-                    f"{copy_block.id} reads at {cps:.1f} characters per second."
-                ),
+                observation=(f"{copy_block.id} reads at {cps:.1f} characters per second."),
                 evidence=f"Layer {layer.id}, {layer.duration_frames} frames",
                 proposed_action="Shorten the copy or hold it longer.",
                 impact=4,
@@ -338,8 +330,7 @@ def critique_plan(
             severity=Severity.MEDIUM,
             observation="The first shot does not land a hook in the first second.",
             evidence=(
-                f"First shot {first_shot.id}, "
-                f"hook layers {[layer.id for layer in hook_layers]}"
+                f"First shot {first_shot.id}, hook layers {[layer.id for layer in hook_layers]}"
             ),
             proposed_action="Place the hook copy by frame 25 of the first shot.",
             impact=4,
@@ -368,8 +359,7 @@ def critique_plan(
         )
     else:
         first_product = min(
-            plan.shot_map[layer.shot_id].start_frame + layer.start_frame
-            for layer in product_layers
+            plan.shot_map[layer.shot_id].start_frame + layer.start_frame for layer in product_layers
         )
         if first_product > plan.deliverable.frame_count // 2:
             add(
@@ -454,40 +444,39 @@ def build_resolution_inputs(report: CritiqueReport) -> list[dict[str, Any]]:
         if finding.category == "commercial_data":
             mode, status = "human", "escalated"
             decision = (
-                "Remove price and promotion from the ready cut and hold them for a "
-                "named brand decision."
+                "Remove the commercial layer from the ready cut and hold the exact "
+                "value and terms for a named brand decision."
             )
             changes = [
-                "Removed the offer layer and its held copy.",
-                "Recorded a price and promotion hold with the evidence needed.",
+                "Removed the commercial layer and its held copy from the ready cut.",
+                "Recorded a held item with the evidence needed to clear the value.",
             ]
         elif finding.category == "safe_area":
             mode, status = "auto", "resolved"
             decision = "Move every text layer inside the platform safe area."
             changes = [
-                "Moved the SH-02, SH-03 and SH-04 captions above the bottom inset.",
-                "Moved the SH-03 headline and SH-04 CTA inside the side insets.",
+                "Moved affected captions and headlines inside the safe insets.",
+                "Re-ran the structural safe-area validator.",
             ]
         elif finding.category == "budget":
             mode, status = "auto", "resolved"
             decision = "Remove redundant routes so total plus fallback fits the cap."
             changes = [
-                "Removed the stock bean macro and the second stock splash.",
-                "Used the created liquid pack for macro texture and payoff.",
-                "Kept a costed pack-capture fallback inside the cap.",
+                "Removed the redundant route and its estimate.",
+                "Kept one costed fallback inside the cap.",
             ]
         elif finding.category == "text_density":
             mode, status = "auto", "resolved"
-            decision = "Reduce the SH-03 text stack to a headline and one caption."
-            changes = ["Removed the held offer layer from SH-03."]
+            decision = "Reduce the affected shot to a readable text stack."
+            changes = ["Removed non-essential text from the shot."]
         elif finding.category == "rights_unknown":
             mode, status = "auto", "resolved"
             decision = "Name a licensable route and a fallback for the asset."
-            changes = ["Recorded the library licence and a second track as fallback."]
+            changes = ["Recorded the licence route and a fallback requirement."]
         elif finding.category == "missing_fallback":
             mode, status = "auto", "resolved"
-            decision = "Add a capture route and a no-pack alternate."
-            changes = ["Added a costed pack-capture fallback and alternate route."]
+            decision = "Add a capture route and a no-hero-asset alternate."
+            changes = ["Added the fallback asset and alternate route."]
         elif finding.category == "reading_speed":
             mode, status = "auto", "resolved"
             decision = "Shorten or extend the affected copy."

@@ -1,0 +1,601 @@
+{
+  "project_id": "blue-tokai-easy-pour-20s",
+  "plan_revision": 2,
+  "plan_hash": "587580d849aadc27f74cdebd55b17414c209855b2de6a1350243fd6a710909b1",
+  "findings": [
+    {
+      "id": "V-001",
+      "rule": "timing.deliverable",
+      "target": "DP-01",
+      "severity": "low",
+      "status": "pass",
+      "detail": "500 frames at 25 fps = 20.000s",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-002",
+      "rule": "timing.shots",
+      "target": "timeline",
+      "severity": "low",
+      "status": "pass",
+      "detail": "6 half-open shots cover frames 0-500",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-003",
+      "rule": "timing.beats",
+      "target": "timeline",
+      "severity": "low",
+      "status": "pass",
+      "detail": "6 beats cover the full timeline",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-004",
+      "rule": "timing.layers",
+      "target": "layers",
+      "severity": "low",
+      "status": "pass",
+      "detail": "every layer sits inside its shot",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-005",
+      "rule": "timing.audio",
+      "target": "audio",
+      "severity": "low",
+      "status": "pass",
+      "detail": "4 audio cues fit the timeline",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-006",
+      "rule": "timing.captions",
+      "target": "captions",
+      "severity": "low",
+      "status": "pass",
+      "detail": "caption holds and reading speed fit",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-007",
+      "rule": "timing.transitions",
+      "target": "transitions",
+      "severity": "low",
+      "status": "pass",
+      "detail": "transitions sit on shot boundaries",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-008",
+      "rule": "exact.references",
+      "target": "copy",
+      "severity": "low",
+      "status": "pass",
+      "detail": "all copy references resolve",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-009",
+      "rule": "exact.identifiers",
+      "target": "LY-035",
+      "severity": "medium",
+      "status": "warn",
+      "detail": "product_name ED-01 is observed; Gate 1 must approve this identifier or wording",
+      "remediation": "Record the value in the Gate 1 scope before production."
+    },
+    {
+      "id": "V-010",
+      "rule": "exact.identifiers",
+      "target": "LY-063",
+      "severity": "medium",
+      "status": "warn",
+      "detail": "cta ED-04 is proposed; Gate 1 must approve this identifier or wording",
+      "remediation": "Record the value in the Gate 1 scope before production."
+    },
+    {
+      "id": "V-011",
+      "rule": "exact.identifiers",
+      "target": "LY-065",
+      "severity": "medium",
+      "status": "warn",
+      "detail": "brand_name ED-05 is observed; Gate 1 must approve this identifier or wording",
+      "remediation": "Record the value in the Gate 1 scope before production."
+    },
+    {
+      "id": "V-012",
+      "rule": "exact.critical",
+      "target": "commercial",
+      "severity": "low",
+      "status": "pass",
+      "detail": "no unapproved critical commercial data is required",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-013",
+      "rule": "exact.claims",
+      "target": "claims",
+      "severity": "low",
+      "status": "pass",
+      "detail": "all used claims are verified and worded",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-014",
+      "rule": "exact.orphans",
+      "target": "exact",
+      "severity": "low",
+      "status": "pass",
+      "detail": "every exact record is accounted for",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-015",
+      "rule": "exact.attribution",
+      "target": "exact",
+      "severity": "low",
+      "status": "pass",
+      "detail": "approved values carry an attributable approval",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-016",
+      "rule": "layer.references",
+      "target": "layers",
+      "severity": "low",
+      "status": "pass",
+      "detail": "shot, asset and copy bindings resolve",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-017",
+      "rule": "layer.z_order",
+      "target": "layers",
+      "severity": "low",
+      "status": "pass",
+      "detail": "z-order is unique inside each shot",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-018",
+      "rule": "layer.canvas",
+      "target": "layers",
+      "severity": "low",
+      "status": "pass",
+      "detail": "every layer sits inside the canvas",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-019",
+      "rule": "layer.safe_area",
+      "target": "text",
+      "severity": "low",
+      "status": "pass",
+      "detail": "text and protected layers sit inside the platform safe area",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-020",
+      "rule": "layer.background",
+      "target": "shots",
+      "severity": "low",
+      "status": "pass",
+      "detail": "every shot has a full-canvas background",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-021",
+      "rule": "layer.occlusion",
+      "target": "protected",
+      "severity": "low",
+      "status": "pass",
+      "detail": "protected regions are not covered by opaque layers",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-022",
+      "rule": "layer.text_overlap",
+      "target": "text",
+      "severity": "low",
+      "status": "pass",
+      "detail": "text layers do not overlap",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-023",
+      "rule": "layer.plates",
+      "target": "captions",
+      "severity": "low",
+      "status": "pass",
+      "detail": "every caption sits on a readable plate",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-024",
+      "rule": "layer.duration",
+      "target": "text",
+      "severity": "low",
+      "status": "pass",
+      "detail": "text layers have a minimum readable duration",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-025",
+      "rule": "layer.binding_exactness",
+      "target": "assets",
+      "severity": "low",
+      "status": "pass",
+      "detail": "exact layers bind exact assets",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-026",
+      "rule": "layer.density",
+      "target": "shots",
+      "severity": "low",
+      "status": "pass",
+      "detail": "copy density stays readable",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-027",
+      "rule": "layer.caption_plates",
+      "target": "plates",
+      "severity": "low",
+      "status": "pass",
+      "detail": "caption plates sit behind captions",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-028",
+      "rule": "layer.visual_binding",
+      "target": "visuals",
+      "severity": "low",
+      "status": "pass",
+      "detail": "visual layers bind assets and text binds copy",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-029",
+      "rule": "budget.sync",
+      "target": "budget",
+      "severity": "low",
+      "status": "pass",
+      "detail": "the plan and budget share one estimate list",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-030",
+      "rule": "budget.variants",
+      "target": "budget",
+      "severity": "low",
+      "status": "pass",
+      "detail": "variant cost deltas match the variant budget",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-031",
+      "rule": "budget.cap_match",
+      "target": "budget",
+      "severity": "low",
+      "status": "pass",
+      "detail": "the plan budget matches the brief planning cap",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-032",
+      "rule": "budget.cap",
+      "target": "budget",
+      "severity": "low",
+      "status": "pass",
+      "detail": "total 80.50 USD is within 100.00",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-033",
+      "rule": "budget.worst_case",
+      "target": "budget",
+      "severity": "low",
+      "status": "pass",
+      "detail": "worst case 85.50 fits the cap",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-034",
+      "rule": "budget.references",
+      "target": "budget",
+      "severity": "low",
+      "status": "pass",
+      "detail": "estimate references resolve and are typed",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-035",
+      "rule": "budget.reserve",
+      "target": "budget",
+      "severity": "low",
+      "status": "pass",
+      "detail": "a retry reserve is present",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-036",
+      "rule": "budget.basis",
+      "target": "budget",
+      "severity": "low",
+      "status": "pass",
+      "detail": "every estimate declares its basis and confidence",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-037",
+      "rule": "rights.assets",
+      "target": "AS-01",
+      "severity": "medium",
+      "status": "warn",
+      "detail": "rights need approval for Blue Tokai Coffee Roasters logo",
+      "remediation": "Obtain brand or licence approval before the asset enters a render."
+    },
+    {
+      "id": "V-038",
+      "rule": "rights.assets",
+      "target": "AS-02",
+      "severity": "medium",
+      "status": "warn",
+      "detail": "rights need approval for Easy Pour Mixed Bag pack",
+      "remediation": "Obtain brand or licence approval before the asset enters a render."
+    },
+    {
+      "id": "V-039",
+      "rule": "rights.assets",
+      "target": "AS-03",
+      "severity": "medium",
+      "status": "warn",
+      "detail": "rights need approval for Easy Pour Vienna pack",
+      "remediation": "Obtain brand or licence approval before the asset enters a render."
+    },
+    {
+      "id": "V-040",
+      "rule": "rights.assets",
+      "target": "AS-04",
+      "severity": "medium",
+      "status": "warn",
+      "detail": "rights need approval for Easy Pour Attikan Estate pack",
+      "remediation": "Obtain brand or licence approval before the asset enters a render."
+    },
+    {
+      "id": "V-041",
+      "rule": "rights.assets",
+      "target": "AS-05",
+      "severity": "medium",
+      "status": "warn",
+      "detail": "rights need approval for Easy Pour brewing demonstration, hands",
+      "remediation": "Obtain brand or licence approval before the asset enters a render."
+    },
+    {
+      "id": "V-042",
+      "rule": "rights.assets",
+      "target": "AS-06",
+      "severity": "medium",
+      "status": "warn",
+      "detail": "rights need approval for Hot water pour and bloom footage",
+      "remediation": "Obtain brand or licence approval before the asset enters a render."
+    },
+    {
+      "id": "V-043",
+      "rule": "rights.assets",
+      "target": "AS-08",
+      "severity": "medium",
+      "status": "warn",
+      "detail": "rights need approval for Finished cup of coffee",
+      "remediation": "Obtain brand or licence approval before the asset enters a render."
+    },
+    {
+      "id": "V-044",
+      "rule": "rights.assets",
+      "target": "AS-09",
+      "severity": "medium",
+      "status": "warn",
+      "detail": "rights need approval for Voice over, warm Indian English",
+      "remediation": "Obtain brand or licence approval before the asset enters a render."
+    },
+    {
+      "id": "V-045",
+      "rule": "rights.assets",
+      "target": "AS-10",
+      "severity": "medium",
+      "status": "warn",
+      "detail": "rights need approval for Music bed, 20 seconds",
+      "remediation": "Obtain brand or licence approval before the asset enters a render."
+    },
+    {
+      "id": "V-046",
+      "rule": "rights.assets",
+      "target": "AS-17",
+      "severity": "medium",
+      "status": "warn",
+      "detail": "rights need approval for Easy Pour Seethargundu Estate pack",
+      "remediation": "Obtain brand or licence approval before the asset enters a render."
+    },
+    {
+      "id": "V-047",
+      "rule": "rights.audio",
+      "target": "audio",
+      "severity": "low",
+      "status": "pass",
+      "detail": "every essential audio cue resolves to an asset",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-048",
+      "rule": "rights.reference",
+      "target": "sources",
+      "severity": "low",
+      "status": "pass",
+      "detail": "reference media is not bound as production asset",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-049",
+      "rule": "rights.disclosure",
+      "target": "assets",
+      "severity": "low",
+      "status": "pass",
+      "detail": "synthetic media carries a disclosure decision",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-050",
+      "rule": "rights.attribution",
+      "target": "assets",
+      "severity": "low",
+      "status": "pass",
+      "detail": "cleared assets carry attribution where required",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-051",
+      "rule": "trace.ids",
+      "target": "plan",
+      "severity": "low",
+      "status": "pass",
+      "detail": "record identifiers are unique",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-052",
+      "rule": "trace.shots",
+      "target": "shots",
+      "severity": "low",
+      "status": "pass",
+      "detail": "every shot reference resolves",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-053",
+      "rule": "trace.beats",
+      "target": "beats",
+      "severity": "low",
+      "status": "pass",
+      "detail": "beats are used and resolve their cues",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-054",
+      "rule": "trace.assets",
+      "target": "assets",
+      "severity": "low",
+      "status": "pass",
+      "detail": "asset usage is recorded both ways",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-055",
+      "rule": "trace.dependencies",
+      "target": "assets",
+      "severity": "low",
+      "status": "pass",
+      "detail": "asset dependencies resolve and are acyclic",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-056",
+      "rule": "trace.variants",
+      "target": "variants",
+      "severity": "low",
+      "status": "pass",
+      "detail": "variant overrides resolve and are scoped",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-057",
+      "rule": "trace.checks",
+      "target": "checks",
+      "severity": "low",
+      "status": "pass",
+      "detail": "acceptance checks target real work",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-058",
+      "rule": "trace.alternates",
+      "target": "alternates",
+      "severity": "low",
+      "status": "pass",
+      "detail": "alternate routes are executable",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-059",
+      "rule": "trace.must_have",
+      "target": "brief",
+      "severity": "low",
+      "status": "pass",
+      "detail": "every must-have is covered",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-060",
+      "rule": "trace.held",
+      "target": "held",
+      "severity": "low",
+      "status": "pass",
+      "detail": "held items are scoped and actionable",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-061",
+      "rule": "trace.shot_status",
+      "target": "shots",
+      "severity": "low",
+      "status": "pass",
+      "detail": "shot status matches its blockers",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-062",
+      "rule": "trace.cta",
+      "target": "deliverable",
+      "severity": "low",
+      "status": "pass",
+      "detail": "the deliverable CTA resolves",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-063",
+      "rule": "trace.critical_assets",
+      "target": "assets",
+      "severity": "low",
+      "status": "pass",
+      "detail": "critical assets have a route out",
+      "remediation": "No action required."
+    },
+    {
+      "id": "V-064",
+      "rule": "trace.layers",
+      "target": "layers",
+      "severity": "low",
+      "status": "pass",
+      "detail": "required text and visuals are bound",
+      "remediation": "No action required."
+    }
+  ],
+  "check_status": {
+    "AC-01": "pass",
+    "AC-02": "pass",
+    "AC-03": "pass",
+    "AC-04": "pass",
+    "AC-05": "pending",
+    "AC-06": "pending",
+    "AC-07": "pending",
+    "AC-08": "pass",
+    "AC-09": "pending",
+    "AC-10": "pass",
+    "AC-11": "pending",
+    "AC-12": "pending",
+    "AC-13": "pass",
+    "AC-14": "pass",
+    "AC-15": "pass"
+  },
+  "created_at": "2026-11-14T15:28:11+00:00"
+}
