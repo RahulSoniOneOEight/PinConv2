@@ -1,0 +1,58 @@
+{
+  "project_id": "blue-tokai-easy-pour-20s",
+  "plan_revision": 2,
+  "plan_hash": "4a0a0023536440ef6d9014048dd91554086ef0d44ff08b08eb989991cd688434",
+  "bundle_hash": "9bd6c0040224de7a22e42fc6a7491d007ed3675f3ab4aadc2b31e9c27ebdc529",
+  "record_hashes": {
+    "brief": "f7dcb6d76d7ff18ceff2cbc3e309167132c3a7d8769e69cd37aac51427d90205",
+    "research": "bf0b9457d08d5422219f7617bf5845d9b56c074ddfc685acbb2eacf1c4402448",
+    "concept": "75b53aab5c444dea7d4b06ea526f59673a3881e00348b68f024912e7980c7ad1",
+    "plan": "4a0a0023536440ef6d9014048dd91554086ef0d44ff08b08eb989991cd688434",
+    "validation": "4cca5982e56549d80e15e28a14086eddafbece369995b2c320f96bb7bebb84e7",
+    "critique": "b7d50738b85f92cd92ab580b09aae61c6b8e03b6c226fa2586f1310ab03477b6",
+    "resolution": "d2e12a85e300ee51454261f352e266abee2692090fd4e279b2f8fc98edfe0b06"
+  },
+  "approver": "RahulSoniOneOEight",
+  "approver_role": "repo owner",
+  "actor_kind": "human",
+  "channel": "opencode-chat",
+  "evidence": "Explicit Gate 1 approval and all decisions approved in OpenCode session, 2026-11-14; separate 9:16 cut requested",
+  "packet_hash": "ca8f9af4c9097d15c80ee10ee42804823e740c4a02a4e53c3388c1803f0caaec",
+  "approved_at": "2026-11-14T17:19:37+00:00",
+  "scope": [
+    "SH-01",
+    "SH-02",
+    "SH-03",
+    "SH-04",
+    "SH-05",
+    "SH-06"
+  ],
+  "approved_exact_data": [
+    "ED-01",
+    "ED-04",
+    "ED-05"
+  ],
+  "conditions": [
+    "HI-01 Price and hero pack size: Brand-approved hero pack size and advertising price with a named approver.",
+    "HI-02 Brand pack and logo advertising rights: Written paid-media approval and high-resolution pack and logo masters.",
+    "HI-03 Voice and music licences: Signed performer release and a production-library licence covering paid YouTube.",
+    "HI-04 Demonstration and talent release: Signed hand-model/performer release and approval to film the product demonstration.",
+    "HI-05 Brand typeface: Brand font files and typography guidance, or written approval to use Inter for this production.",
+    "budget.references: estimate is not referenced by an asset or shot",
+    "exact.identifiers: brand_name ED-05 is observed; Gate 1 must approve this identifier or wording",
+    "exact.identifiers: cta ED-04 is proposed; Gate 1 must approve this identifier or wording",
+    "exact.identifiers: product_name ED-01 is observed; Gate 1 must approve this identifier or wording",
+    "rights.assets: rights need approval for Blue Tokai Coffee Roasters logo",
+    "rights.assets: rights need approval for Easy Pour Attikan Estate pack",
+    "rights.assets: rights need approval for Easy Pour Mixed Bag pack",
+    "rights.assets: rights need approval for Easy Pour Seethargundu Estate pack",
+    "rights.assets: rights need approval for Easy Pour Vienna pack",
+    "rights.assets: rights need approval for Easy Pour brewing demonstration, hands",
+    "rights.assets: rights need approval for Finished cup of coffee",
+    "rights.assets: rights need approval for Hot water pour and bloom footage",
+    "rights.assets: rights need approval for Music bed, 20 seconds",
+    "rights.assets: rights need approval for Voice over, warm Indian English"
+  ],
+  "allowed_substitutions": [],
+  "note": "Hero remains Easy Pour Mixed Bag; Blue Tokai circular logo supplied; separate 9:16 cut requested. Rights and talent/music holds remain conditions."
+}

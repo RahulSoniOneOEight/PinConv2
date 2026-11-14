@@ -1056,6 +1056,13 @@ class VariantOverride(StrictModel):
     cost_delta_usd: float = 0
     check_ids: list[str] = Field(min_length=1)
     approval_scope: list[str] = Field(min_length=1)
+    width: int | None = Field(default=None, gt=0)
+    height: int | None = Field(default=None, gt=0)
+    aspect_ratio: str | None = Field(default=None, pattern=r"^\d{1,2}:\d{1,2}$")
+    frame_count: int | None = Field(default=None, gt=0)
+    duration_seconds: float | None = Field(default=None, gt=0)
+    safe_area: SafeArea | None = None
+    caption_rules: CaptionRules | None = None
     notes: str | None = Field(default=None, max_length=1000)
 
 

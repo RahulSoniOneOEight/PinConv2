@@ -206,6 +206,20 @@
       ],
       "reliability": "primary",
       "notes": "The brief is authoritative for user-supplied requirements and asset links, not for independent audience evidence."
+    },
+    {
+      "id": "SRC-10",
+      "title": "The Rich & Bold Trio Pack",
+      "locator": "https://bluetokaicoffee.com/collections/roasted-and-ground-coffee-beans/products/the-rich-bold-trio-pack",
+      "accessed_at": "2026-11-14",
+      "channels": [
+        "page_text",
+        "component_list",
+        "product_gallery",
+        "price_listing"
+      ],
+      "reliability": "primary",
+      "notes": "Whole bean or ground trio of Vienna, French and Attikan, 75 g x 3. It is not Easy Pour and has no built-in filter."
     }
   ],
   "findings": [
@@ -292,9 +306,9 @@
     {
       "id": "F-05",
       "stage": "research",
-      "observation": "The storefront exposes the Blue Tokai logo and product images on its CDN, but the brief supplies links only and no advertising licence or brand kit.",
-      "interpretation": "The images are technically usable references, not cleared paid-media assets. Pack labels are exact commercial elements.",
-      "proposed_action": "Use the observed URLs as the asset source of record, request written advertising approval, and hold the pack and logo until cleared.",
+      "observation": "The user supplied a Blue Tokai circular logo attachment; the four pack images remain public CDN references. No written paid-media licence or high-resolution pack masters were supplied.",
+      "interpretation": "The logo file is now a supplied reference, but public availability of the pack images is not an advertising licence. Pack labels are exact commercial elements.",
+      "proposed_action": "Use the supplied logo; request written paid-media approval and high-resolution masters for the four packs. Hold the pack and logo rights until cleared.",
       "source_id": "SRC-01",
       "evidence_locator": "Header logo and product galleries",
       "observed_at": "2026-11-14",
@@ -446,6 +460,27 @@
       "linked_ids": [
         "CL-02",
         "CP-02"
+      ]
+    },
+    {
+      "id": "F-13",
+      "stage": "research",
+      "observation": "The supplied hero link points to The Rich & Bold Trio Pack: Vienna, French and Attikan, sold as whole bean or ground coffee, 75 g x 3. It is not Easy Pour and has no built-in filter.",
+      "interpretation": "The Trio can support the dark end of the range visually, but it cannot replace the Easy Pour hero without changing the core message and demo.",
+      "proposed_action": "Keep the Easy Pour Mixed Bag as hero; use the Trio page only as a range/pack reference. Do not claim light-to-dark from the dark trio.",
+      "source_id": "SRC-10",
+      "evidence_locator": "Product title, component list and brewing method",
+      "observed_at": "2026-11-14",
+      "confidence": 5,
+      "status": "verified",
+      "rights_status": "not_applicable",
+      "impact": 4,
+      "effort": 1,
+      "linked_ids": [
+        "DC-03",
+        "AS-02",
+        "AS-03",
+        "AS-04"
       ]
     }
   ],
@@ -602,5 +637,5 @@
     }
   ],
   "synthesis": "The product and its core benefit are supported by Blue Tokai's own product and brewing pages: a single-serve sachet with a built-in paper filter, brewed over a 180-200 ml cup with hot water, and a Mixed Bag spanning light to dark roasts. The honest creative route is a visible demo, not an instant-coffee comparison. Price, pack sizes and public product images are observed commercial material and remain rights or approval holds. A real brew includes repeated pours and a two-minute steep, so the film must disclose time compression rather than imply real-time brewing. The range shot needs a real light endpoint, so Seethargundu is added to the supplied Vienna and Attikan packs.",
-  "created_at": "2026-11-14T16:42:38+00:00"
+  "created_at": "2026-11-14T17:19:31+00:00"
 }

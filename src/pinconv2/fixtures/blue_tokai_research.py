@@ -384,6 +384,21 @@ def build_blue_tokai_research() -> ResearchPack:
                 "links, not for independent audience evidence."
             ),
         ),
+        EvidenceSource(
+            id="SRC-10",
+            title="The Rich & Bold Trio Pack",
+            locator=(
+                "https://bluetokaicoffee.com/collections/roasted-and-ground-coffee-beans/"
+                "products/the-rich-bold-trio-pack"
+            ),
+            accessed_at=ACCESSED_AT,
+            channels=["page_text", "component_list", "product_gallery", "price_listing"],
+            reliability=EvidenceReliability.PRIMARY,
+            notes=(
+                "Whole bean or ground trio of Vienna, French and Attikan, 75 g x 3. "
+                "It is not Easy Pour and has no built-in filter."
+            ),
+        ),
     ]
 
     findings = [
@@ -492,17 +507,19 @@ def build_blue_tokai_research() -> ResearchPack:
             id="F-05",
             stage="research",
             observation=(
-                "The storefront exposes the Blue Tokai logo and product images on its "
-                "CDN, but the brief supplies links only and no advertising licence or "
-                "brand kit."
+                "The user supplied a Blue Tokai circular logo attachment; the four pack "
+                "images remain public CDN references. No written paid-media licence or "
+                "high-resolution pack masters were supplied."
             ),
             interpretation=(
-                "The images are technically usable references, not cleared paid-media "
-                "assets. Pack labels are exact commercial elements."
+                "The logo file is now a supplied reference, but public availability of "
+                "the pack images is not an advertising licence. Pack labels are exact "
+                "commercial elements."
             ),
             proposed_action=(
-                "Use the observed URLs as the asset source of record, request written "
-                "advertising approval, and hold the pack and logo until cleared."
+                "Use the supplied logo; request written paid-media approval and "
+                "high-resolution masters for the four packs. Hold the pack and logo "
+                "rights until cleared."
             ),
             source_id="SRC-01",
             evidence_locator="Header logo and product galleries",
@@ -685,6 +702,32 @@ def build_blue_tokai_research() -> ResearchPack:
             impact=4,
             effort=1,
             linked_ids=["CL-02", "CP-02"],
+        ),
+        Finding(
+            id="F-13",
+            stage="research",
+            observation=(
+                "The supplied hero link points to The Rich & Bold Trio Pack: Vienna, "
+                "French and Attikan, sold as whole bean or ground coffee, 75 g x 3. "
+                "It is not Easy Pour and has no built-in filter."
+            ),
+            interpretation=(
+                "The Trio can support the dark end of the range visually, but it cannot "
+                "replace the Easy Pour hero without changing the core message and demo."
+            ),
+            proposed_action=(
+                "Keep the Easy Pour Mixed Bag as hero; use the Trio page only as a "
+                "range/pack reference. Do not claim light-to-dark from the dark trio."
+            ),
+            source_id="SRC-10",
+            evidence_locator="Product title, component list and brewing method",
+            observed_at=ACCESSED_AT,
+            confidence=5,
+            status=FindingStatus.VERIFIED,
+            rights_status=RightsStatus.NOT_APPLICABLE,
+            impact=4,
+            effort=1,
+            linked_ids=["DC-03", "AS-02", "AS-03", "AS-04"],
         ),
     ]
 

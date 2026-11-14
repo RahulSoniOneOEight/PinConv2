@@ -96,7 +96,7 @@ consistency gaps:
 | Lint / typing | Ruff clean; mypy clean on 28 source files |
 | Pipeline | `run-all` reaches `gate1_ready` |
 | Plan | revision 2, 6 shots, 38 layers, 16 assets |
-| Validation | 0 failures, 14 warnings |
+| Validation | 0 failures, 15 warnings |
 | Critique | 0 findings |
 | Gate blockers | none |
 | Exact data | `ED-01`, `ED-04`, `ED-05` pending; no approval record |
@@ -174,18 +174,41 @@ field now points to FX-01 as the single source of truth, and the duplicate mask
 is removed. Final plan hash: `19f0694af2d6f52ea82009b6c58619219ee019726fbd9e36b8a2e81d1e13bccb`.
 
 A final read-only DeepSeek check confirmed the residual closed, the Word layer
-and effect tables aligned, validation at 0 failures / 14 warnings, 0 critique
-findings, no blockers, and `approval: null`. No further findings remain.
+and effect tables aligned, 0 critique findings and no blockers. The plan was then
+approved and the 9:16 variant added.
+
+## Approved outcome — 14 November 2026
+
+- **Plan:** revision 2, hash `4a0a0023536440ef6d9014048dd91554086ef0d44ff08b08eb989991cd688434`.
+- **Approver:** `RahulSoniOneOEight`, repo owner, human, `opencode-chat`.
+- **Scope:** SH-01–SH-06.
+- **Approved exact data:** ED-01, ED-04, ED-05.
+- **9:16 cut:** approved as variant VO-01, 1080×1920, 500 frames, 20s,
+  safe area top 220 / bottom 320 / left 60 / right 140, cost USD 6.00.
+- **Logo:** user-supplied Blue Tokai circular attachment; public footer URL
+  retained as fallback.
+- **Hero:** Easy Pour Mixed Bag retained. The Rich & Bold Trio is recorded as a
+  dark-range reference only; it is not Easy Pour.
+- **Validation:** 0 failures, 15 warnings; 0 critique findings; no blockers.
+- **Tests:** 65 passed; Ruff clean; mypy clean on 28 source files.
+
+A final read-only DeepSeek check confirmed every prior finding closed: no stale
+approval text, approved exact-data tables, 9:16 VO-01 aligned across plan,
+approval and handoff, and no false rights clearance. Remaining HI/PROD items are
+production holds only.
 
 ## Final verdict
 
-**PASS WITH CONDITIONS** — the package is reviewable as a brief and executable
-without inventing a decision. It is not production clearance.
+**PASS** — the approved plan and 9:16 variant have no open QC findings. The
+remaining HI/PROD items are production clearance holds, not plan defects.
 
-**Current status:** Gate 1 review candidate — named human approval pending.
+**Current status:** Gate 1 approved; Level 2 production remains gated by the
+open rights, talent, music, typeface and destination holds.
 
 ## Boundary
 
-**Gate 1 approval is not recorded.** The packet has `approval: null`, the three
-exact identifiers are pending, and five rights/approval holds remain. No render,
-sourcing purchase or publication is authorised.
+**Gate 1 approval is recorded, but it does not clear rights.** The five holds
+remain open: HI-01 price/hero pack size, HI-02 brand pack/logo/image rights,
+HI-03 voice/music licences, HI-04 demonstration/talent release and HI-05 brand
+typeface. The CTA destination (PROD-01) also remains open. No render, sourcing
+purchase or publication is authorised until the affected holds are cleared.

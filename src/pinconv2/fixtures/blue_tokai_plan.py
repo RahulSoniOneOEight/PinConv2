@@ -49,6 +49,7 @@ from ..models import (
     TechSpec,
     TextStyle,
     Transition,
+    VariantOverride,
     VisualBehaviour,
 )
 from .blue_tokai_concept import blue_tokai_decisions
@@ -387,12 +388,15 @@ def _assets(*, budget_fixed: bool) -> list[Asset]:
             id="AS-01",
             name="Blue Tokai Coffee Roasters logo",
             description=(
-                "Blue Tokai footer logo from the public storefront. This is an observed "
-                "reference, not a supplied master; the brand must provide the production "
-                "master and written paid-media approval."
+                "User-supplied Blue Tokai circular logo attachment (2026-11-14): "
+                "peacock mark with BLUE TOKAI COFFEE ROASTERS. Use the supplied "
+                "proportions and colour; do not redraw. The public footer URL is a "
+                "fallback reference only."
             ),
             route=AssetRoute.SUPPLIED,
-            source=LOGO_URL,
+            source=(
+                "User-supplied logo attachment, 2026-11-14; public footer fallback: " + LOGO_URL
+            ),
             rights=_rights_needs(
                 "Brand logo advertising licence (pending)",
                 "Observed public logo URL; paid-media use needs written approval.",
@@ -876,6 +880,14 @@ def _estimates(*, budget_fixed: bool) -> list[Estimate]:
             label="Captured pack fallback",
             amount_usd=5,
             kind=EstimateKind.FALLBACK,
+            basis=EstimateBasis.OPERATOR_ESTIMATE,
+            confidence="medium",
+        ),
+        Estimate(
+            id="ES-11",
+            label="9:16 vertical re-edit and end-card rebuild",
+            amount_usd=6,
+            kind=EstimateKind.VARIANT,
             basis=EstimateBasis.OPERATOR_ESTIMATE,
             confidence="medium",
         ),
@@ -1569,6 +1581,46 @@ def _shots(*, layers: list[Layer], budget_fixed: bool) -> list[Shot]:
     ]
 
 
+def _variant() -> VariantOverride:
+    return VariantOverride(
+        id="VO-01",
+        deliverable_id="DP-01",
+        reference_ids=[
+            "DP-01",
+            "SH-01",
+            "SH-02",
+            "SH-03",
+            "SH-04",
+            "SH-05",
+            "SH-06",
+            "CP-05",
+        ],
+        changes=[
+            "Reframe the 16:9 master to 1080x1920, 500 frames at 25 fps.",
+            "Apply 9:16 safe area top 220, bottom 320, left 60, right 140.",
+            "Recentre the pack and stack CTA, caption and disclaimer vertically.",
+            "Keep the same six-shot order, audio, effects and disclosure.",
+            "Rebuild the end card for a vertical logo, pack and CTA stack.",
+        ],
+        cost_delta_usd=6.0,
+        check_ids=["AC-16"],
+        approval_scope=["SH-01", "SH-02", "SH-03", "SH-04", "SH-05", "SH-06"],
+        width=1080,
+        height=1920,
+        aspect_ratio="9:16",
+        frame_count=500,
+        duration_seconds=20.0,
+        safe_area=SafeArea(top=220, bottom=320, left=60, right=140),
+        caption_rules=CaptionRules(
+            max_lines=2,
+            max_chars_per_line=32,
+            max_cps=16.0,
+            min_hold_frames=36,
+        ),
+        notes="Separate vertical cut required by the named human approval.",
+    )
+
+
 def _effects() -> list[EffectSpec]:
     return [
         EffectSpec(
@@ -1957,6 +2009,25 @@ def _checks() -> list[AcceptanceCheck]:
             level=CheckLevel.L1,
             rule_refs=["exact.references"],
         ),
+        AcceptanceCheck(
+            id="AC-16",
+            target_ids=[
+                "DP-01",
+                "SH-01",
+                "SH-02",
+                "SH-03",
+                "SH-04",
+                "SH-05",
+                "SH-06",
+            ],
+            description=(
+                "9:16 variant keeps every pack label, caption, CTA and logo inside the "
+                "vertical safe area at 1080x1920."
+            ),
+            method=CheckMethod.STATIC_PREVIEW,
+            level=CheckLevel.L2,
+            rule_refs=["pending.level2.safe_area_9x16"],
+        ),
     ]
 
 
@@ -2125,7 +2196,7 @@ def build_blue_tokai_plan(
         effects=_effects(),
         transitions=_transitions(),
         alternates=_alternates(),
-        variant_overrides=[],
+        variant_overrides=[_variant()],
         estimates=estimates,
         budget=BudgetPlan(
             cap_usd=100.0,

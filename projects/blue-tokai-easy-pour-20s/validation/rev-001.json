@@ -1,7 +1,7 @@
 {
   "project_id": "blue-tokai-easy-pour-20s",
   "plan_revision": 1,
-  "plan_hash": "0238c3b4d356952c17e51dfe5d454ec0aa6a84bf0e1fd72fa2f1e187634362a7",
+  "plan_hash": "110fade102e576c76191ac17f3a6f7f467ee9e5ec9300a0abf6f619522aefbf3",
   "findings": [
     {
       "id": "V-001",
@@ -306,7 +306,7 @@
       "target": "budget",
       "severity": "high",
       "status": "fail",
-      "detail": "total 115.00 exceeds cap 100.00",
+      "detail": "total 121.90 exceeds cap 100.00",
       "remediation": "Remove a redundant route or raise the cap with human approval."
     },
     {
@@ -315,17 +315,17 @@
       "target": "budget",
       "severity": "high",
       "status": "fail",
-      "detail": "total plus fallback 120.00 exceeds cap 100.00",
+      "detail": "total plus fallback 126.90 exceeds cap 100.00",
       "remediation": "Reduce the fallback cost or remove the redundant primary route."
     },
     {
       "id": "V-036",
       "rule": "budget.references",
-      "target": "budget",
-      "severity": "low",
-      "status": "pass",
-      "detail": "estimate references resolve and are typed",
-      "remediation": "No action required."
+      "target": "ES-11",
+      "severity": "medium",
+      "status": "warn",
+      "detail": "estimate is not referenced by an asset or shot",
+      "remediation": "Remove it or attach it to the work it prices."
     },
     {
       "id": "V-037",
@@ -667,7 +667,8 @@
     "AC-12": "pending",
     "AC-13": "fail",
     "AC-14": "pass",
-    "AC-15": "pass"
+    "AC-15": "pass",
+    "AC-16": "pending"
   },
-  "created_at": "2026-11-14T16:42:38+00:00"
+  "created_at": "2026-11-14T17:19:31+00:00"
 }

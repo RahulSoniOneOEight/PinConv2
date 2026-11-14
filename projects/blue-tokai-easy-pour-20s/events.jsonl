@@ -1,14 +1,17 @@
-{"created_at": "2026-11-14T16:42:38+00:00", "detail": {"state": "init", "title": "Blue Tokai Easy Pour 20-second YouTube ad"}, "type": "project.created"}
-{"created_at": "2026-11-14T16:42:38+00:00", "detail": {"must_have": 9, "revision": 1}, "type": "brief.recorded"}
-{"created_at": "2026-11-14T16:42:38+00:00", "detail": {"content_family": "ad", "duration_seconds": 20.0, "fps": 25, "must_have": 9}, "type": "brief.normalised"}
-{"created_at": "2026-11-14T16:42:38+00:00", "detail": {"findings": 12, "sources": 9}, "type": "research.recorded"}
-{"created_at": "2026-11-14T16:42:38+00:00", "detail": {"recommended": "CO-01", "revision": 1}, "type": "concept.recorded"}
-{"created_at": "2026-11-14T16:42:38+00:00", "detail": {"assets": 17, "hash": "0238c3b4d356952c17e51dfe5d454ec0aa6a84bf0e1fd72fa2f1e187634362a7", "layers": 40, "revision": 1, "shots": 6}, "type": "plan.recorded"}
-{"created_at": "2026-11-14T16:42:38+00:00", "detail": {"failures": 5, "passed": false, "revision": 1, "warnings": 17}, "type": "plan.validated"}
-{"created_at": "2026-11-14T16:42:38+00:00", "detail": {"findings": 4, "revision": 1, "top3": ["CF-01", "CF-02", "CF-03"]}, "type": "plan.critiqued"}
-{"created_at": "2026-11-14T16:42:38+00:00", "detail": {"assets": 16, "hash": "19f0694af2d6f52ea82009b6c58619219ee019726fbd9e36b8a2e81d1e13bccb", "layers": 38, "revision": 2, "shots": 6}, "type": "plan.recorded"}
-{"created_at": "2026-11-14T16:42:38+00:00", "detail": {"from": 1, "inputs": 3, "to": 2}, "type": "inputs.updated"}
-{"created_at": "2026-11-14T16:42:38+00:00", "detail": {"failures": 0, "passed": true, "revision": 2, "warnings": 14}, "type": "plan.validated"}
-{"created_at": "2026-11-14T16:42:38+00:00", "detail": {"findings": 0, "revision": 2, "top3": []}, "type": "plan.critiqued"}
-{"created_at": "2026-11-14T16:42:38+00:00", "detail": {"files": ["SH-01.svg", "SH-02.svg", "SH-03.svg", "SH-04.svg", "SH-05.svg", "SH-06.svg", "contact-sheet.svg"], "revision": 2}, "type": "previews.written"}
-{"created_at": "2026-11-14T16:42:38+00:00", "detail": {"blockers": 0, "revision": 2, "validation_passed": true}, "type": "gate1.packet"}
+{"created_at": "2026-11-14T17:19:31+00:00", "detail": {"state": "init", "title": "Blue Tokai Easy Pour 20-second YouTube ad"}, "type": "project.created"}
+{"created_at": "2026-11-14T17:19:31+00:00", "detail": {"must_have": 9, "revision": 1}, "type": "brief.recorded"}
+{"created_at": "2026-11-14T17:19:31+00:00", "detail": {"content_family": "ad", "duration_seconds": 20.0, "fps": 25, "must_have": 9}, "type": "brief.normalised"}
+{"created_at": "2026-11-14T17:19:31+00:00", "detail": {"findings": 13, "sources": 10}, "type": "research.recorded"}
+{"created_at": "2026-11-14T17:19:31+00:00", "detail": {"recommended": "CO-01", "revision": 1}, "type": "concept.recorded"}
+{"created_at": "2026-11-14T17:19:31+00:00", "detail": {"assets": 17, "hash": "110fade102e576c76191ac17f3a6f7f467ee9e5ec9300a0abf6f619522aefbf3", "layers": 40, "revision": 1, "shots": 6}, "type": "plan.recorded"}
+{"created_at": "2026-11-14T17:19:31+00:00", "detail": {"failures": 5, "passed": false, "revision": 1, "warnings": 18}, "type": "plan.validated"}
+{"created_at": "2026-11-14T17:19:31+00:00", "detail": {"findings": 4, "revision": 1, "top3": ["CF-01", "CF-02", "CF-03"]}, "type": "plan.critiqued"}
+{"created_at": "2026-11-14T17:19:31+00:00", "detail": {"assets": 16, "hash": "4a0a0023536440ef6d9014048dd91554086ef0d44ff08b08eb989991cd688434", "layers": 38, "revision": 2, "shots": 6}, "type": "plan.recorded"}
+{"created_at": "2026-11-14T17:19:31+00:00", "detail": {"from": 1, "inputs": 3, "to": 2}, "type": "inputs.updated"}
+{"created_at": "2026-11-14T17:19:31+00:00", "detail": {"failures": 0, "passed": true, "revision": 2, "warnings": 15}, "type": "plan.validated"}
+{"created_at": "2026-11-14T17:19:31+00:00", "detail": {"findings": 0, "revision": 2, "top3": []}, "type": "plan.critiqued"}
+{"created_at": "2026-11-14T17:19:31+00:00", "detail": {"files": ["SH-01.svg", "SH-02.svg", "SH-03.svg", "SH-04.svg", "SH-05.svg", "SH-06.svg", "contact-sheet.svg"], "revision": 2}, "type": "previews.written"}
+{"created_at": "2026-11-14T17:19:31+00:00", "detail": {"blockers": 0, "revision": 2, "validation_passed": true}, "type": "gate1.packet"}
+{"created_at": "2026-11-14T17:19:37+00:00", "detail": {"approver": "RahulSoniOneOEight", "hash": "4a0a0023536440ef6d9014048dd91554086ef0d44ff08b08eb989991cd688434", "revision": 2, "scope": ["SH-01", "SH-02", "SH-03", "SH-04", "SH-05", "SH-06"]}, "type": "gate1.approved"}
+{"created_at": "2026-11-14T17:19:37+00:00", "detail": {"blockers": 0, "revision": 2, "validation_passed": true}, "type": "gate1.packet"}
+{"created_at": "2026-11-14T17:19:37+00:00", "detail": {"approval_hash": "4a0a0023536440ef6d9014048dd91554086ef0d44ff08b08eb989991cd688434", "files": ["concept-note.md", "production-plan.md", "gate1-packet.md", "level2-handoff.json", "production-plan.json", "concept-note.json", "research-pack.json", "brief.md", "SH-01.svg", "SH-02.svg", "SH-03.svg", "SH-04.svg", "SH-05.svg", "SH-06.svg", "contact-sheet.svg"], "revision": 2}, "type": "level1.exported"}

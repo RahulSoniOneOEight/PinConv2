@@ -1,7 +1,7 @@
 {
   "project_id": "blue-tokai-easy-pour-20s",
   "plan_revision": 1,
-  "plan_hash": "0238c3b4d356952c17e51dfe5d454ec0aa6a84bf0e1fd72fa2f1e187634362a7",
+  "plan_hash": "110fade102e576c76191ac17f3a6f7f467ee9e5ec9300a0abf6f619522aefbf3",
   "summary": "4 findings. The three highest-impact inputs are CF-01 (safe_area), CF-02 (commercial_data), CF-03 (budget). The critic reviewed the plan artifact, not the planner's reasoning.",
   "findings": [
     {
@@ -45,8 +45,8 @@
       "id": "CF-03",
       "category": "budget",
       "severity": "high",
-      "observation": "The estimated production total is 115.00 USD against a 100.00 cap, before any fallback is triggered.",
-      "evidence": "Shared 42.00 + shot 58.00 + variant 0.00 + 15% reserve 15.00. Largest: ES-10 30.00, ES-06 18.00, ES-03 15.00",
+      "observation": "The estimated production total is 121.90 USD against a 100.00 cap, before any fallback is triggered.",
+      "evidence": "Shared 42.00 + shot 58.00 + variant 6.00 + 15% reserve 15.90. Largest: ES-10 30.00, ES-06 18.00, ES-03 15.00",
       "proposed_action": "Remove a redundant route or lower the estimate so total plus the critical fallback fits the cap.",
       "impact": 4,
       "confidence": 5,
@@ -62,6 +62,7 @@
         "ES-07",
         "ES-08",
         "ES-09",
+        "ES-11",
         "ES-10"
       ],
       "owner": "planner",
@@ -95,5 +96,5 @@
     "CF-02",
     "CF-03"
   ],
-  "created_at": "2026-11-14T16:42:38+00:00"
+  "created_at": "2026-11-14T17:19:31+00:00"
 }

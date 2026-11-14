@@ -49,7 +49,7 @@ def blue_tokai_decisions() -> list[Decision]:
         ),
         Decision(
             id="DC-03",
-            finding_ids=["F-01", "F-11"],
+            finding_ids=["F-01", "F-11", "F-13"],
             selected=(
                 "Hero the Mixed Bag and show Seethargundu, Attikan and Vienna as range support."
             ),
@@ -287,8 +287,9 @@ def build_blue_tokai_concept() -> ConceptNote:
         evidence_summary=(
             "Blue Tokai's product pages establish the Mixed Bag assortment and the "
             "named Vienna and Attikan packs, with Seethargundu added from the Mixed Bag "
-            "page to complete the light end of the range. The brewing page establishes "
-            "the real "
+            "page to complete the light end of the range. The Rich & Bold Trio link is "
+            "recorded as a dark-range reference only; it is not Easy Pour. The brewing "
+            "page establishes the real "
             "tear-anchor-pour method and the two-minute steep. Google's creative "
             "guidance supports early attention, early branding and a clear CTA. Price, "
             "pack size and public image rights remain unapproved."
