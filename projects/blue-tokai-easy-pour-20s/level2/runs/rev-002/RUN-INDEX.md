@@ -10,6 +10,7 @@
 |---|---|
 | [REVIEW-GUIDE.md](REVIEW-GUIDE.md) | How a human reviews the pack, records corrections and approves Gate 2A |
 | [SOURCE-SHEET.md](SOURCE-SHEET.md) | Every shot/layer with its actual asset source and preview |
+| [PENDING-ASSET-ROUTES.md](PENDING-ASSET-ROUTES.md) | Which pending assets are stock, generated, supplied or captured |
 | [stock-check/stock-check.md](stock-check/stock-check.md) | Live fetch result per stock source, with licences |
 | [openmontage-status.json](openmontage-status.json) | OpenMontage account, version and connected providers |
 | [openmontage-check.json](openmontage-check.json) | Real NASA stock acquisition and 2-second HyperFrames render |
@@ -128,6 +129,7 @@
 | [openmontage-check.json](openmontage-check.json) | 1,020 |
 | [openmontage-sourcing.json](openmontage-sourcing.json) | 4,276 |
 | [openmontage-status.json](openmontage-status.json) | 904 |
+| [PENDING-ASSET-ROUTES.md](PENDING-ASSET-ROUTES.md) | 4,861 |
 | [provider-budget.json](provider-budget.json) | 283 |
 | [provider-spend.json](provider-spend.json) | 468 |
 | [provider-spend.jsonl](provider-spend.jsonl) | 0 |
@@ -138,7 +140,7 @@
 | [qc/technical.json](qc/technical.json) | 780 |
 | [qc/visual.json](qc/visual.json) | 423 |
 | [RENDERER-DECISION.md](RENDERER-DECISION.md) | 1,952 |
-| [REVIEW-GUIDE.md](REVIEW-GUIDE.md) | 9,383 |
+| [REVIEW-GUIDE.md](REVIEW-GUIDE.md) | 9,437 |
 | [review-pack.docx](review-pack.docx) | 39,142 |
 | [review-pack.html](review-pack.html) | 23,358 |
 | [review-pack.md](review-pack.md) | 16,094 |

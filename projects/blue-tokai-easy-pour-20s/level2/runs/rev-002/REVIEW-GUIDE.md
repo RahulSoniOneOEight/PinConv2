@@ -21,6 +21,7 @@ is it ready to assemble?*
 | Budget only | `budget-estimate.md` / `.html` / `.docx` |
 | Technical handoff | `build-sheet/production-build-sheet.md` / `.html` |
 | Per-shot/layer sources | `SOURCE-SHEET.md` / `.html` |
+| Pending asset routes | `PENDING-ASSET-ROUTES.md` |
 | Stock fetch check | `stock-check/stock-check.md` |
 | OpenMontage discovery | `openmontage-sourcing.json` |
 | Renderer decision | `RENDERER-DECISION.md` |
