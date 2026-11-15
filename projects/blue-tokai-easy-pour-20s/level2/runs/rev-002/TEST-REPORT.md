@@ -4,7 +4,7 @@
 **Project:** `blue-tokai-easy-pour-20s`
 **Plan hash:** `1370f029b0b35730625c459cf85579bfd767d2e4a7b62016055e100d15f2aba5`
 **Generated:** 2026-11-15T10:49:34+00:00
-**Verdict:** PASS — the spend-free Level 2 slice produced the full package; Gate 2A is ready for a human decision.
+**Verdict:** PASS - the spend-free Level 2 slice produced the full package; Gate 2A is approved.
 
 ## Environment
 
@@ -62,7 +62,7 @@ Success: no issues found in 94 source files
 
 ## Gate 2A
 
-**Status:** `ready_for_approval` · 8 pass, 6 warn, 0 fail · blockers: 0
+**Status:** `approved` · 8 pass, 6 warn, 0 fail · blockers: 0
 
 | Check | State | Detail |
 |---|---|---|

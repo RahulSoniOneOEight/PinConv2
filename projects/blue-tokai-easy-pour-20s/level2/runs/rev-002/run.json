@@ -3,7 +3,7 @@
   "project_id": "blue-tokai-easy-pour-20s",
   "plan_revision": 2,
   "plan_hash": "1370f029b0b35730625c459cf85579bfd767d2e4a7b62016055e100d15f2aba5",
-  "state": "quoted",
+  "state": "budget_approved",
   "intents": [
     {
       "asset_id": "AS-01",

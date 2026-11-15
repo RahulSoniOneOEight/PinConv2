@@ -1,7 +1,7 @@
 # Blue Tokai Level 2 — run index
 
 **Run:** `rev-002` · **Plan revision:** 2
-**Status:** Gate 2A `ready_for_approval` · cash $0.00 · in-kind $81.00
+**Status:** Gate 2A `approved` · cash $0.00 · in-kind $81.00
 **Plan hash:** `1370f029b0b35730625c459cf85579bfd767d2e4a7b62016055e100d15f2aba5`
 
 ## Start here
@@ -123,11 +123,11 @@
 | [cli-spend-output.json](cli-spend-output.json) | 1,200 |
 | [cli-stockcheck-output.json](cli-stockcheck-output.json) | 357 |
 | [cli-voice-output.json](cli-voice-output.json) | 303 |
-| [events.jsonl](events.jsonl) | 15,803 |
+| [events.jsonl](events.jsonl) | 15,988 |
 | [feedback-form.md](feedback-form.md) | 4,580 |
 | [flow.json](flow.json) | 5,774 |
 | [gaps.json](gaps.json) | 4,087 |
-| [gate2/packet-2a.json](gate2/packet-2a.json) | 3,229 |
+| [gate2/packet-2a.json](gate2/packet-2a.json) | 3,308 |
 | [generated/AS-15-edge-sample.mp3](generated/AS-15-edge-sample.mp3) | 89,712 |
 | [layer-method-decisions.json](layer-method-decisions.json) | 25,090 |
 | [licence-gate-report.json](licence-gate-report.json) | 4,768 |
@@ -176,7 +176,7 @@
 | [review-pack.md](review-pack.md) | 19,465 |
 | [rights-manifest.json](rights-manifest.json) | 4,932 |
 | [ruff-output.txt](ruff-output.txt) | 21 |
-| [run.json](run.json) | 117,646 |
+| [run.json](run.json) | 117,655 |
 | [shortgpt-status.json](shortgpt-status.json) | 221 |
 | [sound-plan.json](sound-plan.json) | 2,757 |
 | [SOURCE-SHEET.html](SOURCE-SHEET.html) | 14,651 |
@@ -219,7 +219,7 @@
 | [stock-check/stock-check.md](stock-check/stock-check.md) | 7,967 |
 | [stock-plan.json](stock-plan.json) | 17,936 |
 | [STOCK-PLAN.md](STOCK-PLAN.md) | 4,935 |
-| [TEST-REPORT.md](TEST-REPORT.md) | 5,016 |
+| [TEST-REPORT.md](TEST-REPORT.md) | 4,986 |
 | [transcription.json](transcription.json) | 756 |
 | [USER-INPUT-GAPS.md](USER-INPUT-GAPS.md) | 2,933 |
 | [variants.json](variants.json) | 25,176 |
