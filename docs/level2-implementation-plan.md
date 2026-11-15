@@ -32,7 +32,7 @@ real IDs from the approved plan, and every number is reproducible from
 | Provider spend | fal.ai + Runware share a $2.00 cap with a $0.50 per-job maximum; every call is quoted, reserved and receipted by `ProviderGovernor`, and Gate 2A adds `G2A-14`. |
 | Sourcing | `level2 source` searches ccMixter with `lic=by`, filters NC/ND/SA and vocal tracks, downloads 20-second previews, probes them, gates each candidate and records the chosen track. Final acquisition still needs Gate 2A. |
 | Tool integration | SourcingAgent and VoiceAgent added; ShortGPT Edge TTS produced a disclosed 14.95 s sample and local faster-whisper transcription returns timed segments; the MCP stdio bridge searches `nasa.stock` inside `source_assets` and separately acquired NASA stock plus rendered a verified 2 s HyperFrames clip under a separate $2 production with $0 spent; `GenerationAgent` runs an injected engine through `ProviderGovernor` inside `run_generation`, and `run_build` invokes it when an engine is supplied; `stockcheck` fetched 11 of 12 sources. |
-| Verification | 137 tests pass; Ruff and mypy are clean; the Blue Tokai run produces the full artifact set under `projects/blue-tokai-easy-pour-20s/level2/runs/rev-002/`. |
+| Verification | 138 tests pass; Ruff and mypy are clean; the Blue Tokai run produces the full artifact set under `projects/blue-tokai-easy-pour-20s/level2/runs/rev-002/`. |
 
 
 ---
@@ -1268,6 +1268,7 @@ src/pinconv2/level2/
   asset_summary.py    asset table, access links, visual QC summary
   no_shoot.py         no-shoot policy and stock/AI route findings
   stock_plan.py       stock route map, candidate fetch and AI-share guard
+  processing_plan.py  per-asset processing and trial budget at shot/layer level
   flow_scheduler.py    graph, batches, critical path
   build_sheet.py       builder + manifest + renderers
   review_pack.py       markdown/docx review pack

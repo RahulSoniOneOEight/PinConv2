@@ -728,6 +728,27 @@ def test_no_shoot_policy_flags_captures_owned_and_voice(
     assert flagged["AS-11"].recommended_route == "stock"
 
 
+def test_processing_plan_stays_within_two_dollar_budget(
+    approved: SimpleNamespace,
+) -> None:
+    from pinconv2.level2.processing_plan import build_processing_plan
+    from pinconv2.level2.stock_plan import build_stock_plan
+
+    level2 = approved.run.read_level2("rev-002")
+    stock = build_stock_plan(approved.outcome.level2, level2)
+    processing = build_processing_plan(
+        approved.outcome.level2,
+        level2,
+        approved.outcome.sheet,
+        level2.decisions,
+        stock,
+        approved.run.run_dir("rev-002"),
+    )
+    assert processing.total_cost_usd <= 2.0
+    assert processing.within_budget is True
+    assert {entry.asset_id for entry in processing.entries} == set(level2.task_map())
+
+
 def test_stock_plan_keeps_ai_generation_under_40pct(
     approved: SimpleNamespace,
 ) -> None:

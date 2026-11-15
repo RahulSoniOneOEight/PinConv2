@@ -22,6 +22,7 @@ is it ready to assemble?*
 | Technical handoff | `build-sheet/production-build-sheet.md` / `.html` |
 | **Main asset table** | `ASSET-SUMMARY.md` / `.html` |
 | Production plan | `PRODUCTION-PLAN.md` / `.html` |
+| Processing plan | `PROCESSING-PLAN.md` / `.html` |
 | Stock plan | `STOCK-PLAN.md` |
 | Sourced-but-not-used annex | `ANNEX-SOURCED-NOT-USED.md` |
 | No-shoot policy | `NO-SHOOT-POLICY.md` |

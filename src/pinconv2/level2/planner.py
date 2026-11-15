@@ -56,6 +56,7 @@ from .models import (
 )
 from .no_shoot import evaluate_no_shoot, render_no_shoot
 from .preview import render_all
+from .processing_plan import write_processing_plan
 from .qc import run_qc
 from .sound import build_sound_plan, validate_sound_plan
 from .source_sheet import write_source_sheet
@@ -593,6 +594,7 @@ def plan_level2(
         run.write_text(run_id, "ANNEX-SOURCED-NOT-USED.md", render_annex(candidates))
     run.write_text(run_id, "STOCK-PLAN.md", render_stock_plan(stock_plan))
     run.write_json(run_id, "stock-plan.json", stock_plan)
+    write_processing_plan(run, run_id, plan, level2, sheet, decisions, stock_plan)
 
     run.append_event(
         run_id,

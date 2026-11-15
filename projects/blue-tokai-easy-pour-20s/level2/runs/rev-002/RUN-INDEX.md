@@ -15,6 +15,7 @@
 | [ANNEX-SOURCED-NOT-USED.md](ANNEX-SOURCED-NOT-USED.md) | Sourced-but-not-used backup candidates with reasons |
 | [PENDING-ASSET-ROUTES.md](PENDING-ASSET-ROUTES.md) | Current route vs no-shoot route for every asset |
 | [PRODUCTION-PLAN.md](PRODUCTION-PLAN.md) | Shot order, asset queue and layer plan |
+| [PROCESSING-PLAN.md](PROCESSING-PLAN.md) | Per-asset processing and the $2 trial budget |
 | [qc/visual-assets.md](qc/visual-assets.md) | Agent visual QC verdict per asset |
 | [SOURCE-SHEET.md](SOURCE-SHEET.md) | Every shot/layer with its actual asset source and preview |
 | [stock-check/stock-check.md](stock-check/stock-check.md) | Live fetch result per stock source, with licences |
@@ -114,13 +115,13 @@
 | [build-sheet/variants/VO-01.json](build-sheet/variants/VO-01.json) | 23,160 |
 | [capture-plan.json](capture-plan.json) | 1,480 |
 | [catalogue-resolutions.json](catalogue-resolutions.json) | 4,587 |
-| [cli-gate2a-output.json](cli-gate2a-output.json) | 2,797 |
-| [cli-plan-output.json](cli-plan-output.json) | 1,353 |
-| [cli-qc-output.json](cli-qc-output.json) | 979 |
-| [cli-spend-output.json](cli-spend-output.json) | 1,080 |
-| [cli-stockcheck-output.json](cli-stockcheck-output.json) | 329 |
-| [cli-voice-output.json](cli-voice-output.json) | 271 |
-| [events.jsonl](events.jsonl) | 13,990 |
+| [cli-gate2a-output.json](cli-gate2a-output.json) | 2,874 |
+| [cli-plan-output.json](cli-plan-output.json) | 1,393 |
+| [cli-qc-output.json](cli-qc-output.json) | 1,008 |
+| [cli-spend-output.json](cli-spend-output.json) | 1,110 |
+| [cli-stockcheck-output.json](cli-stockcheck-output.json) | 336 |
+| [cli-voice-output.json](cli-voice-output.json) | 279 |
+| [events.jsonl](events.jsonl) | 14,508 |
 | [feedback-form.md](feedback-form.md) | 4,580 |
 | [flow.json](flow.json) | 5,774 |
 | [gate2/packet-2a.json](gate2/packet-2a.json) | 3,229 |
@@ -142,6 +143,9 @@
 | [openmontage-sourcing.json](openmontage-sourcing.json) | 4,276 |
 | [openmontage-status.json](openmontage-status.json) | 904 |
 | [PENDING-ASSET-ROUTES.md](PENDING-ASSET-ROUTES.md) | 3,146 |
+| [PROCESSING-PLAN.html](PROCESSING-PLAN.html) | 8,547 |
+| [processing-plan.json](processing-plan.json) | 7,047 |
+| [PROCESSING-PLAN.md](PROCESSING-PLAN.md) | 5,834 |
 | [PRODUCTION-PLAN.html](PRODUCTION-PLAN.html) | 11,812 |
 | [PRODUCTION-PLAN.md](PRODUCTION-PLAN.md) | 6,753 |
 | [provider-budget.json](provider-budget.json) | 283 |
@@ -161,7 +165,7 @@
 | [qc/visual-assets.md](qc/visual-assets.md) | 2,129 |
 | [qc/visual.json](qc/visual.json) | 423 |
 | [RENDERER-DECISION.md](RENDERER-DECISION.md) | 1,952 |
-| [REVIEW-GUIDE.md](REVIEW-GUIDE.md) | 11,036 |
+| [REVIEW-GUIDE.md](REVIEW-GUIDE.md) | 11,090 |
 | [review-pack.docx](review-pack.docx) | 39,142 |
 | [review-pack.html](review-pack.html) | 28,293 |
 | [review-pack.md](review-pack.md) | 19,465 |
@@ -210,7 +214,7 @@
 | [stock-check/stock-check.md](stock-check/stock-check.md) | 7,967 |
 | [stock-plan.json](stock-plan.json) | 17,936 |
 | [STOCK-PLAN.md](STOCK-PLAN.md) | 4,935 |
-| [TEST-REPORT.md](TEST-REPORT.md) | 4,960 |
+| [TEST-REPORT.md](TEST-REPORT.md) | 5,016 |
 | [transcription.json](transcription.json) | 756 |
 | [variants.json](variants.json) | 25,176 |
 | [voice-sample.json](voice-sample.json) | 339 |
