@@ -21,7 +21,10 @@ from .agents import (
     FlowScheduler,
     GenerationPlanner,
     HandoffValidator,
+    NoShootAgent,
+    ProcessingAgent,
     ProcessingPlanner,
+    StockPlanAgent,
 )
 from .asset_summary import write_asset_outputs
 from .budget import build_budget
@@ -54,13 +57,12 @@ from .models import (
     SourcingReport,
     TaskStatus,
 )
-from .no_shoot import evaluate_no_shoot, render_no_shoot
+from .no_shoot import render_no_shoot
 from .preview import render_all
-from .processing_plan import write_processing_plan
 from .qc import run_qc
 from .sound import build_sound_plan, validate_sound_plan
 from .source_sheet import write_source_sheet
-from .stock_plan import build_stock_plan, render_stock_plan
+from .stock_plan import render_stock_plan
 from .store import Level2RunStore
 from .variants import resolve_variant, validate_variant
 
@@ -578,10 +580,10 @@ def plan_level2(
     )
     _write_supporting(run, run_id, plan, level2, sheet, reports, gate_2a)
     write_asset_outputs(run, run_id, plan, level2, sheet, decisions)
-    no_shoot = evaluate_no_shoot(plan, level2)
+    no_shoot = NoShootAgent().evaluate(plan, level2)
     run.write_text(run_id, "NO-SHOOT-POLICY.md", render_no_shoot(no_shoot))
     run.write_json(run_id, "no-shoot-plan.json", no_shoot)
-    stock_plan = build_stock_plan(plan, level2)
+    stock_plan = StockPlanAgent().build(plan, level2)
     candidates_path = run.run_dir(run_id) / "stock-candidates.json"
     if candidates_path.is_file():
         from .stock_plan import StockCandidate, render_annex
@@ -594,7 +596,7 @@ def plan_level2(
         run.write_text(run_id, "ANNEX-SOURCED-NOT-USED.md", render_annex(candidates))
     run.write_text(run_id, "STOCK-PLAN.md", render_stock_plan(stock_plan))
     run.write_json(run_id, "stock-plan.json", stock_plan)
-    write_processing_plan(run, run_id, plan, level2, sheet, decisions, stock_plan)
+    ProcessingAgent().write(run, run_id, plan, level2, sheet, decisions, stock_plan)
 
     run.append_event(
         run_id,

@@ -10,9 +10,11 @@ from .evaluator import SourceEvaluator
 from .generator import GenerationAgent, GenerationPlanner
 from .handoff_validator import HandoffValidator
 from .no_shoot import NoShootAgent
+from .processing_plan import ProcessingAgent
 from .processor import ProcessingPlanner
 from .scheduler import FlowScheduler
 from .sourcing import SourcingAgent
+from .stock_plan import StockPlanAgent
 from .voice import VoiceAgent
 
 __all__ = [
@@ -23,8 +25,10 @@ __all__ = [
     "GenerationPlanner",
     "HandoffValidator",
     "NoShootAgent",
+    "ProcessingAgent",
     "ProcessingPlanner",
     "SourceEvaluator",
     "SourcingAgent",
+    "StockPlanAgent",
     "VoiceAgent",
 ]
