@@ -56,7 +56,7 @@
 
 | File | Bytes |
 |---|---|
-| [ANNEX-SOURCED-NOT-USED.md](ANNEX-SOURCED-NOT-USED.md) | 1,126 |
+| [ANNEX-SOURCED-NOT-USED.md](ANNEX-SOURCED-NOT-USED.md) | 1,166 |
 | [asset-intents.json](asset-intents.json) | 10,867 |
 | [asset-production-tasks.json](asset-production-tasks.json) | 19,299 |
 | [asset-sourcing.json](asset-sourcing.json) | 7,670 |
@@ -114,13 +114,13 @@
 | [build-sheet/variants/VO-01.json](build-sheet/variants/VO-01.json) | 23,160 |
 | [capture-plan.json](capture-plan.json) | 1,480 |
 | [catalogue-resolutions.json](catalogue-resolutions.json) | 4,587 |
-| [cli-gate2a-output.json](cli-gate2a-output.json) | 2,643 |
-| [cli-plan-output.json](cli-plan-output.json) | 1,273 |
-| [cli-qc-output.json](cli-qc-output.json) | 921 |
-| [cli-spend-output.json](cli-spend-output.json) | 1,020 |
-| [cli-stockcheck-output.json](cli-stockcheck-output.json) | 315 |
-| [cli-voice-output.json](cli-voice-output.json) | 255 |
-| [events.jsonl](events.jsonl) | 13,472 |
+| [cli-gate2a-output.json](cli-gate2a-output.json) | 2,720 |
+| [cli-plan-output.json](cli-plan-output.json) | 1,313 |
+| [cli-qc-output.json](cli-qc-output.json) | 950 |
+| [cli-spend-output.json](cli-spend-output.json) | 1,050 |
+| [cli-stockcheck-output.json](cli-stockcheck-output.json) | 322 |
+| [cli-voice-output.json](cli-voice-output.json) | 263 |
+| [events.jsonl](events.jsonl) | 13,731 |
 | [feedback-form.md](feedback-form.md) | 4,580 |
 | [flow.json](flow.json) | 5,774 |
 | [gate2/packet-2a.json](gate2/packet-2a.json) | 3,229 |
@@ -185,21 +185,22 @@
 | [sourcing-report.md](sourcing-report.md) | 2,081 |
 | [spend-ledger.json](spend-ledger.json) | 252 |
 | [spend-ledger.jsonl](spend-ledger.jsonl) | 0 |
+| [stock-candidates/archive-tsunami-penang-beach.mp4](stock-candidates/archive-tsunami-penang-beach.mp4) | 4,205,710 |
 | [stock-candidates/AS-05.mp4](stock-candidates/AS-05.mp4) | 673,387 |
 | [stock-candidates/AS-06.mp4](stock-candidates/AS-06.mp4) | 789,847 |
-| [stock-candidates/AS-07.jpg](stock-candidates/AS-07.jpg) | 33,957 |
-| [stock-candidates/AS-08.jpg](stock-candidates/AS-08.jpg) | 26,565 |
+| [stock-candidates/AS-07.jpg](stock-candidates/AS-07.jpg) | 246,369 |
+| [stock-candidates/AS-08.jpg](stock-candidates/AS-08.jpg) | 119,728 |
 | [stock-candidates/AS-11.mp3](stock-candidates/AS-11.mp3) | 421,701 |
 | [stock-candidates/openverse-cup-of-coffee-on-table-rock-in-linville-gorge.jpg](stock-candidates/openverse-cup-of-coffee-on-table-rock-in-linville-gorge.jpg) | 100,772 |
 | [stock-candidates/openverse-water-pouring-9-wav.mp3](stock-candidates/openverse-water-pouring-9-wav.mp3) | 61,873 |
 | [stock-candidates/wikimedia-file-juan-gris-moulin-caf-tasse-et-verre-sur-une-t.jpg](stock-candidates/wikimedia-file-juan-gris-moulin-caf-tasse-et-verre-sur-une-t.jpg) | 274,860 |
 | [stock-candidates/wikimedia-file-kitchen-arrangement-and-equipment-ia-kitchena.jpg](stock-candidates/wikimedia-file-kitchen-arrangement-and-equipment-ia-kitchena.jpg) | 3,285,471 |
 | [stock-candidates/wikimedia-file-pouring-water-bottles-ogg.ogg](stock-candidates/wikimedia-file-pouring-water-bottles-ogg.ogg) | 744,457 |
-| [stock-candidates.json](stock-candidates.json) | 7,464 |
+| [stock-candidates.json](stock-candidates.json) | 7,467 |
 | [stock-check/stock-check.json](stock-check/stock-check.json) | 10,412 |
 | [stock-check/stock-check.md](stock-check/stock-check.md) | 7,967 |
-| [stock-plan.json](stock-plan.json) | 12,356 |
-| [STOCK-PLAN.md](STOCK-PLAN.md) | 4,510 |
+| [stock-plan.json](stock-plan.json) | 12,359 |
+| [STOCK-PLAN.md](STOCK-PLAN.md) | 4,450 |
 | [TEST-REPORT.md](TEST-REPORT.md) | 4,960 |
 | [transcription.json](transcription.json) | 756 |
 | [variants.json](variants.json) | 25,176 |

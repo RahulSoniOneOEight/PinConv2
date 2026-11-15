@@ -261,7 +261,8 @@ def fetch_stock_candidate(
         if not photos:
             return None
         item = photos[0]
-        link = (item.get("src") or {}).get("medium")
+        src = item.get("src") or {}
+        link = src.get("large2x") or src.get("large") or src.get("medium")
         if not link:
             return None
         path = _download(link, destination / f"{asset_id}.jpg")
@@ -286,7 +287,8 @@ def fetch_stock_candidate(
         if not results:
             return None
         item = results[0]
-        link = (item.get("urls") or {}).get("small")
+        urls = item.get("urls") or {}
+        link = urls.get("regular") or urls.get("small")
         if not link:
             return None
         path = _download(link, destination / f"{asset_id}.jpg")
@@ -482,6 +484,8 @@ def render_stock_plan(plan: StockPlan) -> str:
             "## Rules",
             "",
             "- exact product/pack/logo stays supplied; never stock or generated.",
+            "- Pexels and Unsplash are both fetched and scored for every image asset;",
+            "  the higher fit is selected and the other is reported as a backup.",
             "- AI generation is only for voice, sting and disclosed fallbacks, and",
             "  stays within 40% of assets.",
             "- Stock assets may be AI-processed (grade, upscale, relight, retime);",
