@@ -9,6 +9,7 @@ from .classifier import AssetClassifier
 from .evaluator import SourceEvaluator
 from .generator import GenerationAgent, GenerationPlanner
 from .handoff_validator import HandoffValidator
+from .no_shoot import NoShootAgent
 from .processor import ProcessingPlanner
 from .scheduler import FlowScheduler
 from .sourcing import SourcingAgent
@@ -21,6 +22,7 @@ __all__ = [
     "GenerationAgent",
     "GenerationPlanner",
     "HandoffValidator",
+    "NoShootAgent",
     "ProcessingPlanner",
     "SourceEvaluator",
     "SourcingAgent",

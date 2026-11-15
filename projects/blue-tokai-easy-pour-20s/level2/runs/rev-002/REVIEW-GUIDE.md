@@ -22,6 +22,8 @@ is it ready to assemble?*
 | Technical handoff | `build-sheet/production-build-sheet.md` / `.html` |
 | **Main asset table** | `ASSET-SUMMARY.md` / `.html` |
 | Production plan | `PRODUCTION-PLAN.md` / `.html` |
+| No-shoot policy | `NO-SHOOT-POLICY.md` |
+| Pending asset routes | `PENDING-ASSET-ROUTES.md` |
 | Asset visual QC | `qc/visual-assets.md` |
 | Per-shot/layer sources | `SOURCE-SHEET.md` / `.html` |
 | Pending asset routes | `PENDING-ASSET-ROUTES.md` |
@@ -153,6 +155,14 @@ by `run_build` when a generation engine is supplied. It:
 
 `AS-15` is a conditional fallback, so it is skipped unless the run explicitly
 includes conditional assets. No paid generation has run.
+
+### No-shoot constraint
+
+`NO-SHOOT-POLICY.md` records that there is no camera shoot. Assets must be
+supplied brand files, licensed stock, stock with AI processing, or AI-generated
+media with disclosure. Capture, set-build and recorded-voice routes are flagged.
+The current plan is **blocked** until those assets are re-routed and proof claims
+are reclassified or dropped.
 
 ### Renderer
 

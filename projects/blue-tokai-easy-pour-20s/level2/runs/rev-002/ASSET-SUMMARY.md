@@ -17,24 +17,24 @@ Routes present: capture, generate, owned, stock, supplied.
 Only asset-bound layers are counted here; copy and procedural layers are
 listed in `PRODUCTION-PLAN.md`.
 
-| Asset | What | Shots | Layers using it | Class | Route | Source | Rights | Status | Access | Visual QC |
-|---|---|---|---|---|---|---|---|---|---|---|
-| `AS-01` | Blue Tokai Coffee Roasters logo | SH-06 | 1 | exact | supplied | supplied:User-supplied logo attachment, 2026-11-14; public footer fallback: http | needs_approval | blocked | [open](qc/assets/AS-01.png) | **warn** |
-| `AS-02` | Easy Pour Mixed Bag pack | SH-01, SH-02, SH-03, SH-04, SH-05, SH-06 | 6 | exact | supplied | supplied:https://bluetokaicoffee.com/cdn/shop/files/MixedBag__Front_c9b610f1-ce4 | needs_approval | blocked | [open](qc/assets/AS-02.jpg) | **pass** |
-| `AS-03` | Easy Pour Vienna pack | SH-04 | 1 | exact | supplied | supplied:https://bluetokaicoffee.com/cdn/shop/files/ViennaRoast__Front_1_a175fab | needs_approval | blocked | [open](qc/assets/AS-03.jpg) | **pass** |
-| `AS-04` | Easy Pour Attikan Estate pack | SH-04 | 1 | exact | supplied | supplied:https://bluetokaicoffee.com/cdn/shop/files/AttikanEstate__Front.jpg?v=1 | needs_approval | blocked | [open](qc/assets/AS-04.jpg) | **pass** |
-| `AS-05` | Easy Pour brewing demonstration, hands | SH-02 | 1 | proof | capture | capture:In-house food shoot | needs_approval | blocked | not delivered | **pending** |
-| `AS-06` | Hot water pour and bloom footage | SH-03 | 1 | proof | capture | capture:In-house food shoot | needs_approval | blocked | not delivered | **pending** |
-| `AS-07` | Warm kitchen background | SH-01, SH-02, SH-03, SH-04, SH-05, SH-06 | 6 | atmospheric | owned | owned:In-house set build | cleared | planned | not delivered | **pending** |
-| `AS-08` | Finished cup of coffee | SH-05 | 1 | proof | capture | capture:In-house food shoot | needs_approval | blocked | not delivered | **pending** |
-| `AS-09` | Voice over, warm Indian English | — | 0 | representative | supplied | supplied:Voice artist session | needs_approval | blocked | not delivered | n/a |
-| `AS-10` | Music bed, 20 seconds | — | 0 | atmospheric | stock | stock:ccmixter:Lost Roamin' | needs_approval | blocked | [preview](sourcing/CND-AS10-02-lost-roamin.mp3) | n/a |
-| `AS-11` | Water pour sound effect | — | 0 | atmospheric | owned | owned:In-house sound design | cleared | planned | not delivered | n/a |
-| `AS-12` | Brand sting | — | 0 | atmospheric | owned | owned:In-house sound design | cleared | planned | not delivered | n/a |
-| `AS-13` | Captured Mixed Bag fallback | — | 0 | exact | capture | capture:In-house studio capture | needs_approval | conditional | not delivered | **pending** |
-| `AS-14` | Music fallback track | — | 0 | atmospheric | stock | stock:ccmixter:This Is Our Music - Instrumental | needs_approval | conditional | [preview](sourcing/CND-AS14-02-this-is-our-music-instrumental.mp3) | n/a |
-| `AS-15` | Synthetic narration fallback | — | 0 | representative | generate | generate:Approved speech provider | needs_approval | conditional | [sample](generated/AS-15-edge-sample.mp3) | n/a |
-| `AS-17` | Easy Pour Seethargundu Estate pack | SH-04 | 1 | exact | supplied | supplied:https://bluetokaicoffee.com/cdn/shop/files/Seethargundu-Estate__Front_1 | needs_approval | blocked | [open](qc/assets/AS-17.jpg) | **pass** |
+| Asset | What | Shots | Layers using it | Class | Route | No-shoot | Source | Rights | Status | Access | Visual QC |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| `AS-01` | Blue Tokai Coffee Roasters logo | SH-06 | 1 | exact | supplied | keep | supplied:User-supplied logo attachment, 2026-11-14; public footer fallback: http | needs_approval | blocked | [open](qc/assets/AS-01.png) | **warn** |
+| `AS-02` | Easy Pour Mixed Bag pack | SH-01, SH-02, SH-03, SH-04, SH-05, SH-06 | 6 | exact | supplied | keep | supplied:https://bluetokaicoffee.com/cdn/shop/files/MixedBag__Front_c9b610f1-ce4 | needs_approval | blocked | [open](qc/assets/AS-02.jpg) | **pass** |
+| `AS-03` | Easy Pour Vienna pack | SH-04 | 1 | exact | supplied | keep | supplied:https://bluetokaicoffee.com/cdn/shop/files/ViennaRoast__Front_1_a175fab | needs_approval | blocked | [open](qc/assets/AS-03.jpg) | **pass** |
+| `AS-04` | Easy Pour Attikan Estate pack | SH-04 | 1 | exact | supplied | keep | supplied:https://bluetokaicoffee.com/cdn/shop/files/AttikanEstate__Front.jpg?v=1 | needs_approval | blocked | [open](qc/assets/AS-04.jpg) | **pass** |
+| `AS-05` | Easy Pour brewing demonstration, hands | SH-02 | 1 | proof | capture | stock | capture:In-house food shoot | needs_approval | blocked | not delivered | **pending** |
+| `AS-06` | Hot water pour and bloom footage | SH-03 | 1 | proof | capture | stock | capture:In-house food shoot | needs_approval | blocked | not delivered | **pending** |
+| `AS-07` | Warm kitchen background | SH-01, SH-02, SH-03, SH-04, SH-05, SH-06 | 6 | atmospheric | owned | stock | owned:In-house set build | cleared | planned | not delivered | **pending** |
+| `AS-08` | Finished cup of coffee | SH-05 | 1 | proof | capture | stock | capture:In-house food shoot | needs_approval | blocked | not delivered | **pending** |
+| `AS-09` | Voice over, warm Indian English | — | 0 | representative | supplied | generate | supplied:Voice artist session | needs_approval | blocked | not delivered | n/a |
+| `AS-10` | Music bed, 20 seconds | — | 0 | atmospheric | stock | keep | stock:ccmixter:Lost Roamin' | needs_approval | blocked | [preview](sourcing/CND-AS10-02-lost-roamin.mp3) | n/a |
+| `AS-11` | Water pour sound effect | — | 0 | atmospheric | owned | stock | owned:In-house sound design | cleared | planned | not delivered | n/a |
+| `AS-12` | Brand sting | — | 0 | atmospheric | owned | generate | owned:In-house sound design | cleared | planned | not delivered | n/a |
+| `AS-13` | Captured Mixed Bag fallback | — | 0 | exact | capture | supplied | capture:In-house studio capture | needs_approval | conditional | not delivered | **pending** |
+| `AS-14` | Music fallback track | — | 0 | atmospheric | stock | keep | stock:ccmixter:This Is Our Music - Instrumental | needs_approval | conditional | [preview](sourcing/CND-AS14-02-this-is-our-music-instrumental.mp3) | n/a |
+| `AS-15` | Synthetic narration fallback | — | 0 | representative | generate | keep | generate:Approved speech provider | needs_approval | conditional | [sample](generated/AS-15-edge-sample.mp3) | n/a |
+| `AS-17` | Easy Pour Seethargundu Estate pack | SH-04 | 1 | exact | supplied | keep | supplied:https://bluetokaicoffee.com/cdn/shop/files/Seethargundu-Estate__Front_1 | needs_approval | blocked | [open](qc/assets/AS-17.jpg) | **pass** |
 
 ## Asset details
 
@@ -44,6 +44,7 @@ listed in `PRODUCTION-PLAN.md`.
 - Shots: SH-06
 - Layers (1): LY-062
 - Route: `supplied`
+- No-shoot route: keep the current route
 - Source: supplied:User-supplied logo attachment, 2026-11-14; public footer fallback: https://bluetokaicoffee.com/cdn/shop/files/logo-footer.png?v=1688108473
 - Rights: `needs_approval` · hold `HI-02`
 - Status: `blocked`
@@ -58,6 +59,7 @@ listed in `PRODUCTION-PLAN.md`.
 - Shots: SH-01, SH-02, SH-03, SH-04, SH-05, SH-06
 - Layers (6): LY-011, LY-022, LY-032, LY-041, LY-052, LY-061
 - Route: `supplied`
+- No-shoot route: keep the current route
 - Source: supplied:https://bluetokaicoffee.com/cdn/shop/files/MixedBag__Front_c9b610f1-ce4a-4b53-8b30-f6ca758eb6bb.jpg?v=1717566490
 - Rights: `needs_approval` · hold `HI-02`
 - Status: `blocked`
@@ -72,6 +74,7 @@ listed in `PRODUCTION-PLAN.md`.
 - Shots: SH-04
 - Layers (1): LY-042
 - Route: `supplied`
+- No-shoot route: keep the current route
 - Source: supplied:https://bluetokaicoffee.com/cdn/shop/files/ViennaRoast__Front_1_a175faba-8e5f-40b8-aaa1-0efc3a525321.jpg?v=1717565466
 - Rights: `needs_approval` · hold `HI-02`
 - Status: `blocked`
@@ -86,6 +89,7 @@ listed in `PRODUCTION-PLAN.md`.
 - Shots: SH-04
 - Layers (1): LY-043
 - Route: `supplied`
+- No-shoot route: keep the current route
 - Source: supplied:https://bluetokaicoffee.com/cdn/shop/files/AttikanEstate__Front.jpg?v=1764321548
 - Rights: `needs_approval` · hold `HI-02`
 - Status: `blocked`
@@ -100,6 +104,7 @@ listed in `PRODUCTION-PLAN.md`.
 - Shots: SH-02
 - Layers (1): LY-021
 - Route: `capture`
+- No-shoot route: `stock` — stock pour-over hands footage or AI-generated hands; reclassify proof to representative with disclosure
 - Source: capture:In-house food shoot
 - Rights: `needs_approval` · hold `HI-04`
 - Status: `blocked`
@@ -114,6 +119,7 @@ listed in `PRODUCTION-PLAN.md`.
 - Shots: SH-03
 - Layers (1): LY-031
 - Route: `capture`
+- No-shoot route: `stock` — stock hot-water pour/bloom footage or AI-generated clip; reclassify proof to representative with disclosure
 - Source: capture:In-house food shoot
 - Rights: `needs_approval` · hold `HI-04`
 - Status: `blocked`
@@ -128,6 +134,7 @@ listed in `PRODUCTION-PLAN.md`.
 - Shots: SH-01, SH-02, SH-03, SH-04, SH-05, SH-06
 - Layers (6): LY-010, LY-020, LY-030, LY-040, LY-050, LY-060
 - Route: `owned`
+- No-shoot route: `stock` — stock kitchen background or AI-generated background; atmospheric allows it
 - Source: owned:In-house set build
 - Rights: `cleared`
 - Status: `planned`
@@ -142,6 +149,7 @@ listed in `PRODUCTION-PLAN.md`.
 - Shots: SH-05
 - Layers (1): LY-051
 - Route: `capture`
+- No-shoot route: `stock` — stock finished-cup footage or AI-generated cup; reclassify proof to representative with disclosure
 - Source: capture:In-house food shoot
 - Rights: `needs_approval` · hold `HI-04`
 - Status: `blocked`
@@ -156,6 +164,7 @@ listed in `PRODUCTION-PLAN.md`.
 - Shots: —
 - Layers (0): —
 - Route: `supplied`
+- No-shoot route: `generate` — AI TTS voice (AS-15 route) or licensed voice; no camera shoot needed
 - Source: supplied:Voice artist session
 - Rights: `needs_approval` · hold `HI-03`
 - Status: `blocked`
@@ -170,6 +179,7 @@ listed in `PRODUCTION-PLAN.md`.
 - Shots: —
 - Layers (0): —
 - Route: `stock`
+- No-shoot route: keep the current route
 - Source: stock:ccmixter:Lost Roamin'
 - Rights: `needs_approval` · hold `HI-03`
 - Status: `blocked`
@@ -184,6 +194,7 @@ listed in `PRODUCTION-PLAN.md`.
 - Shots: —
 - Layers (0): —
 - Route: `owned`
+- No-shoot route: `stock` — stock pour SFX or AI audio generation
 - Source: owned:In-house sound design
 - Rights: `cleared`
 - Status: `planned`
@@ -198,6 +209,7 @@ listed in `PRODUCTION-PLAN.md`.
 - Shots: —
 - Layers (0): —
 - Route: `owned`
+- No-shoot route: `generate` — AI-generated or licensed brand sting
 - Source: owned:In-house sound design
 - Rights: `cleared`
 - Status: `planned`
@@ -212,6 +224,7 @@ listed in `PRODUCTION-PLAN.md`.
 - Shots: —
 - Layers (0): —
 - Route: `capture`
+- No-shoot route: `supplied` — use the supplied AS-02 pack image; remove the capture fallback
 - Source: capture:In-house studio capture
 - Rights: `needs_approval` · hold `HI-02`
 - Status: `conditional`
@@ -226,6 +239,7 @@ listed in `PRODUCTION-PLAN.md`.
 - Shots: —
 - Layers (0): —
 - Route: `stock`
+- No-shoot route: keep the current route
 - Source: stock:ccmixter:This Is Our Music - Instrumental
 - Rights: `needs_approval` · hold `HI-03`
 - Status: `conditional`
@@ -240,6 +254,7 @@ listed in `PRODUCTION-PLAN.md`.
 - Shots: —
 - Layers (0): —
 - Route: `generate`
+- No-shoot route: keep the current route
 - Source: generate:Approved speech provider
 - Rights: `needs_approval` · hold `HI-03`
 - Status: `conditional`
@@ -254,6 +269,7 @@ listed in `PRODUCTION-PLAN.md`.
 - Shots: SH-04
 - Layers (1): LY-047
 - Route: `supplied`
+- No-shoot route: keep the current route
 - Source: supplied:https://bluetokaicoffee.com/cdn/shop/files/Seethargundu-Estate__Front_1.jpg?v=1764321548
 - Rights: `needs_approval` · hold `HI-02`
 - Status: `blocked`

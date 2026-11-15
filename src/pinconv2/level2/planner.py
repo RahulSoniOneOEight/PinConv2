@@ -54,6 +54,7 @@ from .models import (
     SourcingReport,
     TaskStatus,
 )
+from .no_shoot import evaluate_no_shoot, render_no_shoot
 from .preview import render_all
 from .qc import run_qc
 from .sound import build_sound_plan, validate_sound_plan
@@ -575,6 +576,9 @@ def plan_level2(
     )
     _write_supporting(run, run_id, plan, level2, sheet, reports, gate_2a)
     write_asset_outputs(run, run_id, plan, level2, sheet, decisions)
+    no_shoot = evaluate_no_shoot(plan, level2)
+    run.write_text(run_id, "NO-SHOOT-POLICY.md", render_no_shoot(no_shoot))
+    run.write_json(run_id, "no-shoot-plan.json", no_shoot)
 
     run.append_event(
         run_id,

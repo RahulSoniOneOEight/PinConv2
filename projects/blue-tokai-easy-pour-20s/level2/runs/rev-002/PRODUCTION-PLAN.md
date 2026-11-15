@@ -16,24 +16,24 @@
 
 ## Asset queue
 
-| Order | Asset | Action | Shots | Rights / hold | Gate |
-|---|---|---|---|---|---|
-| 1 | `AS-01` Blue Tokai Coffee Roasters logo | Obtain rights and import the supplied file | SH-06 | needs_approval / `HI-02` | Level 1 / rights |
-| 2 | `AS-02` Easy Pour Mixed Bag pack | Obtain rights and import the supplied file | SH-01, SH-02, SH-03, SH-04, SH-05, SH-06 | needs_approval / `HI-02` | Level 1 / rights |
-| 3 | `AS-03` Easy Pour Vienna pack | Obtain rights and import the supplied file | SH-04 | needs_approval / `HI-02` | Level 1 / rights |
-| 4 | `AS-04` Easy Pour Attikan Estate pack | Obtain rights and import the supplied file | SH-04 | needs_approval / `HI-02` | Level 1 / rights |
-| 5 | `AS-09` Voice over, warm Indian English | Record the approved voice artist and clear the release | — | needs_approval / `HI-03` | Level 1 / rights |
-| 6 | `AS-17` Easy Pour Seethargundu Estate pack | Obtain rights and import the supplied file | SH-04 | needs_approval / `HI-02` | Level 1 / rights |
-| 7 | `AS-05` Easy Pour brewing demonstration, hands | Shoot on the demonstration session and clear the release | SH-02 | needs_approval / `HI-04` | Level 1 / rights |
-| 8 | `AS-06` Hot water pour and bloom footage | Shoot on the demonstration session and clear the release | SH-03 | needs_approval / `HI-04` | Level 1 / rights |
-| 9 | `AS-08` Finished cup of coffee | Shoot on the demonstration session and clear the release | SH-05 | needs_approval / `HI-04` | Level 1 / rights |
-| 10 | `AS-13` Captured Mixed Bag fallback | Shoot on the demonstration session and clear the release | — | needs_approval / `HI-02` | Level 1 / rights |
-| 11 | `AS-10` Music bed, 20 seconds | Acquire the chosen licence after Gate 2A | — | needs_approval / `HI-03` | Gate 2A |
-| 12 | `AS-14` Music fallback track | Acquire the chosen licence after Gate 2A | — | needs_approval / `HI-03` | Gate 2A |
-| 13 | `AS-15` Synthetic narration fallback | Use only as a disclosed fallback | — | needs_approval / `HI-03` | Gate 2A |
-| 14 | `AS-07` Warm kitchen background | Use the owned in-house file | SH-01, SH-02, SH-03, SH-04, SH-05, SH-06 | cleared | Level 1 / rights |
-| 15 | `AS-11` Water pour sound effect | Use the owned in-house file | — | cleared | Level 1 / rights |
-| 16 | `AS-12` Brand sting | Use the owned in-house file | — | cleared | Level 1 / rights |
+| Order | Asset | Current route | Action | No-shoot route | Shots | Rights / hold | Gate |
+|---|---|---|---|---|---|---|---|
+| 1 | `AS-01` Blue Tokai Coffee Roasters logo | supplied | Obtain rights and import the supplied file | keep | SH-06 | needs_approval / `HI-02` | Level 1 / rights |
+| 2 | `AS-02` Easy Pour Mixed Bag pack | supplied | Obtain rights and import the supplied file | keep | SH-01, SH-02, SH-03, SH-04, SH-05, SH-06 | needs_approval / `HI-02` | Level 1 / rights |
+| 3 | `AS-03` Easy Pour Vienna pack | supplied | Obtain rights and import the supplied file | keep | SH-04 | needs_approval / `HI-02` | Level 1 / rights |
+| 4 | `AS-04` Easy Pour Attikan Estate pack | supplied | Obtain rights and import the supplied file | keep | SH-04 | needs_approval / `HI-02` | Level 1 / rights |
+| 5 | `AS-09` Voice over, warm Indian English | supplied | AI TTS voice (AS-15 route) or licensed voice; no camera shoot needed | generate | - | needs_approval / `HI-03` | Level 1 / rights |
+| 6 | `AS-17` Easy Pour Seethargundu Estate pack | supplied | Obtain rights and import the supplied file | keep | SH-04 | needs_approval / `HI-02` | Level 1 / rights |
+| 7 | `AS-05` Easy Pour brewing demonstration, hands | capture | stock pour-over hands footage or AI-generated hands; reclassify proof to representative with disclosure | stock | SH-02 | needs_approval / `HI-04` | Level 1 / rights |
+| 8 | `AS-06` Hot water pour and bloom footage | capture | stock hot-water pour/bloom footage or AI-generated clip; reclassify proof to representative with disclosure | stock | SH-03 | needs_approval / `HI-04` | Level 1 / rights |
+| 9 | `AS-08` Finished cup of coffee | capture | stock finished-cup footage or AI-generated cup; reclassify proof to representative with disclosure | stock | SH-05 | needs_approval / `HI-04` | Level 1 / rights |
+| 10 | `AS-13` Captured Mixed Bag fallback | capture | use the supplied AS-02 pack image; remove the capture fallback | supplied | - | needs_approval / `HI-02` | Level 1 / rights |
+| 11 | `AS-10` Music bed, 20 seconds | stock | Acquire the chosen licence after Gate 2A | keep | - | needs_approval / `HI-03` | Gate 2A |
+| 12 | `AS-14` Music fallback track | stock | Acquire the chosen licence after Gate 2A | keep | - | needs_approval / `HI-03` | Gate 2A |
+| 13 | `AS-15` Synthetic narration fallback | generate | Use only as a disclosed fallback | keep | - | needs_approval / `HI-03` | Gate 2A |
+| 14 | `AS-07` Warm kitchen background | owned | stock kitchen background or AI-generated background; atmospheric allows it | stock | SH-01, SH-02, SH-03, SH-04, SH-05, SH-06 | cleared | Level 1 / rights |
+| 15 | `AS-11` Water pour sound effect | owned | stock pour SFX or AI audio generation | stock | - | cleared | Level 1 / rights |
+| 16 | `AS-12` Brand sting | owned | AI-generated or licensed brand sting | generate | - | cleared | Level 1 / rights |
 
 ## Layer plan
 

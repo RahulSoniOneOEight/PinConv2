@@ -15,6 +15,9 @@
         "M0"
       ],
       "name": "Blue Tokai Coffee Roasters logo",
+      "no_shoot_flagged": false,
+      "no_shoot_note": "",
+      "no_shoot_route": "",
       "qc_notes": "Clean transparent logo, correct Blue Tokai lockup; 188x128 px may soften if scaled beyond 1x at 1080p. Request vector or larger master.",
       "qc_reviewer": "agent:multimodal",
       "qc_verdict": "warn",
@@ -48,6 +51,9 @@
         "M0"
       ],
       "name": "Easy Pour Mixed Bag pack",
+      "no_shoot_flagged": false,
+      "no_shoot_note": "",
+      "no_shoot_route": "",
       "qc_notes": "Mixed Bag pack front is sharp, correct product identity, label legible, no watermark.",
       "qc_reviewer": "agent:multimodal",
       "qc_verdict": "pass",
@@ -81,6 +87,9 @@
         "M0"
       ],
       "name": "Easy Pour Vienna pack",
+      "no_shoot_flagged": false,
+      "no_shoot_note": "",
+      "no_shoot_route": "",
       "qc_notes": "Vienna Roast pack front is sharp, correct product identity, label legible, no watermark.",
       "qc_reviewer": "agent:multimodal",
       "qc_verdict": "pass",
@@ -109,6 +118,9 @@
         "M0"
       ],
       "name": "Easy Pour Attikan Estate pack",
+      "no_shoot_flagged": false,
+      "no_shoot_note": "",
+      "no_shoot_route": "",
       "qc_notes": "Attikan Estate pack front is sharp, correct product identity, label legible, no watermark.",
       "qc_reviewer": "agent:multimodal",
       "qc_verdict": "pass",
@@ -137,6 +149,9 @@
         "M6"
       ],
       "name": "Easy Pour brewing demonstration, hands",
+      "no_shoot_flagged": true,
+      "no_shoot_note": "stock pour-over hands footage or AI-generated hands; reclassify proof to representative with disclosure",
+      "no_shoot_route": "stock",
       "qc_notes": "No capture file yet; visual QC waits for the demonstration shoot.",
       "qc_reviewer": "agent:multimodal",
       "qc_verdict": "pending",
@@ -165,6 +180,9 @@
         "M6"
       ],
       "name": "Hot water pour and bloom footage",
+      "no_shoot_flagged": true,
+      "no_shoot_note": "stock hot-water pour/bloom footage or AI-generated clip; reclassify proof to representative with disclosure",
+      "no_shoot_route": "stock",
       "qc_notes": "No capture file yet; visual QC waits for the demonstration shoot.",
       "qc_reviewer": "agent:multimodal",
       "qc_verdict": "pending",
@@ -198,6 +216,9 @@
         "M0"
       ],
       "name": "Warm kitchen background",
+      "no_shoot_flagged": true,
+      "no_shoot_note": "stock kitchen background or AI-generated background; atmospheric allows it",
+      "no_shoot_route": "stock",
       "qc_notes": "Owned background plate has no delivered file yet.",
       "qc_reviewer": "agent:multimodal",
       "qc_verdict": "pending",
@@ -231,6 +252,9 @@
         "M6"
       ],
       "name": "Finished cup of coffee",
+      "no_shoot_flagged": true,
+      "no_shoot_note": "stock finished-cup footage or AI-generated cup; reclassify proof to representative with disclosure",
+      "no_shoot_route": "stock",
       "qc_notes": "No capture file yet; visual QC waits for the demonstration shoot.",
       "qc_reviewer": "agent:multimodal",
       "qc_verdict": "pending",
@@ -257,6 +281,9 @@
         "M0"
       ],
       "name": "Voice over, warm Indian English",
+      "no_shoot_flagged": true,
+      "no_shoot_note": "AI TTS voice (AS-15 route) or licensed voice; no camera shoot needed",
+      "no_shoot_route": "generate",
       "qc_notes": "Audio asset; visual QC does not apply.",
       "qc_reviewer": "agent:multimodal",
       "qc_verdict": "n/a",
@@ -281,6 +308,9 @@
         "M1"
       ],
       "name": "Music bed, 20 seconds",
+      "no_shoot_flagged": false,
+      "no_shoot_note": "",
+      "no_shoot_route": "",
       "qc_notes": "Audio preview; visual QC does not apply.",
       "qc_reviewer": "agent:multimodal",
       "qc_verdict": "n/a",
@@ -305,6 +335,9 @@
         "M0"
       ],
       "name": "Water pour sound effect",
+      "no_shoot_flagged": true,
+      "no_shoot_note": "stock pour SFX or AI audio generation",
+      "no_shoot_route": "stock",
       "qc_notes": "Audio asset; visual QC does not apply.",
       "qc_reviewer": "agent:multimodal",
       "qc_verdict": "n/a",
@@ -329,6 +362,9 @@
         "M0"
       ],
       "name": "Brand sting",
+      "no_shoot_flagged": true,
+      "no_shoot_note": "AI-generated or licensed brand sting",
+      "no_shoot_route": "generate",
       "qc_notes": "Audio asset; visual QC does not apply.",
       "qc_reviewer": "agent:multimodal",
       "qc_verdict": "n/a",
@@ -353,6 +389,9 @@
         "M6"
       ],
       "name": "Captured Mixed Bag fallback",
+      "no_shoot_flagged": true,
+      "no_shoot_note": "use the supplied AS-02 pack image; remove the capture fallback",
+      "no_shoot_route": "supplied",
       "qc_notes": "Conditional capture fallback; no file unless triggered.",
       "qc_reviewer": "agent:multimodal",
       "qc_verdict": "pending",
@@ -377,6 +416,9 @@
         "M1"
       ],
       "name": "Music fallback track",
+      "no_shoot_flagged": false,
+      "no_shoot_note": "",
+      "no_shoot_route": "",
       "qc_notes": "Audio preview; visual QC does not apply.",
       "qc_reviewer": "agent:multimodal",
       "qc_verdict": "n/a",
@@ -401,6 +443,9 @@
         "M7"
       ],
       "name": "Synthetic narration fallback",
+      "no_shoot_flagged": false,
+      "no_shoot_note": "",
+      "no_shoot_route": "",
       "qc_notes": "Audio sample; visual QC does not apply.",
       "qc_reviewer": "agent:multimodal",
       "qc_verdict": "n/a",
@@ -427,6 +472,9 @@
         "M0"
       ],
       "name": "Easy Pour Seethargundu Estate pack",
+      "no_shoot_flagged": false,
+      "no_shoot_note": "",
+      "no_shoot_route": "",
       "qc_notes": "Seethargundu Estate pack front is sharp, correct product identity, label legible, no watermark.",
       "qc_reviewer": "agent:multimodal",
       "qc_verdict": "pass",

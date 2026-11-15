@@ -49,6 +49,18 @@ def load_asset_qc(run_dir: Path) -> dict[str, dict[str, Any]]:
     return result
 
 
+def load_no_shoot(run_dir: Path) -> dict[str, dict[str, Any]]:
+    path = run_dir / "no-shoot-plan.json"
+    if not path.is_file():
+        return {}
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    return {
+        str(finding["asset_id"]): finding
+        for finding in payload.get("findings", [])
+        if isinstance(finding, dict) and finding.get("asset_id")
+    }
+
+
 def _chosen_preview(level2: Level2Plan) -> dict[str, str]:
     chosen: dict[str, str] = {}
     if level2.sourcing is None:
@@ -93,6 +105,7 @@ def build_rows(
     decision_map = {decision.layer_id: decision for decision in decisions}
     chosen = _chosen_preview(level2)
     qc_map = load_asset_qc(run_dir)
+    no_shoot_map = load_no_shoot(run_dir)
 
     bindings: dict[str, list[dict[str, Any]]] = {}
     for shot in sheet.shots:
@@ -116,6 +129,7 @@ def build_rows(
         entries = bindings.get(asset_id, [])
         shots = sorted({entry["shot"] for entry in entries})
         qc = qc_map.get(asset_id, {})
+        no_shoot = no_shoot_map.get(asset_id, {})
         access_path, access_link = _access(asset_id, run_dir, chosen)
         raw_route = intent.route.value if hasattr(intent.route, "value") else str(intent.route)
         route = _ROUTE_GROUP.get(raw_route, raw_route)
@@ -141,6 +155,9 @@ def build_rows(
                 "qc_notes": str(qc.get("notes", "")),
                 "qc_reviewer": str(qc.get("reviewer", "")),
                 "action": _ACTION.get(raw_route, _ACTION.get(route, "Review the approved route")),
+                "no_shoot_route": str(no_shoot.get("recommended_route", "")),
+                "no_shoot_note": str(no_shoot.get("note", "")),
+                "no_shoot_flagged": bool(no_shoot),
             }
         )
     return rows
@@ -190,15 +207,16 @@ def render_asset_summary(plan: ProductionPlan, rows: list[dict[str, Any]]) -> st
             "Only asset-bound layers are counted here; copy and procedural layers are",
             "listed in `PRODUCTION-PLAN.md`.",
             "",
-            "| Asset | What | Shots | Layers using it | Class | Route | Source | Rights | "
-            "Status | Access | Visual QC |",
-            "|---|---|---|---|---|---|---|---|---|---|---|",
+            "| Asset | What | Shots | Layers using it | Class | Route | No-shoot | "
+            "Source | Rights | Status | Access | Visual QC |",
+            "|---|---|---|---|---|---|---|---|---|---|---|---|",
         ]
     )
     for row in rows:
         lines.append(
             f"| `{row['asset_id']}` | {row['name']} | {', '.join(row['shots']) or '—'} | "
             f"{row['layer_count']} | {row['truth_class']} | {row['route']} | "
+            f"{row['no_shoot_route'] or 'keep'} | "
             f"{row['source'][:80]} | {row['rights']} | {row['status']} | "
             f"{row['access_link']} | {_qc_badge(row['qc_verdict'])} |"
         )
@@ -212,6 +230,11 @@ def render_asset_summary(plan: ProductionPlan, rows: list[dict[str, Any]]) -> st
                 f"- Shots: {', '.join(row['shots']) or '—'}",
                 f"- Layers ({row['layer_count']}): {', '.join(row['layers']) or '—'}",
                 f"- Route: `{row['route']}`",
+                (
+                    f"- No-shoot route: `{row['no_shoot_route']}` — {row['no_shoot_note']}"
+                    if row["no_shoot_flagged"]
+                    else "- No-shoot route: keep the current route"
+                ),
                 f"- Source: {row['source']}",
                 f"- Rights: `{row['rights']}`"
                 + (f" · hold `{row['hold']}`" if row["hold"] else ""),
@@ -270,8 +293,9 @@ def render_production_plan(
             "",
             "## Asset queue",
             "",
-            "| Order | Asset | Action | Shots | Rights / hold | Gate |",
-            "|---|---|---|---|---|---|",
+            "| Order | Asset | Current route | Action | No-shoot route | Shots | "
+            "Rights / hold | Gate |",
+            "|---|---|---|---|---|---|---|---|",
         ]
     )
     order = {"supplied": 0, "capture": 1, "stock": 2, "generate": 3, "owned": 4}
@@ -280,9 +304,11 @@ def render_production_plan(
         start=1,
     ):
         gate = "Gate 2A" if row["route"] in {"stock", "generate"} else "Level 1 / rights"
+        action = row["no_shoot_note"] if row["no_shoot_flagged"] else row["action"]
         lines.append(
-            f"| {index} | `{row['asset_id']}` {row['name']} | {row['action']} | "
-            f"{', '.join(row['shots']) or '—'} | {row['rights']}"
+            f"| {index} | `{row['asset_id']}` {row['name']} | {row['route']} | "
+            f"{action} | {row['no_shoot_route'] or 'keep'} | "
+            f"{', '.join(row['shots']) or '-'} | {row['rights']}"
             + (f" / `{row['hold']}`" if row["hold"] else "")
             + f" | {gate} |"
         )

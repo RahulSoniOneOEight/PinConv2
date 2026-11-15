@@ -10,10 +10,11 @@
 |---|---|
 | [REVIEW-GUIDE.md](REVIEW-GUIDE.md) | How a human reviews the pack, records corrections and approves Gate 2A |
 | [ASSET-SUMMARY.md](ASSET-SUMMARY.md) | Main asset table: shot/layer/asset, route, access and visual QC |
+| [NO-SHOOT-POLICY.md](NO-SHOOT-POLICY.md) | No-shoot constraint and stock/AI route findings |
+| [PENDING-ASSET-ROUTES.md](PENDING-ASSET-ROUTES.md) | Current route vs no-shoot route for every asset |
 | [PRODUCTION-PLAN.md](PRODUCTION-PLAN.md) | Shot order, asset queue and layer plan |
 | [qc/visual-assets.md](qc/visual-assets.md) | Agent visual QC verdict per asset |
 | [SOURCE-SHEET.md](SOURCE-SHEET.md) | Every shot/layer with its actual asset source and preview |
-| [PENDING-ASSET-ROUTES.md](PENDING-ASSET-ROUTES.md) | Which pending assets are stock, generated, supplied or captured |
 | [stock-check/stock-check.md](stock-check/stock-check.md) | Live fetch result per stock source, with licences |
 | [openmontage-status.json](openmontage-status.json) | OpenMontage account, version and connected providers |
 | [openmontage-check.json](openmontage-check.json) | Real NASA stock acquisition and 2-second HyperFrames render |
@@ -56,9 +57,9 @@
 | [asset-intents.json](asset-intents.json) | 10,867 |
 | [asset-production-tasks.json](asset-production-tasks.json) | 19,299 |
 | [asset-sourcing.json](asset-sourcing.json) | 7,670 |
-| [ASSET-SUMMARY.html](ASSET-SUMMARY.html) | 17,103 |
-| [ASSET-SUMMARY.json](ASSET-SUMMARY.json) | 13,057 |
-| [ASSET-SUMMARY.md](ASSET-SUMMARY.md) | 11,565 |
+| [ASSET-SUMMARY.html](ASSET-SUMMARY.html) | 18,715 |
+| [ASSET-SUMMARY.json](ASSET-SUMMARY.json) | 15,091 |
+| [ASSET-SUMMARY.md](ASSET-SUMMARY.md) | 12,879 |
 | [blockers.json](blockers.json) | 500 |
 | [budget-estimate.docx](budget-estimate.docx) | 37,450 |
 | [budget-estimate.html](budget-estimate.html) | 4,771 |
@@ -110,13 +111,13 @@
 | [build-sheet/variants/VO-01.json](build-sheet/variants/VO-01.json) | 23,160 |
 | [capture-plan.json](capture-plan.json) | 1,480 |
 | [catalogue-resolutions.json](catalogue-resolutions.json) | 4,587 |
-| [cli-gate2a-output.json](cli-gate2a-output.json) | 2,412 |
-| [cli-plan-output.json](cli-plan-output.json) | 1,153 |
-| [cli-qc-output.json](cli-qc-output.json) | 834 |
-| [cli-spend-output.json](cli-spend-output.json) | 930 |
-| [cli-stockcheck-output.json](cli-stockcheck-output.json) | 294 |
-| [cli-voice-output.json](cli-voice-output.json) | 247 |
-| [events.jsonl](events.jsonl) | 12,177 |
+| [cli-gate2a-output.json](cli-gate2a-output.json) | 2,489 |
+| [cli-plan-output.json](cli-plan-output.json) | 1,193 |
+| [cli-qc-output.json](cli-qc-output.json) | 863 |
+| [cli-spend-output.json](cli-spend-output.json) | 960 |
+| [cli-stockcheck-output.json](cli-stockcheck-output.json) | 301 |
+| [cli-voice-output.json](cli-voice-output.json) | 239 |
+| [events.jsonl](events.jsonl) | 12,695 |
 | [feedback-form.md](feedback-form.md) | 4,580 |
 | [flow.json](flow.json) | 5,774 |
 | [gate2/packet-2a.json](gate2/packet-2a.json) | 3,229 |
@@ -124,6 +125,8 @@
 | [layer-method-decisions.json](layer-method-decisions.json) | 25,090 |
 | [licence-gate-report.json](licence-gate-report.json) | 4,768 |
 | [mypy-output.txt](mypy-output.txt) | 46 |
+| [no-shoot-plan.json](no-shoot-plan.json) | 2,880 |
+| [NO-SHOOT-POLICY.md](NO-SHOOT-POLICY.md) | 2,506 |
 | [OPEN-TOOLS-STATUS.md](OPEN-TOOLS-STATUS.md) | 9,511 |
 | [openmontage/candidates/AS-07-01.jpg](openmontage/candidates/AS-07-01.jpg) | 35,656 |
 | [openmontage/candidates/AS-07-02.jpg](openmontage/candidates/AS-07-02.jpg) | 47,936 |
@@ -135,9 +138,9 @@
 | [openmontage-check.json](openmontage-check.json) | 1,020 |
 | [openmontage-sourcing.json](openmontage-sourcing.json) | 4,276 |
 | [openmontage-status.json](openmontage-status.json) | 904 |
-| [PENDING-ASSET-ROUTES.md](PENDING-ASSET-ROUTES.md) | 4,861 |
-| [PRODUCTION-PLAN.html](PRODUCTION-PLAN.html) | 11,077 |
-| [PRODUCTION-PLAN.md](PRODUCTION-PLAN.md) | 6,214 |
+| [PENDING-ASSET-ROUTES.md](PENDING-ASSET-ROUTES.md) | 3,146 |
+| [PRODUCTION-PLAN.html](PRODUCTION-PLAN.html) | 11,812 |
+| [PRODUCTION-PLAN.md](PRODUCTION-PLAN.md) | 6,753 |
 | [provider-budget.json](provider-budget.json) | 283 |
 | [provider-spend.json](provider-spend.json) | 468 |
 | [provider-spend.jsonl](provider-spend.jsonl) | 0 |
@@ -155,7 +158,7 @@
 | [qc/visual-assets.md](qc/visual-assets.md) | 2,129 |
 | [qc/visual.json](qc/visual.json) | 423 |
 | [RENDERER-DECISION.md](RENDERER-DECISION.md) | 1,952 |
-| [REVIEW-GUIDE.md](REVIEW-GUIDE.md) | 10,035 |
+| [REVIEW-GUIDE.md](REVIEW-GUIDE.md) | 10,514 |
 | [review-pack.docx](review-pack.docx) | 39,142 |
 | [review-pack.html](review-pack.html) | 28,293 |
 | [review-pack.md](review-pack.md) | 19,465 |
@@ -181,7 +184,7 @@
 | [spend-ledger.jsonl](spend-ledger.jsonl) | 0 |
 | [stock-check/stock-check.json](stock-check/stock-check.json) | 10,412 |
 | [stock-check/stock-check.md](stock-check/stock-check.md) | 7,967 |
-| [TEST-REPORT.md](TEST-REPORT.md) | 4,819 |
+| [TEST-REPORT.md](TEST-REPORT.md) | 4,887 |
 | [transcription.json](transcription.json) | 756 |
 | [variants.json](variants.json) | 25,176 |
 | [voice-sample.json](voice-sample.json) | 339 |

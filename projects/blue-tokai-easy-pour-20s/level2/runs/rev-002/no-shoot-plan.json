@@ -1,0 +1,70 @@
+{
+  "status": "blocked",
+  "findings": [
+    {
+      "asset_id": "AS-05",
+      "current_route": "to_capture",
+      "truth_class": "proof",
+      "issue": "capture, set build, owned production or recorded voice is not allowed in a no-shoot production",
+      "recommended_route": "stock",
+      "note": "stock pour-over hands footage or AI-generated hands; reclassify proof to representative with disclosure"
+    },
+    {
+      "asset_id": "AS-06",
+      "current_route": "to_capture",
+      "truth_class": "proof",
+      "issue": "capture, set build, owned production or recorded voice is not allowed in a no-shoot production",
+      "recommended_route": "stock",
+      "note": "stock hot-water pour/bloom footage or AI-generated clip; reclassify proof to representative with disclosure"
+    },
+    {
+      "asset_id": "AS-07",
+      "current_route": "owned",
+      "truth_class": "atmospheric",
+      "issue": "capture, set build, owned production or recorded voice is not allowed in a no-shoot production",
+      "recommended_route": "stock",
+      "note": "stock kitchen background or AI-generated background; atmospheric allows it"
+    },
+    {
+      "asset_id": "AS-08",
+      "current_route": "to_capture",
+      "truth_class": "proof",
+      "issue": "capture, set build, owned production or recorded voice is not allowed in a no-shoot production",
+      "recommended_route": "stock",
+      "note": "stock finished-cup footage or AI-generated cup; reclassify proof to representative with disclosure"
+    },
+    {
+      "asset_id": "AS-09",
+      "current_route": "to_create",
+      "truth_class": "representative",
+      "issue": "capture, set build, owned production or recorded voice is not allowed in a no-shoot production",
+      "recommended_route": "generate",
+      "note": "AI TTS voice (AS-15 route) or licensed voice; no camera shoot needed"
+    },
+    {
+      "asset_id": "AS-11",
+      "current_route": "owned",
+      "truth_class": "atmospheric",
+      "issue": "capture, set build, owned production or recorded voice is not allowed in a no-shoot production",
+      "recommended_route": "stock",
+      "note": "stock pour SFX or AI audio generation"
+    },
+    {
+      "asset_id": "AS-12",
+      "current_route": "owned",
+      "truth_class": "atmospheric",
+      "issue": "capture, set build, owned production or recorded voice is not allowed in a no-shoot production",
+      "recommended_route": "generate",
+      "note": "AI-generated or licensed brand sting"
+    },
+    {
+      "asset_id": "AS-13",
+      "current_route": "to_capture",
+      "truth_class": "exact",
+      "issue": "capture, set build, owned production or recorded voice is not allowed in a no-shoot production",
+      "recommended_route": "supplied",
+      "note": "use the supplied AS-02 pack image; remove the capture fallback"
+    }
+  ],
+  "created_at": "2026-11-15T06:55:44+00:00"
+}

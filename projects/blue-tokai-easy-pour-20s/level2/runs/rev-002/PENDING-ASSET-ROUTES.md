@@ -1,92 +1,52 @@
-# Pending asset routes — stock vs generation
+# Pending asset routes — no-shoot production
 
 **Project:** `blue-tokai-easy-pour-20s` · **Run:** `rev-002`
-**Purpose:** decide, for every pending image/asset, whether it should be
-**stock-sourced**, **generated**, or neither.
-**Status:** recommendation only; Gate 2A is still `ready_for_approval`.
+**Constraint:** there is no camera shoot. Every asset must be one of:
 
-## Decision rule
+- a supplied brand file;
+- licensed stock;
+- licensed stock with AI processing;
+- AI-generated media, disclosed.
 
-Apply the truth class first. Source convenience never overrides it.
-
-| Truth class | Stock? | Generated? | Required route |
-|---|---|---|---|
-| `exact` | **No** | **No** | Supplied brand file or real capture |
-| `exact_text` | **No** | **No** | Approved copy rendered procedurally |
-| `proof` | **No** | **No** | Real capture of the demonstration |
-| `atmospheric` | Yes, licence-cleared | Yes, disclosed | Owned plate, stock, or procedural |
-| `representative` | Yes, licence-cleared | Yes, disclosed | Procedural, stock, or disclosed generation |
-| `editorial` | Yes, licence-cleared | Yes, disclosed | Stock or authored |
-
-So: **all exact product/pack/logo and all proof footage are supply/capture
-only.** Stock or generation there is a method-matrix failure, not a shortcut.
+**Status:** the current plan still contains capture and owned-production routes,
+so the no-shoot policy is `blocked`. See `NO-SHOOT-POLICY.md`.
 
 ## Asset-by-asset
 
-| Asset | What it is | Current route | Stock? | Generated? | Recommended route |
-|---|---|---|---|---|---|
-| `AS-01` | Blue Tokai logo | supplied | No | No | Use the approved logo file; clear `HI-02` |
-| `AS-02` | Easy Pour Mixed Bag pack | supplied | No | No | Use the approved pack image; clear `HI-02` |
-| `AS-03` | Easy Pour Vienna pack | supplied | No | No | Use the approved pack image; clear `HI-02` |
-| `AS-04` | Easy Pour Attikan Estate pack | supplied | No | No | Use the approved pack image; clear `HI-02` |
-| `AS-17` | Easy Pour Seethargundu Estate pack | supplied | No | No | Use the approved pack image; clear `HI-02` |
-| `AS-05` | Brewing demonstration, hands | capture | No | No | Shoot on the demonstration session; clear `HI-04` |
-| `AS-06` | Hot water pour and bloom | capture | No | No | Shoot on the demonstration session; clear `HI-04` |
-| `AS-07` | Warm kitchen background | owned | Fallback only | Fallback only | Keep the owned plate; if unavailable use `M4` procedural, not stock |
-| `AS-08` | Finished cup | capture | No | No | Shoot on the demonstration session; clear `HI-04` |
-| `AS-09` | Voice over, warm Indian English | supplied | No | No | Record the approved voice artist; clear `HI-03` |
-| `AS-10` | Music bed, 20 s | stock | **Yes** | No | Licence **“Lost Roamin'” by speck** (CC BY 3.0), preview already fetched |
-| `AS-11` | Water pour SFX | owned | No | No | Use in-house foley |
-| `AS-12` | Brand sting | owned | No | No | Use in-house sting |
-| `AS-13` | Captured Mixed Bag fallback | capture | No | No | Capture only if the primary pack path triggers the fallback |
-| `AS-14` | Music fallback track | stock | **Yes** | Possible but unnecessary | Licence **“This Is Our Music - Instrumental” by gabriel_shelligton** (CC BY 3.0) |
-| `AS-15` | Synthetic narration fallback | generate | No | **Yes** | Use the disclosed Edge TTS sample now; approve an OpenMontage speech route only if fallback is triggered |
+| Asset | What | Current route | No-shoot route | Action |
+|---|---|---|---|---|
+| `AS-01` | Blue Tokai logo | supplied | **keep supplied** | Use the approved brand file |
+| `AS-02` | Easy Pour Mixed Bag pack | supplied | **keep supplied** | Use the approved pack image |
+| `AS-03` | Easy Pour Vienna pack | supplied | **keep supplied** | Use the approved pack image |
+| `AS-04` | Easy Pour Attikan Estate pack | supplied | **keep supplied** | Use the approved pack image |
+| `AS-17` | Easy Pour Seethargundu Estate pack | supplied | **keep supplied** | Use the approved pack image |
+| `AS-05` | Brewing demonstration, hands | capture | **stock / AI** | Stock pour-over hands or AI-generated hands; reclassify proof to representative |
+| `AS-06` | Hot water pour and bloom | capture | **stock / AI** | Stock pour/bloom footage or AI-generated clip; reclassify proof |
+| `AS-07` | Warm kitchen background | owned set build | **stock / AI** | Stock kitchen plate or AI-generated background; atmospheric allows it |
+| `AS-08` | Finished cup | capture | **stock / AI** | Stock finished-cup footage or AI-generated cup; reclassify proof |
+| `AS-09` | Voice over | supplied voice session | **AI TTS / licensed voice** | Use the `AS-15` TTS route or a licensed voice |
+| `AS-10` | Music bed | stock | **stock** | Licence the chosen ccMixter track |
+| `AS-11` | Water pour SFX | owned foley | **stock / AI** | Stock pour SFX or AI audio generation |
+| `AS-12` | Brand sting | owned sting | **AI / stock** | AI-generated or licensed brand sting |
+| `AS-13` | Captured Mixed Bag fallback | capture | **supplied** | Use the supplied `AS-02` pack image; remove the capture fallback |
+| `AS-14` | Music fallback | stock | **stock** | Licence the chosen ccMixter fallback |
+| `AS-15` | Synthetic narration fallback | generate | **generate** | Disclosed AI TTS fallback |
 
-## What this means
+## What cannot change
 
-### Stock
-
-Only two assets are genuinely stock candidates:
-
-1. `AS-10` — primary music bed.
-2. `AS-14` — conditional music fallback.
-
-Both already have CC BY 3.0 candidates and 20-second previews in `sourcing/`.
-Neither has been acquired into `sourced/`; final acquisition still needs Gate 2A.
-
-There is **no pending image that should be stock-sourced**. The image layers are
-either exact brand assets, proof capture, an owned background, or procedural
-plates/effects.
-
-### Generation
-
-Only one asset is a generation candidate:
-
-- `AS-15` — synthetic narration fallback.
-
-It is conditional. The Edge TTS sample is free and disclosed; a paid
-OpenMontage speech route is not authorised. **No image should be generated**:
-every image layer is exact, proof, owned, or procedural.
-
-### Neither
-
-These need human/supply work, not a media search:
-
-- `AS-01`, `AS-02`, `AS-03`, `AS-04`, `AS-17` — supplied brand files + rights.
-- `AS-05`, `AS-06`, `AS-08`, `AS-13` — capture + talent/location release.
-- `AS-07` — owned set plate; procedural fallback is already approved.
-- `AS-09` — voice artist session and licence.
-- `AS-11`, `AS-12` — owned sound design.
+- `AS-01`, `AS-02`, `AS-03`, `AS-04`, `AS-17` are exact brand assets. They remain
+  **supplied files**. Stock or AI generation would break the exact rule.
+- `AS-05`, `AS-06`, `AS-08` are currently `proof`. Without a shoot they cannot
+  remain proof. They must become `representative` with disclosure, or the proof
+  claim must be removed.
+- Stock and AI-generated replacements need a licence/disclosure decision before
+  they can enter Gate 2A.
 
 ## Immediate order of work
 
 1. Clear `HI-02` for the logo and four pack images.
-2. Clear `HI-04` and shoot `AS-05`, `AS-06`, `AS-08`; keep `AS-13` conditional.
-3. Clear `HI-03` and record `AS-09`.
-4. Approve Gate 2A; acquire `AS-10` and, only if triggered, `AS-14`.
-5. Use the existing `AS-15` Edge TTS sample only as a disclosed fallback; do not
-   buy a speech generation route unless the fallback is triggered.
-
-**Bottom line:** the stock/generation question applies to **audio only**
-(`AS-10`, `AS-14`, `AS-15`). The pending images are supply/capture work, not
-stock or generation candidates.
+2. Choose stock or AI for `AS-05`, `AS-06`, `AS-08`, `AS-07`, `AS-11`, `AS-12`.
+3. Replace `AS-13` with the supplied `AS-02` pack image.
+4. Use AI TTS for `AS-09`, or license a voice.
+5. Re-run the plan so the no-shoot routes become the approved methods, then
+   re-open Gate 2A.

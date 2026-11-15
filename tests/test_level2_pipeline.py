@@ -712,6 +712,22 @@ def test_provider_cap_cannot_exceed_the_project_cap(
         )
 
 
+def test_no_shoot_policy_flags_captures_owned_and_voice(
+    approved: SimpleNamespace,
+) -> None:
+    from pinconv2.level2.no_shoot import evaluate_no_shoot
+
+    level2 = approved.run.read_level2("rev-002")
+    report = evaluate_no_shoot(approved.outcome.level2, level2)
+    assert report.status == "blocked"
+    flagged = {finding.asset_id: finding for finding in report.findings}
+    assert {"AS-05", "AS-06", "AS-07", "AS-08", "AS-09", "AS-11", "AS-12"}.issubset(flagged)
+    assert "AS-02" not in flagged
+    assert flagged["AS-05"].recommended_route in {"stock", "generate"}
+    assert flagged["AS-09"].recommended_route == "generate"
+    assert flagged["AS-11"].recommended_route == "stock"
+
+
 def test_generation_stage_uses_governor_and_engine(
     approved: SimpleNamespace,
 ) -> None:
