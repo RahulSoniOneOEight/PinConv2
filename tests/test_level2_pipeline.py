@@ -728,6 +728,20 @@ def test_no_shoot_policy_flags_captures_owned_and_voice(
     assert flagged["AS-11"].recommended_route == "stock"
 
 
+def test_no_in_house_routes_lines_to_stock_or_ai(approved: SimpleNamespace) -> None:
+    from pinconv2.level2.no_in_house import evaluate_no_in_house
+    from pinconv2.level2.stock_plan import build_stock_plan
+
+    level2 = approved.run.read_level2("rev-002")
+    stock = build_stock_plan(approved.outcome.level2, level2)
+    report = evaluate_no_in_house(approved.outcome.level2, level2, stock)
+    assert report.within_ai_cap is True
+    assert report.ai_share_pct <= 40.0
+    assert "AS-09" in report.generated_assets
+    methods = {finding.method for finding in report.findings}
+    assert methods <= {"stock", "generate", "enhance", "tool"}
+
+
 def test_processing_plan_stays_within_two_dollar_budget(
     approved: SimpleNamespace,
 ) -> None:

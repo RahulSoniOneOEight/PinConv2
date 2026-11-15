@@ -11,6 +11,7 @@
 | [REVIEW-GUIDE.md](REVIEW-GUIDE.md) | How a human reviews the pack, records corrections and approves Gate 2A |
 | [ASSET-SUMMARY.md](ASSET-SUMMARY.md) | Main asset table: shot/layer/asset, route, access and visual QC |
 | [NO-SHOOT-POLICY.md](NO-SHOOT-POLICY.md) | No-shoot constraint and stock/AI route findings |
+| [NO-IN-HOUSE-POLICY.md](NO-IN-HOUSE-POLICY.md) | Stock / AI-generation / AI-enhancement only, with line replacements |
 | [STOCK-PLAN.md](STOCK-PLAN.md) | Per-asset stock route, fetched candidates and AI-share guard |
 | [ANNEX-SOURCED-NOT-USED.md](ANNEX-SOURCED-NOT-USED.md) | Sourced-but-not-used backup candidates with reasons |
 | [PENDING-ASSET-ROUTES.md](PENDING-ASSET-ROUTES.md) | Current route vs no-shoot route for every asset |
@@ -115,13 +116,13 @@
 | [build-sheet/variants/VO-01.json](build-sheet/variants/VO-01.json) | 23,160 |
 | [capture-plan.json](capture-plan.json) | 1,480 |
 | [catalogue-resolutions.json](catalogue-resolutions.json) | 4,587 |
-| [cli-gate2a-output.json](cli-gate2a-output.json) | 2,951 |
-| [cli-plan-output.json](cli-plan-output.json) | 1,433 |
-| [cli-qc-output.json](cli-qc-output.json) | 1,037 |
-| [cli-spend-output.json](cli-spend-output.json) | 1,140 |
-| [cli-stockcheck-output.json](cli-stockcheck-output.json) | 343 |
-| [cli-voice-output.json](cli-voice-output.json) | 287 |
-| [events.jsonl](events.jsonl) | 15,026 |
+| [cli-gate2a-output.json](cli-gate2a-output.json) | 3,028 |
+| [cli-plan-output.json](cli-plan-output.json) | 1,473 |
+| [cli-qc-output.json](cli-qc-output.json) | 1,066 |
+| [cli-spend-output.json](cli-spend-output.json) | 1,170 |
+| [cli-stockcheck-output.json](cli-stockcheck-output.json) | 350 |
+| [cli-voice-output.json](cli-voice-output.json) | 295 |
+| [events.jsonl](events.jsonl) | 15,544 |
 | [feedback-form.md](feedback-form.md) | 4,580 |
 | [flow.json](flow.json) | 5,774 |
 | [gate2/packet-2a.json](gate2/packet-2a.json) | 3,229 |
@@ -129,6 +130,8 @@
 | [layer-method-decisions.json](layer-method-decisions.json) | 25,090 |
 | [licence-gate-report.json](licence-gate-report.json) | 4,768 |
 | [mypy-output.txt](mypy-output.txt) | 46 |
+| [no-in-house-plan.json](no-in-house-plan.json) | 1,848 |
+| [NO-IN-HOUSE-POLICY.md](NO-IN-HOUSE-POLICY.md) | 1,680 |
 | [no-shoot-plan.json](no-shoot-plan.json) | 2,880 |
 | [NO-SHOOT-POLICY.md](NO-SHOOT-POLICY.md) | 2,506 |
 | [OPEN-TOOLS-STATUS.md](OPEN-TOOLS-STATUS.md) | 9,511 |
@@ -165,7 +168,7 @@
 | [qc/visual-assets.md](qc/visual-assets.md) | 2,129 |
 | [qc/visual.json](qc/visual.json) | 423 |
 | [RENDERER-DECISION.md](RENDERER-DECISION.md) | 1,952 |
-| [REVIEW-GUIDE.md](REVIEW-GUIDE.md) | 11,090 |
+| [REVIEW-GUIDE.md](REVIEW-GUIDE.md) | 11,144 |
 | [review-pack.docx](review-pack.docx) | 39,142 |
 | [review-pack.html](review-pack.html) | 28,293 |
 | [review-pack.md](review-pack.md) | 19,465 |

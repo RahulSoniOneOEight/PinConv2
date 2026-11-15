@@ -1,0 +1,73 @@
+{
+  "status": "ready",
+  "findings": [
+    {
+      "line_id": "ES-01",
+      "label": "Music library licence",
+      "method": "stock",
+      "note": "licensed CC0/CC BY music track"
+    },
+    {
+      "line_id": "ES-02",
+      "label": "Voice artist session and edit",
+      "method": "generate",
+      "note": "AI TTS voice (ShortGPT or fal/Runware)"
+    },
+    {
+      "line_id": "ES-03",
+      "label": "Edit, motion and compositing",
+      "method": "tool",
+      "note": "OpenMontage edit + compositing"
+    },
+    {
+      "line_id": "ES-04",
+      "label": "Colour grade and finishing",
+      "method": "tool",
+      "note": "AI-enhanced grade or deterministic LUT"
+    },
+    {
+      "line_id": "ES-05",
+      "label": "Mixed Bag pack preparation",
+      "method": "enhance",
+      "note": "AI label-preserving cutout of the supplied pack"
+    },
+    {
+      "line_id": "ES-06",
+      "label": "Demo and finished-cup capture",
+      "method": "stock",
+      "note": "stock pour/cup footage, AI-enhanced if needed"
+    },
+    {
+      "line_id": "ES-07",
+      "label": "Range pack preparation",
+      "method": "enhance",
+      "note": "AI label-preserving cutout of the supplied packs"
+    },
+    {
+      "line_id": "ES-08",
+      "label": "End-card build",
+      "method": "generate",
+      "note": "HyperFrames end card + AI brand sting"
+    },
+    {
+      "line_id": "ES-09",
+      "label": "Captured pack fallback",
+      "method": "stock",
+      "note": "stock pack-fallback footage, AI-enhanced"
+    },
+    {
+      "line_id": "ES-11",
+      "label": "9:16 vertical re-edit and end-card rebuild",
+      "method": "tool",
+      "note": "OpenMontage 9:16 re-edit"
+    }
+  ],
+  "generated_assets": [
+    "AS-09",
+    "AS-12",
+    "AS-15"
+  ],
+  "ai_share_pct": 18.8,
+  "within_ai_cap": true,
+  "created_at": "2026-11-15T10:43:48+00:00"
+}

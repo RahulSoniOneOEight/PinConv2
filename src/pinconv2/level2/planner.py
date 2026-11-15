@@ -57,6 +57,7 @@ from .models import (
     SourcingReport,
     TaskStatus,
 )
+from .no_in_house import evaluate_no_in_house, render_no_in_house
 from .no_shoot import render_no_shoot
 from .preview import render_all
 from .qc import run_qc
@@ -597,6 +598,9 @@ def plan_level2(
     run.write_text(run_id, "STOCK-PLAN.md", render_stock_plan(stock_plan))
     run.write_json(run_id, "stock-plan.json", stock_plan)
     ProcessingAgent().write(run, run_id, plan, level2, sheet, decisions, stock_plan)
+    no_in_house = evaluate_no_in_house(plan, level2, stock_plan)
+    run.write_text(run_id, "NO-IN-HOUSE-POLICY.md", render_no_in_house(no_in_house))
+    run.write_json(run_id, "no-in-house-plan.json", no_in_house)
 
     run.append_event(
         run_id,
