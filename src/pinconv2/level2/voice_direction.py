@@ -76,6 +76,7 @@ class VoiceTake(StrictModel):
 
 class VoiceDirection(StrictModel):
     asset_id: str = "AS-09"
+    selected_take: str = "VO-M1"
     script: str
     mode: str = "continuous narration"
     takes: list[VoiceTake] = Field(min_length=1)
@@ -92,6 +93,7 @@ def build_voice_direction(plan: ProductionPlan, level2: Level2Plan) -> VoiceDire
     if cue is not None and "Canonical read:" in cue.description:
         script = cue.description.split("Canonical read:", 1)[1].strip()
     return VoiceDirection(
+        selected_take="VO-M1",
         script=script,
         takes=[
             VoiceTake(
@@ -135,6 +137,7 @@ def render_voice_direction(direction: VoiceDirection) -> str:
         "# Voice-over direction — AS-09",
         "",
         f"**Mode:** {direction.mode}",
+        f"**Selected take:** {direction.selected_take}",
         f"**Script:** {direction.script}",
         f"**Disclosure:** {direction.disclosure}",
         "",

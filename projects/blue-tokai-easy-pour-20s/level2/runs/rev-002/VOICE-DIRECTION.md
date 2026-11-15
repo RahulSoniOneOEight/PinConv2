@@ -1,6 +1,7 @@
 # Voice-over direction — AS-09
 
 **Mode:** continuous narration
+**Selected take:** VO-M1
 **Script:** Specialty coffee. Tear, anchor, pour. Just a mug and hot water. Light to dark. One mug. One cup. Shop Easy Pour.
 **Disclosure:** Synthetic voice generated with Edge TTS
 

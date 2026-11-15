@@ -1,0 +1,10 @@
+{
+  "asset_id": "AS-09",
+  "selected_take": "VO-M1",
+  "label": "Male \u2014 warm, lightly textured",
+  "voice": "en-IN-PrabhatNeural",
+  "rate": "-25%",
+  "duration_seconds": 19.104,
+  "path": "generated/AS-09-male-take.mp3",
+  "disclosure": "Synthetic voice generated with Edge TTS"
+}

@@ -128,7 +128,7 @@ def build() -> dict[str, Any]:
     _concat(clips_916, silent_916)
     ledger.zero("shot-assembly", "ffmpeg", "6-shot 16:9 and 9:16 assembly")
 
-    voice = ROOT / "generated" / "AS-15-edge-sample.mp3"
+    voice = ROOT / "generated" / "AS-09-male-take.mp3"
     music = ROOT / "sourcing" / "CND-AS10-02-lost-roamin.mp3"
     sfx = ROOT / "stock-candidates" / "AS-11.mp3"
     report: dict[str, Any] = {}

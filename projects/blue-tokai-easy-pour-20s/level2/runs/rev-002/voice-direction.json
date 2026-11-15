@@ -1,5 +1,6 @@
 {
   "asset_id": "AS-09",
+  "selected_take": "VO-M1",
   "script": "Specialty coffee. Tear, anchor, pour. Just a mug and hot water. Light to dark. One mug. One cup. Shop Easy Pour.",
   "mode": "continuous narration",
   "takes": [
@@ -39,5 +40,5 @@
     }
   ],
   "disclosure": "Synthetic voice generated with Edge TTS",
-  "created_at": "2026-11-15T11:38:58+00:00"
+  "created_at": "2026-11-15T11:42:56+00:00"
 }
