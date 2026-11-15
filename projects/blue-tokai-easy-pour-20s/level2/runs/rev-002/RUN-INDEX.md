@@ -14,6 +14,7 @@
 | [NO-IN-HOUSE-POLICY.md](NO-IN-HOUSE-POLICY.md) | Stock / AI-generation / AI-enhancement only, with line replacements |
 | [USER-INPUT-GAPS.md](USER-INPUT-GAPS.md) | Awaiting-user vs agent-resolvable vs obsolete work |
 | [REBASELINE-PLAN.md](REBASELINE-PLAN.md) | Proposed no-in-house re-baseline and new Gate 2A requirement |
+| [LEVEL3-SPEND.md](deliverables/LEVEL3-SPEND.md) | Per-step Level 3 production spend |
 | [RIGHTS-CLEARANCE.md](RIGHTS-CLEARANCE.md) | HI-02 brand files imported and rights accepted |
 | [STOCK-PLAN.md](STOCK-PLAN.md) | Per-asset stock route, fetched candidates and AI-share guard |
 | [ANNEX-SOURCED-NOT-USED.md](ANNEX-SOURCED-NOT-USED.md) | Sourced-but-not-used backup candidates with reasons |
@@ -119,12 +120,12 @@
 | [build-sheet/variants/VO-01.json](build-sheet/variants/VO-01.json) | 23,160 |
 | [capture-plan.json](capture-plan.json) | 1,480 |
 | [catalogue-resolutions.json](catalogue-resolutions.json) | 4,587 |
-| [cli-gate2a-output.json](cli-gate2a-output.json) | 3,182 |
-| [cli-plan-output.json](cli-plan-output.json) | 1,553 |
-| [cli-qc-output.json](cli-qc-output.json) | 1,124 |
-| [cli-spend-output.json](cli-spend-output.json) | 1,230 |
-| [cli-stockcheck-output.json](cli-stockcheck-output.json) | 364 |
-| [cli-voice-output.json](cli-voice-output.json) | 311 |
+| [cli-gate2a-output.json](cli-gate2a-output.json) | 3,259 |
+| [cli-plan-output.json](cli-plan-output.json) | 1,593 |
+| [cli-qc-output.json](cli-qc-output.json) | 1,153 |
+| [cli-spend-output.json](cli-spend-output.json) | 1,260 |
+| [cli-stockcheck-output.json](cli-stockcheck-output.json) | 371 |
+| [cli-voice-output.json](cli-voice-output.json) | 319 |
 | [deliverables/clips/concat.txt](deliverables/clips/concat.txt) | 678 |
 | [deliverables/clips/SH-01-1080x1920.mp4](deliverables/clips/SH-01-1080x1920.mp4) | 211,714 |
 | [deliverables/clips/SH-01-1920x1080.mp4](deliverables/clips/SH-01-1920x1080.mp4) | 264,039 |
@@ -138,10 +139,13 @@
 | [deliverables/clips/SH-05-1920x1080.mp4](deliverables/clips/SH-05-1920x1080.mp4) | 221,376 |
 | [deliverables/clips/SH-06-1080x1920.mp4](deliverables/clips/SH-06-1080x1920.mp4) | 205,292 |
 | [deliverables/clips/SH-06-1920x1080.mp4](deliverables/clips/SH-06-1920x1080.mp4) | 260,058 |
+| [deliverables/level3-spend.json](deliverables/level3-spend.json) | 1,861 |
+| [deliverables/level3-spend.jsonl](deliverables/level3-spend.jsonl) | 1,218 |
+| [deliverables/LEVEL3-SPEND.md](deliverables/LEVEL3-SPEND.md) | 1,059 |
 | [deliverables/rough-16x9-silent.mp4](deliverables/rough-16x9-silent.mp4) | 2,903,746 |
 | [deliverables/rough-9x16-silent.mp4](deliverables/rough-9x16-silent.mp4) | 3,157,597 |
-| [deliverables/ROUGH-CUT-16x9.mp4](deliverables/ROUGH-CUT-16x9.mp4) | 3,546,886 |
-| [deliverables/ROUGH-CUT-9x16.mp4](deliverables/ROUGH-CUT-9x16.mp4) | 3,927,476 |
+| [deliverables/ROUGH-CUT-16x9.mp4](deliverables/ROUGH-CUT-16x9.mp4) | 3,547,140 |
+| [deliverables/ROUGH-CUT-9x16.mp4](deliverables/ROUGH-CUT-9x16.mp4) | 3,929,270 |
 | [deliverables/ROUGH-CUT-REPORT.md](deliverables/ROUGH-CUT-REPORT.md) | 417 |
 | [events.jsonl](events.jsonl) | 15,988 |
 | [feedback-form.md](feedback-form.md) | 4,580 |

@@ -1,0 +1,69 @@
+{
+  "cap_usd": 2.0,
+  "spent_usd": 0.0,
+  "committed_usd": 0.0,
+  "remaining_usd": 2.0,
+  "within_cap": true,
+  "entries": [
+    {
+      "id": "L3-001",
+      "step": "stock-sourcing",
+      "provider": "stock",
+      "description": "selected stock candidates (Pixabay/Pexels/Openverse/ccMixter/Freesound)",
+      "quote_usd": 0.0,
+      "actual_usd": 0.0,
+      "status": "receipt",
+      "created_at": "2026-11-15T11:23:31+00:00"
+    },
+    {
+      "id": "L3-002",
+      "step": "asset-processing",
+      "provider": "ffmpeg",
+      "description": "trim/scale/grade/encode per shot",
+      "quote_usd": 0.0,
+      "actual_usd": 0.0,
+      "status": "receipt",
+      "created_at": "2026-11-15T11:23:31+00:00"
+    },
+    {
+      "id": "L3-003",
+      "step": "voice",
+      "provider": "shortgpt",
+      "description": "Edge TTS voice sample",
+      "quote_usd": 0.0,
+      "actual_usd": 0.0,
+      "status": "receipt",
+      "created_at": "2026-11-15T11:23:31+00:00"
+    },
+    {
+      "id": "L3-004",
+      "step": "shot-assembly",
+      "provider": "ffmpeg",
+      "description": "6-shot 16:9 and 9:16 assembly",
+      "quote_usd": 0.0,
+      "actual_usd": 0.0,
+      "status": "receipt",
+      "created_at": "2026-11-15T11:23:42+00:00"
+    },
+    {
+      "id": "L3-005",
+      "step": "render-16x9",
+      "provider": "ffmpeg",
+      "description": "16x9 rough cut with audio mix",
+      "quote_usd": 0.0,
+      "actual_usd": 0.0,
+      "status": "receipt",
+      "created_at": "2026-11-15T11:23:45+00:00"
+    },
+    {
+      "id": "L3-006",
+      "step": "render-9x16",
+      "provider": "ffmpeg",
+      "description": "9x16 rough cut with audio mix",
+      "quote_usd": 0.0,
+      "actual_usd": 0.0,
+      "status": "receipt",
+      "created_at": "2026-11-15T11:23:48+00:00"
+    }
+  ]
+}

@@ -14,6 +14,8 @@ import subprocess
 from pathlib import Path
 from typing import Any
 
+from .level3_spend import Level3Ledger, write_spend
+
 ROOT = Path(r"D:\pinconv2\projects\blue-tokai-easy-pour-20s\level2\runs\rev-002")
 OUT = ROOT / "deliverables"
 FONT = "C\\:/Windows/Fonts/arial.ttf"
@@ -108,12 +110,23 @@ def _concat(clips: list[Path], target: Path) -> None:
 
 def build() -> dict[str, Any]:
     OUT.mkdir(parents=True, exist_ok=True)
+    ledger_path = OUT / "level3-spend.jsonl"
+    ledger_path.unlink(missing_ok=True)
+    ledger = Level3Ledger(ledger_path)
+    ledger.zero(
+        "stock-sourcing",
+        "stock",
+        "selected stock candidates (Pixabay/Pexels/Openverse/ccMixter/Freesound)",
+    )
+    ledger.zero("asset-processing", "ffmpeg", "trim/scale/grade/encode per shot")
+    ledger.zero("voice", "shortgpt", "Edge TTS voice sample")
     clips_169 = [_shot_clip(shot, 1920, 1080) for shot in SHOTS]
     clips_916 = [_shot_clip(shot, 1080, 1920) for shot in SHOTS]
     silent_169 = OUT / "rough-16x9-silent.mp4"
     silent_916 = OUT / "rough-9x16-silent.mp4"
     _concat(clips_169, silent_169)
     _concat(clips_916, silent_916)
+    ledger.zero("shot-assembly", "ffmpeg", "6-shot 16:9 and 9:16 assembly")
 
     voice = ROOT / "generated" / "AS-15-edge-sample.mp3"
     music = ROOT / "sourcing" / "CND-AS10-02-lost-roamin.mp3"
@@ -168,6 +181,7 @@ def build() -> dict[str, Any]:
                 str(target),
             ]
         )
+        ledger.zero(f"render-{label}", "ffmpeg", f"{label} rough cut with audio mix")
         report[label] = {
             "path": str(target),
             "bytes": target.stat().st_size,
@@ -178,6 +192,7 @@ def build() -> dict[str, Any]:
         "Free/local rough cut: stock bases + text + voice/music/SFX. "
         "Pack overlays and HyperFrames animation are the next pass."
     )
+    write_spend(ledger, OUT)
     (OUT / "ROUGH-CUT-REPORT.md").write_text(
         "# Level 3 rough cut\n\n"
         f"- 16:9: `{report['16x9']['path']}` (ROUGH CUT - NOT FINAL)\n"
@@ -190,4 +205,5 @@ def build() -> dict[str, Any]:
 
 if __name__ == "__main__":
     import json
+
     print(json.dumps(build(), indent=2))
