@@ -22,6 +22,7 @@ is it ready to assemble?*
 | Technical handoff | `build-sheet/production-build-sheet.md` / `.html` |
 | **Main asset table** | `ASSET-SUMMARY.md` / `.html` |
 | Production plan | `PRODUCTION-PLAN.md` / `.html` |
+| Stock plan | `STOCK-PLAN.md` |
 | No-shoot policy | `NO-SHOOT-POLICY.md` |
 | Pending asset routes | `PENDING-ASSET-ROUTES.md` |
 | Asset visual QC | `qc/visual-assets.md` |
@@ -155,6 +156,13 @@ by `run_build` when a generation engine is supplied. It:
 
 `AS-15` is a conditional fallback, so it is skipped unless the run explicitly
 includes conditional assets. No paid generation has run.
+
+### Stock-first and AI-share
+
+`STOCK-PLAN.md` records the per-asset stock route and the AI-share guard.
+Original AI generation is capped at 40% of assets; the rest are licensed stock
+(optionally AI-processed). For this run: 6 supplied, 7 stock, 3 generated,
+18.8% AI share.
 
 ### No-shoot constraint
 

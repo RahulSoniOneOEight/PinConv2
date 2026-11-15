@@ -126,6 +126,7 @@ def build_parser() -> argparse.ArgumentParser:
         ("voice", "render a disclosed Edge TTS sample for the fallback voice"),
         ("omcheck", "run a separate OpenMontage stock and render capability check"),
         ("om-source", "search OpenMontage stock candidates for one film asset"),
+        ("stock-plan", "build the stock sourcing plan and fetch stock candidates"),
         ("build", "process imported sources after Gate 2A approval"),
         ("correct", "validate typed corrections and open a new run"),
     ]:
@@ -196,6 +197,13 @@ def build_parser() -> argparse.ArgumentParser:
     omsource.add_argument("--route", default="openverse.stock")
     omsource.add_argument("--limit", type=int, default=5)
     omsource.add_argument("--attempt", default="1")
+
+    stockplan = level2_sub.add_parser(
+        "stock-plan", help="build the stock sourcing plan and fetch stock candidates"
+    )
+    _common(stockplan)
+    stockplan.add_argument("--revision", type=int, default=None)
+    stockplan.add_argument("--run", default=None)
     level2_sub.add_parser("spend", help="show fal.ai/Runware budget and spend")
     spend = level2_sub.choices["spend"]
     _common(spend)

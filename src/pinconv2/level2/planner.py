@@ -59,6 +59,7 @@ from .preview import render_all
 from .qc import run_qc
 from .sound import build_sound_plan, validate_sound_plan
 from .source_sheet import write_source_sheet
+from .stock_plan import build_stock_plan, render_stock_plan
 from .store import Level2RunStore
 from .variants import resolve_variant, validate_variant
 
@@ -579,6 +580,21 @@ def plan_level2(
     no_shoot = evaluate_no_shoot(plan, level2)
     run.write_text(run_id, "NO-SHOOT-POLICY.md", render_no_shoot(no_shoot))
     run.write_json(run_id, "no-shoot-plan.json", no_shoot)
+    stock_plan = build_stock_plan(plan, level2)
+    candidates_path = run.run_dir(run_id) / "stock-candidates.json"
+    if candidates_path.is_file():
+        from .stock_plan import StockCandidate
+
+        stock_plan = stock_plan.model_copy(
+            update={
+                "candidates": [
+                    StockCandidate.model_validate(item)
+                    for item in json.loads(candidates_path.read_text(encoding="utf-8"))
+                ]
+            }
+        )
+    run.write_text(run_id, "STOCK-PLAN.md", render_stock_plan(stock_plan))
+    run.write_json(run_id, "stock-plan.json", stock_plan)
 
     run.append_event(
         run_id,

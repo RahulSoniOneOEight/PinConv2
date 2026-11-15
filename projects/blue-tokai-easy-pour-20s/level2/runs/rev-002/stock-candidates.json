@@ -1,0 +1,57 @@
+[
+  {
+    "asset_id": "AS-05",
+    "bytes": 673387,
+    "creator": "K",
+    "file_path": "D:\\pinconv2\\projects\\blue-tokai-easy-pour-20s\\level2\\runs\\rev-002\\stock-candidates\\AS-05.mp4",
+    "licence": "Pexels License",
+    "page_url": "https://www.pexels.com/video/a-man-pouring-ground-coffee-on-a-tin-cup-filter-to-make-hot-brewed-coffee-2853791/",
+    "provider": "pexels",
+    "sha256": "ceb6658ea289b714f324906f6ff6af9a8ebef2fc65afeac280e94a381109ceb8",
+    "title": "Pexels video 2853791"
+  },
+  {
+    "asset_id": "AS-06",
+    "bytes": 789847,
+    "creator": "Colorblind Paisa",
+    "file_path": "D:\\pinconv2\\projects\\blue-tokai-easy-pour-20s\\level2\\runs\\rev-002\\stock-candidates\\AS-06.mp4",
+    "licence": "Pexels License",
+    "page_url": "https://www.pexels.com/video/pouring-hot-water-into-a-drip-coffee-maker-14969539/",
+    "provider": "pexels",
+    "sha256": "b15c15832afd61089880420256ec499c450d7562fcc609c5477d2f98ce9892ea",
+    "title": "Pexels video 14969539"
+  },
+  {
+    "asset_id": "AS-07",
+    "bytes": 15218,
+    "creator": "Golboo Maghooli",
+    "file_path": "D:\\pinconv2\\projects\\blue-tokai-easy-pour-20s\\level2\\runs\\rev-002\\stock-candidates\\AS-07.jpg",
+    "licence": "Pexels License",
+    "page_url": "https://www.pexels.com/photo/cozy-kitchen-setting-with-coffee-and-moka-pot-33256980/",
+    "provider": "pexels",
+    "sha256": "61a96a7b2d09367158b9ba5cfc476893357da4c8df3d64d9bea570403ae00ca0",
+    "title": "Pexels photo 33256980"
+  },
+  {
+    "asset_id": "AS-08",
+    "bytes": 11902,
+    "creator": "k\u00fcbra zehra",
+    "file_path": "D:\\pinconv2\\projects\\blue-tokai-easy-pour-20s\\level2\\runs\\rev-002\\stock-candidates\\AS-08.jpg",
+    "licence": "Pexels License",
+    "page_url": "https://www.pexels.com/photo/cup-of-coffees-in-wooden-table-13013307/",
+    "provider": "pexels",
+    "sha256": "bdcd305d68ee6240607c6e670db01bd8838ebcdc6c80c865598c66955f82658a",
+    "title": "Pexels photo 13013307"
+  },
+  {
+    "asset_id": "AS-11",
+    "bytes": 421701,
+    "creator": "InspectorJ",
+    "file_path": "D:\\pinconv2\\projects\\blue-tokai-easy-pour-20s\\level2\\runs\\rev-002\\stock-candidates\\AS-11.mp3",
+    "licence": "https://creativecommons.org/licenses/by/4.0/",
+    "page_url": "https://freesound.org/s/417737/",
+    "provider": "freesound",
+    "sha256": "7c2868f8f6ca683f9d8321f7aa5936864a2169606c2f35c71435e1b97cc354ab",
+    "title": "Water Pour, Sink, A.wav"
+  }
+]

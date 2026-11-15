@@ -728,6 +728,26 @@ def test_no_shoot_policy_flags_captures_owned_and_voice(
     assert flagged["AS-11"].recommended_route == "stock"
 
 
+def test_stock_plan_keeps_ai_generation_under_40pct(
+    approved: SimpleNamespace,
+) -> None:
+    from pinconv2.level2.stock_plan import build_stock_plan
+
+    level2 = approved.run.read_level2("rev-002")
+    stock = build_stock_plan(approved.outcome.level2, level2)
+    assert stock.total == 16
+    assert stock.generated == 3
+    assert stock.stock == 7
+    assert stock.supplied == 6
+    assert stock.within_ai_cap is True
+    assert stock.ai_share_pct <= 40.0
+    by_asset = {route.asset_id: route for route in stock.routes}
+    assert by_asset["AS-05"].provider == "pexels"
+    assert by_asset["AS-05"].group == "stock"
+    assert by_asset["AS-09"].group == "generate"
+    assert by_asset["AS-02"].group == "supplied"
+
+
 def test_generation_stage_uses_governor_and_engine(
     approved: SimpleNamespace,
 ) -> None:

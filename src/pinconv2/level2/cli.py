@@ -289,6 +289,46 @@ def run_level2_command(store: ProjectStore, args: argparse.Namespace) -> int:
         )
         return 0
 
+    if command == "stock-plan":
+        from .stock_plan import (
+            build_stock_plan,
+            fetch_stock_candidate,
+            render_stock_plan,
+        )
+
+        plan = store.load_plan(project_id, revision)
+        level2 = run.read_level2(run_id)
+        stock = build_stock_plan(plan, level2)
+        candidates = []
+        for route in stock.routes:
+            if route.group != "stock":
+                continue
+            candidate = fetch_stock_candidate(
+                route.asset_id, route.provider, route.kind, route.query, run.run_dir(run_id)
+            )
+            if candidate is not None:
+                candidates.append(candidate)
+        stock = stock.model_copy(update={"candidates": candidates})
+        run.write_json(run_id, "stock-plan.json", stock)
+        run.write_text(run_id, "STOCK-PLAN.md", render_stock_plan(stock))
+        run.write_data(
+            run_id,
+            "stock-candidates.json",
+            [candidate.model_dump(mode="json") for candidate in candidates],
+        )
+        _print(
+            {
+                "total": stock.total,
+                "supplied": stock.supplied,
+                "stock": stock.stock,
+                "generated": stock.generated,
+                "ai_share_pct": stock.ai_share_pct,
+                "within_ai_cap": stock.within_ai_cap,
+                "fetched": len(candidates),
+            }
+        )
+        return 0
+
     if command == "build":
         from .build import run_build
 
