@@ -20,7 +20,7 @@
 
 ```
 $ python -m pytest -q
-139 passed in 14.86s
+139 passed in 15.50s
 ```
 
 ```
@@ -30,7 +30,7 @@ All checks passed!
 
 ```
 $ python -m mypy
-Success: no issues found in 94 source files
+Success: no issues found in 95 source files
 ```
 
 ## Acceptance run — Blue Tokai rev-002

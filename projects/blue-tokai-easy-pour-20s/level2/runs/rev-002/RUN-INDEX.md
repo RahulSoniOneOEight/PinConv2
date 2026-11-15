@@ -13,6 +13,7 @@
 | [NO-SHOOT-POLICY.md](NO-SHOOT-POLICY.md) | No-shoot constraint and stock/AI route findings |
 | [NO-IN-HOUSE-POLICY.md](NO-IN-HOUSE-POLICY.md) | Stock / AI-generation / AI-enhancement only, with line replacements |
 | [USER-INPUT-GAPS.md](USER-INPUT-GAPS.md) | Awaiting-user vs agent-resolvable vs obsolete work |
+| [REBASELINE-PLAN.md](REBASELINE-PLAN.md) | Proposed no-in-house re-baseline and new Gate 2A requirement |
 | [STOCK-PLAN.md](STOCK-PLAN.md) | Per-asset stock route, fetched candidates and AI-share guard |
 | [ANNEX-SOURCED-NOT-USED.md](ANNEX-SOURCED-NOT-USED.md) | Sourced-but-not-used backup candidates with reasons |
 | [PENDING-ASSET-ROUTES.md](PENDING-ASSET-ROUTES.md) | Current route vs no-shoot route for every asset |
@@ -117,12 +118,32 @@
 | [build-sheet/variants/VO-01.json](build-sheet/variants/VO-01.json) | 23,160 |
 | [capture-plan.json](capture-plan.json) | 1,480 |
 | [catalogue-resolutions.json](catalogue-resolutions.json) | 4,587 |
-| [cli-gate2a-output.json](cli-gate2a-output.json) | 3,105 |
-| [cli-plan-output.json](cli-plan-output.json) | 1,513 |
-| [cli-qc-output.json](cli-qc-output.json) | 1,095 |
-| [cli-spend-output.json](cli-spend-output.json) | 1,200 |
-| [cli-stockcheck-output.json](cli-stockcheck-output.json) | 357 |
-| [cli-voice-output.json](cli-voice-output.json) | 303 |
+| [cli-gate2a-output.json](cli-gate2a-output.json) | 3,182 |
+| [cli-plan-output.json](cli-plan-output.json) | 1,553 |
+| [cli-qc-output.json](cli-qc-output.json) | 1,124 |
+| [cli-spend-output.json](cli-spend-output.json) | 1,230 |
+| [cli-stockcheck-output.json](cli-stockcheck-output.json) | 364 |
+| [cli-voice-output.json](cli-voice-output.json) | 311 |
+| [deliverables/blue-tokai-easy-pour-16x9.mp4](deliverables/blue-tokai-easy-pour-16x9.mp4) | 3,553,329 |
+| [deliverables/blue-tokai-easy-pour-9x16.mp4](deliverables/blue-tokai-easy-pour-9x16.mp4) | 3,936,938 |
+| [deliverables/clips/concat.txt](deliverables/clips/concat.txt) | 678 |
+| [deliverables/clips/SH-01-1080x1920.mp4](deliverables/clips/SH-01-1080x1920.mp4) | 211,714 |
+| [deliverables/clips/SH-01-1920x1080.mp4](deliverables/clips/SH-01-1920x1080.mp4) | 264,039 |
+| [deliverables/clips/SH-02-1080x1920.mp4](deliverables/clips/SH-02-1080x1920.mp4) | 1,191,960 |
+| [deliverables/clips/SH-02-1920x1080.mp4](deliverables/clips/SH-02-1920x1080.mp4) | 856,598 |
+| [deliverables/clips/SH-03-1080x1920.mp4](deliverables/clips/SH-03-1080x1920.mp4) | 1,179,070 |
+| [deliverables/clips/SH-03-1920x1080.mp4](deliverables/clips/SH-03-1920x1080.mp4) | 1,041,720 |
+| [deliverables/clips/SH-04-1080x1920.mp4](deliverables/clips/SH-04-1080x1920.mp4) | 213,680 |
+| [deliverables/clips/SH-04-1920x1080.mp4](deliverables/clips/SH-04-1920x1080.mp4) | 268,085 |
+| [deliverables/clips/SH-05-1080x1920.mp4](deliverables/clips/SH-05-1080x1920.mp4) | 164,007 |
+| [deliverables/clips/SH-05-1920x1080.mp4](deliverables/clips/SH-05-1920x1080.mp4) | 221,376 |
+| [deliverables/clips/SH-06-1080x1920.mp4](deliverables/clips/SH-06-1080x1920.mp4) | 205,292 |
+| [deliverables/clips/SH-06-1920x1080.mp4](deliverables/clips/SH-06-1920x1080.mp4) | 260,058 |
+| [deliverables/rough-16x9-silent.mp4](deliverables/rough-16x9-silent.mp4) | 2,903,746 |
+| [deliverables/rough-9x16-silent.mp4](deliverables/rough-9x16-silent.mp4) | 3,157,597 |
+| [deliverables/ROUGH-CUT-16x9.mp4](deliverables/ROUGH-CUT-16x9.mp4) | 3,546,886 |
+| [deliverables/ROUGH-CUT-9x16.mp4](deliverables/ROUGH-CUT-9x16.mp4) | 3,927,476 |
+| [deliverables/ROUGH-CUT-REPORT.md](deliverables/ROUGH-CUT-REPORT.md) | 417 |
 | [events.jsonl](events.jsonl) | 15,988 |
 | [feedback-form.md](feedback-form.md) | 4,580 |
 | [flow.json](flow.json) | 5,774 |
@@ -169,8 +190,9 @@
 | [qc/technical.json](qc/technical.json) | 780 |
 | [qc/visual-assets.md](qc/visual-assets.md) | 2,129 |
 | [qc/visual.json](qc/visual.json) | 423 |
-| [RENDERER-DECISION.md](RENDERER-DECISION.md) | 1,952 |
-| [REVIEW-GUIDE.md](REVIEW-GUIDE.md) | 11,188 |
+| [REBASELINE-PLAN.md](REBASELINE-PLAN.md) | 2,463 |
+| [RENDERER-DECISION.md](RENDERER-DECISION.md) | 2,096 |
+| [REVIEW-GUIDE.md](REVIEW-GUIDE.md) | 11,237 |
 | [review-pack.docx](review-pack.docx) | 39,142 |
 | [review-pack.html](review-pack.html) | 28,293 |
 | [review-pack.md](review-pack.md) | 19,465 |

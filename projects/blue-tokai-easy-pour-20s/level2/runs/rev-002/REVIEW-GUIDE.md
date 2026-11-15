@@ -28,6 +28,7 @@ is it ready to assemble?*
 | No-shoot policy | `NO-SHOOT-POLICY.md` |
 | No in-house production | `NO-IN-HOUSE-POLICY.md` |
 | User-input gaps | `USER-INPUT-GAPS.md` |
+| Re-baseline proposal | `REBASELINE-PLAN.md` |
 | Pending asset routes | `PENDING-ASSET-ROUTES.md` |
 | Asset visual QC | `qc/visual-assets.md` |
 | Per-shot/layer sources | `SOURCE-SHEET.md` / `.html` |

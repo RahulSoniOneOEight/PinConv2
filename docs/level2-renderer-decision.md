@@ -1,7 +1,7 @@
 # Renderer decision — HyperFrames vs Remotion
 
 **Project:** `blue-tokai-easy-pour-20s` · **Run:** `rev-002`
-**Status:** awaiting named-human acceptance
+**Status:** ACCEPTED by Chat user (Project owner), 2026-11-15
 **Recorded:** 2026-11-15
 
 ## What is installed
@@ -37,13 +37,13 @@ the renderer Studio actually ships here; its output is verified and editable.
 
 If option A is chosen, sign here:
 
-- Name:
-- Role:
-- Date:
-- Evidence / ticket:
+- Name: Chat user
+- Role: Project owner
+- Date: 2026-11-15
+- Evidence / ticket: chat instruction “hyperfrtamers is file” (HyperFrames accepted)
 
 > “I accept HyperFrames `0.8.123` as the renderer for the Blue Tokai Level 2
-> production. Remotion is not required for this run.”
+> production. Remotion is not required for this run.” — accepted via chat.
 
 If option B is chosen, record the install evidence and re-run
 `level2 omcheck` before production.
