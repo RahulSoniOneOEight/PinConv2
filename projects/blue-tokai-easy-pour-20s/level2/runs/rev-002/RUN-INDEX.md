@@ -14,6 +14,7 @@
 | [NO-IN-HOUSE-POLICY.md](NO-IN-HOUSE-POLICY.md) | Stock / AI-generation / AI-enhancement only, with line replacements |
 | [USER-INPUT-GAPS.md](USER-INPUT-GAPS.md) | Awaiting-user vs agent-resolvable vs obsolete work |
 | [REBASELINE-PLAN.md](REBASELINE-PLAN.md) | Proposed no-in-house re-baseline and new Gate 2A requirement |
+| [RIGHTS-CLEARANCE.md](RIGHTS-CLEARANCE.md) | HI-02 brand files imported and rights accepted |
 | [STOCK-PLAN.md](STOCK-PLAN.md) | Per-asset stock route, fetched candidates and AI-share guard |
 | [ANNEX-SOURCED-NOT-USED.md](ANNEX-SOURCED-NOT-USED.md) | Sourced-but-not-used backup candidates with reasons |
 | [PENDING-ASSET-ROUTES.md](PENDING-ASSET-ROUTES.md) | Current route vs no-shoot route for every asset |
@@ -124,8 +125,6 @@
 | [cli-spend-output.json](cli-spend-output.json) | 1,230 |
 | [cli-stockcheck-output.json](cli-stockcheck-output.json) | 364 |
 | [cli-voice-output.json](cli-voice-output.json) | 311 |
-| [deliverables/blue-tokai-easy-pour-16x9.mp4](deliverables/blue-tokai-easy-pour-16x9.mp4) | 3,553,329 |
-| [deliverables/blue-tokai-easy-pour-9x16.mp4](deliverables/blue-tokai-easy-pour-9x16.mp4) | 3,936,938 |
 | [deliverables/clips/concat.txt](deliverables/clips/concat.txt) | 678 |
 | [deliverables/clips/SH-01-1080x1920.mp4](deliverables/clips/SH-01-1080x1920.mp4) | 211,714 |
 | [deliverables/clips/SH-01-1920x1080.mp4](deliverables/clips/SH-01-1920x1080.mp4) | 264,039 |
@@ -196,6 +195,7 @@
 | [review-pack.docx](review-pack.docx) | 39,142 |
 | [review-pack.html](review-pack.html) | 28,293 |
 | [review-pack.md](review-pack.md) | 19,465 |
+| [RIGHTS-CLEARANCE.md](RIGHTS-CLEARANCE.md) | 1,326 |
 | [rights-manifest.json](rights-manifest.json) | 4,932 |
 | [ruff-output.txt](ruff-output.txt) | 21 |
 | [run.json](run.json) | 117,655 |
