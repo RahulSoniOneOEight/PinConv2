@@ -27,6 +27,7 @@ is it ready to assemble?*
 | Sourced-but-not-used annex | `ANNEX-SOURCED-NOT-USED.md` |
 | No-shoot policy | `NO-SHOOT-POLICY.md` |
 | No in-house production | `NO-IN-HOUSE-POLICY.md` |
+| User-input gaps | `USER-INPUT-GAPS.md` |
 | Pending asset routes | `PENDING-ASSET-ROUTES.md` |
 | Asset visual QC | `qc/visual-assets.md` |
 | Per-shot/layer sources | `SOURCE-SHEET.md` / `.html` |

@@ -1,0 +1,135 @@
+{
+  "awaiting_user": [
+    {
+      "ref": "AC-16",
+      "item": "AC-16 pending: 9:16 safe-area template not confirmed",
+      "category": "awaiting_user",
+      "detail": "needs a named-human decision or a user-supplied file"
+    },
+    {
+      "ref": "Gate",
+      "item": "Gate 2A approval required before any paid call",
+      "category": "awaiting_user",
+      "detail": "owner decision"
+    },
+    {
+      "ref": "HI-01",
+      "item": "HI-01 Price and hero pack size — owner human",
+      "category": "awaiting_user",
+      "detail": "needs a named-human decision or a user-supplied file"
+    },
+    {
+      "ref": "HI-02",
+      "item": "HI-02 Brand pack and logo advertising rights — owner human",
+      "category": "awaiting_user",
+      "detail": "needs a named-human decision or a user-supplied file"
+    },
+    {
+      "ref": "HI-03",
+      "item": "HI-03 Voice and music licences — owner human",
+      "category": "awaiting_user",
+      "detail": "needs a named-human decision or a user-supplied file"
+    },
+    {
+      "ref": "HI-05",
+      "item": "HI-05 Brand typeface — owner human",
+      "category": "awaiting_user",
+      "detail": "needs a named-human decision or a user-supplied file"
+    },
+    {
+      "ref": "AS-01",
+      "item": "AS-01 Blue Tokai Coffee Roasters logo",
+      "category": "awaiting_user",
+      "detail": "user-supplied brand file + advertising rights (HI-02)"
+    },
+    {
+      "ref": "AS-02",
+      "item": "AS-02 Easy Pour Mixed Bag pack",
+      "category": "awaiting_user",
+      "detail": "user-supplied brand file + advertising rights (HI-02)"
+    },
+    {
+      "ref": "AS-03",
+      "item": "AS-03 Easy Pour Vienna pack",
+      "category": "awaiting_user",
+      "detail": "user-supplied brand file + advertising rights (HI-02)"
+    },
+    {
+      "ref": "AS-04",
+      "item": "AS-04 Easy Pour Attikan Estate pack",
+      "category": "awaiting_user",
+      "detail": "user-supplied brand file + advertising rights (HI-02)"
+    },
+    {
+      "ref": "AS-17",
+      "item": "AS-17 Easy Pour Seethargundu Estate pack",
+      "category": "awaiting_user",
+      "detail": "user-supplied brand file + advertising rights (HI-02)"
+    }
+  ],
+  "agent_resolvable": [
+    {
+      "ref": "BL-011",
+      "item": "BL-011 AS-14 fallback (unpriced) is unpriced",
+      "category": "agent_resolvable",
+      "detail": "can be priced or resolved by the agent"
+    },
+    {
+      "ref": "BL-012",
+      "item": "BL-012 AS-15 fallback (unpriced) is unpriced",
+      "category": "agent_resolvable",
+      "detail": "can be priced or resolved by the agent"
+    },
+    {
+      "ref": "AS-05",
+      "item": "AS-05 Easy Pour brewing demonstration, hands",
+      "category": "agent_resolvable",
+      "detail": "source via stock (pexels)"
+    },
+    {
+      "ref": "AS-06",
+      "item": "AS-06 Hot water pour and bloom footage",
+      "category": "agent_resolvable",
+      "detail": "source via stock (pexels)"
+    },
+    {
+      "ref": "AS-07",
+      "item": "AS-07 Warm kitchen background",
+      "category": "agent_resolvable",
+      "detail": "source via stock (pexels)"
+    },
+    {
+      "ref": "AS-08",
+      "item": "AS-08 Finished cup of coffee",
+      "category": "agent_resolvable",
+      "detail": "source via stock (pexels)"
+    },
+    {
+      "ref": "AS-09",
+      "item": "AS-09 Voice over, warm Indian English",
+      "category": "agent_resolvable",
+      "detail": "source via generate (generate)"
+    },
+    {
+      "ref": "AS-11",
+      "item": "AS-11 Water pour sound effect",
+      "category": "agent_resolvable",
+      "detail": "source via stock (freesound)"
+    },
+    {
+      "ref": "AS-12",
+      "item": "AS-12 Brand sting",
+      "category": "agent_resolvable",
+      "detail": "source via generate (generate)"
+    }
+  ],
+  "obsolete": [
+    {
+      "ref": "HI-04",
+      "item": "HI-04 Demonstration and talent release — owner human",
+      "category": "obsolete",
+      "detail": "no in-house production: replaced by stock / AI generation / AI enhancement"
+    }
+  ],
+  "created_at": "2026-11-15T10:49:34+00:00"
+}

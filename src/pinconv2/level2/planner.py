@@ -31,6 +31,7 @@ from .budget import build_budget
 from .capture_planner import build_capture_plan, validate_capture_plan
 from .catalogue import SOURCES
 from .errors import BudgetError
+from .gaps import evaluate_gaps, render_gaps
 from .gate2 import evaluate_2a
 from .governance import ProviderGovernor, empty_budget
 from .handoff import asset_truth_class, build_intents
@@ -601,6 +602,9 @@ def plan_level2(
     no_in_house = evaluate_no_in_house(plan, level2, stock_plan)
     run.write_text(run_id, "NO-IN-HOUSE-POLICY.md", render_no_in_house(no_in_house))
     run.write_json(run_id, "no-in-house-plan.json", no_in_house)
+    gaps = evaluate_gaps(plan, level2, stock_plan)
+    run.write_text(run_id, "USER-INPUT-GAPS.md", render_gaps(gaps))
+    run.write_json(run_id, "gaps.json", gaps)
 
     run.append_event(
         run_id,
