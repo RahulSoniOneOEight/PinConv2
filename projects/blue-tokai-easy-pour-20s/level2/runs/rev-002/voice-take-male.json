@@ -1,0 +1,29 @@
+{
+  "result": {
+    "bytes": 114624,
+    "disclosure_required": true,
+    "disclosure_text": "Synthetic voice generated with Edge TTS",
+    "duration_seconds": 19.104,
+    "path": "D:\\pinconv2\\projects\\blue-tokai-easy-pour-20s\\level2\\runs\\rev-002\\generated\\AS-09-male-take.mp3",
+    "provider": "shortgpt:edge-tts",
+    "sha256": "86890796f2d6d2ff48ddf02a2c05f81e9f981e9d2cad5dcaae7e5335e6e16176",
+    "voice": "en-IN-PrabhatNeural"
+  },
+  "take": {
+    "delivery_arc": "open conversational \u2192 benefit measured \u2192 CTA slower and more direct",
+    "edge_voice": "en-IN-PrabhatNeural",
+    "emphasis": "\u2018Specialty\u2019, \u2018Light to dark\u2019, \u2018Shop Easy Pour\u2019",
+    "energy": "low-medium, lifting slightly at the CTA",
+    "label": "Male \u2014 warm, lightly textured",
+    "language_accent": "Indian English, neutral urban",
+    "model": "shortgpt:edge-tts",
+    "pace": "measured, continuous, no line gaps",
+    "pauses": "short breath before the brand name; no pause between other lines",
+    "pitch": "low-to-middle",
+    "pronunciation": "clear \u2018Tear, anchor, pour\u2019; brand name unhurried",
+    "rate": "-25%",
+    "resonance": "full, lightly textured",
+    "take_id": "VO-M1",
+    "voice_profile": "warm-conversational / textured-earthy"
+  }
+}

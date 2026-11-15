@@ -1,7 +1,7 @@
 {
-  "duration_seconds": 14.952,
+  "duration_seconds": 19.176,
   "edge_tts": "working",
-  "sample_path": "generated/AS-15-edge-sample.mp3",
-  "transcription": "working",
+  "sample_path": "generated/AS-09-female-take.mp3",
+  "transcription": "available",
   "transcription_backend": "cached faster-whisper tiny.en (local, no download)"
 }

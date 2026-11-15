@@ -1,9 +1,9 @@
 {
   "provider": "shortgpt:edge-tts",
-  "path": "generated/AS-15-edge-sample.mp3",
-  "sha256": "22742b3278e263c4da8495db530ffbae87dae159fe8c8be14ef40b6edd8433f7",
-  "bytes": 89712,
-  "duration_seconds": 14.952,
+  "path": "generated/AS-09-female-take.mp3",
+  "sha256": "8e4cb80aa24c5f408d61f155d6e3200e04252389cd9939e5703686f875582c00",
+  "bytes": 115056,
+  "duration_seconds": 19.176,
   "voice": "en-IN-NeerjaNeural",
   "disclosure_required": true,
   "disclosure_text": "Synthetic voice generated with Edge TTS"

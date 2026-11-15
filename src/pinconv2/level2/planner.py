@@ -67,6 +67,7 @@ from .source_sheet import write_source_sheet
 from .stock_plan import render_stock_plan
 from .store import Level2RunStore
 from .variants import resolve_variant, validate_variant
+from .voice_direction import build_voice_direction, render_voice_direction
 
 
 class Level2Outcome(StrictModel):
@@ -599,6 +600,9 @@ def plan_level2(
     run.write_text(run_id, "STOCK-PLAN.md", render_stock_plan(stock_plan))
     run.write_json(run_id, "stock-plan.json", stock_plan)
     ProcessingAgent().write(run, run_id, plan, level2, sheet, decisions, stock_plan)
+    voice_direction = build_voice_direction(plan, level2)
+    run.write_text(run_id, "VOICE-DIRECTION.md", render_voice_direction(voice_direction))
+    run.write_json(run_id, "voice-direction.json", voice_direction)
     no_in_house = evaluate_no_in_house(plan, level2, stock_plan)
     run.write_text(run_id, "NO-IN-HOUSE-POLICY.md", render_no_in_house(no_in_house))
     run.write_json(run_id, "no-in-house-plan.json", no_in_house)

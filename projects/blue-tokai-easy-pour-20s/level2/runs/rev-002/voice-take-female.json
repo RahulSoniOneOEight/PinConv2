@@ -1,0 +1,29 @@
+{
+  "result": {
+    "bytes": 115056,
+    "disclosure_required": true,
+    "disclosure_text": "Synthetic voice generated with Edge TTS",
+    "duration_seconds": 19.176,
+    "path": "D:\\pinconv2\\projects\\blue-tokai-easy-pour-20s\\level2\\runs\\rev-002\\generated\\AS-09-female-take.mp3",
+    "provider": "shortgpt:edge-tts",
+    "sha256": "8e4cb80aa24c5f408d61f155d6e3200e04252389cd9939e5703686f875582c00",
+    "voice": "en-IN-NeerjaNeural"
+  },
+  "take": {
+    "delivery_arc": "warm open \u2192 intimate reveal \u2192 clear inviting CTA",
+    "edge_voice": "en-IN-NeerjaNeural",
+    "emphasis": "\u2018Specialty\u2019, \u2018one mug\u2019, \u2018Shop Easy Pour\u2019",
+    "energy": "low-medium, inviting at the CTA",
+    "label": "Female \u2014 lower-middle alto, warm",
+    "language_accent": "Indian English, neutral urban",
+    "model": "shortgpt:edge-tts",
+    "pace": "relaxed, continuous, no line gaps",
+    "pauses": "short pause before the product reveal; no line-by-line gaps",
+    "pitch": "lower-middle",
+    "pronunciation": "clear consonants; keep English brand words natural in Hinglish",
+    "rate": "-22%",
+    "resonance": "warm and full-bodied",
+    "take_id": "VO-F1",
+    "voice_profile": "warm-conversational / soft-intimate"
+  }
+}

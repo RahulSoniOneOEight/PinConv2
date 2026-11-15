@@ -3,8 +3,8 @@
 **Run:** `rev-002` · plan revision 2
 **Project:** `blue-tokai-easy-pour-20s`
 **Plan hash:** `1370f029b0b35730625c459cf85579bfd767d2e4a7b62016055e100d15f2aba5`
-**Generated:** 2026-11-15T10:49:34+00:00
-**Verdict:** PASS - the spend-free Level 2 slice produced the full package; Gate 2A is approved.
+**Generated:** 2026-11-15T11:38:58+00:00
+**Verdict:** PASS - the spend-free Level 2 slice produced the full package; Gate 2A is ready_for_approval.
 
 ## Environment
 
@@ -20,7 +20,7 @@
 
 ```
 $ python -m pytest -q
-140 passed in 14.16s
+140 passed in 14.29s
 ```
 
 ```
@@ -30,7 +30,7 @@ All checks passed!
 
 ```
 $ python -m mypy
-Success: no issues found in 96 source files
+Success: no issues found in 97 source files
 ```
 
 ## Acceptance run — Blue Tokai rev-002
@@ -48,7 +48,7 @@ Success: no issues found in 96 source files
 | No-shoot policy | blocked — 8 assets need stock/AI rerouting |
 | Stock plan / AI share | 7 stock, 3 generated — 18.8% AI (cap 40%) |
 | Processing budget | $1.8 of $2.0 — within budget |
-| Voice fallback sample | 14.952 s via shortgpt:edge-tts |
+| Voice fallback sample | 19.176 s via shortgpt:edge-tts |
 | Voice transcription | 7 timed segments via faster-whisper tiny.en |
 | OpenMontage film discovery | 5 nasa.stock candidates for AS-07; search only, $0.0 spent |
 | OpenMontage check | 2022 Holiday Coffee; render passed; budget $2.0, spent $0.0 |
@@ -62,7 +62,7 @@ Success: no issues found in 96 source files
 
 ## Gate 2A
 
-**Status:** `approved` · 8 pass, 6 warn, 0 fail · blockers: 0
+**Status:** `ready_for_approval` · 8 pass, 6 warn, 0 fail · blockers: 0
 
 | Check | State | Detail |
 |---|---|---|

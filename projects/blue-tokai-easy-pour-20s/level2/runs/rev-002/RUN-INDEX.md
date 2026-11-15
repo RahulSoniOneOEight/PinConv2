@@ -1,7 +1,7 @@
 # Blue Tokai Level 2 — run index
 
 **Run:** `rev-002` · **Plan revision:** 2
-**Status:** Gate 2A `approved` · cash $0.00 · in-kind $81.00
+**Status:** Gate 2A `ready_for_approval` · cash $0.00 · in-kind $81.00
 **Plan hash:** `1370f029b0b35730625c459cf85579bfd767d2e4a7b62016055e100d15f2aba5`
 
 ## Start here
@@ -21,6 +21,8 @@
 | [PENDING-ASSET-ROUTES.md](PENDING-ASSET-ROUTES.md) | Current route vs no-shoot route for every asset |
 | [PRODUCTION-PLAN.md](PRODUCTION-PLAN.md) | Shot order, asset queue and layer plan |
 | [PROCESSING-PLAN.md](PROCESSING-PLAN.md) | Per-asset processing and the $2 trial budget |
+| [VOICE-DIRECTION.md](VOICE-DIRECTION.md) | VO casting, continuous delivery and two audition takes |
+| [VOICE-TOOLS-STATUS.md](VOICE-TOOLS-STATUS.md) | Which TTS tools are installed/working |
 | [qc/visual-assets.md](qc/visual-assets.md) | Agent visual QC verdict per asset |
 | [SOURCE-SHEET.md](SOURCE-SHEET.md) | Every shot/layer with its actual asset source and preview |
 | [stock-check/stock-check.md](stock-check/stock-check.md) | Live fetch result per stock source, with licences |
@@ -120,12 +122,12 @@
 | [build-sheet/variants/VO-01.json](build-sheet/variants/VO-01.json) | 23,160 |
 | [capture-plan.json](capture-plan.json) | 1,480 |
 | [catalogue-resolutions.json](catalogue-resolutions.json) | 4,587 |
-| [cli-gate2a-output.json](cli-gate2a-output.json) | 3,259 |
-| [cli-plan-output.json](cli-plan-output.json) | 1,593 |
-| [cli-qc-output.json](cli-qc-output.json) | 1,153 |
-| [cli-spend-output.json](cli-spend-output.json) | 1,260 |
-| [cli-stockcheck-output.json](cli-stockcheck-output.json) | 371 |
-| [cli-voice-output.json](cli-voice-output.json) | 319 |
+| [cli-gate2a-output.json](cli-gate2a-output.json) | 3,336 |
+| [cli-plan-output.json](cli-plan-output.json) | 1,633 |
+| [cli-qc-output.json](cli-qc-output.json) | 1,182 |
+| [cli-spend-output.json](cli-spend-output.json) | 1,290 |
+| [cli-stockcheck-output.json](cli-stockcheck-output.json) | 378 |
+| [cli-voice-output.json](cli-voice-output.json) | 327 |
 | [deliverables/clips/concat.txt](deliverables/clips/concat.txt) | 678 |
 | [deliverables/clips/SH-01-1080x1920.mp4](deliverables/clips/SH-01-1080x1920.mp4) | 211,714 |
 | [deliverables/clips/SH-01-1920x1080.mp4](deliverables/clips/SH-01-1920x1080.mp4) | 264,039 |
@@ -147,11 +149,13 @@
 | [deliverables/ROUGH-CUT-16x9.mp4](deliverables/ROUGH-CUT-16x9.mp4) | 3,547,140 |
 | [deliverables/ROUGH-CUT-9x16.mp4](deliverables/ROUGH-CUT-9x16.mp4) | 3,929,270 |
 | [deliverables/ROUGH-CUT-REPORT.md](deliverables/ROUGH-CUT-REPORT.md) | 417 |
-| [events.jsonl](events.jsonl) | 15,988 |
+| [events.jsonl](events.jsonl) | 16,506 |
 | [feedback-form.md](feedback-form.md) | 4,580 |
 | [flow.json](flow.json) | 5,774 |
 | [gaps.json](gaps.json) | 4,087 |
-| [gate2/packet-2a.json](gate2/packet-2a.json) | 3,308 |
+| [gate2/packet-2a.json](gate2/packet-2a.json) | 3,229 |
+| [generated/AS-09-female-take.mp3](generated/AS-09-female-take.mp3) | 115,056 |
+| [generated/AS-09-male-take.mp3](generated/AS-09-male-take.mp3) | 114,624 |
 | [generated/AS-15-edge-sample.mp3](generated/AS-15-edge-sample.mp3) | 89,712 |
 | [layer-method-decisions.json](layer-method-decisions.json) | 25,090 |
 | [licence-gate-report.json](licence-gate-report.json) | 4,768 |
@@ -202,8 +206,8 @@
 | [RIGHTS-CLEARANCE.md](RIGHTS-CLEARANCE.md) | 1,326 |
 | [rights-manifest.json](rights-manifest.json) | 4,932 |
 | [ruff-output.txt](ruff-output.txt) | 21 |
-| [run.json](run.json) | 117,655 |
-| [shortgpt-status.json](shortgpt-status.json) | 221 |
+| [run.json](run.json) | 117,646 |
+| [shortgpt-status.json](shortgpt-status.json) | 223 |
 | [sound-plan.json](sound-plan.json) | 2,757 |
 | [SOURCE-SHEET.html](SOURCE-SHEET.html) | 14,651 |
 | [SOURCE-SHEET.json](SOURCE-SHEET.json) | 22,598 |
@@ -245,10 +249,15 @@
 | [stock-check/stock-check.md](stock-check/stock-check.md) | 7,967 |
 | [stock-plan.json](stock-plan.json) | 17,936 |
 | [STOCK-PLAN.md](STOCK-PLAN.md) | 4,935 |
-| [TEST-REPORT.md](TEST-REPORT.md) | 4,986 |
+| [TEST-REPORT.md](TEST-REPORT.md) | 5,006 |
 | [transcription.json](transcription.json) | 756 |
 | [USER-INPUT-GAPS.md](USER-INPUT-GAPS.md) | 2,933 |
 | [variants.json](variants.json) | 25,176 |
-| [voice-sample.json](voice-sample.json) | 339 |
+| [voice-direction.json](voice-direction.json) | 1,955 |
+| [VOICE-DIRECTION.md](VOICE-DIRECTION.md) | 2,872 |
+| [voice-sample.json](voice-sample.json) | 340 |
+| [voice-take-female.json](voice-take-female.json) | 1,256 |
+| [voice-take-male.json](voice-take-male.json) | 1,293 |
+| [VOICE-TOOLS-STATUS.md](VOICE-TOOLS-STATUS.md) | 1,378 |
 
 _Generated from the run artifacts; do not edit by hand._

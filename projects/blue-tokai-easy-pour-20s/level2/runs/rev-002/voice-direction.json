@@ -1,0 +1,43 @@
+{
+  "asset_id": "AS-09",
+  "script": "Specialty coffee. Tear, anchor, pour. Just a mug and hot water. Light to dark. One mug. One cup. Shop Easy Pour.",
+  "mode": "continuous narration",
+  "takes": [
+    {
+      "take_id": "VO-M1",
+      "label": "Male — warm, lightly textured",
+      "voice_profile": "warm-conversational / textured-earthy",
+      "language_accent": "Indian English, neutral urban",
+      "pitch": "low-to-middle",
+      "resonance": "full, lightly textured",
+      "pace": "measured, continuous, no line gaps",
+      "energy": "low-medium, lifting slightly at the CTA",
+      "emphasis": "‘Specialty’, ‘Light to dark’, ‘Shop Easy Pour’",
+      "pauses": "short breath before the brand name; no pause between other lines",
+      "pronunciation": "clear ‘Tear, anchor, pour’; brand name unhurried",
+      "delivery_arc": "open conversational → benefit measured → CTA slower and more direct",
+      "edge_voice": "en-IN-PrabhatNeural",
+      "rate": "-25%",
+      "model": "shortgpt:edge-tts"
+    },
+    {
+      "take_id": "VO-F1",
+      "label": "Female — lower-middle alto, warm",
+      "voice_profile": "warm-conversational / soft-intimate",
+      "language_accent": "Indian English, neutral urban",
+      "pitch": "lower-middle",
+      "resonance": "warm and full-bodied",
+      "pace": "relaxed, continuous, no line gaps",
+      "energy": "low-medium, inviting at the CTA",
+      "emphasis": "‘Specialty’, ‘one mug’, ‘Shop Easy Pour’",
+      "pauses": "short pause before the product reveal; no line-by-line gaps",
+      "pronunciation": "clear consonants; keep English brand words natural in Hinglish",
+      "delivery_arc": "warm open → intimate reveal → clear inviting CTA",
+      "edge_voice": "en-IN-NeerjaNeural",
+      "rate": "-22%",
+      "model": "shortgpt:edge-tts"
+    }
+  ],
+  "disclosure": "Synthetic voice generated with Edge TTS",
+  "created_at": "2026-11-15T11:38:58+00:00"
+}

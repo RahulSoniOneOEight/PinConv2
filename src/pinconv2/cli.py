@@ -175,6 +175,9 @@ def build_parser() -> argparse.ArgumentParser:
     voice.add_argument("--text", default=None)
     voice.add_argument("--voice", default="en-IN-NeerjaNeural")
     voice.add_argument("--transcribe", action="store_true")
+    voice.add_argument("--take", choices=["male", "female"], default=None)
+    voice.add_argument("--rate", default="+0%")
+    voice.add_argument("--pitch", default="+0Hz")
 
     omcheck = level2_sub.add_parser(
         "omcheck", help="run a separate OpenMontage stock and render capability check"

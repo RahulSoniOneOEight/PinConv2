@@ -11,8 +11,24 @@ class VoiceAgent:
     def __init__(self, engine: ShortGptEngine | None = None) -> None:
         self.engine = engine or ShortGptEngine()
 
-    def sample(self, text: str, destination: Path, voice: str) -> VoiceResult:
-        return self.engine.synth(text, destination, voice=voice)
+    def sample(
+        self,
+        text: str,
+        destination: Path,
+        voice: str,
+        *,
+        rate: str = "+0%",
+        pitch: str = "+0Hz",
+        volume: str = "+0%",
+    ) -> VoiceResult:
+        return self.engine.synth(
+            text,
+            destination,
+            voice=voice,
+            rate=rate,
+            pitch=pitch,
+            volume=volume,
+        )
 
     def transcribe(self, audio: Path) -> dict[str, object]:
         return self.engine.transcribe(audio)

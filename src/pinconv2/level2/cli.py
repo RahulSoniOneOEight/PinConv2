@@ -193,15 +193,38 @@ def run_level2_command(store: ProjectStore, args: argparse.Namespace) -> int:
         from .agents import VoiceAgent
 
         plan = store.load_plan(project_id, revision)
-        text = args.text
-        if not text:
-            cue = next((cue for cue in plan.audio_cues if cue.kind.value == "vo"), None)
-            if cue is None:
-                _print({"error": "no voice cue in the plan"})
-                return 2
-            text = cue.description.split("Canonical read:", 1)[-1].strip()
-        destination = run.run_dir(run_id) / "generated" / "AS-15-edge-sample.mp3"
-        result = VoiceAgent().sample(text, destination, str(args.voice))
+        voice_name = str(args.voice)
+        rate = str(args.rate)
+        pitch = str(args.pitch)
+        take_payload = None
+        if args.take:
+            direction_path = run.run_dir(run_id) / "voice-direction.json"
+            direction = json.loads(direction_path.read_text(encoding="utf-8"))
+            take_id = "VO-M1" if args.take == "male" else "VO-F1"
+            take_payload = next(take for take in direction["takes"] if take["take_id"] == take_id)
+            text = args.text or direction["script"]
+            voice_name = take_payload["edge_voice"]
+            rate = take_payload["rate"]
+            destination = run.run_dir(run_id) / "generated" / f"AS-09-{args.take}-take.mp3"
+        else:
+            text = args.text
+            if not text:
+                cue = next((cue for cue in plan.audio_cues if cue.kind.value == "vo"), None)
+                if cue is None:
+                    _print({"error": "no voice cue in the plan"})
+                    return 2
+                text = cue.description.split("Canonical read:", 1)[-1].strip()
+            destination = run.run_dir(run_id) / "generated" / "AS-15-edge-sample.mp3"
+        result = VoiceAgent().sample(text, destination, voice_name, rate=rate, pitch=pitch)
+        if take_payload is not None:
+            run.write_data(
+                run_id,
+                f"voice-take-{args.take}.json",
+                {
+                    "take": take_payload,
+                    "result": result.model_dump(mode="json"),
+                },
+            )
         recorded = result.model_copy(update={"path": f"generated/{destination.name}"})
         run.write_json(run_id, "voice-sample.json", recorded)
         transcript = None

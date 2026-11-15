@@ -62,6 +62,9 @@ class ShortGptEngine:
         destination: Path,
         *,
         voice: str = DEFAULT_VOICE,
+        rate: str = "+0%",
+        pitch: str = "+0Hz",
+        volume: str = "+0%",
     ) -> VoiceResult:
         if not self.available:
             raise EngineUnavailableError(f"ShortGPT venv not found at {self.python}")
@@ -77,6 +80,9 @@ class ShortGptEngine:
                 text,
                 "--voice",
                 voice,
+                f"--rate={rate}",
+                f"--pitch={pitch}",
+                f"--volume={volume}",
                 "--write-media",
                 str(destination),
                 "--no-progress",
