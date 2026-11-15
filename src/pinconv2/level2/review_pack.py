@@ -185,11 +185,12 @@ def render_review(
         "",
         "## How to use this pack",
         "",
-        "1. Read the summary and the budget.",
-        "2. Judge each asset and layer against its acceptance line and preview.",
-        "3. Mark APPROVE / CHANGE / REJECT and write one instruction.",
-        "4. Return the completed form; corrections become a new run, never an edit.",
-        "5. For the media source behind each shot and layer, open `SOURCE-SHEET.md`.",
+        "1. Read the asset summary table: shot, layer, asset, route and access.",
+        "2. Read the summary and the budget.",
+        "3. Judge each asset and layer against its acceptance line and preview.",
+        "4. Mark APPROVE / CHANGE / REJECT and write one instruction.",
+        "5. Return the completed form; corrections become a new run, never an edit.",
+        "6. For the media source behind each shot and layer, open `SOURCE-SHEET.md`.",
         "",
         "```",
         "ID: AS-02",
@@ -220,24 +221,54 @@ def render_review(
         f"| Mode | {budget.mode} |",
         f"| In-kind value | {_money(budget.in_kind_usd)} |",
         "",
-        "## Budget",
+        "## Main outcome — shot x layer x asset",
         "",
-        *budget_table_markdown(budget),
+        "The asset table is the primary review surface. The layer table below adds",
+        "the per-layer method and pick decision. Full access links and agent visual",
+        "QC are in [ASSET-SUMMARY.md](ASSET-SUMMARY.md).",
         "",
-        *budget_summary_markdown(budget),
-        "",
-        (
-            f"Raw per-asset estimates: {_money(budget.raw_attributed_usd)}; lean mode "
-            f"carries {_money(budget.in_kind_usd)} as in-kind."
-            if budget.mode == "lean"
-            else f"Raw per-asset estimates: {_money(budget.raw_attributed_usd)}; dedupe saves "
-            f"{_money(budget.dedupe_savings_usd)}."
-        ),
-        "",
-        "## Assets",
-        "",
+        "| Asset | Shots | Asset layers | Class | Route | Source | Status | Detail |",
+        "|---|---|---|---|---|---|---|---|",
     ]
     intent_map = {intent.asset_id: intent for intent in intents}
+    asset_layers: dict[str, list[str]] = {}
+    asset_shots: dict[str, set[str]] = {}
+    for decision in decisions:
+        if decision.asset_id is None:
+            continue
+        asset_layers.setdefault(decision.asset_id, []).append(decision.layer_id)
+        asset_shots.setdefault(decision.asset_id, set()).add(decision.shot_id)
+    for asset in sheet.assets:
+        intent = intent_map[asset.asset_id]
+        route = intent.route.value if hasattr(intent.route, "value") else str(intent.route)
+        lines.append(
+            f"| `{asset.asset_id}` {asset.name} | "
+            f"{', '.join(sorted(asset_shots.get(asset.asset_id, set()))) or '—'} | "
+            f"{len(asset_layers.get(asset.asset_id, []))} | "
+            f"{asset.truth_class.value} | {route} | {asset.source[:60]} | "
+            f"{asset.status.value} | [detail](ASSET-SUMMARY.md) |"
+        )
+    lines.extend(
+        [
+            "",
+            "## Budget",
+            "",
+            *budget_table_markdown(budget),
+            "",
+            *budget_summary_markdown(budget),
+            "",
+            (
+                f"Raw per-asset estimates: {_money(budget.raw_attributed_usd)}; lean mode "
+                f"carries {_money(budget.in_kind_usd)} as in-kind."
+                if budget.mode == "lean"
+                else f"Raw per-asset estimates: {_money(budget.raw_attributed_usd)}; dedupe saves "
+                f"{_money(budget.dedupe_savings_usd)}."
+            ),
+            "",
+            "## Assets",
+            "",
+        ]
+    )
     shot_by_layer = {decision.layer_id: decision.shot_id for decision in decisions}
     for asset in sheet.assets:
         intent = intent_map[asset.asset_id]
@@ -279,13 +310,25 @@ def render_review(
         [
             "## Layers",
             "",
-            "| Layer | Shot | Class | Impact | Method | Fallback | Probe | Pick |",
-            "|---|---|---|---|---|---|---|---|",
+            "| Layer | Shot | Asset | Class | Impact | Method | Fallback | Probe | Pick |",
+            "|---|---|---|---|---|---|---|---|---|",
         ]
     )
+    copy_by_layer = {
+        binding.layer_id: binding.copy_id
+        for shot in sheet.shots
+        for binding in shot.layers
+        if binding.copy_id
+    }
     for decision in decisions:
+        asset_label = decision.asset_id or (
+            f"copy:{copy_by_layer[decision.layer_id]}"
+            if decision.layer_id in copy_by_layer
+            else "procedural"
+        )
         lines.append(
-            f"| `{decision.layer_id}` | {decision.shot_id} | {decision.truth_class.value} | "
+            f"| `{decision.layer_id}` | {decision.shot_id} | {asset_label} | "
+            f"{decision.truth_class.value} | "
             f"{decision.impact.value} ({decision.impact_score}) | {decision.method.value} | "
             f"{decision.fallback_method.value} | {'yes' if decision.probe_required else 'no'} | "
             f"{decision.pick_mode.value} |"

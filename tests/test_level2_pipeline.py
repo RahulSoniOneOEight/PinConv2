@@ -262,6 +262,17 @@ def test_review_pack_and_budget_docs(approved: SimpleNamespace) -> None:
     assert "Audio assets" in source_sheet
     assert "AS-15" in source_sheet and "SF-" in source_sheet
 
+    asset_summary = (run.run_dir("rev-002") / "ASSET-SUMMARY.md").read_text(encoding="utf-8")
+    assert "Asset table" in asset_summary
+    assert "AS-02" in asset_summary and "SH-01" in asset_summary
+    assert "Visual QC" in asset_summary
+    production_plan = (run.run_dir("rev-002") / "PRODUCTION-PLAN.md").read_text(encoding="utf-8")
+    assert "## Sequence" in production_plan
+    assert "## Layer plan" in production_plan
+    assert "LY-011" in production_plan and "AS-02" in production_plan
+    visual_assets = (run.run_dir("rev-002") / "qc/visual-assets.md").read_text(encoding="utf-8")
+    assert "Asset visual QC" in visual_assets
+
     budget = (run.run_dir("rev-002") / "budget-estimate.md").read_text(encoding="utf-8")
     assert "$87.40" in budget and "$92.40" in budget and "$7.60" in budget
 

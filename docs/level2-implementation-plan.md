@@ -1265,6 +1265,7 @@ src/pinconv2/level2/
   openmontage_check.py stock + HyperFrames render capability check
   openmontage_source.py film-asset stock discovery through Studio
   generation_stage.py paid generation behind Gate 2A + ProviderGovernor
+  asset_summary.py    asset table, access links, visual QC summary
   flow_scheduler.py    graph, batches, critical path
   build_sheet.py       builder + manifest + renderers
   review_pack.py       markdown/docx review pack

@@ -20,6 +20,9 @@ is it ready to assemble?*
 | Share with a colleague | `review-pack.docx` (standard Word document) |
 | Budget only | `budget-estimate.md` / `.html` / `.docx` |
 | Technical handoff | `build-sheet/production-build-sheet.md` / `.html` |
+| **Main asset table** | `ASSET-SUMMARY.md` / `.html` |
+| Production plan | `PRODUCTION-PLAN.md` / `.html` |
+| Asset visual QC | `qc/visual-assets.md` |
 | Per-shot/layer sources | `SOURCE-SHEET.md` / `.html` |
 | Pending asset routes | `PENDING-ASSET-ROUTES.md` |
 | Stock fetch check | `stock-check/stock-check.md` |
@@ -62,6 +65,15 @@ Read `budget-estimate.md`:
 Ask: *is each line something I am willing to pay for or do in-house?*
 
 ### Step 3 — Assets (5 min)
+
+Start with `ASSET-SUMMARY.md`. It is the main review table:
+
+`asset · shots · layers · truth class · route · source · rights · status · access · visual QC`
+
+It gives one row per asset and links to the actual supplied image, stock preview
+or generated sample. `qc/visual-assets.md` records the agent visual QC verdict
+for each asset. `PRODUCTION-PLAN.md` turns the same data into the shot order,
+asset queue and layer plan.
 
 Each asset block shows: truth class, impact, method, source, rights, hold,
 cost, acceptance line and a preview link.

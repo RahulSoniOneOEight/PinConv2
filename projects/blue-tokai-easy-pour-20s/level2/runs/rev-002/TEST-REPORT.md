@@ -3,7 +3,7 @@
 **Run:** `rev-002` · plan revision 2
 **Project:** `blue-tokai-easy-pour-20s`
 **Plan hash:** `1370f029b0b35730625c459cf85579bfd767d2e4a7b62016055e100d15f2aba5`
-**Generated:** 2026-11-14T22:04:53+00:00
+**Generated:** 2026-11-15T06:08:38+00:00
 **Verdict:** PASS — the spend-free Level 2 slice produced the full package; Gate 2A is ready for a human decision.
 
 ## Environment
@@ -20,7 +20,7 @@
 
 ```
 $ python -m pytest -q
-135 passed in 13.01s
+135 passed in 13.70s
 ```
 
 ```
@@ -30,7 +30,7 @@ All checks passed!
 
 ```
 $ python -m mypy
-Success: no issues found in 85 source files
+Success: no issues found in 86 source files
 ```
 
 ## Acceptance run — Blue Tokai rev-002
@@ -44,6 +44,7 @@ Success: no issues found in 85 source files
 | Variant | `VO-01`, 1080×1920, 500 frames, 38 overrides |
 | Stock-sourced assets | 9 library-music candidates, 9 previews, 2 chosen, 0 final acquisitions |
 | Stock fetch check | 11 of 12 sources fetched and probed |
+| Asset visual QC | 4 pass, 1 warn, 5 pending |
 | Voice fallback sample | 14.952 s via shortgpt:edge-tts |
 | Voice transcription | 7 timed segments via faster-whisper tiny.en |
 | OpenMontage film discovery | 5 nasa.stock candidates for AS-07; search only, $0.0 spent |

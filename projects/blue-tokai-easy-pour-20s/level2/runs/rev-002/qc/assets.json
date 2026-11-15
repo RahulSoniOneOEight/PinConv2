@@ -1,0 +1,103 @@
+{
+  "reviewer": "agent:multimodal",
+  "reviewed_at": "2026-11-15T06:20:00+00:00",
+  "method": "Agent opened each local asset image and checked legibility, product identity, watermarking and obvious defects against the acceptance line.",
+  "assets": [
+    {
+      "asset_id": "AS-01",
+      "path": "qc/assets/AS-01.png",
+      "verdict": "warn",
+      "notes": "Clean transparent logo, correct Blue Tokai lockup; 188x128 px may soften if scaled beyond 1x at 1080p. Request vector or larger master."
+    },
+    {
+      "asset_id": "AS-02",
+      "path": "qc/assets/AS-02.jpg",
+      "verdict": "pass",
+      "notes": "Mixed Bag pack front is sharp, correct product identity, label legible, no watermark."
+    },
+    {
+      "asset_id": "AS-03",
+      "path": "qc/assets/AS-03.jpg",
+      "verdict": "pass",
+      "notes": "Vienna Roast pack front is sharp, correct product identity, label legible, no watermark."
+    },
+    {
+      "asset_id": "AS-04",
+      "path": "qc/assets/AS-04.jpg",
+      "verdict": "pass",
+      "notes": "Attikan Estate pack front is sharp, correct product identity, label legible, no watermark."
+    },
+    {
+      "asset_id": "AS-17",
+      "path": "qc/assets/AS-17.jpg",
+      "verdict": "pass",
+      "notes": "Seethargundu Estate pack front is sharp, correct product identity, label legible, no watermark."
+    },
+    {
+      "asset_id": "AS-05",
+      "path": null,
+      "verdict": "pending",
+      "notes": "No capture file yet; visual QC waits for the demonstration shoot."
+    },
+    {
+      "asset_id": "AS-06",
+      "path": null,
+      "verdict": "pending",
+      "notes": "No capture file yet; visual QC waits for the demonstration shoot."
+    },
+    {
+      "asset_id": "AS-07",
+      "path": null,
+      "verdict": "pending",
+      "notes": "Owned background plate has no delivered file yet."
+    },
+    {
+      "asset_id": "AS-08",
+      "path": null,
+      "verdict": "pending",
+      "notes": "No capture file yet; visual QC waits for the demonstration shoot."
+    },
+    {
+      "asset_id": "AS-13",
+      "path": null,
+      "verdict": "pending",
+      "notes": "Conditional capture fallback; no file unless triggered."
+    },
+    {
+      "asset_id": "AS-09",
+      "path": null,
+      "verdict": "n/a",
+      "notes": "Audio asset; visual QC does not apply."
+    },
+    {
+      "asset_id": "AS-10",
+      "path": "sourcing/CND-AS10-02-lost-roamin.mp3",
+      "verdict": "n/a",
+      "notes": "Audio preview; visual QC does not apply."
+    },
+    {
+      "asset_id": "AS-14",
+      "path": "sourcing/CND-AS14-02-this-is-our-music-instrumental.mp3",
+      "verdict": "n/a",
+      "notes": "Audio preview; visual QC does not apply."
+    },
+    {
+      "asset_id": "AS-15",
+      "path": "generated/AS-15-edge-sample.mp3",
+      "verdict": "n/a",
+      "notes": "Audio sample; visual QC does not apply."
+    },
+    {
+      "asset_id": "AS-11",
+      "path": null,
+      "verdict": "n/a",
+      "notes": "Audio asset; visual QC does not apply."
+    },
+    {
+      "asset_id": "AS-12",
+      "path": null,
+      "verdict": "n/a",
+      "notes": "Audio asset; visual QC does not apply."
+    }
+  ]
+}

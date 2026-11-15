@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Production plan - blue-tokai-easy-pour-20s</title>
+<style>
+  body { font-family: Inter, Segoe UI, system-ui, sans-serif; max-width: 1100px;
+         margin: 40px auto; padding: 0 24px; color: #1c1c1c; line-height: 1.55; }
+  h1 { border-bottom: 2px solid #c98a55; padding-bottom: 8px; }
+  h2 { margin-top: 32px; color: #5a2e1a; }
+  h3 { margin-top: 24px; }
+  table { border-collapse: collapse; width: 100%; margin: 16px 0; font-size: 14px; }
+  th, td { border: 1px solid #d8d2c8; padding: 8px 10px; text-align: left;
+            vertical-align: top; }
+  th { background: #f7f3ec; }
+  code { background: #f2eee8; padding: 2px 5px; border-radius: 4px; }
+  pre { background: #f7f3ec; padding: 14px; overflow-x: auto; }
+  a { color: #8a4b2a; }
+</style>
+</head>
+<body>
+<h1>Production plan — blue-tokai-easy-pour-20s rev-002</h1>
+<p><strong>Run:</strong> <code>rev-002</code> · <strong>Plan hash:</strong> <code>1370f029b0b35730625c459cf85579bfd767d2e4a7b62016055e100d15f2aba5</code></p>
+<p><strong>Status:</strong> Gate 2A <code>ready_for_approval</code>; no paid acquisition or generation yet.</p>
+<h2>Sequence</h2>
+<table>
+<tr><th>Shot</th><th>Frames</th><th>Layers</th><th>Assets</th><th>Ready</th><th>Blockers</th></tr>
+<tr><td>SH-01</td><td>0–75</td><td>6</td><td>AS-02, AS-07</td><td>no</td><td>HI-02</td></tr>
+<tr><td>SH-02</td><td>75–160</td><td>6</td><td>AS-02, AS-05, AS-07</td><td>no</td><td>HI-02, HI-04</td></tr>
+<tr><td>SH-03</td><td>160–275</td><td>6</td><td>AS-02, AS-06, AS-07</td><td>no</td><td>HI-02, HI-04</td></tr>
+<tr><td>SH-04</td><td>275–380</td><td>8</td><td>AS-02, AS-03, AS-04, AS-07, AS-17</td><td>no</td><td>HI-02</td></tr>
+<tr><td>SH-05</td><td>380–445</td><td>6</td><td>AS-02, AS-07, AS-08</td><td>no</td><td>HI-02, HI-04</td></tr>
+<tr><td>SH-06</td><td>445–500</td><td>6</td><td>AS-01, AS-02, AS-07</td><td>no</td><td>HI-02</td></tr>
+</table>
+<h2>Asset queue</h2>
+<table>
+<tr><th>Order</th><th>Asset</th><th>Action</th><th>Shots</th><th>Rights / hold</th><th>Gate</th></tr>
+<tr><td>1</td><td><code>AS-01</code> Blue Tokai Coffee Roasters logo</td><td>Obtain rights and import the supplied file</td><td>SH-06</td><td>needs_approval / <code>HI-02</code></td><td>Level 1 / rights</td></tr>
+<tr><td>2</td><td><code>AS-02</code> Easy Pour Mixed Bag pack</td><td>Obtain rights and import the supplied file</td><td>SH-01, SH-02, SH-03, SH-04, SH-05, SH-06</td><td>needs_approval / <code>HI-02</code></td><td>Level 1 / rights</td></tr>
+<tr><td>3</td><td><code>AS-03</code> Easy Pour Vienna pack</td><td>Obtain rights and import the supplied file</td><td>SH-04</td><td>needs_approval / <code>HI-02</code></td><td>Level 1 / rights</td></tr>
+<tr><td>4</td><td><code>AS-04</code> Easy Pour Attikan Estate pack</td><td>Obtain rights and import the supplied file</td><td>SH-04</td><td>needs_approval / <code>HI-02</code></td><td>Level 1 / rights</td></tr>
+<tr><td>5</td><td><code>AS-09</code> Voice over, warm Indian English</td><td>Record the approved voice artist and clear the release</td><td>—</td><td>needs_approval / <code>HI-03</code></td><td>Level 1 / rights</td></tr>
+<tr><td>6</td><td><code>AS-17</code> Easy Pour Seethargundu Estate pack</td><td>Obtain rights and import the supplied file</td><td>SH-04</td><td>needs_approval / <code>HI-02</code></td><td>Level 1 / rights</td></tr>
+<tr><td>7</td><td><code>AS-05</code> Easy Pour brewing demonstration, hands</td><td>Shoot on the demonstration session and clear the release</td><td>SH-02</td><td>needs_approval / <code>HI-04</code></td><td>Level 1 / rights</td></tr>
+<tr><td>8</td><td><code>AS-06</code> Hot water pour and bloom footage</td><td>Shoot on the demonstration session and clear the release</td><td>SH-03</td><td>needs_approval / <code>HI-04</code></td><td>Level 1 / rights</td></tr>
+<tr><td>9</td><td><code>AS-08</code> Finished cup of coffee</td><td>Shoot on the demonstration session and clear the release</td><td>SH-05</td><td>needs_approval / <code>HI-04</code></td><td>Level 1 / rights</td></tr>
+<tr><td>10</td><td><code>AS-13</code> Captured Mixed Bag fallback</td><td>Shoot on the demonstration session and clear the release</td><td>—</td><td>needs_approval / <code>HI-02</code></td><td>Level 1 / rights</td></tr>
+<tr><td>11</td><td><code>AS-10</code> Music bed, 20 seconds</td><td>Acquire the chosen licence after Gate 2A</td><td>—</td><td>needs_approval / <code>HI-03</code></td><td>Gate 2A</td></tr>
+<tr><td>12</td><td><code>AS-14</code> Music fallback track</td><td>Acquire the chosen licence after Gate 2A</td><td>—</td><td>needs_approval / <code>HI-03</code></td><td>Gate 2A</td></tr>
+<tr><td>13</td><td><code>AS-15</code> Synthetic narration fallback</td><td>Use only as a disclosed fallback</td><td>—</td><td>needs_approval / <code>HI-03</code></td><td>Gate 2A</td></tr>
+<tr><td>14</td><td><code>AS-07</code> Warm kitchen background</td><td>Use the owned in-house file</td><td>SH-01, SH-02, SH-03, SH-04, SH-05, SH-06</td><td>cleared</td><td>Level 1 / rights</td></tr>
+<tr><td>15</td><td><code>AS-11</code> Water pour sound effect</td><td>Use the owned in-house file</td><td>—</td><td>cleared</td><td>Level 1 / rights</td></tr>
+<tr><td>16</td><td><code>AS-12</code> Brand sting</td><td>Use the owned in-house file</td><td>—</td><td>cleared</td><td>Level 1 / rights</td></tr>
+</table>
+<h2>Layer plan</h2>
+<table>
+<tr><th>Shot</th><th>Layer</th><th>Asset</th><th>Method</th><th>Class</th><th>Impact</th><th>Pick</th></tr>
+<tr><td>SH-01</td><td><code>LY-010</code></td><td>AS-07</td><td>M0</td><td>atmospheric</td><td>medium (4)</td><td>human</td></tr>
+<tr><td>SH-01</td><td><code>LY-011</code></td><td>AS-02</td><td>M0</td><td>exact</td><td>high (8)</td><td>human</td></tr>
+<tr><td>SH-01</td><td><code>LY-012</code></td><td>procedural</td><td>M4</td><td>atmospheric</td><td>medium (4)</td><td>human</td></tr>
+<tr><td>SH-01</td><td><code>LY-013</code></td><td>copy:CP-01</td><td>M4</td><td>exact_text</td><td>high (8)</td><td>human</td></tr>
+<tr><td>SH-01</td><td><code>LY-014</code></td><td>procedural</td><td>M4</td><td>representative</td><td>medium (3)</td><td>human</td></tr>
+<tr><td>SH-01</td><td><code>LY-015</code></td><td>copy:CP-07</td><td>M4</td><td>exact_text</td><td>high (5)</td><td>human</td></tr>
+<tr><td>SH-02</td><td><code>LY-020</code></td><td>AS-07</td><td>M0</td><td>atmospheric</td><td>low (2)</td><td>automatic</td></tr>
+<tr><td>SH-02</td><td><code>LY-021</code></td><td>AS-05</td><td>M6</td><td>proof</td><td>high (5)</td><td>human</td></tr>
+<tr><td>SH-02</td><td><code>LY-022</code></td><td>AS-02</td><td>M0</td><td>exact</td><td>high (6)</td><td>human</td></tr>
+<tr><td>SH-02</td><td><code>LY-023</code></td><td>copy:CP-03</td><td>M4</td><td>exact_text</td><td>high (6)</td><td>human</td></tr>
+<tr><td>SH-02</td><td><code>LY-024</code></td><td>procedural</td><td>M4</td><td>representative</td><td>low (1)</td><td>automatic</td></tr>
+<tr><td>SH-02</td><td><code>LY-025</code></td><td>copy:CP-08</td><td>M4</td><td>exact_text</td><td>medium (3)</td><td>human</td></tr>
+<tr><td>SH-03</td><td><code>LY-030</code></td><td>AS-07</td><td>M0</td><td>atmospheric</td><td>low (2)</td><td>automatic</td></tr>
+<tr><td>SH-03</td><td><code>LY-031</code></td><td>AS-06</td><td>M6</td><td>proof</td><td>high (5)</td><td>human</td></tr>
+<tr><td>SH-03</td><td><code>LY-032</code></td><td>AS-02</td><td>M0</td><td>exact</td><td>high (6)</td><td>human</td></tr>
+<tr><td>SH-03</td><td><code>LY-033</code></td><td>copy:CP-02</td><td>M4</td><td>exact_text</td><td>medium (3)</td><td>human</td></tr>
+<tr><td>SH-03</td><td><code>LY-034</code></td><td>procedural</td><td>M4</td><td>representative</td><td>low (1)</td><td>automatic</td></tr>
+<tr><td>SH-03</td><td><code>LY-035</code></td><td>copy:CP-09</td><td>M4</td><td>exact_text</td><td>medium (3)</td><td>human</td></tr>
+<tr><td>SH-04</td><td><code>LY-040</code></td><td>AS-07</td><td>M0</td><td>atmospheric</td><td>low (2)</td><td>automatic</td></tr>
+<tr><td>SH-04</td><td><code>LY-041</code></td><td>AS-02</td><td>M0</td><td>exact</td><td>high (6)</td><td>human</td></tr>
+<tr><td>SH-04</td><td><code>LY-042</code></td><td>AS-03</td><td>M0</td><td>exact</td><td>high (6)</td><td>human</td></tr>
+<tr><td>SH-04</td><td><code>LY-043</code></td><td>AS-04</td><td>M0</td><td>exact</td><td>high (6)</td><td>human</td></tr>
+<tr><td>SH-04</td><td><code>LY-047</code></td><td>AS-17</td><td>M0</td><td>exact</td><td>high (6)</td><td>human</td></tr>
+<tr><td>SH-04</td><td><code>LY-044</code></td><td>copy:CP-04</td><td>M4</td><td>exact_text</td><td>high (6)</td><td>human</td></tr>
+<tr><td>SH-04</td><td><code>LY-045</code></td><td>procedural</td><td>M4</td><td>representative</td><td>low (1)</td><td>automatic</td></tr>
+<tr><td>SH-04</td><td><code>LY-046</code></td><td>copy:CP-10</td><td>M4</td><td>exact_text</td><td>medium (3)</td><td>human</td></tr>
+<tr><td>SH-05</td><td><code>LY-050</code></td><td>AS-07</td><td>M0</td><td>atmospheric</td><td>low (2)</td><td>automatic</td></tr>
+<tr><td>SH-05</td><td><code>LY-051</code></td><td>AS-08</td><td>M6</td><td>proof</td><td>high (5)</td><td>human</td></tr>
+<tr><td>SH-05</td><td><code>LY-052</code></td><td>AS-02</td><td>M0</td><td>exact</td><td>high (6)</td><td>human</td></tr>
+<tr><td>SH-05</td><td><code>LY-053</code></td><td>copy:CP-13</td><td>M4</td><td>exact_text</td><td>medium (3)</td><td>human</td></tr>
+<tr><td>SH-05</td><td><code>LY-054</code></td><td>procedural</td><td>M4</td><td>representative</td><td>low (1)</td><td>automatic</td></tr>
+<tr><td>SH-05</td><td><code>LY-055</code></td><td>copy:CP-12</td><td>M4</td><td>exact_text</td><td>medium (3)</td><td>human</td></tr>
+<tr><td>SH-06</td><td><code>LY-060</code></td><td>AS-07</td><td>M0</td><td>atmospheric</td><td>low (2)</td><td>automatic</td></tr>
+<tr><td>SH-06</td><td><code>LY-061</code></td><td>AS-02</td><td>M0</td><td>exact</td><td>high (6)</td><td>human</td></tr>
+<tr><td>SH-06</td><td><code>LY-062</code></td><td>AS-01</td><td>M0</td><td>exact</td><td>high (6)</td><td>human</td></tr>
+<tr><td>SH-06</td><td><code>LY-063</code></td><td>copy:CP-05</td><td>M4</td><td>exact_text</td><td>high (6)</td><td>human</td></tr>
+<tr><td>SH-06</td><td><code>LY-064</code></td><td>procedural</td><td>M4</td><td>representative</td><td>low (1)</td><td>automatic</td></tr>
+<tr><td>SH-06</td><td><code>LY-065</code></td><td>copy:CP-11</td><td>M4</td><td>exact_text</td><td>medium (3)</td><td>human</td></tr>
+</table>
+<h2>Production notes</h2>
+<ul>
+<li>Supplied brand files and proof captures are non-negotiable; stock and</li>
+</ul>
+<p>generation are not substitutes.</p>
+<ul>
+<li>Stock audio (<code>AS-10</code>, <code>AS-14</code>) is still a preview until Gate 2A and the</li>
+</ul>
+<p>final licence.</p>
+<ul>
+<li><code>AS-15</code> is a disclosed fallback only; the Edge TTS sample is not an</li>
+</ul>
+<p>approved final voice.</p>
+<ul>
+<li>Every paid provider call is reserved and receipted through the</li>
+</ul>
+<p>provider governor.</p>
+</body>
+</html>

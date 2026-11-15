@@ -22,11 +22,12 @@
 <body>
 <h1>Gate 2 review — blue-tokai-easy-pour-20s</h1>
 <h2>How to use this pack</h2>
-<p>1. Read the summary and the budget.</p>
-<p>2. Judge each asset and layer against its acceptance line and preview.</p>
-<p>3. Mark APPROVE / CHANGE / REJECT and write one instruction.</p>
-<p>4. Return the completed form; corrections become a new run, never an edit.</p>
-<p>5. For the media source behind each shot and layer, open <code>SOURCE-SHEET.md</code>.</p>
+<p>1. Read the asset summary table: shot, layer, asset, route and access.</p>
+<p>2. Read the summary and the budget.</p>
+<p>3. Judge each asset and layer against its acceptance line and preview.</p>
+<p>4. Mark APPROVE / CHANGE / REJECT and write one instruction.</p>
+<p>5. Return the completed form; corrections become a new run, never an edit.</p>
+<p>6. For the media source behind each shot and layer, open <code>SOURCE-SHEET.md</code>.</p>
 <pre><code>ID: AS-02
 Decision: APPROVE / CHANGE / REJECT
 Instruction: one concrete change
@@ -51,6 +52,29 @@ Date:</code></pre>
 <tr><td>fal+Runware remaining</td><td>$2.00</td></tr>
 <tr><td>Mode</td><td>lean</td></tr>
 <tr><td>In-kind value</td><td>$81.00</td></tr>
+</table>
+<h2>Main outcome — shot x layer x asset</h2>
+<p>The asset table is the primary review surface. The layer table below adds</p>
+<p>the per-layer method and pick decision. Full access links and agent visual</p>
+<p>QC are in <a href="ASSET-SUMMARY.md">ASSET-SUMMARY.md</a>.</p>
+<table>
+<tr><th>Asset</th><th>Shots</th><th>Asset layers</th><th>Class</th><th>Route</th><th>Source</th><th>Status</th><th>Detail</th></tr>
+<tr><td><code>AS-01</code> Blue Tokai Coffee Roasters logo</td><td>SH-06</td><td>1</td><td>exact</td><td>supplied</td><td>supplied:User-supplied logo attachment, 2026-11-14; public f</td><td>blocked</td><td><a href="ASSET-SUMMARY.md">detail</a></td></tr>
+<tr><td><code>AS-02</code> Easy Pour Mixed Bag pack</td><td>SH-01, SH-02, SH-03, SH-04, SH-05, SH-06</td><td>6</td><td>exact</td><td>supplied</td><td>supplied:https://bluetokaicoffee.com/cdn/shop/files/MixedBag</td><td>blocked</td><td><a href="ASSET-SUMMARY.md">detail</a></td></tr>
+<tr><td><code>AS-03</code> Easy Pour Vienna pack</td><td>SH-04</td><td>1</td><td>exact</td><td>supplied</td><td>supplied:https://bluetokaicoffee.com/cdn/shop/files/ViennaRo</td><td>blocked</td><td><a href="ASSET-SUMMARY.md">detail</a></td></tr>
+<tr><td><code>AS-04</code> Easy Pour Attikan Estate pack</td><td>SH-04</td><td>1</td><td>exact</td><td>supplied</td><td>supplied:https://bluetokaicoffee.com/cdn/shop/files/AttikanE</td><td>blocked</td><td><a href="ASSET-SUMMARY.md">detail</a></td></tr>
+<tr><td><code>AS-17</code> Easy Pour Seethargundu Estate pack</td><td>SH-04</td><td>1</td><td>exact</td><td>supplied</td><td>supplied:https://bluetokaicoffee.com/cdn/shop/files/Seetharg</td><td>blocked</td><td><a href="ASSET-SUMMARY.md">detail</a></td></tr>
+<tr><td><code>AS-05</code> Easy Pour brewing demonstration, hands</td><td>SH-02</td><td>1</td><td>proof</td><td>to_capture</td><td>capture:In-house food shoot</td><td>blocked</td><td><a href="ASSET-SUMMARY.md">detail</a></td></tr>
+<tr><td><code>AS-06</code> Hot water pour and bloom footage</td><td>SH-03</td><td>1</td><td>proof</td><td>to_capture</td><td>capture:In-house food shoot</td><td>blocked</td><td><a href="ASSET-SUMMARY.md">detail</a></td></tr>
+<tr><td><code>AS-07</code> Warm kitchen background</td><td>SH-01, SH-02, SH-03, SH-04, SH-05, SH-06</td><td>6</td><td>atmospheric</td><td>owned</td><td>owned:In-house set build</td><td>planned</td><td><a href="ASSET-SUMMARY.md">detail</a></td></tr>
+<tr><td><code>AS-08</code> Finished cup of coffee</td><td>SH-05</td><td>1</td><td>proof</td><td>to_capture</td><td>capture:In-house food shoot</td><td>blocked</td><td><a href="ASSET-SUMMARY.md">detail</a></td></tr>
+<tr><td><code>AS-09</code> Voice over, warm Indian English</td><td>—</td><td>0</td><td>representative</td><td>to_create</td><td>supplied:Voice artist session</td><td>blocked</td><td><a href="ASSET-SUMMARY.md">detail</a></td></tr>
+<tr><td><code>AS-10</code> Music bed, 20 seconds</td><td>—</td><td>0</td><td>atmospheric</td><td>to_source</td><td>stock:ccmixter:Lost Roamin&#x27;</td><td>blocked</td><td><a href="ASSET-SUMMARY.md">detail</a></td></tr>
+<tr><td><code>AS-11</code> Water pour sound effect</td><td>—</td><td>0</td><td>atmospheric</td><td>owned</td><td>owned:In-house sound design</td><td>planned</td><td><a href="ASSET-SUMMARY.md">detail</a></td></tr>
+<tr><td><code>AS-12</code> Brand sting</td><td>—</td><td>0</td><td>atmospheric</td><td>owned</td><td>owned:In-house sound design</td><td>planned</td><td><a href="ASSET-SUMMARY.md">detail</a></td></tr>
+<tr><td><code>AS-13</code> Captured Mixed Bag fallback</td><td>—</td><td>0</td><td>exact</td><td>to_capture</td><td>capture:In-house studio capture</td><td>conditional</td><td><a href="ASSET-SUMMARY.md">detail</a></td></tr>
+<tr><td><code>AS-14</code> Music fallback track</td><td>—</td><td>0</td><td>atmospheric</td><td>to_source</td><td>stock:ccmixter:This Is Our Music - Instrumental</td><td>conditional</td><td><a href="ASSET-SUMMARY.md">detail</a></td></tr>
+<tr><td><code>AS-15</code> Synthetic narration fallback</td><td>—</td><td>0</td><td>representative</td><td>to_generate</td><td>generate:Approved speech provider</td><td>conditional</td><td><a href="ASSET-SUMMARY.md">detail</a></td></tr>
 </table>
 <h2>Budget</h2>
 <table>
@@ -285,45 +309,45 @@ Date:</code></pre>
 </ul>
 <h2>Layers</h2>
 <table>
-<tr><th>Layer</th><th>Shot</th><th>Class</th><th>Impact</th><th>Method</th><th>Fallback</th><th>Probe</th><th>Pick</th></tr>
-<tr><td><code>LY-010</code></td><td>SH-01</td><td>atmospheric</td><td>medium (4)</td><td>M0</td><td>M4</td><td>no</td><td>human</td></tr>
-<tr><td><code>LY-011</code></td><td>SH-01</td><td>exact</td><td>high (8)</td><td>M0</td><td>M0</td><td>no</td><td>human</td></tr>
-<tr><td><code>LY-012</code></td><td>SH-01</td><td>atmospheric</td><td>medium (4)</td><td>M4</td><td>M4</td><td>yes</td><td>human</td></tr>
-<tr><td><code>LY-013</code></td><td>SH-01</td><td>exact_text</td><td>high (8)</td><td>M4</td><td>M4</td><td>yes</td><td>human</td></tr>
-<tr><td><code>LY-014</code></td><td>SH-01</td><td>representative</td><td>medium (3)</td><td>M4</td><td>M4</td><td>yes</td><td>human</td></tr>
-<tr><td><code>LY-015</code></td><td>SH-01</td><td>exact_text</td><td>high (5)</td><td>M4</td><td>M4</td><td>yes</td><td>human</td></tr>
-<tr><td><code>LY-020</code></td><td>SH-02</td><td>atmospheric</td><td>low (2)</td><td>M0</td><td>M4</td><td>no</td><td>automatic</td></tr>
-<tr><td><code>LY-021</code></td><td>SH-02</td><td>proof</td><td>high (5)</td><td>M6</td><td>M6</td><td>yes</td><td>human</td></tr>
-<tr><td><code>LY-022</code></td><td>SH-02</td><td>exact</td><td>high (6)</td><td>M0</td><td>M0</td><td>no</td><td>human</td></tr>
-<tr><td><code>LY-023</code></td><td>SH-02</td><td>exact_text</td><td>high (6)</td><td>M4</td><td>M4</td><td>yes</td><td>human</td></tr>
-<tr><td><code>LY-024</code></td><td>SH-02</td><td>representative</td><td>low (1)</td><td>M4</td><td>M4</td><td>yes</td><td>automatic</td></tr>
-<tr><td><code>LY-025</code></td><td>SH-02</td><td>exact_text</td><td>medium (3)</td><td>M4</td><td>M4</td><td>yes</td><td>human</td></tr>
-<tr><td><code>LY-030</code></td><td>SH-03</td><td>atmospheric</td><td>low (2)</td><td>M0</td><td>M4</td><td>no</td><td>automatic</td></tr>
-<tr><td><code>LY-031</code></td><td>SH-03</td><td>proof</td><td>high (5)</td><td>M6</td><td>M6</td><td>yes</td><td>human</td></tr>
-<tr><td><code>LY-032</code></td><td>SH-03</td><td>exact</td><td>high (6)</td><td>M0</td><td>M0</td><td>no</td><td>human</td></tr>
-<tr><td><code>LY-033</code></td><td>SH-03</td><td>exact_text</td><td>medium (3)</td><td>M4</td><td>M4</td><td>yes</td><td>human</td></tr>
-<tr><td><code>LY-034</code></td><td>SH-03</td><td>representative</td><td>low (1)</td><td>M4</td><td>M4</td><td>yes</td><td>automatic</td></tr>
-<tr><td><code>LY-035</code></td><td>SH-03</td><td>exact_text</td><td>medium (3)</td><td>M4</td><td>M4</td><td>yes</td><td>human</td></tr>
-<tr><td><code>LY-040</code></td><td>SH-04</td><td>atmospheric</td><td>low (2)</td><td>M0</td><td>M4</td><td>no</td><td>automatic</td></tr>
-<tr><td><code>LY-041</code></td><td>SH-04</td><td>exact</td><td>high (6)</td><td>M0</td><td>M0</td><td>no</td><td>human</td></tr>
-<tr><td><code>LY-042</code></td><td>SH-04</td><td>exact</td><td>high (6)</td><td>M0</td><td>M0</td><td>no</td><td>human</td></tr>
-<tr><td><code>LY-043</code></td><td>SH-04</td><td>exact</td><td>high (6)</td><td>M0</td><td>M0</td><td>no</td><td>human</td></tr>
-<tr><td><code>LY-047</code></td><td>SH-04</td><td>exact</td><td>high (6)</td><td>M0</td><td>M0</td><td>no</td><td>human</td></tr>
-<tr><td><code>LY-044</code></td><td>SH-04</td><td>exact_text</td><td>high (6)</td><td>M4</td><td>M4</td><td>yes</td><td>human</td></tr>
-<tr><td><code>LY-045</code></td><td>SH-04</td><td>representative</td><td>low (1)</td><td>M4</td><td>M4</td><td>yes</td><td>automatic</td></tr>
-<tr><td><code>LY-046</code></td><td>SH-04</td><td>exact_text</td><td>medium (3)</td><td>M4</td><td>M4</td><td>yes</td><td>human</td></tr>
-<tr><td><code>LY-050</code></td><td>SH-05</td><td>atmospheric</td><td>low (2)</td><td>M0</td><td>M4</td><td>no</td><td>automatic</td></tr>
-<tr><td><code>LY-051</code></td><td>SH-05</td><td>proof</td><td>high (5)</td><td>M6</td><td>M6</td><td>yes</td><td>human</td></tr>
-<tr><td><code>LY-052</code></td><td>SH-05</td><td>exact</td><td>high (6)</td><td>M0</td><td>M0</td><td>no</td><td>human</td></tr>
-<tr><td><code>LY-053</code></td><td>SH-05</td><td>exact_text</td><td>medium (3)</td><td>M4</td><td>M4</td><td>yes</td><td>human</td></tr>
-<tr><td><code>LY-054</code></td><td>SH-05</td><td>representative</td><td>low (1)</td><td>M4</td><td>M4</td><td>yes</td><td>automatic</td></tr>
-<tr><td><code>LY-055</code></td><td>SH-05</td><td>exact_text</td><td>medium (3)</td><td>M4</td><td>M4</td><td>yes</td><td>human</td></tr>
-<tr><td><code>LY-060</code></td><td>SH-06</td><td>atmospheric</td><td>low (2)</td><td>M0</td><td>M4</td><td>no</td><td>automatic</td></tr>
-<tr><td><code>LY-061</code></td><td>SH-06</td><td>exact</td><td>high (6)</td><td>M0</td><td>M0</td><td>no</td><td>human</td></tr>
-<tr><td><code>LY-062</code></td><td>SH-06</td><td>exact</td><td>high (6)</td><td>M0</td><td>M0</td><td>no</td><td>human</td></tr>
-<tr><td><code>LY-063</code></td><td>SH-06</td><td>exact_text</td><td>high (6)</td><td>M4</td><td>M4</td><td>yes</td><td>human</td></tr>
-<tr><td><code>LY-064</code></td><td>SH-06</td><td>representative</td><td>low (1)</td><td>M4</td><td>M4</td><td>yes</td><td>automatic</td></tr>
-<tr><td><code>LY-065</code></td><td>SH-06</td><td>exact_text</td><td>medium (3)</td><td>M4</td><td>M4</td><td>yes</td><td>human</td></tr>
+<tr><th>Layer</th><th>Shot</th><th>Asset</th><th>Class</th><th>Impact</th><th>Method</th><th>Fallback</th><th>Probe</th><th>Pick</th></tr>
+<tr><td><code>LY-010</code></td><td>SH-01</td><td>AS-07</td><td>atmospheric</td><td>medium (4)</td><td>M0</td><td>M4</td><td>no</td><td>human</td></tr>
+<tr><td><code>LY-011</code></td><td>SH-01</td><td>AS-02</td><td>exact</td><td>high (8)</td><td>M0</td><td>M0</td><td>no</td><td>human</td></tr>
+<tr><td><code>LY-012</code></td><td>SH-01</td><td>procedural</td><td>atmospheric</td><td>medium (4)</td><td>M4</td><td>M4</td><td>yes</td><td>human</td></tr>
+<tr><td><code>LY-013</code></td><td>SH-01</td><td>copy:CP-01</td><td>exact_text</td><td>high (8)</td><td>M4</td><td>M4</td><td>yes</td><td>human</td></tr>
+<tr><td><code>LY-014</code></td><td>SH-01</td><td>procedural</td><td>representative</td><td>medium (3)</td><td>M4</td><td>M4</td><td>yes</td><td>human</td></tr>
+<tr><td><code>LY-015</code></td><td>SH-01</td><td>copy:CP-07</td><td>exact_text</td><td>high (5)</td><td>M4</td><td>M4</td><td>yes</td><td>human</td></tr>
+<tr><td><code>LY-020</code></td><td>SH-02</td><td>AS-07</td><td>atmospheric</td><td>low (2)</td><td>M0</td><td>M4</td><td>no</td><td>automatic</td></tr>
+<tr><td><code>LY-021</code></td><td>SH-02</td><td>AS-05</td><td>proof</td><td>high (5)</td><td>M6</td><td>M6</td><td>yes</td><td>human</td></tr>
+<tr><td><code>LY-022</code></td><td>SH-02</td><td>AS-02</td><td>exact</td><td>high (6)</td><td>M0</td><td>M0</td><td>no</td><td>human</td></tr>
+<tr><td><code>LY-023</code></td><td>SH-02</td><td>copy:CP-03</td><td>exact_text</td><td>high (6)</td><td>M4</td><td>M4</td><td>yes</td><td>human</td></tr>
+<tr><td><code>LY-024</code></td><td>SH-02</td><td>procedural</td><td>representative</td><td>low (1)</td><td>M4</td><td>M4</td><td>yes</td><td>automatic</td></tr>
+<tr><td><code>LY-025</code></td><td>SH-02</td><td>copy:CP-08</td><td>exact_text</td><td>medium (3)</td><td>M4</td><td>M4</td><td>yes</td><td>human</td></tr>
+<tr><td><code>LY-030</code></td><td>SH-03</td><td>AS-07</td><td>atmospheric</td><td>low (2)</td><td>M0</td><td>M4</td><td>no</td><td>automatic</td></tr>
+<tr><td><code>LY-031</code></td><td>SH-03</td><td>AS-06</td><td>proof</td><td>high (5)</td><td>M6</td><td>M6</td><td>yes</td><td>human</td></tr>
+<tr><td><code>LY-032</code></td><td>SH-03</td><td>AS-02</td><td>exact</td><td>high (6)</td><td>M0</td><td>M0</td><td>no</td><td>human</td></tr>
+<tr><td><code>LY-033</code></td><td>SH-03</td><td>copy:CP-02</td><td>exact_text</td><td>medium (3)</td><td>M4</td><td>M4</td><td>yes</td><td>human</td></tr>
+<tr><td><code>LY-034</code></td><td>SH-03</td><td>procedural</td><td>representative</td><td>low (1)</td><td>M4</td><td>M4</td><td>yes</td><td>automatic</td></tr>
+<tr><td><code>LY-035</code></td><td>SH-03</td><td>copy:CP-09</td><td>exact_text</td><td>medium (3)</td><td>M4</td><td>M4</td><td>yes</td><td>human</td></tr>
+<tr><td><code>LY-040</code></td><td>SH-04</td><td>AS-07</td><td>atmospheric</td><td>low (2)</td><td>M0</td><td>M4</td><td>no</td><td>automatic</td></tr>
+<tr><td><code>LY-041</code></td><td>SH-04</td><td>AS-02</td><td>exact</td><td>high (6)</td><td>M0</td><td>M0</td><td>no</td><td>human</td></tr>
+<tr><td><code>LY-042</code></td><td>SH-04</td><td>AS-03</td><td>exact</td><td>high (6)</td><td>M0</td><td>M0</td><td>no</td><td>human</td></tr>
+<tr><td><code>LY-043</code></td><td>SH-04</td><td>AS-04</td><td>exact</td><td>high (6)</td><td>M0</td><td>M0</td><td>no</td><td>human</td></tr>
+<tr><td><code>LY-047</code></td><td>SH-04</td><td>AS-17</td><td>exact</td><td>high (6)</td><td>M0</td><td>M0</td><td>no</td><td>human</td></tr>
+<tr><td><code>LY-044</code></td><td>SH-04</td><td>copy:CP-04</td><td>exact_text</td><td>high (6)</td><td>M4</td><td>M4</td><td>yes</td><td>human</td></tr>
+<tr><td><code>LY-045</code></td><td>SH-04</td><td>procedural</td><td>representative</td><td>low (1)</td><td>M4</td><td>M4</td><td>yes</td><td>automatic</td></tr>
+<tr><td><code>LY-046</code></td><td>SH-04</td><td>copy:CP-10</td><td>exact_text</td><td>medium (3)</td><td>M4</td><td>M4</td><td>yes</td><td>human</td></tr>
+<tr><td><code>LY-050</code></td><td>SH-05</td><td>AS-07</td><td>atmospheric</td><td>low (2)</td><td>M0</td><td>M4</td><td>no</td><td>automatic</td></tr>
+<tr><td><code>LY-051</code></td><td>SH-05</td><td>AS-08</td><td>proof</td><td>high (5)</td><td>M6</td><td>M6</td><td>yes</td><td>human</td></tr>
+<tr><td><code>LY-052</code></td><td>SH-05</td><td>AS-02</td><td>exact</td><td>high (6)</td><td>M0</td><td>M0</td><td>no</td><td>human</td></tr>
+<tr><td><code>LY-053</code></td><td>SH-05</td><td>copy:CP-13</td><td>exact_text</td><td>medium (3)</td><td>M4</td><td>M4</td><td>yes</td><td>human</td></tr>
+<tr><td><code>LY-054</code></td><td>SH-05</td><td>procedural</td><td>representative</td><td>low (1)</td><td>M4</td><td>M4</td><td>yes</td><td>automatic</td></tr>
+<tr><td><code>LY-055</code></td><td>SH-05</td><td>copy:CP-12</td><td>exact_text</td><td>medium (3)</td><td>M4</td><td>M4</td><td>yes</td><td>human</td></tr>
+<tr><td><code>LY-060</code></td><td>SH-06</td><td>AS-07</td><td>atmospheric</td><td>low (2)</td><td>M0</td><td>M4</td><td>no</td><td>automatic</td></tr>
+<tr><td><code>LY-061</code></td><td>SH-06</td><td>AS-02</td><td>exact</td><td>high (6)</td><td>M0</td><td>M0</td><td>no</td><td>human</td></tr>
+<tr><td><code>LY-062</code></td><td>SH-06</td><td>AS-01</td><td>exact</td><td>high (6)</td><td>M0</td><td>M0</td><td>no</td><td>human</td></tr>
+<tr><td><code>LY-063</code></td><td>SH-06</td><td>copy:CP-05</td><td>exact_text</td><td>high (6)</td><td>M4</td><td>M4</td><td>yes</td><td>human</td></tr>
+<tr><td><code>LY-064</code></td><td>SH-06</td><td>procedural</td><td>representative</td><td>low (1)</td><td>M4</td><td>M4</td><td>yes</td><td>automatic</td></tr>
+<tr><td><code>LY-065</code></td><td>SH-06</td><td>copy:CP-11</td><td>exact_text</td><td>medium (3)</td><td>M4</td><td>M4</td><td>yes</td><td>human</td></tr>
 </table>
 <h2>Shots</h2>
 <table>

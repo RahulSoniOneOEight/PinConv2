@@ -2,11 +2,12 @@
 
 ## How to use this pack
 
-1. Read the summary and the budget.
-2. Judge each asset and layer against its acceptance line and preview.
-3. Mark APPROVE / CHANGE / REJECT and write one instruction.
-4. Return the completed form; corrections become a new run, never an edit.
-5. For the media source behind each shot and layer, open `SOURCE-SHEET.md`.
+1. Read the asset summary table: shot, layer, asset, route and access.
+2. Read the summary and the budget.
+3. Judge each asset and layer against its acceptance line and preview.
+4. Mark APPROVE / CHANGE / REJECT and write one instruction.
+5. Return the completed form; corrections become a new run, never an edit.
+6. For the media source behind each shot and layer, open `SOURCE-SHEET.md`.
 
 ```
 ID: AS-02
@@ -36,6 +37,31 @@ Date:
 | fal+Runware remaining | $2.00 |
 | Mode | lean |
 | In-kind value | $81.00 |
+
+## Main outcome — shot x layer x asset
+
+The asset table is the primary review surface. The layer table below adds
+the per-layer method and pick decision. Full access links and agent visual
+QC are in [ASSET-SUMMARY.md](ASSET-SUMMARY.md).
+
+| Asset | Shots | Asset layers | Class | Route | Source | Status | Detail |
+|---|---|---|---|---|---|---|---|
+| `AS-01` Blue Tokai Coffee Roasters logo | SH-06 | 1 | exact | supplied | supplied:User-supplied logo attachment, 2026-11-14; public f | blocked | [detail](ASSET-SUMMARY.md) |
+| `AS-02` Easy Pour Mixed Bag pack | SH-01, SH-02, SH-03, SH-04, SH-05, SH-06 | 6 | exact | supplied | supplied:https://bluetokaicoffee.com/cdn/shop/files/MixedBag | blocked | [detail](ASSET-SUMMARY.md) |
+| `AS-03` Easy Pour Vienna pack | SH-04 | 1 | exact | supplied | supplied:https://bluetokaicoffee.com/cdn/shop/files/ViennaRo | blocked | [detail](ASSET-SUMMARY.md) |
+| `AS-04` Easy Pour Attikan Estate pack | SH-04 | 1 | exact | supplied | supplied:https://bluetokaicoffee.com/cdn/shop/files/AttikanE | blocked | [detail](ASSET-SUMMARY.md) |
+| `AS-17` Easy Pour Seethargundu Estate pack | SH-04 | 1 | exact | supplied | supplied:https://bluetokaicoffee.com/cdn/shop/files/Seetharg | blocked | [detail](ASSET-SUMMARY.md) |
+| `AS-05` Easy Pour brewing demonstration, hands | SH-02 | 1 | proof | to_capture | capture:In-house food shoot | blocked | [detail](ASSET-SUMMARY.md) |
+| `AS-06` Hot water pour and bloom footage | SH-03 | 1 | proof | to_capture | capture:In-house food shoot | blocked | [detail](ASSET-SUMMARY.md) |
+| `AS-07` Warm kitchen background | SH-01, SH-02, SH-03, SH-04, SH-05, SH-06 | 6 | atmospheric | owned | owned:In-house set build | planned | [detail](ASSET-SUMMARY.md) |
+| `AS-08` Finished cup of coffee | SH-05 | 1 | proof | to_capture | capture:In-house food shoot | blocked | [detail](ASSET-SUMMARY.md) |
+| `AS-09` Voice over, warm Indian English | — | 0 | representative | to_create | supplied:Voice artist session | blocked | [detail](ASSET-SUMMARY.md) |
+| `AS-10` Music bed, 20 seconds | — | 0 | atmospheric | to_source | stock:ccmixter:Lost Roamin' | blocked | [detail](ASSET-SUMMARY.md) |
+| `AS-11` Water pour sound effect | — | 0 | atmospheric | owned | owned:In-house sound design | planned | [detail](ASSET-SUMMARY.md) |
+| `AS-12` Brand sting | — | 0 | atmospheric | owned | owned:In-house sound design | planned | [detail](ASSET-SUMMARY.md) |
+| `AS-13` Captured Mixed Bag fallback | — | 0 | exact | to_capture | capture:In-house studio capture | conditional | [detail](ASSET-SUMMARY.md) |
+| `AS-14` Music fallback track | — | 0 | atmospheric | to_source | stock:ccmixter:This Is Our Music - Instrumental | conditional | [detail](ASSET-SUMMARY.md) |
+| `AS-15` Synthetic narration fallback | — | 0 | representative | to_generate | generate:Approved speech provider | conditional | [detail](ASSET-SUMMARY.md) |
 
 ## Budget
 
@@ -272,46 +298,46 @@ Raw per-asset estimates: $89.00; lean mode carries $81.00 as in-kind.
 
 ## Layers
 
-| Layer | Shot | Class | Impact | Method | Fallback | Probe | Pick |
-|---|---|---|---|---|---|---|---|
-| `LY-010` | SH-01 | atmospheric | medium (4) | M0 | M4 | no | human |
-| `LY-011` | SH-01 | exact | high (8) | M0 | M0 | no | human |
-| `LY-012` | SH-01 | atmospheric | medium (4) | M4 | M4 | yes | human |
-| `LY-013` | SH-01 | exact_text | high (8) | M4 | M4 | yes | human |
-| `LY-014` | SH-01 | representative | medium (3) | M4 | M4 | yes | human |
-| `LY-015` | SH-01 | exact_text | high (5) | M4 | M4 | yes | human |
-| `LY-020` | SH-02 | atmospheric | low (2) | M0 | M4 | no | automatic |
-| `LY-021` | SH-02 | proof | high (5) | M6 | M6 | yes | human |
-| `LY-022` | SH-02 | exact | high (6) | M0 | M0 | no | human |
-| `LY-023` | SH-02 | exact_text | high (6) | M4 | M4 | yes | human |
-| `LY-024` | SH-02 | representative | low (1) | M4 | M4 | yes | automatic |
-| `LY-025` | SH-02 | exact_text | medium (3) | M4 | M4 | yes | human |
-| `LY-030` | SH-03 | atmospheric | low (2) | M0 | M4 | no | automatic |
-| `LY-031` | SH-03 | proof | high (5) | M6 | M6 | yes | human |
-| `LY-032` | SH-03 | exact | high (6) | M0 | M0 | no | human |
-| `LY-033` | SH-03 | exact_text | medium (3) | M4 | M4 | yes | human |
-| `LY-034` | SH-03 | representative | low (1) | M4 | M4 | yes | automatic |
-| `LY-035` | SH-03 | exact_text | medium (3) | M4 | M4 | yes | human |
-| `LY-040` | SH-04 | atmospheric | low (2) | M0 | M4 | no | automatic |
-| `LY-041` | SH-04 | exact | high (6) | M0 | M0 | no | human |
-| `LY-042` | SH-04 | exact | high (6) | M0 | M0 | no | human |
-| `LY-043` | SH-04 | exact | high (6) | M0 | M0 | no | human |
-| `LY-047` | SH-04 | exact | high (6) | M0 | M0 | no | human |
-| `LY-044` | SH-04 | exact_text | high (6) | M4 | M4 | yes | human |
-| `LY-045` | SH-04 | representative | low (1) | M4 | M4 | yes | automatic |
-| `LY-046` | SH-04 | exact_text | medium (3) | M4 | M4 | yes | human |
-| `LY-050` | SH-05 | atmospheric | low (2) | M0 | M4 | no | automatic |
-| `LY-051` | SH-05 | proof | high (5) | M6 | M6 | yes | human |
-| `LY-052` | SH-05 | exact | high (6) | M0 | M0 | no | human |
-| `LY-053` | SH-05 | exact_text | medium (3) | M4 | M4 | yes | human |
-| `LY-054` | SH-05 | representative | low (1) | M4 | M4 | yes | automatic |
-| `LY-055` | SH-05 | exact_text | medium (3) | M4 | M4 | yes | human |
-| `LY-060` | SH-06 | atmospheric | low (2) | M0 | M4 | no | automatic |
-| `LY-061` | SH-06 | exact | high (6) | M0 | M0 | no | human |
-| `LY-062` | SH-06 | exact | high (6) | M0 | M0 | no | human |
-| `LY-063` | SH-06 | exact_text | high (6) | M4 | M4 | yes | human |
-| `LY-064` | SH-06 | representative | low (1) | M4 | M4 | yes | automatic |
-| `LY-065` | SH-06 | exact_text | medium (3) | M4 | M4 | yes | human |
+| Layer | Shot | Asset | Class | Impact | Method | Fallback | Probe | Pick |
+|---|---|---|---|---|---|---|---|---|
+| `LY-010` | SH-01 | AS-07 | atmospheric | medium (4) | M0 | M4 | no | human |
+| `LY-011` | SH-01 | AS-02 | exact | high (8) | M0 | M0 | no | human |
+| `LY-012` | SH-01 | procedural | atmospheric | medium (4) | M4 | M4 | yes | human |
+| `LY-013` | SH-01 | copy:CP-01 | exact_text | high (8) | M4 | M4 | yes | human |
+| `LY-014` | SH-01 | procedural | representative | medium (3) | M4 | M4 | yes | human |
+| `LY-015` | SH-01 | copy:CP-07 | exact_text | high (5) | M4 | M4 | yes | human |
+| `LY-020` | SH-02 | AS-07 | atmospheric | low (2) | M0 | M4 | no | automatic |
+| `LY-021` | SH-02 | AS-05 | proof | high (5) | M6 | M6 | yes | human |
+| `LY-022` | SH-02 | AS-02 | exact | high (6) | M0 | M0 | no | human |
+| `LY-023` | SH-02 | copy:CP-03 | exact_text | high (6) | M4 | M4 | yes | human |
+| `LY-024` | SH-02 | procedural | representative | low (1) | M4 | M4 | yes | automatic |
+| `LY-025` | SH-02 | copy:CP-08 | exact_text | medium (3) | M4 | M4 | yes | human |
+| `LY-030` | SH-03 | AS-07 | atmospheric | low (2) | M0 | M4 | no | automatic |
+| `LY-031` | SH-03 | AS-06 | proof | high (5) | M6 | M6 | yes | human |
+| `LY-032` | SH-03 | AS-02 | exact | high (6) | M0 | M0 | no | human |
+| `LY-033` | SH-03 | copy:CP-02 | exact_text | medium (3) | M4 | M4 | yes | human |
+| `LY-034` | SH-03 | procedural | representative | low (1) | M4 | M4 | yes | automatic |
+| `LY-035` | SH-03 | copy:CP-09 | exact_text | medium (3) | M4 | M4 | yes | human |
+| `LY-040` | SH-04 | AS-07 | atmospheric | low (2) | M0 | M4 | no | automatic |
+| `LY-041` | SH-04 | AS-02 | exact | high (6) | M0 | M0 | no | human |
+| `LY-042` | SH-04 | AS-03 | exact | high (6) | M0 | M0 | no | human |
+| `LY-043` | SH-04 | AS-04 | exact | high (6) | M0 | M0 | no | human |
+| `LY-047` | SH-04 | AS-17 | exact | high (6) | M0 | M0 | no | human |
+| `LY-044` | SH-04 | copy:CP-04 | exact_text | high (6) | M4 | M4 | yes | human |
+| `LY-045` | SH-04 | procedural | representative | low (1) | M4 | M4 | yes | automatic |
+| `LY-046` | SH-04 | copy:CP-10 | exact_text | medium (3) | M4 | M4 | yes | human |
+| `LY-050` | SH-05 | AS-07 | atmospheric | low (2) | M0 | M4 | no | automatic |
+| `LY-051` | SH-05 | AS-08 | proof | high (5) | M6 | M6 | yes | human |
+| `LY-052` | SH-05 | AS-02 | exact | high (6) | M0 | M0 | no | human |
+| `LY-053` | SH-05 | copy:CP-13 | exact_text | medium (3) | M4 | M4 | yes | human |
+| `LY-054` | SH-05 | procedural | representative | low (1) | M4 | M4 | yes | automatic |
+| `LY-055` | SH-05 | copy:CP-12 | exact_text | medium (3) | M4 | M4 | yes | human |
+| `LY-060` | SH-06 | AS-07 | atmospheric | low (2) | M0 | M4 | no | automatic |
+| `LY-061` | SH-06 | AS-02 | exact | high (6) | M0 | M0 | no | human |
+| `LY-062` | SH-06 | AS-01 | exact | high (6) | M0 | M0 | no | human |
+| `LY-063` | SH-06 | copy:CP-05 | exact_text | high (6) | M4 | M4 | yes | human |
+| `LY-064` | SH-06 | procedural | representative | low (1) | M4 | M4 | yes | automatic |
+| `LY-065` | SH-06 | copy:CP-11 | exact_text | medium (3) | M4 | M4 | yes | human |
 
 ## Shots
 

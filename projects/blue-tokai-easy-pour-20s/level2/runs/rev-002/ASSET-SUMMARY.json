@@ -1,0 +1,444 @@
+{
+  "rows": [
+    {
+      "access_link": "[open](qc/assets/AS-01.png)",
+      "access_path": "qc/assets/AS-01.png",
+      "action": "Obtain rights and import the supplied file",
+      "asset_id": "AS-01",
+      "hold": "HI-02",
+      "impact": "high",
+      "layer_count": 1,
+      "layers": [
+        "LY-062"
+      ],
+      "methods": [
+        "M0"
+      ],
+      "name": "Blue Tokai Coffee Roasters logo",
+      "qc_notes": "Clean transparent logo, correct Blue Tokai lockup; 188x128 px may soften if scaled beyond 1x at 1080p. Request vector or larger master.",
+      "qc_reviewer": "agent:multimodal",
+      "qc_verdict": "warn",
+      "rights": "needs_approval",
+      "route": "supplied",
+      "route_raw": "supplied",
+      "shots": [
+        "SH-06"
+      ],
+      "source": "supplied:User-supplied logo attachment, 2026-11-14; public footer fallback: https://bluetokaicoffee.com/cdn/shop/files/logo-footer.png?v=1688108473",
+      "status": "blocked",
+      "truth_class": "exact"
+    },
+    {
+      "access_link": "[open](qc/assets/AS-02.jpg)",
+      "access_path": "qc/assets/AS-02.jpg",
+      "action": "Obtain rights and import the supplied file",
+      "asset_id": "AS-02",
+      "hold": "HI-02",
+      "impact": "high",
+      "layer_count": 6,
+      "layers": [
+        "LY-011",
+        "LY-022",
+        "LY-032",
+        "LY-041",
+        "LY-052",
+        "LY-061"
+      ],
+      "methods": [
+        "M0"
+      ],
+      "name": "Easy Pour Mixed Bag pack",
+      "qc_notes": "Mixed Bag pack front is sharp, correct product identity, label legible, no watermark.",
+      "qc_reviewer": "agent:multimodal",
+      "qc_verdict": "pass",
+      "rights": "needs_approval",
+      "route": "supplied",
+      "route_raw": "supplied",
+      "shots": [
+        "SH-01",
+        "SH-02",
+        "SH-03",
+        "SH-04",
+        "SH-05",
+        "SH-06"
+      ],
+      "source": "supplied:https://bluetokaicoffee.com/cdn/shop/files/MixedBag__Front_c9b610f1-ce4a-4b53-8b30-f6ca758eb6bb.jpg?v=1717566490",
+      "status": "blocked",
+      "truth_class": "exact"
+    },
+    {
+      "access_link": "[open](qc/assets/AS-03.jpg)",
+      "access_path": "qc/assets/AS-03.jpg",
+      "action": "Obtain rights and import the supplied file",
+      "asset_id": "AS-03",
+      "hold": "HI-02",
+      "impact": "high",
+      "layer_count": 1,
+      "layers": [
+        "LY-042"
+      ],
+      "methods": [
+        "M0"
+      ],
+      "name": "Easy Pour Vienna pack",
+      "qc_notes": "Vienna Roast pack front is sharp, correct product identity, label legible, no watermark.",
+      "qc_reviewer": "agent:multimodal",
+      "qc_verdict": "pass",
+      "rights": "needs_approval",
+      "route": "supplied",
+      "route_raw": "supplied",
+      "shots": [
+        "SH-04"
+      ],
+      "source": "supplied:https://bluetokaicoffee.com/cdn/shop/files/ViennaRoast__Front_1_a175faba-8e5f-40b8-aaa1-0efc3a525321.jpg?v=1717565466",
+      "status": "blocked",
+      "truth_class": "exact"
+    },
+    {
+      "access_link": "[open](qc/assets/AS-04.jpg)",
+      "access_path": "qc/assets/AS-04.jpg",
+      "action": "Obtain rights and import the supplied file",
+      "asset_id": "AS-04",
+      "hold": "HI-02",
+      "impact": "high",
+      "layer_count": 1,
+      "layers": [
+        "LY-043"
+      ],
+      "methods": [
+        "M0"
+      ],
+      "name": "Easy Pour Attikan Estate pack",
+      "qc_notes": "Attikan Estate pack front is sharp, correct product identity, label legible, no watermark.",
+      "qc_reviewer": "agent:multimodal",
+      "qc_verdict": "pass",
+      "rights": "needs_approval",
+      "route": "supplied",
+      "route_raw": "supplied",
+      "shots": [
+        "SH-04"
+      ],
+      "source": "supplied:https://bluetokaicoffee.com/cdn/shop/files/AttikanEstate__Front.jpg?v=1764321548",
+      "status": "blocked",
+      "truth_class": "exact"
+    },
+    {
+      "access_link": "not delivered",
+      "access_path": "",
+      "action": "Shoot on the demonstration session and clear the release",
+      "asset_id": "AS-05",
+      "hold": "HI-04",
+      "impact": "high",
+      "layer_count": 1,
+      "layers": [
+        "LY-021"
+      ],
+      "methods": [
+        "M6"
+      ],
+      "name": "Easy Pour brewing demonstration, hands",
+      "qc_notes": "No capture file yet; visual QC waits for the demonstration shoot.",
+      "qc_reviewer": "agent:multimodal",
+      "qc_verdict": "pending",
+      "rights": "needs_approval",
+      "route": "capture",
+      "route_raw": "to_capture",
+      "shots": [
+        "SH-02"
+      ],
+      "source": "capture:In-house food shoot",
+      "status": "blocked",
+      "truth_class": "proof"
+    },
+    {
+      "access_link": "not delivered",
+      "access_path": "",
+      "action": "Shoot on the demonstration session and clear the release",
+      "asset_id": "AS-06",
+      "hold": "HI-04",
+      "impact": "high",
+      "layer_count": 1,
+      "layers": [
+        "LY-031"
+      ],
+      "methods": [
+        "M6"
+      ],
+      "name": "Hot water pour and bloom footage",
+      "qc_notes": "No capture file yet; visual QC waits for the demonstration shoot.",
+      "qc_reviewer": "agent:multimodal",
+      "qc_verdict": "pending",
+      "rights": "needs_approval",
+      "route": "capture",
+      "route_raw": "to_capture",
+      "shots": [
+        "SH-03"
+      ],
+      "source": "capture:In-house food shoot",
+      "status": "blocked",
+      "truth_class": "proof"
+    },
+    {
+      "access_link": "not delivered",
+      "access_path": "",
+      "action": "Use the owned in-house file",
+      "asset_id": "AS-07",
+      "hold": null,
+      "impact": "medium",
+      "layer_count": 6,
+      "layers": [
+        "LY-010",
+        "LY-020",
+        "LY-030",
+        "LY-040",
+        "LY-050",
+        "LY-060"
+      ],
+      "methods": [
+        "M0"
+      ],
+      "name": "Warm kitchen background",
+      "qc_notes": "Owned background plate has no delivered file yet.",
+      "qc_reviewer": "agent:multimodal",
+      "qc_verdict": "pending",
+      "rights": "cleared",
+      "route": "owned",
+      "route_raw": "owned",
+      "shots": [
+        "SH-01",
+        "SH-02",
+        "SH-03",
+        "SH-04",
+        "SH-05",
+        "SH-06"
+      ],
+      "source": "owned:In-house set build",
+      "status": "planned",
+      "truth_class": "atmospheric"
+    },
+    {
+      "access_link": "not delivered",
+      "access_path": "",
+      "action": "Shoot on the demonstration session and clear the release",
+      "asset_id": "AS-08",
+      "hold": "HI-04",
+      "impact": "high",
+      "layer_count": 1,
+      "layers": [
+        "LY-051"
+      ],
+      "methods": [
+        "M6"
+      ],
+      "name": "Finished cup of coffee",
+      "qc_notes": "No capture file yet; visual QC waits for the demonstration shoot.",
+      "qc_reviewer": "agent:multimodal",
+      "qc_verdict": "pending",
+      "rights": "needs_approval",
+      "route": "capture",
+      "route_raw": "to_capture",
+      "shots": [
+        "SH-05"
+      ],
+      "source": "capture:In-house food shoot",
+      "status": "blocked",
+      "truth_class": "proof"
+    },
+    {
+      "access_link": "not delivered",
+      "access_path": "",
+      "action": "Record the approved voice artist and clear the release",
+      "asset_id": "AS-09",
+      "hold": "HI-03",
+      "impact": "low",
+      "layer_count": 0,
+      "layers": [],
+      "methods": [
+        "M0"
+      ],
+      "name": "Voice over, warm Indian English",
+      "qc_notes": "Audio asset; visual QC does not apply.",
+      "qc_reviewer": "agent:multimodal",
+      "qc_verdict": "n/a",
+      "rights": "needs_approval",
+      "route": "supplied",
+      "route_raw": "to_create",
+      "shots": [],
+      "source": "supplied:Voice artist session",
+      "status": "blocked",
+      "truth_class": "representative"
+    },
+    {
+      "access_link": "[preview](sourcing/CND-AS10-02-lost-roamin.mp3)",
+      "access_path": "sourcing/CND-AS10-02-lost-roamin.mp3",
+      "action": "Acquire the chosen licence after Gate 2A",
+      "asset_id": "AS-10",
+      "hold": "HI-03",
+      "impact": "low",
+      "layer_count": 0,
+      "layers": [],
+      "methods": [
+        "M1"
+      ],
+      "name": "Music bed, 20 seconds",
+      "qc_notes": "Audio preview; visual QC does not apply.",
+      "qc_reviewer": "agent:multimodal",
+      "qc_verdict": "n/a",
+      "rights": "needs_approval",
+      "route": "stock",
+      "route_raw": "to_source",
+      "shots": [],
+      "source": "stock:ccmixter:Lost Roamin'",
+      "status": "blocked",
+      "truth_class": "atmospheric"
+    },
+    {
+      "access_link": "not delivered",
+      "access_path": "",
+      "action": "Use the owned in-house file",
+      "asset_id": "AS-11",
+      "hold": null,
+      "impact": "low",
+      "layer_count": 0,
+      "layers": [],
+      "methods": [
+        "M0"
+      ],
+      "name": "Water pour sound effect",
+      "qc_notes": "Audio asset; visual QC does not apply.",
+      "qc_reviewer": "agent:multimodal",
+      "qc_verdict": "n/a",
+      "rights": "cleared",
+      "route": "owned",
+      "route_raw": "owned",
+      "shots": [],
+      "source": "owned:In-house sound design",
+      "status": "planned",
+      "truth_class": "atmospheric"
+    },
+    {
+      "access_link": "not delivered",
+      "access_path": "",
+      "action": "Use the owned in-house file",
+      "asset_id": "AS-12",
+      "hold": null,
+      "impact": "low",
+      "layer_count": 0,
+      "layers": [],
+      "methods": [
+        "M0"
+      ],
+      "name": "Brand sting",
+      "qc_notes": "Audio asset; visual QC does not apply.",
+      "qc_reviewer": "agent:multimodal",
+      "qc_verdict": "n/a",
+      "rights": "cleared",
+      "route": "owned",
+      "route_raw": "owned",
+      "shots": [],
+      "source": "owned:In-house sound design",
+      "status": "planned",
+      "truth_class": "atmospheric"
+    },
+    {
+      "access_link": "not delivered",
+      "access_path": "",
+      "action": "Shoot on the demonstration session and clear the release",
+      "asset_id": "AS-13",
+      "hold": "HI-02",
+      "impact": "low",
+      "layer_count": 0,
+      "layers": [],
+      "methods": [
+        "M6"
+      ],
+      "name": "Captured Mixed Bag fallback",
+      "qc_notes": "Conditional capture fallback; no file unless triggered.",
+      "qc_reviewer": "agent:multimodal",
+      "qc_verdict": "pending",
+      "rights": "needs_approval",
+      "route": "capture",
+      "route_raw": "to_capture",
+      "shots": [],
+      "source": "capture:In-house studio capture",
+      "status": "conditional",
+      "truth_class": "exact"
+    },
+    {
+      "access_link": "[preview](sourcing/CND-AS14-02-this-is-our-music-instrumental.mp3)",
+      "access_path": "sourcing/CND-AS14-02-this-is-our-music-instrumental.mp3",
+      "action": "Acquire the chosen licence after Gate 2A",
+      "asset_id": "AS-14",
+      "hold": "HI-03",
+      "impact": "low",
+      "layer_count": 0,
+      "layers": [],
+      "methods": [
+        "M1"
+      ],
+      "name": "Music fallback track",
+      "qc_notes": "Audio preview; visual QC does not apply.",
+      "qc_reviewer": "agent:multimodal",
+      "qc_verdict": "n/a",
+      "rights": "needs_approval",
+      "route": "stock",
+      "route_raw": "to_source",
+      "shots": [],
+      "source": "stock:ccmixter:This Is Our Music - Instrumental",
+      "status": "conditional",
+      "truth_class": "atmospheric"
+    },
+    {
+      "access_link": "[sample](generated/AS-15-edge-sample.mp3)",
+      "access_path": "generated/AS-15-edge-sample.mp3",
+      "action": "Use only as a disclosed fallback",
+      "asset_id": "AS-15",
+      "hold": "HI-03",
+      "impact": "low",
+      "layer_count": 0,
+      "layers": [],
+      "methods": [
+        "M7"
+      ],
+      "name": "Synthetic narration fallback",
+      "qc_notes": "Audio sample; visual QC does not apply.",
+      "qc_reviewer": "agent:multimodal",
+      "qc_verdict": "n/a",
+      "rights": "needs_approval",
+      "route": "generate",
+      "route_raw": "to_generate",
+      "shots": [],
+      "source": "generate:Approved speech provider",
+      "status": "conditional",
+      "truth_class": "representative"
+    },
+    {
+      "access_link": "[open](qc/assets/AS-17.jpg)",
+      "access_path": "qc/assets/AS-17.jpg",
+      "action": "Obtain rights and import the supplied file",
+      "asset_id": "AS-17",
+      "hold": "HI-02",
+      "impact": "high",
+      "layer_count": 1,
+      "layers": [
+        "LY-047"
+      ],
+      "methods": [
+        "M0"
+      ],
+      "name": "Easy Pour Seethargundu Estate pack",
+      "qc_notes": "Seethargundu Estate pack front is sharp, correct product identity, label legible, no watermark.",
+      "qc_reviewer": "agent:multimodal",
+      "qc_verdict": "pass",
+      "rights": "needs_approval",
+      "route": "supplied",
+      "route_raw": "supplied",
+      "shots": [
+        "SH-04"
+      ],
+      "source": "supplied:https://bluetokaicoffee.com/cdn/shop/files/Seethargundu-Estate__Front_1.jpg?v=1764321548",
+      "status": "blocked",
+      "truth_class": "exact"
+    }
+  ]
+}

@@ -23,6 +23,7 @@ from .agents import (
     HandoffValidator,
     ProcessingPlanner,
 )
+from .asset_summary import write_asset_outputs
 from .budget import build_budget
 from .capture_planner import build_capture_plan, validate_capture_plan
 from .catalogue import SOURCES
@@ -573,6 +574,7 @@ def plan_level2(
         provider_summary=governor.summary() if governor is not None else None,
     )
     _write_supporting(run, run_id, plan, level2, sheet, reports, gate_2a)
+    write_asset_outputs(run, run_id, plan, level2, sheet, decisions)
 
     run.append_event(
         run_id,
