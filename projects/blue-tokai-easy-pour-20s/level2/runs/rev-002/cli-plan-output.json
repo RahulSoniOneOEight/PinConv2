@@ -1,40 +1,40 @@
-{
-  "run": "rev-002",
-  "state": "quoted",
-  "assets": 16,
-  "layers": 38,
-  "shots": 6,
-  "variants": [
-    "VO-01"
-  ],
-  "budget": {
-    "mode": "lean",
-    "subtotal": 0.0,
-    "reserve": 0.0,
-    "total": 0.0,
-    "worst": 0.0,
-    "cap": 2.0,
-    "headroom": 2.0,
-    "in_kind": 81.0
-  },
-  "provider_budget": {
-    "currency": "USD",
-    "cap_usd": 2.0,
-    "per_job_max_usd": 0.5,
-    "providers": [
-      "fal",
-      "runware"
-    ],
-    "note": "Shared fal.ai + Runware production cap. Every paid call is quoted, authorised against this cap and receipted.",
-    "created_at": "2026-11-14T21:50:02+00:00"
-  },
-  "gate_2a": "ready_for_approval",
-  "qc": {
-    "technical": "pass",
-    "semantic": "warn",
-    "rights": "warn",
-    "budget": "warn",
-    "visual": "fail"
-  },
-  "run_dir": "D:\\pinconv2\\projects\\blue-tokai-easy-pour-20s\\level2\\runs\\rev-002"
-}
+{
+  "run": "rev-002",
+  "state": "quoted",
+  "assets": 16,
+  "layers": 38,
+  "shots": 6,
+  "variants": [
+    "VO-01"
+  ],
+  "budget": {
+    "mode": "lean",
+    "subtotal": 0.0,
+    "reserve": 0.0,
+    "total": 0.0,
+    "worst": 0.0,
+    "cap": 2.0,
+    "headroom": 2.0,
+    "in_kind": 81.0
+  },
+  "provider_budget": {
+    "currency": "USD",
+    "cap_usd": 2.0,
+    "per_job_max_usd": 0.5,
+    "providers": [
+      "fal",
+      "runware"
+    ],
+    "note": "Shared fal.ai + Runware production cap. Every paid call is quoted, authorised against this cap and receipted.",
+    "created_at": "2026-11-14T21:50:02+00:00"
+  },
+  "gate_2a": "ready_for_approval",
+  "qc": {
+    "technical": "pass",
+    "semantic": "warn",
+    "rights": "warn",
+    "budget": "warn",
+    "visual": "fail"
+  },
+  "run_dir": "D:\\pinconv2\\projects\\blue-tokai-easy-pour-20s\\level2\\runs\\rev-002"
+}

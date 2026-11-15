@@ -3,7 +3,7 @@
 **Run:** `rev-002` · plan revision 2
 **Project:** `blue-tokai-easy-pour-20s`
 **Plan hash:** `1370f029b0b35730625c459cf85579bfd767d2e4a7b62016055e100d15f2aba5`
-**Generated:** 2026-11-15T08:15:06+00:00
+**Generated:** 2026-11-15T08:30:10+00:00
 **Verdict:** PASS — the spend-free Level 2 slice produced the full package; Gate 2A is ready for a human decision.
 
 ## Environment
@@ -20,7 +20,7 @@
 
 ```
 $ python -m pytest -q
-137 passed in 13.69s
+137 passed in 14.53s
 ```
 
 ```

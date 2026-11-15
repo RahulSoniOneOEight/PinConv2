@@ -23,6 +23,7 @@ is it ready to assemble?*
 | **Main asset table** | `ASSET-SUMMARY.md` / `.html` |
 | Production plan | `PRODUCTION-PLAN.md` / `.html` |
 | Stock plan | `STOCK-PLAN.md` |
+| Sourced-but-not-used annex | `ANNEX-SOURCED-NOT-USED.md` |
 | No-shoot policy | `NO-SHOOT-POLICY.md` |
 | Pending asset routes | `PENDING-ASSET-ROUTES.md` |
 | Asset visual QC | `qc/visual-assets.md` |
@@ -162,7 +163,9 @@ includes conditional assets. No paid generation has run.
 `STOCK-PLAN.md` records the per-asset stock route and the AI-share guard.
 Original AI generation is capped at 40% of assets; the rest are licensed stock
 (optionally AI-processed). For this run: 6 supplied, 7 stock, 3 generated,
-18.8% AI share.
+18.8% AI share. Each asset is explored across multiple sources; the best fit is
+selected and the rest are reported as backups in
+`ANNEX-SOURCED-NOT-USED.md`.
 
 ### No-shoot constraint
 

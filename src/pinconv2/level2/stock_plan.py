@@ -50,6 +50,51 @@ _GROUP_BY_PROVIDER = {
     "freesound": "stock",
 }
 
+# Explore several sources per asset type; the best fit is used, the rest are backups.
+SOURCE_MATRIX: dict[str, list[str]] = {
+    "image": ["pexels", "unsplash", "openverse", "wikimedia"],
+    "video": ["pexels", "wikimedia", "internet-archive"],
+    "sound": ["freesound", "openverse", "wikimedia", "internet-archive"],
+    "music": ["ccmixter"],
+}
+
+
+def _fit_score(kind: str, licence: str | None, probe: dict[str, Any]) -> int:
+    score = 0
+    width = int(probe.get("width") or 0)
+    duration = float(probe.get("duration_seconds") or 0)
+    if kind == "image":
+        if width >= 1600:
+            score += 40
+        elif width >= 640:
+            score += 25
+        else:
+            score += 10
+    elif kind == "video":
+        if width >= 1280:
+            score += 40
+        elif width >= 640:
+            score += 25
+        else:
+            score += 10
+        if duration >= 5:
+            score += 20
+    else:
+        if duration >= 15:
+            score += 40
+        elif duration >= 5:
+            score += 25
+        else:
+            score += 10
+    upper = (licence or "").upper()
+    if "CC0" in upper or "PD" in upper or "PUBLIC DOMAIN" in upper:
+        score += 15
+    elif "CC-BY" in upper or "CC BY" in upper:
+        score += 10
+    elif "PEXELS" in upper or "UNSPLASH" in upper:
+        score += 8
+    return score
+
 
 class StockRoute(StrictModel):
     asset_id: str = Field(pattern=r"^AS-\d{2}$")
@@ -64,6 +109,7 @@ class StockRoute(StrictModel):
 class StockCandidate(StrictModel):
     asset_id: str
     provider: str
+    kind: str = Field(default="", max_length=20)
     title: str
     creator: str | None = None
     licence: str | None = None
@@ -71,6 +117,9 @@ class StockCandidate(StrictModel):
     file_path: str | None = None
     sha256: str | None = Field(default=None, pattern=r"^[a-f0-9]{64}$")
     bytes: int = Field(default=0, ge=0)
+    fit_score: int = Field(default=0, ge=0)
+    used: bool = False
+    evaluation: str = Field(default="", max_length=500)
 
 
 class StockPlan(StrictModel):
@@ -280,6 +329,103 @@ def fetch_stock_candidate(
     return None
 
 
+def _stockcheck_fetch(
+    asset_id: str, provider: str, kind: str, query: str, run_dir: Path
+) -> StockCandidate | None:
+    from . import stockcheck as sc
+
+    root = run_dir / "stock-candidates"
+    media_type = "video" if kind == "video" else "audio" if kind in {"sound", "music"} else "image"
+    if provider == "openverse":
+        item = sc._openverse(media_type, query, root)
+    elif provider == "wikimedia":
+        item = sc._wikimedia(media_type, query, root)
+    elif provider == "internet-archive":
+        item = sc._archive(media_type, query, root)
+    elif provider == "nasa":
+        item = sc._nasa_image(query, root)
+    else:
+        return None
+    if item.status != "ok" or item.file_path is None:
+        return None
+    probe = item.probe or {}
+    candidate = StockCandidate(
+        asset_id=asset_id,
+        provider=provider,
+        kind=kind,
+        title=item.title or "untitled",
+        creator=item.creator,
+        licence=item.licence_class or item.licence,
+        page_url=item.page_url,
+        file_path=item.file_path,
+        sha256=item.sha256,
+        bytes=item.bytes,
+    )
+    candidate = candidate.model_copy(
+        update={"fit_score": _fit_score(kind, candidate.licence, probe)}
+    )
+    if item.licence_class in {"CC-BY-SA", "CC-BY-NC", "CC-BY-ND", "UNKNOWN"} or not item.paid_ok:
+        candidate = candidate.model_copy(
+            update={
+                "evaluation": "excluded: licence not paid-ok or unresolved",
+                "fit_score": 0,
+            }
+        )
+    return candidate
+
+
+def _finalize(candidate: StockCandidate, kind: str) -> StockCandidate:
+    from .engines.local import LocalEngine
+
+    candidate = candidate.model_copy(update={"kind": kind})
+    if not candidate.file_path or not Path(candidate.file_path).is_file():
+        return candidate
+    try:
+        probe = LocalEngine().probe(Path(candidate.file_path)).model_dump()
+    except Exception:
+        probe = {}
+    if candidate.fit_score == 0 and candidate.provider not in {
+        "openverse",
+        "wikimedia",
+        "internet-archive",
+    }:
+        candidate = candidate.model_copy(
+            update={"fit_score": _fit_score(kind, candidate.licence, probe)}
+        )
+    return candidate
+
+
+def fetch_and_rank(asset_id: str, kind: str, query: str, run_dir: Path) -> list[StockCandidate]:
+    """Fetch from every source for the asset type; mark the best as used."""
+
+    candidates: list[StockCandidate] = []
+    for provider in SOURCE_MATRIX.get(kind, ["pexels"]):
+        candidate = None
+        if provider in {"pexels", "unsplash", "freesound"}:
+            candidate = fetch_stock_candidate(asset_id, provider, kind, query, run_dir)
+        else:
+            candidate = _stockcheck_fetch(asset_id, provider, kind, query, run_dir)
+        if candidate is None:
+            continue
+        candidate = _finalize(candidate, kind)
+        if candidate.evaluation.startswith("excluded"):
+            continue
+        candidates.append(candidate)
+    candidates.sort(key=lambda item: item.fit_score, reverse=True)
+    if candidates:
+        candidates[0] = candidates[0].model_copy(
+            update={"used": True, "evaluation": "best fit — selected"}
+        )
+        for entry in candidates[1:]:
+            entry = entry.model_copy(
+                update={
+                    "used": False,
+                    "evaluation": entry.evaluation or "backup — lower fit or alternate source",
+                }
+            )
+    return candidates
+
+
 def render_stock_plan(plan: StockPlan) -> str:
     lines = [
         "# Stock sourcing plan with AI-share guard",
@@ -303,16 +449,33 @@ def render_stock_plan(plan: StockPlan) -> str:
             f"{route.query} | {route.group} | {route.note} |"
         )
     if plan.candidates:
-        lines.extend(["", "## Fetched stock candidates", ""])
-        lines.append("| Asset | Provider | Title | Creator | Licence | Source | File |")
-        lines.append("|---|---|---|---|---|---|---|")
-        for candidate in plan.candidates:
+        used = [candidate for candidate in plan.candidates if candidate.used]
+        backup = [candidate for candidate in plan.candidates if not candidate.used]
+        lines.extend(
+            [
+                "",
+                "## Final selected candidates",
+                "",
+                "| Asset | Provider | Title | Creator | Licence | Fit | Source | File |",
+                "|---|---|---|---|---|---|---|---|",
+            ]
+        )
+        for candidate in used:
             file = Path(candidate.file_path).name if candidate.file_path else "—"
             lines.append(
                 f"| {candidate.asset_id} | {candidate.provider} | {candidate.title} | "
                 f"{candidate.creator or '—'} | {candidate.licence or '—'} | "
-                f"{candidate.page_url or '—'} | {file} |"
+                f"{candidate.fit_score} | {candidate.page_url or '—'} | {file} |"
             )
+        lines.extend(
+            [
+                "",
+                f"Backup candidates ({len(backup)}): reported in `ANNEX-SOURCED-NOT-USED.md`.",
+                "",
+            ]
+        )
+    else:
+        lines.extend(["", "## Final selected candidates", "", "None fetched yet.", ""])
     lines.extend(
         [
             "",
@@ -323,6 +486,40 @@ def render_stock_plan(plan: StockPlan) -> str:
             "  stays within 40% of assets.",
             "- Stock assets may be AI-processed (grade, upscale, relight, retime);",
             "  processing is not generation and does not count against the 40%.",
+            "",
+        ]
+    )
+    return "\n".join(lines)
+
+
+def render_annex(candidates: list[StockCandidate]) -> str:
+    lines = [
+        "# Annex — sourced but not used",
+        "",
+        "Candidates that were fetched and evaluated but not selected. Each shows",
+        "why it was kept as a backup.",
+        "",
+        "| Asset | Provider | Title | Licence | Fit | Why not used |",
+        "|---|---|---|---|---|---|",
+    ]
+    for candidate in candidates:
+        if candidate.used:
+            continue
+        lines.append(
+            f"| {candidate.asset_id} | {candidate.provider} | {candidate.title} | "
+            f"{candidate.licence or '—'} | {candidate.fit_score} | "
+            f"{candidate.evaluation or 'backup'} |"
+        )
+    if not any(not candidate.used for candidate in candidates):
+        lines.append("| — | — | no backups were sourced | — | — | — |")
+    lines.extend(
+        [
+            "",
+            "## Video sources available but not selected",
+            "",
+            "Video is explored through Pexels, Wikimedia Commons and Internet",
+            "Archive. Pexels is the primary; Wikimedia and Internet Archive are",
+            "probed as backups and reported here when they return a usable result.",
             "",
         ]
     )

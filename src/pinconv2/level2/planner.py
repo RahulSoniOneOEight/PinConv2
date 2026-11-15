@@ -583,16 +583,14 @@ def plan_level2(
     stock_plan = build_stock_plan(plan, level2)
     candidates_path = run.run_dir(run_id) / "stock-candidates.json"
     if candidates_path.is_file():
-        from .stock_plan import StockCandidate
+        from .stock_plan import StockCandidate, render_annex
 
-        stock_plan = stock_plan.model_copy(
-            update={
-                "candidates": [
-                    StockCandidate.model_validate(item)
-                    for item in json.loads(candidates_path.read_text(encoding="utf-8"))
-                ]
-            }
-        )
+        candidates = [
+            StockCandidate.model_validate(item)
+            for item in json.loads(candidates_path.read_text(encoding="utf-8"))
+        ]
+        stock_plan = stock_plan.model_copy(update={"candidates": candidates})
+        run.write_text(run_id, "ANNEX-SOURCED-NOT-USED.md", render_annex(candidates))
     run.write_text(run_id, "STOCK-PLAN.md", render_stock_plan(stock_plan))
     run.write_json(run_id, "stock-plan.json", stock_plan)
 
