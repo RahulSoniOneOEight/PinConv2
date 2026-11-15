@@ -18,6 +18,8 @@
         "scale",
         "encode"
       ],
+      "ai_processing": "AI background removal to alpha + edge cleanup; upscale only from a real master, never a thumbnail",
+      "ai_generation": false,
       "cost_usd": 0.1
     },
     {
@@ -48,6 +50,8 @@
         "scale",
         "encode"
       ],
+      "ai_processing": "AI label-preserving background cutout; color/light normalize to the counter plates",
+      "ai_generation": false,
       "cost_usd": 0.1
     },
     {
@@ -68,6 +72,8 @@
         "scale",
         "encode"
       ],
+      "ai_processing": "AI label-preserving background cutout; color/light normalize",
+      "ai_generation": false,
       "cost_usd": 0.1
     },
     {
@@ -88,6 +94,8 @@
         "scale",
         "encode"
       ],
+      "ai_processing": "AI label-preserving background cutout; color/light normalize",
+      "ai_generation": false,
       "cost_usd": 0.1
     },
     {
@@ -110,6 +118,8 @@
         "scale",
         "encode"
       ],
+      "ai_processing": "AI stabilise + denoise; AI frame interpolation for the 50->25 conform; AI relight; inpaint stray objects",
+      "ai_generation": false,
       "cost_usd": 0.16
     },
     {
@@ -132,6 +142,8 @@
         "scale",
         "encode"
       ],
+      "ai_processing": "AI stabilise + denoise; AI speed-ramp retime; AI relight; inpaint stray objects",
+      "ai_generation": false,
       "cost_usd": 0.16
     },
     {
@@ -161,6 +173,8 @@
         "scale",
         "encode"
       ],
+      "ai_processing": "AI relight to the warm counter; AI inpaint distractions; crop to 1080p",
+      "ai_generation": false,
       "cost_usd": 0.06
     },
     {
@@ -180,6 +194,8 @@
         "scale",
         "encode"
       ],
+      "ai_processing": "AI relight to the counter; AI background clean + cup-edge inpaint",
+      "ai_generation": false,
       "cost_usd": 0.06
     },
     {
@@ -197,6 +213,8 @@
         "resample",
         "encode"
       ],
+      "ai_processing": "AI generation: TTS voice (counts against the 40% allowance); AI denoise + loudness norm",
+      "ai_generation": true,
       "cost_usd": 0.16
     },
     {
@@ -214,6 +232,8 @@
         "resample",
         "encode"
       ],
+      "ai_processing": "AI loudness norm to -16 LUFS; AI loop tail; trim + fade",
+      "ai_generation": false,
       "cost_usd": 0.1
     },
     {
@@ -231,6 +251,8 @@
         "resample",
         "encode"
       ],
+      "ai_processing": "AI denoise; trim to the pour; level-match to the mix",
+      "ai_generation": false,
       "cost_usd": 0.12
     },
     {
@@ -247,6 +269,8 @@
         "resample",
         "encode"
       ],
+      "ai_processing": "AI generation: synthetic brand sting; loudness norm",
+      "ai_generation": true,
       "cost_usd": 0.12
     },
     {
@@ -263,6 +287,8 @@
         "scale",
         "encode"
       ],
+      "ai_processing": "AI label-preserving cutout across the four angles",
+      "ai_generation": false,
       "cost_usd": 0.1
     },
     {
@@ -280,6 +306,8 @@
         "resample",
         "encode"
       ],
+      "ai_processing": "AI loudness norm to -16 LUFS; loop tail",
+      "ai_generation": false,
       "cost_usd": 0.1
     },
     {
@@ -297,6 +325,8 @@
         "resample",
         "encode"
       ],
+      "ai_processing": "AI generation: TTS fallback; loudness norm",
+      "ai_generation": true,
       "cost_usd": 0.16
     },
     {
@@ -317,6 +347,8 @@
         "scale",
         "encode"
       ],
+      "ai_processing": "AI label-preserving background cutout; color/light normalize",
+      "ai_generation": false,
       "cost_usd": 0.1
     }
   ],

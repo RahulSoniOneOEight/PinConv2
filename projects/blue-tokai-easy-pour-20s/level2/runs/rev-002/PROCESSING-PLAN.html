@@ -51,98 +51,154 @@
 <ul>
 <li>Source: supplied:User-supplied logo attachment, 2026-11-14; public footer fallback: http</li>
 <li>Processing: alpha_cutout → grade → scale → encode</li>
+<li>AI: AI background removal to alpha + edge cleanup; upscale only from a real master, never a thumbnail</li>
+<li>AI generation: no (edit only)</li>
 <li>Cost: $0.10</li>
 </ul>
 <h3>AS-02 — Easy Pour Mixed Bag pack</h3>
 <ul>
 <li>Source: supplied:https://bluetokaicoffee.com/cdn/shop/files/MixedBag__Front_c9b610f1-ce4</li>
 <li>Processing: alpha_cutout → grade → scale → encode</li>
+<li>AI: AI label-preserving background cutout; color/light normalize to the counter plates</li>
+<li>AI generation: no (edit only)</li>
 <li>Cost: $0.10</li>
 </ul>
 <h3>AS-03 — Easy Pour Vienna pack</h3>
 <ul>
 <li>Source: supplied:https://bluetokaicoffee.com/cdn/shop/files/ViennaRoast__Front_1_a175fab</li>
 <li>Processing: alpha_cutout → grade → scale → encode</li>
+<li>AI: AI label-preserving background cutout; color/light normalize</li>
+<li>AI generation: no (edit only)</li>
 <li>Cost: $0.10</li>
 </ul>
 <h3>AS-04 — Easy Pour Attikan Estate pack</h3>
 <ul>
 <li>Source: supplied:https://bluetokaicoffee.com/cdn/shop/files/AttikanEstate__Front.jpg?v=1</li>
 <li>Processing: alpha_cutout → grade → scale → encode</li>
+<li>AI: AI label-preserving background cutout; color/light normalize</li>
+<li>AI generation: no (edit only)</li>
 <li>Cost: $0.10</li>
 </ul>
 <h3>AS-05 — Easy Pour brewing demonstration, hands</h3>
 <ul>
 <li>Source: pixabay: coffee, barista, pouring, milk, heart, cappuccino, espresso, cafe, drink, beverage, close up, morning, breakfast, delicious, foam, cup, mug, hands, skill, preparation, warm, creamy, coffee shop, latte art</li>
 <li>Processing: trim → stabilise → conform → grade → scale → encode</li>
+<li>AI: AI stabilise + denoise; AI frame interpolation for the 50-&gt;25 conform; AI relight; inpaint stray objects</li>
+<li>AI generation: no (edit only)</li>
 <li>Cost: $0.16</li>
 </ul>
 <h3>AS-06 — Hot water pour and bloom footage</h3>
 <ul>
 <li>Source: pixabay: coffee, hot drink, coffee pot, enjoyment, drink, coffee enjoyment, caffeine, motivation, coffee break, espresso, machine, coffee machine</li>
 <li>Processing: trim → stabilise → conform → grade → scale → encode</li>
+<li>AI: AI stabilise + denoise; AI speed-ramp retime; AI relight; inpaint stray objects</li>
+<li>AI generation: no (edit only)</li>
 <li>Cost: $0.16</li>
 </ul>
 <h3>AS-07 — Warm kitchen background</h3>
 <ul>
 <li>Source: pexels: Pexels photo 33256980</li>
 <li>Processing: grade → scale → encode</li>
+<li>AI: AI relight to the warm counter; AI inpaint distractions; crop to 1080p</li>
+<li>AI generation: no (edit only)</li>
 <li>Cost: $0.06</li>
 </ul>
 <h3>AS-08 — Finished cup of coffee</h3>
 <ul>
 <li>Source: openverse: Cup of Coffee on Table Rock in Linville Gorge</li>
 <li>Processing: grade → scale → encode</li>
+<li>AI: AI relight to the counter; AI background clean + cup-edge inpaint</li>
+<li>AI generation: no (edit only)</li>
 <li>Cost: $0.06</li>
 </ul>
 <h3>AS-09 — Voice over, warm Indian English</h3>
 <ul>
 <li>Source: supplied:Voice artist session</li>
 <li>Processing: tts → trim → loudness_norm → resample → encode</li>
+<li>AI: AI generation: TTS voice (counts against the 40% allowance); AI denoise + loudness norm</li>
+<li>AI generation: yes</li>
 <li>Cost: $0.16</li>
 </ul>
 <h3>AS-10 — Music bed, 20 seconds</h3>
 <ul>
 <li>Source: ccmixter: Lost Roamin&#x27;</li>
 <li>Processing: trim → fade → loudness_norm → resample → encode</li>
+<li>AI: AI loudness norm to -16 LUFS; AI loop tail; trim + fade</li>
+<li>AI generation: no (edit only)</li>
 <li>Cost: $0.10</li>
 </ul>
 <h3>AS-11 — Water pour sound effect</h3>
 <ul>
 <li>Source: wikimedia: File:Pouring water bottles.ogg</li>
 <li>Processing: trim → denoise → loudness_norm → resample → encode</li>
+<li>AI: AI denoise; trim to the pour; level-match to the mix</li>
+<li>AI generation: no (edit only)</li>
 <li>Cost: $0.12</li>
 </ul>
 <h3>AS-12 — Brand sting</h3>
 <ul>
 <li>Source: owned:In-house sound design</li>
 <li>Processing: synth → loudness_norm → resample → encode</li>
+<li>AI: AI generation: synthetic brand sting; loudness norm</li>
+<li>AI generation: yes</li>
 <li>Cost: $0.12</li>
 </ul>
 <h3>AS-13 — Captured Mixed Bag fallback</h3>
 <ul>
 <li>Source: capture:In-house studio capture</li>
 <li>Processing: alpha_cutout → grade → scale → encode</li>
+<li>AI: AI label-preserving cutout across the four angles</li>
+<li>AI generation: no (edit only)</li>
 <li>Cost: $0.10</li>
 </ul>
 <h3>AS-14 — Music fallback track</h3>
 <ul>
 <li>Source: openverse: Road In The Forest</li>
 <li>Processing: trim → fade → loudness_norm → resample → encode</li>
+<li>AI: AI loudness norm to -16 LUFS; loop tail</li>
+<li>AI generation: no (edit only)</li>
 <li>Cost: $0.10</li>
 </ul>
 <h3>AS-15 — Synthetic narration fallback</h3>
 <ul>
 <li>Source: generate:Approved speech provider</li>
 <li>Processing: tts → trim → loudness_norm → resample → encode</li>
+<li>AI: AI generation: TTS fallback; loudness norm</li>
+<li>AI generation: yes</li>
 <li>Cost: $0.16</li>
 </ul>
 <h3>AS-17 — Easy Pour Seethargundu Estate pack</h3>
 <ul>
 <li>Source: supplied:https://bluetokaicoffee.com/cdn/shop/files/Seethargundu-Estate__Front_1</li>
 <li>Processing: alpha_cutout → grade → scale → encode</li>
+<li>AI: AI label-preserving background cutout; color/light normalize</li>
+<li>AI generation: no (edit only)</li>
 <li>Cost: $0.10</li>
 </ul>
+<h2>AI processing vs AI generation</h2>
+<p>AI <strong>processing</strong> is a minor edit/enhancement applied to an existing</p>
+<p>asset (relight, inpaint, denoise, retime, label cutout, loudness norm).</p>
+<p>It does not count against the 40% cap. AI <strong>generation</strong> creates new</p>
+<p>media and is limited to voice, sting and the narration fallback.</p>
+<table>
+<tr><th>Asset</th><th>AI processing / generation</th><th>Generation?</th></tr>
+<tr><td><code>AS-01</code></td><td>AI background removal to alpha + edge cleanup; upscale only from a real master, never a thumbnail</td><td>no</td></tr>
+<tr><td><code>AS-02</code></td><td>AI label-preserving background cutout; color/light normalize to the counter plates</td><td>no</td></tr>
+<tr><td><code>AS-03</code></td><td>AI label-preserving background cutout; color/light normalize</td><td>no</td></tr>
+<tr><td><code>AS-04</code></td><td>AI label-preserving background cutout; color/light normalize</td><td>no</td></tr>
+<tr><td><code>AS-05</code></td><td>AI stabilise + denoise; AI frame interpolation for the 50-&gt;25 conform; AI relight; inpaint stray objects</td><td>no</td></tr>
+<tr><td><code>AS-06</code></td><td>AI stabilise + denoise; AI speed-ramp retime; AI relight; inpaint stray objects</td><td>no</td></tr>
+<tr><td><code>AS-07</code></td><td>AI relight to the warm counter; AI inpaint distractions; crop to 1080p</td><td>no</td></tr>
+<tr><td><code>AS-08</code></td><td>AI relight to the counter; AI background clean + cup-edge inpaint</td><td>no</td></tr>
+<tr><td><code>AS-09</code></td><td>AI generation: TTS voice (counts against the 40% allowance); AI denoise + loudness norm</td><td>yes</td></tr>
+<tr><td><code>AS-10</code></td><td>AI loudness norm to -16 LUFS; AI loop tail; trim + fade</td><td>no</td></tr>
+<tr><td><code>AS-11</code></td><td>AI denoise; trim to the pour; level-match to the mix</td><td>no</td></tr>
+<tr><td><code>AS-12</code></td><td>AI generation: synthetic brand sting; loudness norm</td><td>yes</td></tr>
+<tr><td><code>AS-13</code></td><td>AI label-preserving cutout across the four angles</td><td>no</td></tr>
+<tr><td><code>AS-14</code></td><td>AI loudness norm to -16 LUFS; loop tail</td><td>no</td></tr>
+<tr><td><code>AS-15</code></td><td>AI generation: TTS fallback; loudness norm</td><td>yes</td></tr>
+<tr><td><code>AS-17</code></td><td>AI label-preserving background cutout; color/light normalize</td><td>no</td></tr>
+</table>
 <h2>Budget rule</h2>
 <ul>
 <li>Stock licensing is free or in-kind for CC0/CC-BY/Pexels/Pixabay/Unsplash.</li>

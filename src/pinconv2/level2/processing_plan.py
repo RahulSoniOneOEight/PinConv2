@@ -58,6 +58,37 @@ _GENERATE_BY_KIND: dict[str, list[str]] = {
     "image": ["upscale", "grade", "encode"],
 }
 
+# AI edits/enhancements applied to each asset. This is distinct from AI
+# generation: edits are minor and do not count against the 40% generation cap.
+_AI_PROCESSING: dict[str, str] = {
+    "AS-01": (
+        "AI background removal to alpha + edge cleanup; upscale only from a "
+        "real master, never a thumbnail"
+    ),
+    "AS-05": (
+        "AI stabilise + denoise; AI frame interpolation for the 50->25 conform; "
+        "AI relight; inpaint stray objects"
+    ),
+    "AS-06": "AI stabilise + denoise; AI speed-ramp retime; AI relight; inpaint stray objects",
+    "AS-07": "AI relight to the warm counter; AI inpaint distractions; crop to 1080p",
+    "AS-08": "AI relight to the counter; AI background clean + cup-edge inpaint",
+    "AS-09": (
+        "AI generation: TTS voice (counts against the 40% allowance); AI denoise + loudness norm"
+    ),
+    "AS-02": "AI label-preserving background cutout; color/light normalize to the counter plates",
+    "AS-03": "AI label-preserving background cutout; color/light normalize",
+    "AS-04": "AI label-preserving background cutout; color/light normalize",
+    "AS-17": "AI label-preserving background cutout; color/light normalize",
+    "AS-13": "AI label-preserving cutout across the four angles",
+    "AS-10": "AI loudness norm to -16 LUFS; AI loop tail; trim + fade",
+    "AS-11": "AI denoise; trim to the pour; level-match to the mix",
+    "AS-12": "AI generation: synthetic brand sting; loudness norm",
+    "AS-14": "AI loudness norm to -16 LUFS; loop tail",
+    "AS-15": "AI generation: TTS fallback; loudness norm",
+}
+
+_AI_GENERATED = {"AS-09", "AS-12", "AS-15"}
+
 
 class ProcessingEntry(StrictModel):
     asset_id: str = Field(pattern=r"^AS-\d{2}$")
@@ -68,6 +99,8 @@ class ProcessingEntry(StrictModel):
     shots: list[str] = Field(default_factory=list)
     layers: list[str] = Field(default_factory=list)
     ops: list[str] = Field(default_factory=list)
+    ai_processing: str = Field(default="", max_length=400)
+    ai_generation: bool = False
     cost_usd: float = Field(ge=0)
 
 
@@ -127,6 +160,8 @@ def build_processing_plan(
                 shots=row["shots"],
                 layers=row["layers"],
                 ops=ops,
+                ai_processing=_AI_PROCESSING.get(row["asset_id"], ""),
+                ai_generation=row["asset_id"] in _AI_GENERATED,
                 cost_usd=_cost(ops),
             )
         )
@@ -174,12 +209,33 @@ def render_processing_plan(plan: ProcessingPlan) -> str:
                 "",
                 f"- Source: {entry.source}",
                 f"- Processing: {' → '.join(entry.ops) or 'none'}",
+                f"- AI: {entry.ai_processing or 'none'}",
+                f"- AI generation: {'yes' if entry.ai_generation else 'no (edit only)'}",
                 f"- Cost: ${entry.cost_usd:.2f}",
                 "",
             ]
         )
     lines.extend(
         [
+            "## AI processing vs AI generation",
+            "",
+            "AI **processing** is a minor edit/enhancement applied to an existing",
+            "asset (relight, inpaint, denoise, retime, label cutout, loudness norm).",
+            "It does not count against the 40% cap. AI **generation** creates new",
+            "media and is limited to voice, sting and the narration fallback.",
+            "",
+            "| Asset | AI processing / generation | Generation? |",
+            "|---|---|---|",
+        ]
+    )
+    for entry in plan.entries:
+        lines.append(
+            f"| `{entry.asset_id}` | {entry.ai_processing or 'none'} | "
+            f"{'yes' if entry.ai_generation else 'no'} |"
+        )
+    lines.extend(
+        [
+            "",
             "## Budget rule",
             "",
             "- Stock licensing is free or in-kind for CC0/CC-BY/Pexels/Pixabay/Unsplash.",
