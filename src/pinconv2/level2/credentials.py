@@ -24,6 +24,7 @@ ENV_FILES: dict[str, str] = {
     "PEXELS_API_KEY": "pexels-api-key",
     "UNSPLASH_ACCESS_KEY": "unsplash-access-key",
     "FREESOUND_API_KEY": "freesound-api-key",
+    "PIXABAY_API_KEY": "pixabay-api-key",
     "FAL_KEY": "fal-api-key",
 }
 
@@ -31,7 +32,7 @@ DEFAULT_VAULT = Path(r"D:\pinaka-credentials\secrets")
 
 
 def _clean(value: str) -> str:
-    return value.strip().strip('"').strip("'")
+    return value.strip().strip('"').strip("'").lstrip("\ufeff").strip()
 
 
 def vault_path(env_name: str) -> Path | None:

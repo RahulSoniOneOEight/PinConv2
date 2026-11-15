@@ -45,6 +45,8 @@ class LocalEngine:
             ],
             capture_output=True,
             text=True,
+            encoding="utf-8",
+            errors="replace",
             check=False,
         )
         if result.returncode != 0:
@@ -101,7 +103,14 @@ class LocalEngine:
         args += codec_args
         args.append(str(destination))
 
-        result = subprocess.run(args, capture_output=True, text=True, check=False)
+        result = subprocess.run(
+            args,
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+            errors="replace",
+            check=False,
+        )
         if result.returncode != 0:
             raise RecipeError(f"ffmpeg failed: {result.stderr.strip()[-800:]}")
         payload = destination.read_bytes()
@@ -204,7 +213,14 @@ class LocalEngine:
         if audio is not None:
             args += ["-i", str(audio), "-map", "0:v", "-map", "1:a", "-shortest"]
         args += ["-c:v", "libx264", "-pix_fmt", "yuv420p", str(destination)]
-        result = subprocess.run(args, capture_output=True, text=True, check=False)
+        result = subprocess.run(
+            args,
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+            errors="replace",
+            check=False,
+        )
         list_file.unlink(missing_ok=True)
         if result.returncode != 0:
             raise RecipeError(f"assemble failed: {result.stderr.strip()[-800:]}")

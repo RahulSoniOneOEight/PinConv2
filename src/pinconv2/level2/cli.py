@@ -302,7 +302,7 @@ def run_level2_command(store: ProjectStore, args: argparse.Namespace) -> int:
         stock = build_stock_plan(plan, level2)
         candidates = []
         for route in stock.routes:
-            if route.group != "stock" or route.kind == "music":
+            if route.group != "stock":
                 continue
             candidates.extend(
                 fetch_and_rank(route.asset_id, route.kind, route.query, run.run_dir(run_id))

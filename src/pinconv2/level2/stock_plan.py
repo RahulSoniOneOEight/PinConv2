@@ -50,12 +50,12 @@ _GROUP_BY_PROVIDER = {
     "freesound": "stock",
 }
 
-# Explore several sources per asset type; the best fit is used, the rest are backups.
+# Explore every reachable source per asset type; the best fit is used, the rest are backups.
 SOURCE_MATRIX: dict[str, list[str]] = {
-    "image": ["pexels", "unsplash", "openverse", "wikimedia"],
-    "video": ["pexels", "wikimedia", "internet-archive"],
+    "image": ["pexels", "unsplash", "pixabay", "openverse", "wikimedia", "nasa"],
+    "video": ["pexels", "pixabay", "wikimedia", "internet-archive"],
     "sound": ["freesound", "openverse", "wikimedia", "internet-archive"],
-    "music": ["ccmixter"],
+    "music": ["ccmixter", "freesound", "openverse", "wikimedia", "internet-archive"],
 }
 
 
@@ -91,7 +91,7 @@ def _fit_score(kind: str, licence: str | None, probe: dict[str, Any]) -> int:
         score += 15
     elif "CC-BY" in upper or "CC BY" in upper:
         score += 10
-    elif "PEXELS" in upper or "UNSPLASH" in upper:
+    elif "PEXELS" in upper or "UNSPLASH" in upper or "PIXABAY" in upper:
         score += 8
     return score
 
@@ -328,6 +328,51 @@ def fetch_stock_candidate(
             page_url=f"https://freesound.org/s/{item.get('id')}/",
             path=path,
         )
+    if provider == "pixabay":
+        key = provider_key("PIXABAY_API_KEY")
+        if not key:
+            return None
+        if kind == "video":
+            status, payload = _json(
+                "https://pixabay.com/api/videos/?key="
+                + key
+                + "&q="
+                + urllib.parse.quote(query)
+                + "&per_page=3"
+            )
+        else:
+            status, payload = _json(
+                "https://pixabay.com/api/?key="
+                + key
+                + "&q="
+                + urllib.parse.quote(query)
+                + "&image_type=photo&per_page=3"
+            )
+        hits = payload.get("hits", []) if isinstance(payload, dict) else []
+        if not hits:
+            return None
+        item = hits[0]
+        if kind == "video":
+            videos = item.get("videos") or {}
+            link = (videos.get("large") or videos.get("medium") or videos.get("small") or {}).get(
+                "url"
+            )
+            suffix = ".mp4"
+        else:
+            link = item.get("largeImageURL") or item.get("webformatURL")
+            suffix = ".jpg"
+        if not link:
+            return None
+        path = _download(link, destination / f"{asset_id}{suffix}")
+        return _record(
+            asset_id,
+            provider,
+            title=str(item.get("tags", "Pixabay"))[:300],
+            creator=item.get("user"),
+            licence="Pixabay Content License",
+            page_url=item.get("pageURL"),
+            path=path,
+        )
     return None
 
 
@@ -397,13 +442,43 @@ def _finalize(candidate: StockCandidate, kind: str) -> StockCandidate:
     return candidate
 
 
+def _ccmixter_candidate(asset_id: str, run_dir: Path) -> StockCandidate | None:
+    path = run_dir / "asset-sourcing.json"
+    if not path.is_file():
+        return None
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    for asset in payload.get("assets", []):
+        if asset.get("asset_id") != asset_id:
+            continue
+        for candidate in asset.get("candidates", []):
+            if candidate.get("candidate_id") != asset.get("chosen_candidate"):
+                continue
+            preview = candidate.get("preview_path")
+            file_path = str(run_dir / preview) if preview else None
+            if file_path and not Path(file_path).is_file():
+                file_path = None
+            return StockCandidate(
+                asset_id=asset_id,
+                provider="ccmixter",
+                kind="music",
+                title=candidate.get("title", "untitled"),
+                creator=candidate.get("creator"),
+                licence=candidate.get("licence_class") or candidate.get("licence"),
+                page_url=candidate.get("page_url"),
+                file_path=file_path,
+            )
+    return None
+
+
 def fetch_and_rank(asset_id: str, kind: str, query: str, run_dir: Path) -> list[StockCandidate]:
     """Fetch from every source for the asset type; mark the best as used."""
 
     candidates: list[StockCandidate] = []
     for provider in SOURCE_MATRIX.get(kind, ["pexels"]):
         candidate = None
-        if provider in {"pexels", "unsplash", "freesound"}:
+        if provider == "ccmixter":
+            candidate = _ccmixter_candidate(asset_id, run_dir)
+        elif provider in {"pexels", "unsplash", "freesound", "pixabay"}:
             candidate = fetch_stock_candidate(asset_id, provider, kind, query, run_dir)
         else:
             candidate = _stockcheck_fetch(asset_id, provider, kind, query, run_dir)
